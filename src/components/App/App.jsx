@@ -20,7 +20,7 @@ const FavoritesPage = lazy(() => import('pages/Favourite'));
 const RecipePage = lazy(() => import('pages/AddResepis'));
 const MyRecipesPage = lazy(() => import('pages/MyRecepes'));
 const ShoppingPage = lazy(() => import('pages/Shopping'));
-const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
+const NotFoundPage = lazy(() => import('pages/NotFound'));
 const SearchPage = lazy(() => import('pages/Search'));
 const CategoriesRecipes = lazy(() =>
   import('components/CategoriesRecipes/CategoriesRecipes')
