@@ -23,7 +23,7 @@ const ShoppingPage = lazy(() => import('pages/Shopping'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
 const SearchPage = lazy(() => import('pages/Search'));
 const CategoriesRecipes = lazy(() =>
-  import('Components/CategoriesRecipes/CategoriesRecipes')
+  import('components/CategoriesRecipes/CategoriesRecipes')
 );
 
 const App = () => {
