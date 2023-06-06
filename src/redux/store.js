@@ -1,34 +1,40 @@
 import { configureStore } from '@reduxjs/toolkit';
-import storage from 'redux-persist/lib/storage';
-import { ModalOpenedReducer } from './modalOpenedSlice';
+
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+
 import {
   persistStore,
-  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
+  persistReducer,
 } from 'redux-persist';
-import { loadingReducer } from './loader/slice';
-import { addProductModalReducer } from './ModalAddProductOpened/slice';
-import { userReducer } from './user/slice';
 
-const authPersistConfig = {
+const persistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
 
+export const persistedReducerAuth = persistReducer(persistConfig, authReducer);
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, userReducer),
-    user: userReducer,
-    modalopened: ModalOpenedReducer,
-    loading: loadingReducer,
-    addproductmodalopened: addProductModalReducer,
+    auth: persistedReducerAuth,
+    recipes: recipesReducer,
+    shoppingList: shoppingListReducer,
+    mainRecipes: mainRecipeReduser,
+    favoriteRecipes: favoriteRecipesReducer,
+    myRecipes: myRecipesReducer,
+    ingredients: ingredientsReducer,
+    search: searchReducer,
+    categories: categoriesReducer,
+    subscribe: subscribeReducer,
   },
+
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

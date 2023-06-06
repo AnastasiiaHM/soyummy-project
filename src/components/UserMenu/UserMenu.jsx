@@ -1,11 +1,10 @@
-import { UserMenuStyled } from './UserMenu.styled';
-import { Button } from 'components/Styled';
+
 
 const UserMenu = () => {
   return (
-    <UserMenuStyled>
-      <Button>Logout</Button>
-    </UserMenuStyled>
+    <div>
+      <button>Logout</button>
+    </div>
   );
 };
 

@@ -1,87 +1,115 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { MainContainer } from './App.styled';
-import { lazy, useEffect } from 'react';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import SharedLayout from '../SharedLayout/SharedLayout';
+import Layout from '../Layout/Layout';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { Loader } from 'components/Loader/Loader';
-import Home from 'pages/Home';
-import { refreshUser } from 'redux/user/operations';
-import { selectIsLoggedIn, selectIsRefreshing } from 'redux/user/selectors';
+import { selectIsLoggedIn } from 'redux/user/selectors';
 import { selectIsLoading } from 'redux/loader/selectors';
 
-// const Home = lazy(() => import('pages/Home'));
-const Register = lazy(() => import('pages/Register'));
-const Login = lazy(() => import('pages/Login'));
-const Calculator = lazy(() => import('pages/Calculator'));
-const Diary = lazy(() => import('pages/Diary'));
-const NotFound = lazy(() => import('../NotFound/NotFound'));
+const WelcomePage = lazy(() => import('pages/WelcomePage'));
+const RegisterPage = lazy(() => import('pages/Register'));
+const LoginPage = lazy(() => import('pages/Login'));
+
+const MainPage = lazy(() => import('pages/Home'));
+const CategoriesPage = lazy(() => import('pages/Categories'));
+const AddRecipePage = lazy(() => import('pages/AddRecepis'));
+const FavoritesPage = lazy(() => import('pages/Favourite'));
+const RecipePage = lazy(() => import('pages/AddResepis'));
+const MyRecipesPage = lazy(() => import('pages/MyRecepes'));
+const ShoppingPage = lazy(() => import('pages/Shopping'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
+const SearchPage = lazy(() => import('pages/Search'));
+const CategoriesRecipes = lazy(() =>
+  import('Components/CategoriesRecipes/CategoriesRecipes')
+);
 
 const App = () => {
-  const dispatch = useDispatch();
-  const isRefreshing = useSelector(selectIsRefreshing);
   const isLoading = useSelector(selectIsLoading);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
-
   return (
     <>
-      {isRefreshing && <Loader />}
-      {isLoading && <Loader />}
-
-      {!isRefreshing && (
-        <MainContainer>
-          <Routes>
-            <Route path="/" element={<SharedLayout />}>
-              <Route
-                index
-                element={
-                  isLoggedIn ? (
-                    <RestrictedRoute redirectTo="/diary" component={<Home />} />
-                  ) : (
-                    <Home />
-                  )
-                }
-              />
-              <Route
-                path="login"
-                element={
-                  <RestrictedRoute redirectTo="/" component={<Login />} />
-                }
-              />
-              <Route
-                path="register"
-                element={
-                  <RestrictedRoute
-                    redirectTo="/calculator"
-                    component={<Register />}
-                  />
-                }
-              />
-              <Route
-                path="diary"
-                element={
-                  <PrivateRoute redirectTo="/login" component={<Diary />} />
-                }
-              />
-              <Route
-                path="calculator"
-                element={
-                  <PrivateRoute
-                    redirectTo="/login"
-                    component={<Calculator />}
-                  />
-                }
-              />
-              <Route path="/*" element={<NotFound />} />
+      {isLoading && <Loader />}(
+      <MainContainer>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route
+              path="/"
+              index
+              element={
+                <RestrictedRoute component={WelcomePage} redirectTo="/main" />
+              }
+            />
+            <Route
+              path="/main"
+              element={<PrivateRoute component={MainPage} redirectTo="/" />}
+            />
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute
+                  component={RegisterPage}
+                  redirectTo="/main"
+                  replace={true}
+                />
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <RestrictedRoute
+                  component={LoginPage}
+                  redirectTo="/main"
+                  replace={true}
+                />
+              }
+            />
+            <Route
+              path="/categories"
+              element={
+                <PrivateRoute component={CategoriesPage} redirectTo="/" />
+              }
+            >
+              <Route path=":categoryName" element={<CategoriesRecipes />} />
             </Route>
-          </Routes>
-        </MainContainer>
-      )}
+            <Route
+              path="/add"
+              element={
+                <PrivateRoute component={AddRecipePage} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/favorite"
+              element={
+                <PrivateRoute component={FavoritesPage} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/recipe/:recipeId"
+              element={<PrivateRoute component={RecipePage} redirectTo="/" />}
+            />
+            <Route
+              path="/my"
+              element={
+                <PrivateRoute component={MyRecipesPage} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/shopping-list"
+              element={<PrivateRoute component={ShoppingPage} redirectTo="/" />}
+            />
+            <Route
+              path="/search"
+              element={<PrivateRoute component={SearchPage} redirectTo="/" />}
+            />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </MainContainer>
+      )
     </>
   );
 };

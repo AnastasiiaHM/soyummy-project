@@ -3,16 +3,16 @@ html {
 }
 
 body {
-  font-family: 'Verdana', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  position: relative;
+  font-weight: 400;
   font-size: 16px;
-  color: #333;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+
+  position: relative;
+
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .visually-hidden {
