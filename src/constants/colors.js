@@ -2,6 +2,7 @@ export const colors = Object.freeze({
   blackFontBolt: '#000000',
   blackFont: '#23262A',
   greenButton: '#8BAA36',
+  darkButton: '#22252A',
   whiteColor: '#FFFFFF',
   textGreenBtn: ' #FAFAFA',
 
