@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 
+import { colors } from 'components/colors';
+
 export const ItemWraper = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${colors.borderColor};
 
   padding-bottom: 24px;
 
@@ -49,7 +51,7 @@ export const ButtonContainer = styled.div`
 export const ProductImage = styled.img`
   height: 60px;
 
-  background-color: #ebf3d4;
+  background-color: ${colors.imageBC};
   border-radius: 6px;
 
   @media (min-width: 768px) {
@@ -77,12 +79,12 @@ export const ProductWeight = styled.span`
 
   font-weight: 600;
   font-size: 10px;
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
 
   width: 37px;
   height: 23px;
 
-  background-color: #8baa36;
+  background-color: ${colors.greenButton};
   border-radius: 4px;
 
   @media (min-width: 768px) {
