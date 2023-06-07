@@ -16,7 +16,6 @@ const Header = () => {
   return (
     <div>
       <h1>Header</h1>
-      <button className="btn categorybtn">search</button>
     </div>
   );
 };

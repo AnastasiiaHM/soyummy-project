@@ -28,3 +28,9 @@ body {
   overflow: hidden;
   min-height: inherit !important;
 }
+*[dir='rtl'] .select,
+:root:lang(ar) .select,
+:root:lang(iw) .select {
+  background-position: left 0.7em top 50%, 0 0;
+  padding: 0.6em 0.8em 0.5em 1.4em;
+}
