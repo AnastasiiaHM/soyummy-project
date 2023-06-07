@@ -11,4 +11,6 @@ export const colors = Object.freeze({
   greyButton: '#d9d9d9',
   border: '#f0f0f0',
   placeholder: '#bdbdbd',
+  borderColor: '#e0e0e0',
+  imageBC: '#ebf3d4',
 });
