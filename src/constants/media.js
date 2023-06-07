@@ -1,5 +1,5 @@
 export const mediaSizes = Object.freeze({
-  mobile: '480px',
+  mobile: '385px',
   tablet: '768px',
-  desktop: '1280px',
+  desktop: '1440px',
 });

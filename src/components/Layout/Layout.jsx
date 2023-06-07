@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { BiUpArrow } from 'react-icons/bi';
-import { Button } from 'components/Styled';
+import { Button } from './Layout.styled';
 
 const Layout = () => {
   const [isVisible, setIsVisible] = useState(false);
