@@ -1,48 +1,99 @@
 import { TitleStyled } from 'components/Styled/Title.styled';
+import {
+  CategoriesNav,
+  CategoriesWrapper,
+  CategoriesGallery,
+} from './CategoriesRecipes.styled';
 export const CategoriesRecipes = () => {
   return (
-    <div>
+    <CategoriesWrapper>
       <TitleStyled>Categories</TitleStyled>
-      <ul>
+      <CategoriesNav>
         <li>
-          <button type="button">Beef</button>
+          <button className="navbat" type="button">
+            Beef
+          </button>
         </li>
         <li>
-          <button type="button">Breakfast</button>
+          <button className="navbat" type="button">
+            Breakfast
+          </button>
         </li>
         <li>
-          <button type="button">Chicken</button>
+          <button className="navbat" type="button">
+            Chicken
+          </button>
         </li>
         <li>
-          <button type="button">Desserts</button>
+          <button className="navbat" type="button">
+            Desserts
+          </button>
         </li>
         <li>
-          <button type="button">Goat</button>
+          <button className="navbat" type="button">
+            Goat
+          </button>
         </li>
         <li>
-          <button type="button">Lamb</button>
+          <button className="navbat" type="button">
+            Lamb
+          </button>
         </li>
         <li>
-          <button type="button">Miscellaneous</button>
+          <button className="navbat" type="button">
+            Miscellaneous
+          </button>
         </li>
         <li>
-          <button type="button">Pasta</button>
+          <button className="navbat" type="button">
+            Pasta
+          </button>
         </li>
         <li>
-          <button type="button">Pork</button>
+          <button className="navbat" type="button">
+            Pork
+          </button>
         </li>
         <li>
-          <button type="button">Seafood</button>
+          <button className="navbat" type="button">
+            Seafood
+          </button>
         </li>
         <li>
-          <button type="button">Side</button>
+          <button className="navbat" type="button">
+            Side
+          </button>
         </li>
-      </ul>
-      <ul>
-        <li>
+      </CategoriesNav>
+      <CategoriesGallery>
+        <li className="catrec">
           <p>recipes...</p>
         </li>
-      </ul>
-    </div>
+        <li className="catrec">
+          <p>recipes...</p>
+        </li>
+        <li className="catrec">
+          <p>recipes...</p>
+        </li>
+        <li className="catrec">
+          <p>recipes...</p>
+        </li>
+        <li className="catrec">
+          <p>recipes...</p>
+        </li>
+        <li className="catrec">
+          <p>recipes...</p>
+        </li>
+        <li className="catrec">
+          <p>recipes...</p>
+        </li>
+        <li className="catrec">
+          <p>recipes...</p>
+        </li>
+        <li className="catrec">
+          <p>recipes...</p>
+        </li>
+      </CategoriesGallery>
+    </CategoriesWrapper>
   );
 };

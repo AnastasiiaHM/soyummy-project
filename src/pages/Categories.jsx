@@ -1,9 +1,9 @@
-// import { CategoriesRecipes } from 'components/CategoriesRecipes/CategoriesRecipes';
-import { TitleStyled } from 'components/Styled/Title.styled';
+import { CategoriesRecipes } from 'components/CategoriesRecipes/CategoriesRecipes';
+
 const Categories = () => {
   return (
     <div>
-      <TitleStyled>Categories</TitleStyled>
+      <CategoriesRecipes />
     </div>
   );
 };
