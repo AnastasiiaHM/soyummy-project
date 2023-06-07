@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
+import { colors } from 'components/colors';
 
 export const CategoriesNav = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const CategoriesNav = styled.div`
   justify-content: start;
   list-style: none;
   gap: 28px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${colors.categoriesLIne};
   margin-top: 50px;
   white-space: wrap;
   overflow-x: auto;
@@ -17,7 +18,6 @@ export const CategoriesNav = styled.div`
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 18px;
     line-height: 18px;
-    color: #bdbdbd;
   }
 
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -34,7 +34,7 @@ export const CategoriesNav = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 14px;
-    color: #e0e0e0;
+    color: ${colors.categoriesLIne};
     cursor: pointer;
     border-bottom: 2px solid transparent;
     transition: 0.5s;
@@ -42,17 +42,17 @@ export const CategoriesNav = styled.div`
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
       line-height: 18px;
-      color: #bdbdbd;
+      color: ${colors.categoriesNavText};
     }
     &:hover,
     :active,
     :focus {
-      color: #8baa36;
-      border-bottom: 2px solid #8baa36;
+      color: ${colors.greenButton};
+      border-bottom: 2px solid ${colors.greenButton};
       transform: scale(1.1);
     }
     &:current {
-      border-bottom: #8baa36;
+      border-bottom: ${colors.greenButton};
     }
   }
 `;

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../../constants/media';
+import { colors } from 'components/colors';
 
 export const RecipeCardStyled = styled.li`
   position: relative;
@@ -35,14 +36,14 @@ export const RecipeCardStyled = styled.li`
     position: absolute;
     bottom: 26px;
     left: 18px;
-    background: #ffffff;
+    background: ${colors.whiteColor};
     border-radius: 8px;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.24px;
-    color: #3e4462;
+    color: ${colors.recipeCardText};
     padding: 16px 16px;
     width: 268px;
 
