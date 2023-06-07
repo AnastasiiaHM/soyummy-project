@@ -34,16 +34,3 @@ export const CategoriesNav = styled.div`
 export const CategoriesWrapper = styled.div`
   padding-bottom: 200px;
 `;
-
-export const CategoriesGallery = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  list-style: none;
-  flex-wrap: wrap;
-  &.catrec {
-    width: 300px;
-    height: 323px;
-  }
-`;

@@ -1,99 +1,133 @@
-import { TitleStyled } from 'components/Styled/Title.styled';
-import {
-  CategoriesNav,
-  CategoriesWrapper,
-  CategoriesGallery,
-} from './CategoriesRecipes.styled';
+import React, { useState } from 'react';
+import { CategoriesNav, CategoriesWrapper } from './CategoriesRecipes.styled';
+import { RecipesGallery } from 'components/RecipesGallery/RecipesGallery';
+
 export const CategoriesRecipes = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  // код для отримання рецептів з API
+  const recipes = [
+    { name: 'Recipe 1', description: 'BEEEEEF', category: 'Beef' },
+    {
+      name: 'Recipe 2',
+      description: 'Description 2',
+      category: 'Breakfast',
+    },
+    { name: 'Recipe 3', description: 'Description 3', category: 'Chicken' },
+  ];
+
+  const handleCategorySelect = category => {
+    setSelectedCategory(category);
+  };
+
+  const filteredRecipes = selectedCategory
+    ? recipes.filter(recipe => recipe.category === selectedCategory)
+    : recipes;
   return (
     <CategoriesWrapper>
-      <TitleStyled>Categories</TitleStyled>
+      <h1 className="title">Categories</h1>
       <CategoriesNav>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Beef')}
+          >
             Beef
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Breakfast')}
+          >
             Breakfast
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Chicken')}
+          >
             Chicken
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Desserts')}
+          >
             Desserts
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Goat')}
+          >
             Goat
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Lamb')}
+          >
             Lamb
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Miscellaneous')}
+          >
             Miscellaneous
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Pasta')}
+          >
             Pasta
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Pork')}
+          >
             Pork
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Seafood')}
+          >
             Seafood
           </button>
         </li>
         <li>
-          <button className="navbat" type="button">
+          <button
+            className="navbat"
+            type="button"
+            onClick={() => handleCategorySelect('Side')}
+          >
             Side
           </button>
         </li>
       </CategoriesNav>
-      <CategoriesGallery>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-        <li className="catrec">
-          <p>recipes...</p>
-        </li>
-      </CategoriesGallery>
+      <RecipesGallery recipes={filteredRecipes} />
     </CategoriesWrapper>
   );
 };
