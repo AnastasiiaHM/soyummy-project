@@ -1,11 +1,21 @@
 import styled from '@emotion/styled';
+import { mediaSizes } from '../constants/media';
 
 export const RecipesGalleryStyled = styled.ul`
   display: flex;
-  grid-column-gap: 14px;
-  grid-row-gap: 100px;
+  gap: 28px;
   justify-items: center;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 32px;
   flex-wrap: wrap;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    gap: 32px;
+    padding-top: 50px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    grid-column-gap: 14px;
+    grid-row-gap: 100px;
+  }
 `;

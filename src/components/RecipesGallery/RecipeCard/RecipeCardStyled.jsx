@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { mediaSizes } from '../../constants/media';
 
 export const RecipeCardStyled = styled.li`
   position: relative;
@@ -6,7 +7,17 @@ export const RecipeCardStyled = styled.li`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 300px;
+  max-width: 343px;
+  margin: 0;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    max-width: 336px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    width: 300px;
+  }
+
   .image {
     object-fit: cover;
     -webkit-transform: scale(1.2);
@@ -22,8 +33,8 @@ export const RecipeCardStyled = styled.li`
 
   .name {
     position: absolute;
-    bottom: 24px;
-    left: 16px;
+    bottom: 26px;
+    left: 18px;
     background: #ffffff;
     border-radius: 8px;
     font-style: normal;
@@ -34,5 +45,10 @@ export const RecipeCardStyled = styled.li`
     color: #3e4462;
     padding: 16px 16px;
     width: 268px;
+
+    @media screen and (min-width: ${mediaSizes.desktop}) {
+      bottom: 24px;
+      left: 16px;
+    }
   }
 `;

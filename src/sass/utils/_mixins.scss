@@ -1,0 +1,13 @@
+@mixin for-size($size) {
+    @if $size ==tablet {
+        @media (min-width: $tablet) {
+            @content;
+        }
+    }
+
+    @else if $size ==desktop {
+        @media (min-width: $desktop) {
+            @content;
+        }
+    }
+}
