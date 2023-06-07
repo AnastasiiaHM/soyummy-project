@@ -30,7 +30,7 @@ export const RecipeCardStyled = styled.li`
       cursor: pointer;
     }
   }
-
+  /* 11 */
   .name {
     position: absolute;
     bottom: 26px;
