@@ -1,7 +1,11 @@
 export const colors = Object.freeze({
-  color1: '#fc842d',
-  color2: '#9b9faa',
-  color3: '#e0e0e0',
-  color4: '#212121',
-  color5: '#264061',
+  blackFontBolt: '#000000',
+  blackFont: '#23262A',
+  greenButton: '#8BAA36',
+  darkButton: '#22252A',
+  whiteColor: '#FFFFFF',
+  textGreenBtn: ' #FAFAFA',
+
+  darckBackground: '#1E1F28',
+  greyButton: '#D9D9D9',
 });
