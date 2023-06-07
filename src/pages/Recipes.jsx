@@ -1,5 +1,9 @@
-const Recipies = () => {
-  return <div>Recepies</div>;
+import RecipesHero from "components/Recipes/RecipesHero";
+
+const Recipes = () => {
+  return (
+    <RecipesHero />
+  )
 };
 
-export default Recipies;
+export default Recipes;
