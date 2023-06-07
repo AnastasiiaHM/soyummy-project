@@ -1,5 +1,5 @@
 import React from 'react';
-import picture from './image.png'
+import picture from '../images/заглушки/products/заглушка-products-big-white-2x.png'
 import { RecipeDescr, RecipeIngContainer, PreparationTitle, PreparationItem, CustomNumbering, PreparationText } from './Recipes.styled';
 
 const RecipesPreparation = () => {

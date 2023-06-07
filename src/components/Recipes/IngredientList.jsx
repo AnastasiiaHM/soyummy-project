@@ -1,4 +1,4 @@
-import picture from './image.png'
+import picture from '../images/заглушки/products/заглушка-products-middle-white-2x.png'
 import {IngItem, IngItemName, IngItemDeskr, IngInput, IngAmount} from './Recipes.styled'
 
 export const IngredientList = () => {
