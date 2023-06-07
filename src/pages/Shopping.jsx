@@ -1,5 +1,11 @@
+import { ShoppingListComponent } from 'components/ShopingList/ShopingList';
+
 const ShoppingList = () => {
-  return <div>Shopping List</div>;
+  return (
+    <>
+      <ShoppingListComponent />
+    </>
+  );
 };
 
 export default ShoppingList;
