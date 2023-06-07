@@ -13,6 +13,10 @@ body {
   position: relative;
 
   color: rgba(0, 0, 0, 0.5);
+  background-image: url('../../components/images/header/spinach/spinach-right-desc-header-2x.png'), url('../../components/images/header/spinach/spinach-left-header-desc-2x.png');
+  background-position: right 60px bottom -50px, left 0px bottom -300px; 
+  background-repeat: no-repeat, no-repeat;
+  background-size: 438px 474px, 558px 852px;
 }
 
 .visually-hidden {

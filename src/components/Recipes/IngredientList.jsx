@@ -62,6 +62,120 @@ export const IngredientList = () => {
                     </div>
                 </IngItemDeskr>
             </IngItem>
+            <IngItem>
+                <IngItemName>
+                    <img
+                        alt="ingredient_photo"
+                        width="128px"
+                        height="128px"
+                        src={picture}
+                    />
+                    <p>Ingredient's name</p>
+                </IngItemName>
+                <IngItemDeskr>
+                    <IngAmount>
+                        <p>500 g</p>
+                    </IngAmount>
+                    <div>
+                        <IngInput type="checkbox"/>
+                    </div>
+                </IngItemDeskr>
+            </IngItem>
+            <IngItem>
+                <IngItemName>
+                    <img
+                        alt="ingredient_photo"
+                        width="128px"
+                        height="128px"
+                        src={picture}
+                    />
+                    <p>Ingredient's name</p>
+                </IngItemName>
+                <IngItemDeskr>
+                    <IngAmount>
+                        <p>500 g</p>
+                    </IngAmount>
+                    <div>
+                        <IngInput type="checkbox"/>
+                    </div>
+                </IngItemDeskr>
+            </IngItem>
+            <IngItem>
+                <IngItemName>
+                    <img
+                        alt="ingredient_photo"
+                        width="128px"
+                        height="128px"
+                        src={picture}
+                    />
+                    <p>Ingredient's name</p>
+                </IngItemName>
+                <IngItemDeskr>
+                    <IngAmount>
+                        <p>500 g</p>
+                    </IngAmount>
+                    <div>
+                        <IngInput type="checkbox"/>
+                    </div>
+                </IngItemDeskr>
+            </IngItem>
+            <IngItem>
+                <IngItemName>
+                    <img
+                        alt="ingredient_photo"
+                        width="128px"
+                        height="128px"
+                        src={picture}
+                    />
+                    <p>Ingredient's name</p>
+                </IngItemName>
+                <IngItemDeskr>
+                    <IngAmount>
+                        <p>500 g</p>
+                    </IngAmount>
+                    <div>
+                        <IngInput type="checkbox"/>
+                    </div>
+                </IngItemDeskr>
+            </IngItem>
+            <IngItem>
+                <IngItemName>
+                    <img
+                        alt="ingredient_photo"
+                        width="128px"
+                        height="128px"
+                        src={picture}
+                    />
+                    <p>Ingredient's name</p>
+                </IngItemName>
+                <IngItemDeskr>
+                    <IngAmount>
+                        <p>500 g</p>
+                    </IngAmount>
+                    <div>
+                        <IngInput type="checkbox"/>
+                    </div>
+                </IngItemDeskr>
+            </IngItem>
+            <IngItem>
+                <IngItemName>
+                    <img
+                        alt="ingredient_photo"
+                        width="128px"
+                        height="128px"
+                        src={picture}
+                    />
+                    <p>Ingredient's name</p>
+                </IngItemName>
+                <IngItemDeskr>
+                    <IngAmount>
+                        <p>500 g</p>
+                    </IngAmount>
+                    <div>
+                        <IngInput type="checkbox"/>
+                    </div>
+                </IngItemDeskr>
+            </IngItem>
         </ul>
     );
   };
