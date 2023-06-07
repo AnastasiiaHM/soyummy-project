@@ -10,6 +10,7 @@ const RegisterPage = lazy(() => import('pages/Register'));
 const LoginPage = lazy(() => import('pages/Login'));
 
 const MainPage = lazy(() => import('pages/Home'));
+const RecipesPage = lazy(() => import('pages/Recipes'));
 const CategoriesPage = lazy(() => import('pages/Categories'));
 const AddRecipePage = lazy(() => import('pages/AddRecepis'));
 const FavoritesPage = lazy(() => import('pages/Favourite'));
@@ -70,6 +71,11 @@ const App = () => {
               //   <PrivateRoute component={CategoriesPage} redirectTo="/" />
               // }
             >
+              <Route
+                path="/recipes"
+                element={<RecipesPage />}
+                // element={<PrivateRoute component={RecipePage} redirectTo="/" />}
+              />
               <Route path=":categoryName" element={<CategoriesRecipes />} />
             </Route>
             <Route
