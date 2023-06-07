@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/430.48a782c8.chunk.js","mappings":"0IAIA,UAJmB,WACjB,OAAO,wCACR,C","sources":["pages/MyRecepes.jsx"],"sourcesContent":["const MyRecepies = () => {\n  return <div>My recepies</div>;\n};\n\nexport default MyRecepies;\n"],"names":[],"sourceRoot":""}

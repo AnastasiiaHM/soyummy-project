@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/308.5dd4cf31.chunk.js","mappings":"0IAIA,UAJmB,WACjB,OAAO,wCACR,C","sources":["pages/AddRecepis.jsx"],"sourcesContent":["const AddRecepis = () => {\n  return <div>Add recepis</div>;\n};\n\nexport default AddRecepis;\n"],"names":[],"sourceRoot":""}
