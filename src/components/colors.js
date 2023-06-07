@@ -13,4 +13,7 @@ export const colors = Object.freeze({
   placeholder: '#bdbdbd',
   borderColor: '#e0e0e0',
   imageBC: '#ebf3d4',
+  recipeCardText: '#3e4462',
+  categoriesLIne: '#e0e0e0',
+  categoriesNavText: '#bdbdbd',
 });

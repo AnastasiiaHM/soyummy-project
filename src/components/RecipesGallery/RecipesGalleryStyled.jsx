@@ -1,14 +1,21 @@
 import styled from '@emotion/styled';
+import { mediaSizes } from '../constants/media';
 
-export const RecipesGalleryStyled = styled.div`
+export const RecipesGalleryStyled = styled.ul`
   display: flex;
+  gap: 28px;
+  justify-items: center;
   justify-content: center;
-  align-items: center;
-  gap: 14px;
-  list-style: none;
+  padding-top: 32px;
   flex-wrap: wrap;
-  &.catitem {
-    width: 300px;
-    height: 323px;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    gap: 32px;
+    padding-top: 50px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    grid-column-gap: 14px;
+    grid-row-gap: 100px;
   }
 `;
