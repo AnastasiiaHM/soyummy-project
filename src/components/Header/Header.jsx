@@ -1,5 +1,3 @@
-import { MainButton } from 'components/Button/Button';
-
 const Header = () => {
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -18,7 +16,7 @@ const Header = () => {
   return (
     <div>
       <h1>Header</h1>
-      <MainButton>search</MainButton>
+      <button className="btn categorybtn">search</button>
     </div>
   );
 };

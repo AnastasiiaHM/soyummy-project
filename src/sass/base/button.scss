@@ -1,0 +1,63 @@
+.btn {
+  display: block;
+  margin: 0 auto;
+  width: 161px;
+  height: 52px;
+
+  background: $greenButton;
+
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+
+  color: $textGreenBtn;
+  border: 1px solid $greenButton;
+  border-radius: 24px 44px;
+
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border-radius: 24px 44px;
+  &:hover,
+  &:focus {
+    background: $darkButton;
+  }
+  &.blackbtn {
+    background-color: $darkButton;
+    border: 1px solid $darkButton;
+    &:hover,
+    &:focus {
+      background: $greenButton;
+    }
+  }
+
+  &.categorybtn {
+    background: $greenButton;
+    border: 1px solid $textGreenBtn;
+    color: $textGreenBtn;
+    &:hover,
+    &:focus {
+      background: transparent;
+      border: 1px solid $greenButton;
+      color: $greenButton;
+    }
+  }
+
+  &.recipesbtn {
+    background: transparent;
+    color: #23262A;
+    border-radius: 24px 44px;
+    border: 1px solid $greenButton;
+    margin-top: 30px;
+    &:hover,
+    &:focus {
+      background: $greenButton;
+      border: 1px solid $greenButton;
+      color: white;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 184px;
+    height: 57px;
+  }
+}

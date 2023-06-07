@@ -1,9 +1,9 @@
 import React from 'react';
-import { CustomButton, RecipeTitle, RecipeText, RecipeTiming } from './Recipes.styled';
+import { RecipeTitle, RecipeText, RecipeTiming } from './Recipes.styled';
 
-const RecipesHero = data => {
+const RecipesHero = () => {
     return(
-            <div className="flex flex-col justify-between bg-recipePage bg-cover bg-center bg-no-repeat w-full h-[455px] md:h-[495px] xl:h-[493px] text-center mb-8 md:mb-[50px] px-8 md:px-26 xl:px-96 object-cover">
+            <div>
                 <div>
                     <div>
                     <RecipeTitle>Salmon Avocado Salad</RecipeTitle>
@@ -11,7 +11,7 @@ const RecipesHero = data => {
                     <RecipeText>Is a healthy salad recipe that’s big on nutrients and flavor. A moist, pan seared salmon is layered on top of spinach, avocado, tomatoes, and red onions. Then drizzled with a homemade lemon vinaigrette.</RecipeText>
                 </div>
                 <div>
-                    <CustomButton>Add to favorite recipes</CustomButton>
+                    <button className="btn recipesbtn">Add to favorite recipes</button>
                     <RecipeTiming>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-1 w-3.5 h-3.5">
                             <g clipPath="url(#clip0_264_756)">

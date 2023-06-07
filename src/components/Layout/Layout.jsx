@@ -5,20 +5,20 @@ import { Loader } from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { BiUpArrow } from 'react-icons/bi';
-import { Button } from './Layout.styled';
+// import { BiUpArrow } from 'react-icons/bi';
+// import { Button } from './Layout.styled';
 
 const Layout = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      if (currentScrollPos > 200) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      // if (currentScrollPos > 200) {
+      //   setIsVisible(true);
+      // } else {
+      //   setIsVisible(false);
+      // }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -26,12 +26,12 @@ const Layout = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth',
+  //   });
+  // };
 
   return (
     <div>
@@ -41,11 +41,11 @@ const Layout = () => {
       </Suspense>
 
       <Footer />
-      {isVisible && (
+      {/* {isVisible && (
         <Button type="button" className="icon totop" onClick={scrollToTop}>
           <BiUpArrow />
         </Button>
-      )}
+      )} */}
     </div>
   );
 };
