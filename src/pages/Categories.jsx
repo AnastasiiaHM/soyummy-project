@@ -1,5 +1,11 @@
+import { CategoriesRecipes } from 'components/CategoriesRecipes/CategoriesRecipes';
+
 const Categories = () => {
-  return <div>Categories</div>;
+  return (
+    <div>
+      <CategoriesRecipes />
+    </div>
+  );
 };
 
 export default Categories;
