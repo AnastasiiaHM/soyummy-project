@@ -1,10 +1,17 @@
 import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
-import { Form } from './AddRecipeForm.styled';
+import { RecipeIngredients } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
+import { Container, Form } from './AddRecipeForm.styled';
 
 export const AddRecipeForm = () => {
   return (
-    <Form>
-      <RecipeDescriptionFields />
-    </Form>
+    <>
+      <Container>
+        <h2 className="title">Add recipe</h2>
+        <Form>
+          <RecipeDescriptionFields />
+          <RecipeIngredients />
+        </Form>
+      </Container>
+    </>
   );
 };
