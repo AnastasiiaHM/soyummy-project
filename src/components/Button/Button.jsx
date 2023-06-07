@@ -1,5 +1,5 @@
-const Button = () => {
-  return <button>Button</button>;
-};
+import { Button } from './Button.styled';
 
-export default Button;
+export const MainButton = ({ children }) => {
+  return <Button type="button">{children}</Button>;
+};

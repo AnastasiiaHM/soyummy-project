@@ -1,3 +1,5 @@
+import { MainButton } from 'components/Button/Button';
+
 const Header = () => {
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -13,7 +15,12 @@ const Header = () => {
   //   };
   // }, [isDesktop]);
 
-  return <div>Header</div>;
+  return (
+    <div>
+      <h1>Header</h1>
+      <MainButton>search</MainButton>
+    </div>
+  );
 };
 
 export default Header;
