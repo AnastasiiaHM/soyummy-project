@@ -15,13 +15,15 @@ export const ShoppingListItems = () => {
   return (
     <ItemWraper>
       <ImageContainer>
-        <ProductImage height="60px" src={plug} alt="porduct name" />
+        <ProductImage src={plug} alt="porduct name" />
         <ProductName>Salmon</ProductName>
       </ImageContainer>
       <ButtonContainer>
         <ProductWeight>5</ProductWeight>
         <Button type="button">
-          <IoCloseSharp style={{ fill: '#333333' }} />
+          <IoCloseSharp
+            style={{ fill: '#333333', width: '100%', height: '100%' }}
+          />
         </Button>
       </ButtonContainer>
     </ItemWraper>
