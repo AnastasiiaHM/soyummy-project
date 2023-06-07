@@ -9,7 +9,7 @@ import { Outlet } from 'react-router-dom';
 // import { Button } from './Layout.styled';
 
 const Layout = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -41,11 +41,11 @@ const Layout = () => {
       </Suspense>
 
       <Footer />
-      {isVisible && (
+      {/* {isVisible && (
         <Button type="button" className="icon totop" onClick={scrollToTop}>
           <BiUpArrow />
         </Button>
-      )}
+      )} */}
     </div>
   );
 };
