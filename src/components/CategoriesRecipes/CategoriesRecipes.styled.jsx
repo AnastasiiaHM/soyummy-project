@@ -19,11 +19,13 @@ export const CategoriesNav = styled.div`
     padding-bottom: 25px;
     cursor: pointer;
     border-bottom: 2px solid transparent;
+    transition: 0.5s;
     &:hover,
     :active,
     :focus {
       color: #8baa36;
       border-bottom: 2px solid #8baa36;
+      transform: scale(1.1);
     }
     &:current {
       border-bottom: #8baa36;
