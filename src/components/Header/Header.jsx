@@ -11,18 +11,10 @@ import {
   BtnSave,
   TextBtn,
   BackdropModal,
-  TextLogOut,
-  WrapperBtns,
-  BtnLogOut,
-  BtnCancel,
-  TextBtnCancel,
-  TextBtnLogOut,
-  UserIcon,
   UserIconInp,
   InputPen,
 } from './Header.styled';
-import { BiUser, BiPencil, BiPlus } from 'react-icons/bi';
-import { mediaSizes } from '../constants/media';
+import { BiUser, BiPlus } from 'react-icons/bi';
 
 const Header = () => {
   // useEffect(() => {
