@@ -9,10 +9,15 @@ export const WelcomePageWrapper = styled.div`
       rgba(0, 0, 0, 0.345172) 78.98%,
       rgba(0, 0, 0, 0) 100%
     ),
-    url('');
+    url('components/images/start/start-foto-desc-1x.jpg');
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 214px;
+
+  & svg {
+    margin-bottom: 44px;
+  }
 `;
 
 export const Caption = styled.h1`

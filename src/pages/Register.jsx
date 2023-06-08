@@ -1,10 +1,11 @@
-import RegisterForm from 'components/RegisterForm/RegisterForm.jsx';
+import { Link } from 'react-router-dom';
+import RegisterForm from 'components/RegisterForm/RegisterForm';
 
 const Register = () => {
   return (
     <div>
       <RegisterForm />
-      <button>Sign in</button>
+      <Link to={`/signin`}>Sign in</Link>
     </div>
   );
 };

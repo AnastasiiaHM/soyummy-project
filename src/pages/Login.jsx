@@ -1,7 +1,11 @@
+import LoginForm from 'components/LoginForm/LoginForm';
+import { Link } from 'react-router-dom';
+
 const Login = () => {
   return (
     <div>
-      <p>login</p>
+      <LoginForm />
+      <Link to={`/register`}>Registration</Link>
     </div>
   );
 };

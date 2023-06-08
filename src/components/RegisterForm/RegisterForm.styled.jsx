@@ -2,11 +2,6 @@ import styled from '@emotion/styled';
 // import { mediaSizes } from 'constants/media';
 // import { container } from 'helpers';
 
-// FormFields,
-//   RegisterFormStyled,
-//   Caption,
-//   InputWraper,
-
 export const RegisterFormStyled = styled.div`
   padding: 44px 50px;
   background-color: #2a2c36;
@@ -14,7 +9,7 @@ export const RegisterFormStyled = styled.div`
   border-radius: 30px;
 
   width: 500px;
-  height: 484px;
+  margin-bottom: 18px;
 `;
 
 export const Caption = styled.p`

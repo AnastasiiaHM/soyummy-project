@@ -5,13 +5,13 @@ import {
   Caption,
   Description,
   Buttons,
-} from './WelcomePage.styled.jsx';
+} from '../components/Styled/WelcomePage.styled.jsx';
 
 const WelcomePage = () => {
   const location = useLocation();
   return (
     <WelcomePageWrapper>
-      <svg class="/" width="/" height="/">
+      <svg width="68" height="68">
         <use href="/"></use>
       </svg>
       <Caption>Welcome to the app!</Caption>
