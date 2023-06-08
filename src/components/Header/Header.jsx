@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BasicTabs } from './BasicTabs';
-import {TabsWrapper, HeaderWrapper} from './Header.styled'
+import {TabsWrapper, HeaderWrapper, UserIconWrapper} from './Header.styled'
 import { BasicSwitches } from './Switch';
 import { Logo } from 'components/Logo/Logo';
 import { UserComponent } from './AuthUser';
@@ -26,8 +26,10 @@ const Header = () => {
       <TabsWrapper>
         <BasicTabs />
       </TabsWrapper>
-      <UserComponent />
-      <BasicSwitches />
+      <UserIconWrapper>
+        <UserComponent />
+        <BasicSwitches />
+      </UserIconWrapper>
     </HeaderWrapper>
   );
 };
