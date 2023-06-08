@@ -3,16 +3,17 @@
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
-  line-height: 1;
-  margin-bottom: 50px;
+  line-height: 28px;
 
   letter-spacing: -0.02em;
 
   color: $titleColor;
+
   @media (min-width: $tablet) {
     font-weight: 600;
     font-size: 32px;
   }
+
   @media (min-width: $desktop) {
     font-weight: 600;
     font-size: 44px;

@@ -8,5 +8,12 @@ export const colors = Object.freeze({
   textGreenBtn: '#fafafa',
   titleColor: '#001833',
   darckBackground: '#1e1f28',
-  greyButton: '#D9D9D9',
+  greyButton: '#d9d9d9',
+  border: '#f0f0f0',
+  placeholder: '#bdbdbd',
+  borderColor: '#e0e0e0',
+  imageBC: '#ebf3d4',
+  recipeCardText: '#3e4462',
+  categoriesLIne: '#e0e0e0',
+  categoriesNavText: '#bdbdbd',
 });
