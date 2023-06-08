@@ -23,7 +23,6 @@ export const Container = styled.div`
   background-position: right bottom; /* Смещение фонового изображения вниз и вправо */
   background-repeat: no-repeat;
 
-
   @media screen and (min-width: ${mediaSizes.tablet}) {
     padding-top: 205px;
   }
