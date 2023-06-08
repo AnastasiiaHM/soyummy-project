@@ -2,9 +2,9 @@ import { CategoriesRecipes } from 'components/CategoriesRecipes/CategoriesRecipe
 
 const Categories = () => {
   return (
-    <div>
+    <>
       <CategoriesRecipes />
-    </div>
+    </>
   );
 };
 

@@ -24,6 +24,7 @@ export const CategoriesNav = styled.div`
     gap: 55px;
     margin-top: 100px;
     justify-content: center;
+    overflow-x: unset;
   }
 
   .navbat {
@@ -42,6 +43,7 @@ export const CategoriesNav = styled.div`
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
       line-height: 18px;
+      padding: 10px 0px 28px 0px;
       color: ${colors.categoriesNavText};
     }
     &:hover,

@@ -5,8 +5,8 @@ import { RecipesGalleryStyled } from './RecipesGalleryStyled';
 export const RecipesGallery = ({ recipes }) => {
   return (
     <RecipesGalleryStyled>
-      {recipes.map((recipe, index) => (
-        <RecipeCard key={index} recipe={recipe} />
+      {recipes.map(recipe => (
+        <RecipeCard key={recipe.index} recipe={recipe} />
       ))}
     </RecipesGalleryStyled>
   );
