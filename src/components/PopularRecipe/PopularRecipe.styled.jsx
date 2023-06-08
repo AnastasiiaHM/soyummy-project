@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
+import { mediaSizes } from 'components/constants';
 import { NavLink } from 'react-router-dom';
 
-export const Container = styled.div`
-  padding: 0 16px 0 16px;
-`;
-
 export const StyledTitle = styled.h3`
+  font-family: 'Poppins';
   display: inline-block;
   margin-bottom: 24px;
   font-weight: 600;
@@ -18,17 +16,42 @@ export const StyledTitle = styled.h3`
 export const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    height: 98px;
+    overflow: hidden;
+    flex-direction: row;
+    gap: 45px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 export const StyledItem = styled.li`
+  width: 100%;
   display: flex;
   gap: 12px;
   padding: 13px 0;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.17);
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    width: calc((100% - 45px) / 2);
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    width: 100%;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
   display: flex;
+  width: 100%;
   gap: 12px;
 `;
 

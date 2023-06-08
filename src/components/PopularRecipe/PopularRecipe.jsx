@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import {
-  Container,
   StyledTitle,
   StyledList,
   StyledItem,
@@ -23,22 +22,20 @@ const shortenText = str => {
 export const PopularRecipe = ({ list }) => {
   return (
     <>
-      <Container>
-        <StyledTitle>Popular recipe</StyledTitle>
-        <StyledList>
-          {list.map(recipe => (
-            <StyledItem key={recipe._id}>
-              <StyledLink to={`/recipe/${recipe._id}`}>
-                <StyledImage src={recipe.thumb} alt="recipe" />
-                <Wrapper>
-                  <RecipeTitle>{recipe.title}</RecipeTitle>
-                  <StyledDesc>{shortenText(recipe.description)}</StyledDesc>
-                </Wrapper>
-              </StyledLink>
-            </StyledItem>
-          ))}
-        </StyledList>
-      </Container>
+      <StyledTitle>Popular recipe</StyledTitle>
+      <StyledList>
+        {list.map(recipe => (
+          <StyledItem key={recipe._id}>
+            <StyledLink to={`/recipe/${recipe._id}`}>
+              <StyledImage src={recipe.thumb} alt="recipe" />
+              <Wrapper>
+                <RecipeTitle>{recipe.title}</RecipeTitle>
+                <StyledDesc>{shortenText(recipe.description)}</StyledDesc>
+              </Wrapper>
+            </StyledLink>
+          </StyledItem>
+        ))}
+      </StyledList>
     </>
   );
 };

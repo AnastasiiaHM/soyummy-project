@@ -1,5 +1,7 @@
 import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
 import { PopularRecipe } from 'components/PopularRecipe/PopularRecipe';
+import { FollowUs } from 'components/FollowUs/FollowUs';
+import { Container, Wrapper } from './AddRecipes.styled';
 
 const recipes = [
   {
@@ -92,13 +94,16 @@ const recipes = [
   },
 ];
 
-const AddRecepis = () => {
+const AddRecipes = () => {
   return (
-    <>
+    <Container>
       <AddRecipeForm />
-      <PopularRecipe list={recipes} />
-    </>
+      <Wrapper>
+        <FollowUs />
+        <PopularRecipe list={recipes} />
+      </Wrapper>
+    </Container>
   );
 };
 
-export default AddRecepis;
+export default AddRecipes;

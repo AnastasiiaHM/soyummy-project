@@ -1,13 +1,23 @@
 import styled from '@emotion/styled';
 import { colors } from 'components/colors';
+import { mediaSizes } from 'components/constants';
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    margin-bottom: 36px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    width: 609px;
+  }
 `;
 
 export const Title = styled.h3`
+  font-family: 'Poppins';
   display: inline-block;
   font-family: 'Verdana';
   font-style: normal;
@@ -23,8 +33,19 @@ export const Counter = styled.span`
   justify-content: space-around;
   align-items: center;
   width: 92px;
+  padding: 4px 0;
   border-radius: 18px;
   border: 1px solid rgba(51, 51, 51, 0.3);
+  font-size: 14px;
+  line-height: 1.28;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    width: 110px;
+    padding: 4px 17px;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 1.5;
+  }
 `;
 
 export const CounterButton = styled.button`
@@ -40,8 +61,16 @@ export const CounterButton = styled.button`
 
 export const List = styled.ul`
   display: flex;
-  gap: 14px;
+  gap: 18px;
   margin-bottom: 44px;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    gap: 24px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    width: 609px;
+  }
 `;
 
 export const Item = styled.li`
@@ -51,17 +80,23 @@ export const Item = styled.li`
 `;
 
 export const Input = styled.input`
-  font-family: 'Verdana';
+  display: block;
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  width: ${props => props.width || '194px'};
+  width: ${props => props.width || '50%'};
   padding: 16px;
   background-color: ${colors.greyButton};
-  color: #000000;
+  color: ${colors.blackFont};
   border: none;
+  border-radius: 6px;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    font-size: 18px;
+  }
 `;
 
 export const CloseBtn = styled.button`
@@ -72,4 +107,5 @@ export const CloseBtn = styled.button`
   padding: 5px;
   margin-left: auto;
   border: none;
+  cursor: pointer;
 `;

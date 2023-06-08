@@ -30,7 +30,7 @@ export const RecipeIngredients = ({ list }) => {
       <List>
         <Item>
           <Input type="text" required />
-          <Input type="text" required width="84px" />
+          <Input type="text" required width="30%" />
           <CloseBtn>
             <Close />
           </CloseBtn>

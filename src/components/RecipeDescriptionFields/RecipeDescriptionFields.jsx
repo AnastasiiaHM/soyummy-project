@@ -1,5 +1,6 @@
 import {
   Wrapper,
+  FieldsWrapper,
   ImageLoader,
   Input,
   Field,
@@ -12,10 +13,12 @@ export const RecipeDescriptionFields = () => {
         <Add />
         <Input type="file" />
       </ImageLoader>
-      <Field type="text" placeholder="Enter item title" required />
-      <Field type="text" placeholder="Enter about recipe" required />
-      <Field type="text" placeholder="Category" required />
-      <Field type="text" placeholder="Coocking time" required />
+      <FieldsWrapper>
+        <Field type="text" placeholder="Enter item title" required />
+        <Field type="text" placeholder="Enter about recipe" required />
+        <Field type="text" placeholder="Category" required />
+        <Field type="text" placeholder="Coocking time" required />
+      </FieldsWrapper>
     </Wrapper>
   );
 };
