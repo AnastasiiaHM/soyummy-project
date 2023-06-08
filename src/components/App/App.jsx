@@ -11,7 +11,7 @@ const LoginPage = lazy(() => import('pages/Login'));
 
 const MainPage = lazy(() => import('pages/Home'));
 const CategoriesPage = lazy(() => import('pages/Categories'));
-const AddRecipePage = lazy(() => import('pages/AddRecepis'));
+const AddRecipePage = lazy(() => import('pages/AddRecipes/AddRecipes'));
 const FavoritesPage = lazy(() => import('pages/Favourite'));
 const RecipePage = lazy(() => import('pages/Recipes'));
 const MyRecipesPage = lazy(() => import('pages/MyRecepes'));
@@ -27,9 +27,7 @@ const App = () => {
     <>
       <MainContainer>
         <Routes>
-          <Route path="/" 
-          element={<Layout />}
-          >
+          <Route path="/" element={<Layout />}>
             <Route
               path="/"
               index

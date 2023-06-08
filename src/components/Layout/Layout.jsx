@@ -39,7 +39,6 @@ const Layout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-
       <Footer />
       {/* {isVisible && (
         <Button type="button" className="icon totop" onClick={scrollToTop}>
