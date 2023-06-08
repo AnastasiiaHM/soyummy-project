@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { colors } from '../colors';
 
 export const RecipeTitle = styled.h2`
     font-family: 'Poppins';
@@ -9,7 +10,7 @@ export const RecipeTitle = styled.h2`
     text-align: center;
     letter-spacing: -0.02em;
 
-    color: #8BAA36;
+    color: ${colors.greenButton};
 
     margin-top: 113px;
 `;
@@ -24,7 +25,7 @@ export const RecipeText = styled.p`
     text-align: center;
     letter-spacing: -0.02em;
 
-    color: #23262A;
+    color: ${colors.blackFont};
     
     width: 656px;
     height: 72px;
@@ -38,7 +39,7 @@ export const RecipeTiming = styled.div`
     justify-content: center;
     margin-top: 48px;
     gap: 10px;
-    color: rgba(35, 38, 42, 1);
+    color: ${colors.blackFont};
 `;
 
 export const RecipeIngContainer = styled.div`
@@ -54,7 +55,7 @@ export const RecipeIngTable = styled.div`
     right: 0px;
     top: 0px;
 
-    background: #8BAA36;
+    background: ${colors.greenButton};
     border-radius: 8px;
 
     font-family: 'Poppins';
@@ -66,7 +67,7 @@ export const RecipeIngTable = styled.div`
     align-items: center;
     letter-spacing: 0.03em;
 
-    color: #FAFAFA;
+    color: ${colors.textGreenBtn};
 
     margin-bottom: 50px
 
@@ -94,7 +95,7 @@ export const IngItem = styled.div`
 
     height: 182px;
 
-    background: #EBF3D4;
+    background: ${colors.imageBC};
     border-radius: 8px;
     align-items: center;
     justify-content: space-between;
@@ -114,7 +115,7 @@ export const IngItemName = styled.div`
 
     letter-spacing: -0.24px;
 
-    color: #3E4462;
+    color: ${colors.recipeCardText};
     align-items: center;
 `
 
@@ -141,7 +142,7 @@ appearance: none;
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 21px;
-    color: #8BAA36;
+    color: ${colors.greenButton};
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 }
@@ -154,7 +155,7 @@ appearance: none;
 export const IngAmount = styled.div`
     width: 68px;
     height: 35px;
-    background: #8BAA36;
+    background: ${colors.greenButton};
     border-radius: 4px;
     
     display: flex;
@@ -176,7 +177,7 @@ export const PreparationTitle = styled.h3`
 
     letter-spacing: -0.24px;
 
-    color: #3E4462;
+    color: ${colors.recipeCardText};
     margin-bottom: 33px;
 `
 
@@ -189,7 +190,7 @@ export const PreparationItem = styled.li`
 
     letter-spacing: -0.02em;
 
-    color: rgba(0, 0, 0, 0.8);
+    color: ${colors.blackFontBolt};
     margin-bottom: 21px;
     position: relative;
     counter-increment: custom-counter;
@@ -210,9 +211,9 @@ export const CustomNumbering = styled.div`
     width: 21px;
     height: 21px;
 
-    background: #8BAA36;
+    background: ${colors.greenButton};
     border-radius: 100px;
-    color: #fff;
+    color: ${colors.whiteColor};
   }
 `
 

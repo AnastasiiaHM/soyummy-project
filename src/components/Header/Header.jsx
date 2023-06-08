@@ -1,3 +1,10 @@
+import * as React from 'react';
+import { BasicTabs } from './BasicTabs';
+import {TabsWrapper, HeaderWrapper} from './Header.styled'
+import { BasicSwitches } from './Switch';
+import { Logo } from 'components/Logo/Logo';
+import { UserComponent } from './AuthUser';
+
 const Header = () => {
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -14,9 +21,14 @@ const Header = () => {
   // }, [isDesktop]);
 
   return (
-    <div>
-      <h1>Header</h1>
-    </div>
+    <HeaderWrapper>
+      <Logo />
+      <TabsWrapper>
+        <BasicTabs />
+      </TabsWrapper>
+      <UserComponent />
+      <BasicSwitches />
+    </HeaderWrapper>
   );
 };
 
