@@ -7,11 +7,25 @@ export const CategoriesRecipes = () => {
 
   // код для отримання рецептів з API
   const recipes = [
-    { name: 'meat', description: 'BEEEEEF', category: 'Beef' },
+    {
+      name: 'meat balls with ketchup',
+      description: 'BEEEEEF',
+      category: 'Beef',
+    },
     { name: 'leg', description: 'BEEEEEF', category: 'Beef' },
     { name: 'lungs', description: 'BEEEEEF', category: 'Beef' },
+    { name: 'ears', description: 'BEEEEEF', category: 'Beef' },
+    { name: 'nose', description: 'BEEEEEF', category: 'Beef' },
+    { name: 'lips', description: 'BEEEEEF', category: 'Beef' },
+    { name: 'belly', description: 'BEEEEEF', category: 'Beef' },
+    { name: 'boobs', description: 'BEEEEEF', category: 'Beef' },
     {
       name: 'eggs',
+      description: 'Description 2',
+      category: 'Breakfast',
+    },
+    {
+      name: 'eggs wit bacon',
       description: 'Description 2',
       category: 'Breakfast',
     },
