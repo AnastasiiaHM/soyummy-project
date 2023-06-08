@@ -39,13 +39,12 @@ const Layout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-
       <Footer />
-      {isVisible && (
+      {/* {isVisible && (
         <Button type="button" className="icon totop" onClick={scrollToTop}>
           <BiUpArrow />
         </Button>
-      )}
+      )} */}
     </div>
   );
 };

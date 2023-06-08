@@ -6,7 +6,11 @@ import {
   List,
   Item,
   Input,
+  CloseBtn,
 } from './RecipeIngredientsFields.styled';
+import { ReactComponent as Plus } from '../images/addIngredient/Plus.svg';
+import { ReactComponent as Minus } from '../images/addIngredient/Minus.svg';
+import { ReactComponent as Close } from '../images/addIngredient/close.svg';
 
 export const RecipeIngredients = ({ list }) => {
   return (
@@ -14,14 +18,24 @@ export const RecipeIngredients = ({ list }) => {
       <Wrapper>
         <Title>Ingredients</Title>
         <Counter>
-          <CounterButton>—</CounterButton>3<CounterButton>+</CounterButton>
+          <CounterButton>
+            <Minus />
+          </CounterButton>
+          3
+          <CounterButton>
+            <Plus />
+          </CounterButton>
         </Counter>
       </Wrapper>
-      {/* <List>
-        {list.map(ingredient => <Item></Item>)}
-        <Input type="text" required />
-        <Input type="text" required width="84px" />
-      </List> */}
+      <List>
+        <Item>
+          <Input type="text" required />
+          <Input type="text" required width="84px" />
+          <CloseBtn>
+            <Close />
+          </CloseBtn>
+        </Item>
+      </List>
     </>
   );
 };

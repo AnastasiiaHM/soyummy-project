@@ -1,6 +1,7 @@
 import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
-import { Container, Form } from './AddRecipeForm.styled';
+import { RecipePreparationFields } from 'components/RecipePreparationFields/RecipePreparationFields';
+import { Container, Form, StyledButton } from './AddRecipeForm.styled';
 
 export const AddRecipeForm = () => {
   return (
@@ -10,6 +11,10 @@ export const AddRecipeForm = () => {
         <Form>
           <RecipeDescriptionFields />
           <RecipeIngredients />
+          <RecipePreparationFields />
+          <StyledButton type="submit" className="btn blackbtn">
+            Add
+          </StyledButton>
         </Form>
       </Container>
     </>

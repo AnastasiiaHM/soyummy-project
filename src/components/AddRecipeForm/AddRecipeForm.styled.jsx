@@ -9,4 +9,12 @@ export const Form = styled.form`
 
 export const Container = styled.div`
   padding: 22px 16px 0 16px;
+  margin-bottom: 72px;
+`;
+
+export const StyledButton = styled.button`
+  && {
+    margin-right: auto;
+    margin-left: 0;
+  }
 `;

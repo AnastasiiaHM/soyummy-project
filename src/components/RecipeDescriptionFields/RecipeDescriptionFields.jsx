@@ -4,11 +4,12 @@ import {
   Input,
   Field,
 } from './RecipeDescriptionFields.styled';
-
+import { ReactComponent as Add } from '../images/addIngredient/add.svg';
 export const RecipeDescriptionFields = () => {
   return (
     <Wrapper>
       <ImageLoader>
+        <Add />
         <Input type="file" />
       </ImageLoader>
       <Field type="text" placeholder="Enter item title" required />

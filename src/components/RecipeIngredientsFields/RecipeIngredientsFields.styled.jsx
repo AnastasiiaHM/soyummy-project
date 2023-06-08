@@ -28,6 +28,9 @@ export const Counter = styled.span`
 `;
 
 export const CounterButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   cursor: pointer;
   border: none;
@@ -35,12 +38,17 @@ export const CounterButton = styled.button`
   font-size: 16px;
 `;
 
-export const List = styled.div`
+export const List = styled.ul`
+  display: flex;
+  gap: 14px;
+  margin-bottom: 44px;
+`;
+
+export const Item = styled.li`
+  width: 100%;
   display: flex;
   gap: 14px;
 `;
-
-export const Item = styled.li``;
 
 export const Input = styled.input`
   font-family: 'Verdana';
@@ -53,5 +61,15 @@ export const Input = styled.input`
   padding: 16px;
   background-color: ${colors.greyButton};
   color: #000000;
+  border: none;
+`;
+
+export const CloseBtn = styled.button`
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin-left: auto;
   border: none;
 `;
