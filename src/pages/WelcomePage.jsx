@@ -5,15 +5,14 @@ import {
   Caption,
   Description,
   Buttons,
-} from '../components/Styled/WelcomePage.styled.jsx';
+} from 'components/Styled/WelcomePage.styled.jsx';
+import { ReactComponent as Logo } from 'components/images/logo/logo.svg';
 
 const WelcomePage = () => {
   const location = useLocation();
   return (
     <WelcomePageWrapper>
-      <svg width="68" height="68">
-        <use href="/"></use>
-      </svg>
+      <Logo />
       <Caption>Welcome to the app!</Caption>
       <Description>
         This app offers more than just a collection of recipes - it is designed

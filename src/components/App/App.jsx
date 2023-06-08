@@ -27,9 +27,7 @@ const App = () => {
     <>
       <MainContainer>
         <Routes>
-          <Route path="/" 
-          element={<Layout />}
-          >
+          <Route path="/" element={<Layout />}>
             <Route
               path="/"
               index

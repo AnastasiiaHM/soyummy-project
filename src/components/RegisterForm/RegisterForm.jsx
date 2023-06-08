@@ -3,18 +3,10 @@ import {
   RegisterFormStyled,
   Caption,
   InputWraper,
-  Button,
 } from './RegisterForm.styled';
-
-// import { useNavigate } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { register } from 'redux/user/operations';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-// import * as yup from 'yup';
-// import Message from 'components/Message/Message';
-// import ShowPassword from 'components/ShowPassword/ShowPassword';
-// import { useState } from 'react';
-// import { selectAuthError } from 'redux/user/selectors';
+import { BiUser } from 'react-icons/bi';
+import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
 
 export const RegisterForm = () => {
   const initialValues = { name: '', email: '', password: '' };
@@ -29,9 +21,7 @@ export const RegisterForm = () => {
           <Caption>Register</Caption>
           <FormFields>
             <InputWraper>
-              <svg width="24" height="24">
-                <use href="/"></use>
-              </svg>
+              <BiUser className="icon" />
               <Field
                 type="text"
                 name="username"
@@ -42,9 +32,7 @@ export const RegisterForm = () => {
             </InputWraper>
 
             <InputWraper>
-              <svg width="24" height="24">
-                <use href="/"></use>
-              </svg>
+              <HiOutlineMail />
               <Field
                 type="text"
                 name="email"
@@ -55,9 +43,7 @@ export const RegisterForm = () => {
             </InputWraper>
 
             <InputWraper>
-              <svg width="24" height="24">
-                <use href="/"></use>
-              </svg>
+              <HiOutlineLockClosed />
               <Field
                 type="password"
                 name="password"
@@ -67,126 +53,10 @@ export const RegisterForm = () => {
               <ErrorMessage className="error" component="div" name="password" />
             </InputWraper>
           </FormFields>
-          <button className="btn">Sign up</button>
-          {/* <ButtonContainer>
-            <Button
-              className="white regLogbutton"
-              type="button"
-              onClick={redirection}
-            >
-              Log In
-            </Button>
-            <Button className="orange regLogbutton" type="submit">
-              Register
-            </Button>
-          </ButtonContainer> */}
+          <button>Sign up</button>
         </Form>
       </Formik>
     </RegisterFormStyled>
   );
-  //   const dispatch = useDispatch();
-  //   const [passwordShown, setPasswordShown] = useState(false);
-  //   const initialValues = { username: '', email: '', password: '' };
-
-  //   const handleSubmit = (values, { resetForm }) => {
-  //     dispatch(register(values));
-  //     resetForm();
-  //   };
-
-  //   const schema = yup.object().shape({
-  //     username: yup
-  //       .string()
-  //       .min(3, 'Username must be at least 3 characters')
-  //       .max(254, 'Username must be less than or equal to 254 characters')
-  //       .required('Username is a required field'),
-  //     email: yup
-  //       .string()
-  //       .email('Email must be a valid email')
-  //       .min(3, 'Email must be at least 3 characters')
-  //       .max(254, 'Email must be less than or equal to 254 characters')
-  //       .required('Email is a required field'),
-  //     password: yup
-  //       .string()
-  //       .min(8, 'Password must be at least 8 characters')
-  //       .max(100, 'Password must be less than or equal to 100 characters')
-  //       .required('Password is a required field'),
-  //   });
-
-  //   const message = useSelector(selectAuthError);
-
-  //   const navigate = useNavigate();
-  //   const redirection = () => {
-  //     const path = '/register';
-  //     navigate(path);
-  //   };
-
-  //   const onClickHandler = () => {
-  //     setPasswordShown(state => !state);
-  //   };
-
-  //   return (
-  //     <RegisterFormStyled>
-  //       <Formik
-  //         initialValues={initialValues}
-  //         validationSchema={schema}
-  //         onSubmit={handleSubmit}
-  //       >
-  //         <Form autoComplete="off">
-  //           <Caption>Register</Caption>
-  //           <FormFields>
-  //             <InputWraper>
-  //               <Field
-  //                 type="text"
-  //                 name="username"
-  //                 placeholder=" "
-  //                 autoComplete="off"
-  //               />
-  //               <label htmlFor="username">Name *</label>
-  //               <ErrorMessage className="error" component="div" name="username" />
-  //             </InputWraper>
-
-  //             <InputWraper>
-  //               <Field
-  //                 type="text"
-  //                 name="email"
-  //                 placeholder=" "
-  //                 autoComplete="off"
-  //               />
-  //               <label htmlFor="email">Email *</label>
-  //               <ErrorMessage className="error" component="div" name="email" />
-  //             </InputWraper>
-
-  //             <InputWraper>
-  //               <ShowPassword
-  //                 clickHandler={onClickHandler}
-  //                 isShown={passwordShown}
-  //               />
-  //               <Field
-  //                 type={passwordShown ? 'text' : 'password'}
-  //                 name="password"
-  //                 placeholder=" "
-  //                 autoComplete="off"
-  //               />
-  //               <label htmlFor="password">Password *</label>
-  //               <ErrorMessage className="error" component="div" name="password" />
-  //             </InputWraper>
-  //           </FormFields>
-  //           <ButtonContainer>
-  //             <Button
-  //               className="white regLogbutton"
-  //               type="button"
-  //               onClick={redirection}
-  //             >
-  //               Log In
-  //             </Button>
-  //             <Button className="orange regLogbutton" type="submit">
-  //               Register
-  //             </Button>
-  //           </ButtonContainer>
-  //         </Form>
-  //       </Formik>
-  //       {message && <Message>{message}</Message>}
-  //     </RegisterFormStyled>
-  //   );
 };
 export default RegisterForm;
