@@ -1,5 +1,7 @@
+import { NoContent } from 'components/NoContent/NoContent';
+
 const NotFound = () => {
-  return <div>Not Found</div>;
+  return <NoContent />;
 };
 
 export default NotFound;
