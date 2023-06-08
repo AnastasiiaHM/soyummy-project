@@ -1,5 +1,10 @@
-import { Wrapper } from './Background.styled';
+import { Wrapper, Assortment } from './Background.styled';
 
 export const Background = () => {
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <Assortment></Assortment>
+    </Wrapper>
+  )
 };
+
