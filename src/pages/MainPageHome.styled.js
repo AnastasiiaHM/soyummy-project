@@ -1,66 +1,94 @@
-
 import styled from '@emotion/styled';
+import { mediaSizes } from '../components/constants/media';
+import backgroundImageDesc1x from '../components/images/header/salat/salat-header-desc-1x.png';
 
+const regularFontWeight = '400';
+const blackColor = '#000000';
+const whiteColor = '#FFFFFF';
+const grayColor = '#808080';
 
 export const Container = styled.div`
-  margin: 0 auto;
-  width: 100%;
+  margin-left: auto;
+  margin-right: -200px;
+  width: 578px;
+  height: 539px;
+  left: 400px;
+  top: 126px;
   min-height: 100%;
   padding-left: 16px;
   padding-right: 16px;
+  max-width: 1280px;
+  background-image: url(${backgroundImageDesc1x});
+  background-size: contain;
+  background-position: right bottom; /* Смещение фонового изображения вниз и вправо */
+  background-repeat: no-repeat;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints[0]}) {
-    width: ${props => props.theme.breakpoints[0]};
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    padding-top: 205px;
   }
-  @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
-    width: ${props => props.theme.breakpoints[1]};
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  @media screen and (min-width: ${props => props.theme.breakpoints[2]}) {
-    width: ${props => props.theme.breakpoints[2]};
-    padding-left: 100px;
-    padding-right: 100px;
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    padding-top: 226px;
   }
 `;
 
 export const Title = styled.h1`
+  position: absolute;
+  width: 700px;
+  height: 100px;
+  left: 100px;
+  top: 226px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 100px;
   text-align: center;
+  letter-spacing: -0.005em;
   margin-bottom: 14px;
-  font-weight: ${props => props.theme.fontWeights.regular};
-  line-height: 1;
-  color: ${props => props.theme.colors.black[200]};
-  font-size: 60px;
+  color: ${blackColor};
 
-  @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
-    text-align: left;
+   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 24px;
     font-size: 72px;
   }
-  @media screen and (min-width: ${props => props.theme.breakpoints[2]}) {
+  @media screen and (min-width: ${mediaSizes.desktop}) {
     margin-bottom: 8px;
     font-size: 100px;
   }
 `;
 
 export const TitleText = styled.span`
-  color: ${props => props.theme.colors.green[200]};
+  position: absolute;
+  height: 100px;
+  left: 100px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 100px;
+  text-align: center;
+  letter-spacing: -0.005em;
+  color: #8BAA36;
 `;
 
 export const Text = styled.p`
-  text-align: center;
+  position: absolute;
+  width: 465px;
+  height: 72px;
+  left: 200px;
+  top: 340px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
   letter-spacing: -0.02em;
-  margin-bottom: 364px;
-  width: 266px;
-  margin-left: auto;
-  margin-right: auto;
-
-  font-weight: ${props => props.theme.fontWeights.regular};
-  color: ${props => props.theme.colors.black[200]};
-  font-size: ${props => props.theme.fontSizes[2]};
-  line-height: 1.29;
-
-  @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
+  color: #23262A;
+  text-align: start;
+  white-space: pre-line;
+@media screen and (min-width: ${mediaSizes.tablet}) {
     text-align: left;
     margin-bottom: 32px;
     padding-left: 6px;
@@ -68,8 +96,7 @@ export const Text = styled.p`
     margin-right: 0px;
     margin-left: 0px;
   }
-  @media screen and (min-width: ${props => props.theme.breakpoints[2]}) {
-    font-size: ${props => props.theme.fontSizes[4]};
+  @media screen and (min-width: ${mediaSizes.desktop}) {
     line-height: 1.33;
     margin-bottom: 50px;
     width: 467px;
@@ -85,12 +112,11 @@ export const TipBox = styled.div`
   flex-direction: column;
   row-gap: 7px;
   min-height: 92px;
-  padding: 8px 8px 8px 8px;
+  padding: 8px;
   width: 229px;
-  background-color: ${props => props.theme.colors.white[100]};
+  background-color: ${whiteColor};
   border-radius: 8px;
-
-  @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
+@media screen and (min-width: ${mediaSizes.tablet}) {
     position: absolute;
     height: 100px;
     top: 372px;
@@ -98,7 +124,7 @@ export const TipBox = styled.div`
     width: 268px;
     padding: 12px 12px 12px 12px;
   }
-  @media screen and (min-width: ${props => props.theme.breakpoints[2]}) {
+  @media screen and (min-width: ${mediaSizes.desktop}) {
     padding: 16px 16px 16px 16px;
     width: 298px;
     top: 472px;
@@ -108,51 +134,35 @@ export const TipBox = styled.div`
 `;
 
 export const BoxText = styled.p`
-  font-weight: ${props => props.theme.fontWeights.medium};
-  font-size: ${props => props.theme.fontSizes[1]};
+  font-weight: ${regularFontWeight};
+  font-size: 14px;
   line-height: 1.5;
-
-  color: ${props => props.theme.colors.gray[500]};
-
-  @media screen and (min-width: ${props => props.theme.breakpoints[1]}) {
-    font-size: ${props => props.theme.fontSizes[2]};
-    line-height: 1.29;
-  }
-  @media screen and (min-width: ${props => props.theme.breakpoints[2]}) {
-    line-height: 1.43;
-  }
+  color: ${grayColor};
 `;
 
 export const DecorBoxText = styled.span`
-  color: ${props => props.theme.colors.green[200]};
+  color: #8BAA36;
 `;
 
-
 export const BoxLinkText = styled.p`
-  font-weight: ${props => props.theme.fontWeights.regular};
-  font-size: ${props => props.theme.fontSizes[0]};
+  font-weight: ${regularFontWeight};
+  font-size: 12px;
   line-height: 120%;
-
   letter-spacing: 0.2px;
   color: inherit;
 `;
 
-export const DecorArrowIcon = () => {
-    return (
-        <svg
-            width="14"
-            height="12"
-            fill="currentColor"
-            viewBox="0 0 14 12"
-            xmlns=""
-        >
-            <path
-                d="M1 6H13M13 6L8.5 1.5M13 6L8.5 10.5"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-};
+export const DecorArrowIcon = styled.svg`
+  width: 14px;
+  height: 12px;
+  fill: currentColor;
+  viewBox: 0 0 14 12;
+
+  path {
+    d: "M1 6H13M13 6L8.5 1.5M13 6L8.5 10.5";
+    stroke-width: 1.5;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+`;

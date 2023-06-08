@@ -20,10 +20,11 @@ export default function MainPageHome() {
         <Title>
           <TitleText>So</TitleText>Yummy
         </Title>
-        <Text>
-          "What to cook?" is not only a recipe app, it is, in fact, your
-          cookbook. You can add your own recipes to save them for the future.
-        </Text>
+      <Text>
+        "What to cook?" is not only a recipe app, it is, in fact,{"\n"}
+        your cookbook. You can add your own recipes to{"\n"}
+        save them for the future.
+      </Text>
         <TipBox>
           <BoxText>
             <DecorBoxText>Delicious and healthy</DecorBoxText> way to
