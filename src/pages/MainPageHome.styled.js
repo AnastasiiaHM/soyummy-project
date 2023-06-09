@@ -155,10 +155,10 @@ export const DecorArrowIcon = styled.svg`
   width: 14px;
   height: 12px;
   fill: currentColor;
-  viewox: 0 0 14 12;
+  /* viewox: 0 0 14 12; */
 
   path {
-    d: 'M1 6H13M13 6L8.5 1.5M13 6L8.5 10.5';
+    /* d: 'M1 6H13M13 6L8.5 1.5M13 6L8.5 10.5'; */
     stroke-width: 1.5;
     stroke: currentColor;
     stroke-linecap: round;
