@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { colors } from '../colors';
 import { StyledTab } from './CategoriesTab.styled';
 
-export default function CategoriesRecipes() {
+export default function CategoriesTab() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
