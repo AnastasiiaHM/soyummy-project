@@ -22,11 +22,36 @@ const StyledTab = styled(Tab)(({ theme }) => ({
 
 export function BasicTabs() {
     const location = useLocation();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(getInitialValue(location.pathname));
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  function getInitialValue(pathname) {
+    switch (pathname) {
+      case '/categories':
+        return 0;
+      case '/add':
+        return 1;
+      case '/recipe/:recipeId':
+        return 2;
+      case '/favorite':
+        return 3;
+      case '/shopping-list':
+        return 4;
+      case '/search':
+        return 5;
+      default:
+        return -1;
+    }
+  }
+
+  React.useEffect(() => {
+    if (getInitialValue(location.pathname) === -1) {
+      setValue(-1); 
+    }
+  }, [location.pathname]);
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -41,31 +66,31 @@ export function BasicTabs() {
                     label="Categories"
                     component={Link}
                     to="/categories"
-                    isactive={(location.pathname === '/categories').toString()}
+                   
                 />
                 <StyledTab
                     label="Add recipes"
                     component={Link}
                     to="/add"
-                    isactive={(location.pathname === '/add').toString()}
+                   
                 />
                 <StyledTab
                     label="My recipes"
                     component={Link}
                     to="/recipe/:recipeId"
-                    isactive={(location.pathname === '/recipe/:recipeId').toString()}
+                    
                 />
                 <StyledTab
                     label="Favorites"
                     component={Link}
                     to="/favorite"
-                    isactive={(location.pathname === '/favorite').toString()}
+                   
                 />
                 <StyledTab
                     label="Shopping list"
                     component={Link}
                     to="/shopping-list"
-                    isactive={(location.pathname === '/shopping-list').toString()}
+                    
                 />
                 <StyledTab
                     label={
@@ -75,7 +100,7 @@ export function BasicTabs() {
                     }
                     component={Link}
                     to="/search"
-                    isactive={(location.pathname === '/search').toString()}
+                
                 />
             </Tabs>
       </Box>
