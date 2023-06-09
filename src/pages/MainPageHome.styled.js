@@ -48,7 +48,7 @@ export const Title = styled.h1`
   margin-bottom: 14px;
   color: ${blackColor};
 
-   @media screen and (min-width: ${mediaSizes.tablet}) {
+  @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 24px;
     font-size: 72px;
   }
@@ -69,7 +69,7 @@ export const TitleText = styled.span`
   line-height: 100px;
   text-align: center;
   letter-spacing: -0.005em;
-  color: #8BAA36;
+  color: #8baa36;
 `;
 
 export const Text = styled.p`
@@ -84,10 +84,10 @@ export const Text = styled.p`
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.02em;
-  color: #23262A;
+  color: #23262a;
   text-align: start;
   white-space: pre-line;
-@media screen and (min-width: ${mediaSizes.tablet}) {
+  @media screen and (min-width: ${mediaSizes.tablet}) {
     text-align: left;
     margin-bottom: 32px;
     padding-left: 6px;
@@ -115,7 +115,7 @@ export const TipBox = styled.div`
   width: 229px;
   background-color: ${whiteColor};
   border-radius: 8px;
-@media screen and (min-width: ${mediaSizes.tablet}) {
+  @media screen and (min-width: ${mediaSizes.tablet}) {
     position: absolute;
     height: 100px;
     top: 372px;
@@ -140,7 +140,7 @@ export const BoxText = styled.p`
 `;
 
 export const DecorBoxText = styled.span`
-  color: #8BAA36;
+  color: #8baa36;
 `;
 
 export const BoxLinkText = styled.p`
@@ -155,10 +155,10 @@ export const DecorArrowIcon = styled.svg`
   width: 14px;
   height: 12px;
   fill: currentColor;
-  viewBox: 0 0 14 12;
+  viewox: 0 0 14 12;
 
   path {
-    d: "M1 6H13M13 6L8.5 1.5M13 6L8.5 10.5";
+    d: 'M1 6H13M13 6L8.5 1.5M13 6L8.5 10.5';
     stroke-width: 1.5;
     stroke: currentColor;
     stroke-linecap: round;
