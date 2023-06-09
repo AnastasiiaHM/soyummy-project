@@ -5,12 +5,8 @@ export const RecipeCard = ({ recipe }) => {
   return (
     <RecipeCardStyled>
       <a href="*">
-        <img
-          className="image"
-          src="https://loremflickr.com/300/323/food"
-          alt="dish-card"
-        />
-        <p className="name">{recipe.name}</p>
+        <img className="image" src={recipe.preview} alt="dish-card" />
+        <p className="name">{recipe.title}</p>
       </a>
     </RecipeCardStyled>
   );
