@@ -1,4 +1,3 @@
-// import styled from '@emotion/styled';
-// import { mediaSizes } from 'constants/media';
-// import { container } from 'helpers';
-// import { colors } from 'constants/colors';
+import styled from '@emotion/styled';
+import { mediaSizes } from '../constants/media';
+import { BiUser, BiPencil } from 'react-icons/bi';
