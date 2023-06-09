@@ -1,32 +1,36 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/system';
-import { colors } from '../colors'
+import { colors } from '../colors';
 
 const StyledTab = styled(Tab)(({ theme }) => ({
-    textTransform: 'none',
-    fontFamily: 'Poppins',
-    fontStyle: 'normal',
-    fontWeight: 500,
-    fontSize: '14px',
-    lineHeight: '22px',
-    color: colors.blackFont,
-    '&.Mui-selected': {
-      color: colors.greenButton,
-    },
-  }));
+  textTransform: 'none',
+  fontFamily: 'Poppins',
+  fontStyle: 'normal',
+  fontWeight: 500,
+  fontSize: '14px',
+  lineHeight: '22px',
+  color: colors.blackFont,
+  '&.Mui-selected': {
+    color: colors.greenButton,
+  },
+}));
 
 export function BasicTabs() {
-    const location = useLocation();
+  const location = useLocation();
   const [value, setValue] = React.useState(getInitialValue(location.pathname));
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    setValue(getInitialValue(location.pathname));
+  }, [location.pathname]);
 
   function getInitialValue(pathname) {
     switch (pathname) {
@@ -43,66 +47,34 @@ export function BasicTabs() {
       case '/search':
         return 5;
       default:
-        return -1;
+        return null;
     }
   }
-
-  React.useEffect(() => {
-    if (getInitialValue(location.pathname) === -1) {
-      setValue(-1); 
-    }
-  }, [location.pathname]);
 
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 0 }}>
-            <Tabs
-                value={value} 
-                onChange={handleChange} 
-                aria-label="basic tabs example" 
-                indicatorColor='none'
-            >
-                <StyledTab
-                    label="Categories"
-                    component={Link}
-                    to="/categories"
-                   
-                />
-                <StyledTab
-                    label="Add recipes"
-                    component={Link}
-                    to="/add"
-                   
-                />
-                <StyledTab
-                    label="My recipes"
-                    component={Link}
-                    to="/recipe/:recipeId"
-                    
-                />
-                <StyledTab
-                    label="Favorites"
-                    component={Link}
-                    to="/favorite"
-                   
-                />
-                <StyledTab
-                    label="Shopping list"
-                    component={Link}
-                    to="/shopping-list"
-                    
-                />
-                <StyledTab
-                    label={
-                        <React.Fragment>
-                          <SearchIcon sx={{ marginRight: '0.5rem' }} />
-                        </React.Fragment>
-                    }
-                    component={Link}
-                    to="/search"
-                
-                />
-            </Tabs>
+        <Tabs
+          value={value !== null ? value : false}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          indicatorColor="none"
+        >
+          <StyledTab label="Categories" component={Link} to="/categories" />
+          <StyledTab label="Add recipes" component={Link} to="/add" />
+          <StyledTab label="My recipes" component={Link} to="/recipe/:recipeId" />
+          <StyledTab label="Favorites" component={Link} to="/favorite" />
+          <StyledTab label="Shopping list" component={Link} to="/shopping-list" />
+          <StyledTab
+            label={
+              <React.Fragment>
+                <SearchIcon sx={{ marginRight: '0.5rem' }} />
+              </React.Fragment>
+            }
+            component={Link}
+            to="/search"
+          />
+        </Tabs>
       </Box>
     </Box>
   );

@@ -7,6 +7,7 @@ import { UserComponent } from './AuthUser';
 import { useMediaQuery } from '@mui/material';
 import {TemporaryDrawer} from '../MobileMenu/MobileMenu'
 
+
 const Header = () => {
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -33,6 +34,7 @@ const Header = () => {
         <UserComponent />
         {!isMobile && <BasicSwitches />}
         {isMobile && <TemporaryDrawer />}
+       
       </UserIconWrapper>
     </HeaderWrapper>
   );

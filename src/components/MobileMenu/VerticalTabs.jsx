@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { Link, useLocation } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
-import { styled, css } from '@mui/system';
+import { styled } from '@mui/system';
 import { colors } from '../colors'
 
 const StyledTabs = styled(Tabs)(({ theme }) => ({
@@ -35,6 +35,10 @@ export function VerticalTabs() {
     setValue(newValue);
   };
 
+  useEffect(() => {
+    setValue(getInitialValue(location.pathname));
+  }, [location.pathname]);
+
   function getInitialValue(pathname) {
     switch (pathname) {
       case '/categories':
@@ -50,15 +54,9 @@ export function VerticalTabs() {
       case '/search':
         return 5;
       default:
-        return -1;
+        return null;
     }
   }
-
-  React.useEffect(() => {
-    if (getInitialValue(location.pathname) === -1) {
-      setValue(-1); 
-    }
-  }, [location.pathname]);
 
   return (
     <Box
@@ -66,7 +64,7 @@ export function VerticalTabs() {
     >
       <StyledTabs
         orientation="vertical"
-        value={value}
+        value={value !== null ? value : false}
         onChange={handleChange}
         aria-label="Vertical tabs example"
         sx={{ border: 0}}
