@@ -1,9 +1,23 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
-//import Modal from '@mui/material/Modal';
-//import Button from '@mui/material/Button';
 import { UserWrapper, UserTextsName } from './Header.styled';
-//import UserProf from 'components/UserProfile/UserProfile';
+import { GoX } from 'react-icons/go';
+import {
+  BtnClose,
+  ModalHeader,
+  FormModal,
+  WrapperInp,
+  InputMod,
+  IconUser,
+  WrapperMain,
+  UserBtn,
+  BtnSave,
+  TextBtn,
+  BackdropModal,
+  UserIconInp,
+  InputPen,
+} from '../UserProfile/UserProfile.styled';
+import { BiUser, BiPlus } from 'react-icons/bi';
 
 export function UserComponent() {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -16,11 +30,53 @@ export function UserComponent() {
     setIsModalOpen(false);
   };
 
+  const handleModalClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <UserWrapper>
       <Avatar alt="User Avatar" onClick={handleOpenModal} />
       <UserTextsName>Name</UserTextsName>
-      {/* <UserProf open={isModalOpen} onClose={handleCloseModal}/> */}
+      {isModalOpen && (
+        <BackdropModal onClick={handleCloseModal}>
+          <ModalHeader onClick={handleModalClick}>
+            <BtnClose onClick={handleCloseModal}>
+              <GoX style={{ width: '24px', height: '24px' }} />
+            </BtnClose>
+            <WrapperMain>
+              <IconUser>
+                <BiUser
+                  style={{
+                    width: '47px',
+                    height: '47px',
+                    fill: '#C4C4C4',
+                  }}
+                />
+                <UserBtn>
+                  <BiPlus
+                    style={{
+                      fill: '#FAFAFA',
+                      display: 'flex',
+                      position: 'absolute',
+                    }}
+                  />
+                </UserBtn>
+              </IconUser>
+              <FormModal>
+                <WrapperInp>
+                  <UserIconInp />
+                  <InputPen />
+                  <InputMod type="text" placeholder="Your name" />
+                </WrapperInp>
+              </FormModal>
+              <BtnSave>
+                <TextBtn>Save changes</TextBtn>
+              </BtnSave>
+            </WrapperMain>
+          </ModalHeader>
+        </BackdropModal>
+      )}
     </UserWrapper>
   );
 }

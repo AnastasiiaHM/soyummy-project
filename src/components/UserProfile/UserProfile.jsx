@@ -17,17 +17,15 @@ import {
 } from './UserProfile.styled';
 import { BiUser, BiPlus } from 'react-icons/bi';
 
-const UserProf = () => {
+const UserProf = ({ open, onClose }) => {
   
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-;
 
   const handleCloseModal = () => {
-    setIsModalOpen(false);
+    onClose();
   };
 
   return (
-    <BackdropModal>
+    <BackdropModal open={open}>
       <ModalHeader>
         <BtnClose onClose={handleCloseModal}>
           <GoX style={{ width: '24px', height: '24px' }} />
