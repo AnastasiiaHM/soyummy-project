@@ -4,6 +4,7 @@ import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import { colors } from '../colors';
 
+
 const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
     height: 16,
@@ -44,6 +45,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
       boxSizing: 'border-box',
     },
   }));
+
   export function BasicSwitches() {
     const [isDarkMode, setIsDarkMode] = React.useState(
         localStorage.getItem('isDarkMode') === 'true'
@@ -56,12 +58,12 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
     };
 
     return (
-        <Stack direction="row" spacing={1} alignItems="center">
+          <Stack direction="row" spacing={1} alignItems="center">
             <AntSwitch 
                 checked={isDarkMode}
                 onChange={handleChange}
                 inputProps={{ 'aria-label': 'ant design' }} 
             />
-        </Stack> 
+          </Stack> 
     );
 }

@@ -25,10 +25,12 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const TabsWrapper = styled.div`
-  display: none;
+  display: flex;
+  flex-direction: column;
+  
 
   @media (min-width: ${mediaSizes.desktop}) {
-    display: flex;
+    flex-direction: row;
     margin-left: 187px;
     margin-right: 227px;
   }
@@ -61,3 +63,10 @@ export const UserIconWrapper = styled.div`
     
   }
 `;
+
+export const SwitchWrapper = styled.div`
+  display: flex;
+  margin-left: 16px;
+  position: absolute;
+  bottom: 32px;
+`
