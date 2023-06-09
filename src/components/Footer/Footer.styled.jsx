@@ -6,14 +6,30 @@ import { AiOutlineMail } from 'react-icons/ai';
 
 export const FooterWrapper = styled.div`
   display: flex;
-  padding: 64px 100px 50px 100px;
+  flex-direction: column;
+  /* padding: 64px 100px 50px 100px; */
+  width: 343px;
   /* width: 100%; */
   /* margin: 0;
   padding: 0; */
+  align-items: center;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 704px;
+    align-items: baseline;
+  }
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    flex-direction: row;
+    width: 1240px;
+    align-items: baseline;
+  }
 `;
 
 export const WrapperName = styled.div`
   display: flex;
+  align-items: center;
   margin-bottom: 32px;
   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 24spx;
@@ -61,9 +77,10 @@ export const Text = styled.p`
   }
 `;
 
-export const FooterMain = styled.div`
+export const FooterMain = styled.footer`
   background: #22252a;
-  width: 1440px;
+  /* margin: 0px -92.5px; */
+  /* padding: 0px -100px; */
 `;
 
 export const ListTextInf = styled.ul`
@@ -122,13 +139,30 @@ export const TextRous = styled.p`
 `;
 
 export const ListNetWork = styled.ul`
-  display: flex;
+  display: none;
+  /* display: flex; */
   gap: 16px;
   @media screen and (min-width: ${mediaSizes.tablet}) {
+    display: none;
     gap: 18px;
   }
   @media screen and (min-width: ${mediaSizes.desktop}) {
     gap: 18px;
+    display: flex;
+  }
+`;
+
+export const ListNetWorkLast = styled.ul`
+  display: flex;
+  /* display: flex; */
+  gap: 16px;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    display: flex;
+    gap: 18px;
+  }
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    gap: 18px;
+    display: none;
   }
 `;
 
@@ -136,8 +170,15 @@ export const WrapperRouters = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 0px;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    margin-bottom: 72px;
+  }
   @media screen and (min-width: ${mediaSizes.desktop}) {
-    margin-right: 214px;
+    margin-right: 190px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -245,16 +286,20 @@ export const InputMod = styled.input`
   height: 38px;
   background: transparent;
   margin-bottom: 8px;
+  margin-right: 0px;
+
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 259px;
     height: 50px;
     margin-bottom: 0;
+    margin-right: 12px;
   }
   @media screen and (min-width: ${mediaSizes.desktop}) {
     padding: 18px 71px 18px 51px;
     width: 339px;
     height: 59px;
     margin-bottom: 16px;
+    margin-right: 0px;
   }
   &:focus {
     outline: none;
@@ -287,4 +332,30 @@ export const WrapperInp = styled.div`
 
 export const WrapperLastFooter = styled.div`
   width: 339px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    flex-direction: column;
+  }
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    display: flex;
+    /* flex-direction: row; */
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+export const WrapperInpBtn = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 44px;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    flex-direction: row;
+    margin-bottom: 38px;
+  }
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
 `;

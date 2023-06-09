@@ -18,18 +18,21 @@ import {
   MailInp,
   InputMod,
   WrapperLastFooter,
+  WrapperBtnInp,
+  ListNetWorkLast,
+  WrapperInpBtn,
 } from './Footer.styled';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
+import { Logo } from '../LogoFooter/LogoFooter';
+
 const Footer = () => {
   return (
     <FooterMain>
       <FooterWrapper>
         <WrapperFirstList>
           <WrapperName>
-            {/* <svg width="" height="">
-          <use href=""></use>
-        </svg> */}
+            <Logo />
             <TextName>So Yummy</TextName>
           </WrapperName>
           <ListTextInf>
@@ -93,17 +96,40 @@ const Footer = () => {
           <TextOffers>
             Subscribe up to our newsletter. Be in touch with latest news and
             special offers, etc.
-          </TextOffers>
-          <form>
-            <WrapperInp>
-              {' '}
-              <MailInp />
-              <InputMod type="text" placeholder="Enter your email address" />
-            </WrapperInp>
-          </form>
-          <BtnLogOut>
-            <TextBtn>Subscribe</TextBtn>
-          </BtnLogOut>
+          </TextOffers>{' '}
+          <WrapperInpBtn>
+            <form>
+              <WrapperInp>
+                <MailInp />
+                <InputMod type="text" placeholder="Enter your email address" />
+              </WrapperInp>
+            </form>
+            <BtnLogOut>
+              <TextBtn>Subscribe</TextBtn>
+            </BtnLogOut>
+          </WrapperInpBtn>
+          <ListNetWorkLast>
+            <li>
+              <BsFacebook
+                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
+              />
+            </li>
+            <li>
+              <BsInstagram
+                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
+              />
+            </li>
+            <li>
+              <BsYoutube
+                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
+              />
+            </li>
+            <li>
+              <BsTwitter
+                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
+              />
+            </li>
+          </ListNetWorkLast>
         </WrapperLastFooter>
       </FooterWrapper>
     </FooterMain>
