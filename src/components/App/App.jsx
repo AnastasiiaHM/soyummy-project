@@ -19,7 +19,7 @@ const ShoppingPage = lazy(() => import('pages/Shopping'));
 const NotFoundPage = lazy(() => import('pages/NotFound'));
 const SearchPage = lazy(() => import('pages/Search'));
 const CategoriesRecipes = lazy(() =>
-  import('components/CategoriesRecipes/CategoriesRecipes')
+  import('components/CategoriesTab/CategoriesTab')
 );
 
 const App = () => {
