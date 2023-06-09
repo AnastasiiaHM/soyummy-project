@@ -13,11 +13,7 @@ const Header = () => {
   //   };
   // }, [isDesktop]);
 
-  return (
-    <div>
-      <h1>Header</h1>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Header;
