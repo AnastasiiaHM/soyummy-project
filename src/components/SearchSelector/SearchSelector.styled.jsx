@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-// import { colors } from '../colors';
+import { colors } from '../colors';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ export const SectionLabel = styled.select`
   height: 49px;
   width: 198px;
   padding: 4px;
-
+  color: ${colors.color1};
   font-size: 14px;
   line-height: 1.5;
   border: none;
@@ -43,5 +43,6 @@ export const SectionLabel = styled.select`
 `;
 
 export const Options = styled.option`
-  min-height: 1.2em;
+  color: ${colors.color1};
+  background-color: #d9d9d975;
 `;
