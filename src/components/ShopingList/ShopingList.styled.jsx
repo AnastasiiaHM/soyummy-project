@@ -7,8 +7,8 @@ export const Section = styled.section`
   max-width: 100%;
 
   padding-top: 50px;
-  padding-left: 16px;
-  padding-right: 16px;
+  /* padding-left: 16px;
+  padding-right: 16px; */
   padding-bottom: 100px;
 
   margin-left: auto;
@@ -18,8 +18,8 @@ export const Section = styled.section`
     width: 768px;
 
     padding-top: 72px;
-    padding-left: 32px;
-    padding-right: 32px;
+    /* padding-left: 32px;
+    padding-right: 32px; */
     padding-bottom: 200px;
   }
 
@@ -27,8 +27,8 @@ export const Section = styled.section`
     width: 1440px;
 
     padding-top: 100px;
-    padding-left: 100px;
-    padding-right: 100px;
+    /* padding-left: 100px;
+    padding-right: 100px; */
     padding-bottom: 195px;
   }
 `;
@@ -71,6 +71,7 @@ export const List = styled.div`
 
   @media (min-width: 1440px) {
     filter: none;
+    font-size: 18px;
 
     padding: 21px 40px;
     margin-bottom: 50px;
@@ -90,7 +91,7 @@ export const ListWraper = styled.div`
   }
 `;
 
-export const ItemsWrapper = styled.section`
+export const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;

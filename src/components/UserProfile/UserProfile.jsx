@@ -13,7 +13,7 @@ import {
   BackdropModal,
   UserIconInp,
   InputPen,
-} from './Header.styled';
+} from './UserProfile.styled';
 import { BiUser, BiPlus } from 'react-icons/bi';
 
 const Header = () => {
@@ -32,7 +32,6 @@ const Header = () => {
   // }, [isDesktop]);
 
   return (
-    // <h1>Header</h1>
     <BackdropModal>
       <ModalHeader>
         <BtnClose>
@@ -70,33 +69,6 @@ const Header = () => {
         </WrapperMain>
       </ModalHeader>
     </BackdropModal>
-    // <BackdropModal>
-    //   <ModalHeader>
-    //     <BtnClose>
-    //       <GoX
-    //         style={{
-    //           width: '24px',
-    //           height: '24px',
-    //           '@media screen and (min-width: 370px)': {
-    //             width: '40px',
-    //             height: '40px',
-    //           },
-    //         }}
-    //       />
-    //     </BtnClose>
-    //     <WrapperMain>
-    //       <TextLogOut>Are you sure you want to log out?</TextLogOut>
-    //       <WrapperBtns>
-    //         <BtnLogOut>
-    //           <TextBtnLogOut>Log out</TextBtnLogOut>
-    //         </BtnLogOut>
-    //         <BtnCancel>
-    //           <TextBtnCancel>Cancel</TextBtnCancel>
-    //         </BtnCancel>
-    //       </WrapperBtns>
-    //     </WrapperMain>
-    //   </ModalHeader>
-    // </BackdropModal>
   );
 };
 
