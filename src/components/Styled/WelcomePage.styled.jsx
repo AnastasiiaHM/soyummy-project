@@ -11,16 +11,25 @@ export const WelcomePageWrapper = styled.div`
   align-items: center;
   padding-top: 275px;
   color: ${colors.textGreenBtn};
-  background: url(${backgroundMob}) no-repeat;
+  background: url(${backgroundMob});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   margin-inline: auto;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 1280px;
     height: 900px;
-    background: url(${backgroundTab}) no-repeat;
+    background: url(${backgroundTab});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
   @media screen and (min-width: ${mediaSizes.desktop}) {
-    background: url(${backgroundDesk}) no-repeat;
+    background: url(${backgroundDesk});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
   & svg {
@@ -64,5 +73,46 @@ export const Buttons = styled.div`
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     gap: 18px;
+  }
+
+  & button {
+    border-radius: 24px 44px;
+    border: 1px solid transparent;
+    color: ${colors.textGreenBtn};
+
+    font-size: 14px;
+    line-height: 21px;
+
+    background: ${colors.greenButton};
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background: ${colors.darkButton};
+    }
+
+    @media screen and (min-width: ${mediaSizes.tablet}) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    & a {
+      display: block;
+      padding: 12px 24px;
+      color: inherit;
+
+      @media screen and (min-width: ${mediaSizes.tablet}) {
+        padding: 22px 44px;
+      }
+    }
+
+    &.signin {
+      background: transparent;
+      border: 1px solid ${colors.textGreenBtn};
+
+      &:hover {
+        border: 1px solid ${colors.greenButton};
+        color: ${colors.greenButton};
+      }
+    }
   }
 `;

@@ -7,56 +7,125 @@ import {
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { BiUser } from 'react-icons/bi';
 import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
+import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
+import * as yup from 'yup';
 
 export const RegisterForm = () => {
-  const initialValues = { name: '', email: '', password: '' };
+  const initialValues = { username: '', email: '', password: '' };
+
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .matches(/^[a-zA-Z]+$/, 'Please enter only letters')
+      .min(3)
+      .max(254)
+      .required(),
+    email: yup.string().email().min(3).max(254).required(),
+    password: yup.string().min(8).max(100).required(),
+  });
 
   return (
     <RegisterFormStyled>
       <Formik
         initialValues={initialValues}
+        validationSchema={schema}
         // onSubmit={handleSubmit}
       >
-        <Form autoComplete="off">
-          <Caption>Register</Caption>
-          <FormFields>
-            <InputWraper>
-              <BiUser className="icon" />
-              <Field
-                type="text"
-                name="username"
-                placeholder="Name"
-                autoComplete="off"
-              />
-              <ErrorMessage className="error" component="div" name="username" />
-            </InputWraper>
+        {({ errors, touched, isSubmitting }) => (
+          <Form autoComplete="off">
+            <Caption>Register</Caption>
+            <FormFields>
+              <InputWraper>
+                <BiUser
+                  className={` ${
+                    errors.username && touched.username ? 'error-icon' : 'icon'
+                  }`}
+                />
+                {errors.username && touched.username && (
+                  <AiFillCloseCircle className="invalid" />
+                )}
+                {!errors.username && touched.username && (
+                  <AiFillCheckCircle className="valid" />
+                )}
+                <Field
+                  type="text"
+                  name="username"
+                  placeholder="Name"
+                  autoComplete="off"
+                  className={`input-field ${
+                    touched.username && (errors.username ? 'error' : 'success')
+                  }`}
+                />
+                <ErrorMessage
+                  className="error"
+                  component="div"
+                  name="username"
+                />
+              </InputWraper>
 
-            <InputWraper>
-              <HiOutlineMail />
-              <Field
-                type="text"
-                name="email"
-                placeholder="Email"
-                autoComplete="off"
-              />
-              <ErrorMessage className="error" component="div" name="email" />
-            </InputWraper>
+              <InputWraper>
+                <HiOutlineMail
+                  className={`${errors.email && touched.email ? 'error' : ''}`}
+                />
+                {errors.email && touched.email && (
+                  <AiFillCloseCircle className="invalid" />
+                )}
+                {!errors.email && touched.email && (
+                  <AiFillCheckCircle className="valid" />
+                )}
+                <Field
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  autoComplete="off"
+                  className={`input-field ${
+                    touched.email && (errors.email ? 'error' : 'success')
+                  }`}
+                />
+                <ErrorMessage className="error" component="div" name="email" />
+              </InputWraper>
 
-            <InputWraper>
-              <HiOutlineLockClosed />
-              <Field
-                type="password"
-                name="password"
-                placeholder="Password"
-                autoComplete="off"
-              />
-              <ErrorMessage className="error" component="div" name="password" />
-            </InputWraper>
-          </FormFields>
-          <button>Sign up</button>
-        </Form>
+              <InputWraper>
+                {errors.password && touched.password && (
+                  <AiFillCloseCircle className="invalid" />
+                )}
+                {!errors.password &&
+                  touched.password &&
+                  !isSubmitting &&
+                  !errors.password &&
+                  touched.password && <AiFillCheckCircle className="valid" />}
+                <HiOutlineLockClosed
+                  className={`${
+                    errors.password && touched.password ? 'error' : ''
+                  }`}
+                />
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  autoComplete="off"
+                  className={`input-field ${
+                    touched.password && (errors.password ? 'error' : 'success')
+                  }`}
+                />
+                <ErrorMessage className="error" component="div" name="password">
+                  {message => <div className="error-message">{message}</div>}
+                </ErrorMessage>
+                <ErrorMessage
+                  className="warning"
+                  component="div"
+                  name="password"
+                >
+                  {message => <div className="warning-message">{message}</div>}
+                </ErrorMessage>
+              </InputWraper>
+            </FormFields>
+            <button>Sign up</button>
+          </Form>
+        )}
       </Formik>
     </RegisterFormStyled>
   );
 };
+
 export default RegisterForm;

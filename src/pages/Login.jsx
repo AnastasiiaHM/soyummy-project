@@ -5,7 +5,6 @@ import RegisterWrapper from 'components/Styled/Register.styled.jsx';
 const Login = () => {
   return (
     <RegisterWrapper>
-      <img src="../../components/" alt="" />
       <LoginForm />
       <Link to={`/register`}>Registration</Link>
     </RegisterWrapper>

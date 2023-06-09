@@ -23,6 +23,7 @@ export const RegisterFormStyled = styled.div`
   }
 
   & button {
+    cursor: pointer;
     width: 100%;
     font-size: 16px;
     line-height: 18px;
@@ -82,6 +83,22 @@ export const InputWraper = styled.div`
     top: 13px;
     left: 14px;
 
+    &.error {
+      stroke: red;
+    }
+
+    &.success {
+      stroke: green;
+    }
+
+    &.error-icon {
+      fill: red;
+    }
+
+    &.success-icon {
+      fill: green;
+    }
+
     &.icon {
       fill: ${colors.textGreenBtn};
     }
@@ -89,8 +106,22 @@ export const InputWraper = styled.div`
     @media screen and (min-width: ${mediaSizes.tablet}) {
       width: 24px;
       height: 24px;
-      top: 15px;
+      top: 16px;
       left: 18px;
+    }
+  }
+
+  & div {
+    position: absolute;
+    font-size: 14px;
+    line-height: 21px;
+
+    &.error {
+      color: #e74a3b;
+    }
+
+    &.warning {
+      color: yellow;
     }
   }
 
@@ -114,6 +145,13 @@ export const InputWraper = styled.div`
       border: 1px solid white;
     }
 
+    &.error {
+      border: 1px solid red;
+    }
+
+    &.success {
+      border: 1px solid green;
+    }
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
       line-height: 27px;
@@ -131,5 +169,23 @@ export const InputWraper = styled.div`
       color: white;
       opacity: 1;
     }
+  }
+
+  & .invalid {
+    width: 18px;
+    height: 18px;
+    fill: red;
+    position: absolute;
+    top: 13px;
+    left: 220px;
+  }
+
+  & .valid {
+    width: 18px;
+    height: 18px;
+    fill: green;
+    position: absolute;
+    top: 13px;
+    left: 220px;
   }
 `;

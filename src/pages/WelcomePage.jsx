@@ -20,12 +20,12 @@ const WelcomePage = () => {
         your own recipes at any time.
       </Description>
       <Buttons>
-        <button className="btn categorybtn">
+        <button>
           <Link to={`/register`} state={{ from: location }}>
             Registration
           </Link>
         </button>
-        <button className="btn blackbtn">
+        <button className="signin">
           <Link to={`/signin`} state={{ from: location }}>
             Sign in
           </Link>
