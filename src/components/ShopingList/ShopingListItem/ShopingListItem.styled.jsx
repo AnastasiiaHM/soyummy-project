@@ -13,6 +13,7 @@ export const ItemWraper = styled.div`
   padding-bottom: 24px;
 
   @media (min-width: 768px) {
+    /* width: 768px; */
     padding-bottom: 43px;
   }
 `;
