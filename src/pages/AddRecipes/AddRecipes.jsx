@@ -5,7 +5,7 @@ import { Container, Wrapper } from './AddRecipes.styled';
 
 const recipes = [
   {
-    _id: '6462a8f74c3d0ddd28897fba',
+    _id: '6462a8f74c3d0ddd2ty7fba',
     title: 'Cream Cheese Tart',
     category: 'Starter',
     area: 'Unknown',
@@ -21,13 +21,13 @@ const recipes = [
     tags: ['Tart', 'Savory'],
     ingredients: [
       {
-        id: '640c2dd963a319ea671e36d7',
+        id: '640c2dd963a319wfeeg71e36d7',
         measure: '250g',
       },
     ],
   },
   {
-    _id: '6462a8f74c3d0ddd28897fba',
+    _id: '6462a8f74cfegrhddd28897fba',
     title: 'Cream Cheese Tart',
     category: 'Starter',
     area: 'Unknown',
@@ -43,7 +43,7 @@ const recipes = [
     tags: ['Tart', 'Savory'],
     ingredients: [
       {
-        id: '640c2dd963a319ea671e36d7',
+        id: '640c2dd963a3wehrea671e36d7',
         measure: '250g',
       },
     ],

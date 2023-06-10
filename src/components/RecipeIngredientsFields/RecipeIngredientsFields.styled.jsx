@@ -5,6 +5,7 @@ import { mediaSizes } from 'components/constants';
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 28px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -61,8 +62,13 @@ export const CounterButton = styled.button`
 
 export const List = styled.ul`
   display: flex;
+  flex-direction: column;
   gap: 18px;
   margin-bottom: 44px;
+  padding-bottom: 10px;
+  height: auto;
+  max-height: 260px;
+  overflow: auto;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     gap: 24px;
@@ -88,11 +94,12 @@ export const Input = styled.input`
   line-height: 1.5;
   letter-spacing: -0.02em;
   width: ${props => props.width || '50%'};
-  padding: 16px;
+  padding: 16px 60px 16px 16px;
   background-color: ${colors.greyButton};
   color: ${colors.blackFont};
   border: none;
   border-radius: 6px;
+  text-align: right;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 18px;
@@ -106,6 +113,17 @@ export const CloseBtn = styled.button`
   align-items: center;
   padding: 5px;
   margin-left: auto;
+  margin-right: 5px;
   border: none;
   cursor: pointer;
+`;
+
+export const StyledLabel = styled.label`
+  position: relative;
+  width: 30%;
+  padding: 0;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    width: 20%;
+  }
 `;
