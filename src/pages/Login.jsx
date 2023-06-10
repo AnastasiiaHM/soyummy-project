@@ -5,8 +5,10 @@ import RegisterWrapper from 'components/Styled/Register.styled.jsx';
 const Login = () => {
   return (
     <RegisterWrapper>
-      <LoginForm />
-      <Link to={`/register`}>Registration</Link>
+      <div className="wrapper">
+        <LoginForm />
+        <Link to={`/register`}>Registration</Link>
+      </div>
     </RegisterWrapper>
   );
 };

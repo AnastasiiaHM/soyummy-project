@@ -9,17 +9,10 @@ export const RegisterFormStyled = styled.div`
   padding: 32px 28px;
   margin-bottom: 18px;
   margin-inline: auto;
-  margin-top: 305px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     padding: 44px 50px;
     width: 500px;
-    margin-top: 444px;
-  }
-
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    margin-top: 122px;
-    margin-left: 720px;
   }
 
   & button {
@@ -84,23 +77,27 @@ export const InputWraper = styled.div`
     left: 14px;
 
     &.error {
-      stroke: red;
+      stroke: #e74a3b;
+      opacity: 1;
     }
 
     &.success {
-      stroke: green;
-    }
-
-    &.error-icon {
-      fill: red;
-    }
-
-    &.success-icon {
-      fill: green;
+      stroke: #3cbc81;
+      opacity: 1;
     }
 
     &.icon {
       fill: ${colors.textGreenBtn};
+
+      &.error-icon {
+        fill: #e74a3b;
+        opacity: 1;
+      }
+
+      &.success-icon {
+        fill: #3cbc81;
+        opacity: 1;
+      }
     }
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -113,15 +110,19 @@ export const InputWraper = styled.div`
 
   & div {
     position: absolute;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 21px;
+
+    @media screen and (min-width: ${mediaSizes.tablet}) {
+      font-size: 14px;
+    }
 
     &.error {
       color: #e74a3b;
     }
 
-    &.warning {
-      color: yellow;
+    &.success-message {
+      color: #3cbc81;
     }
   }
 
@@ -146,11 +147,13 @@ export const InputWraper = styled.div`
     }
 
     &.error {
-      border: 1px solid red;
+      border: 1px solid #e74a3b;
+      opacity: 1;
     }
 
     &.success {
-      border: 1px solid green;
+      border: 1px solid #3cbc81;
+      opacity: 1;
     }
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
@@ -169,23 +172,36 @@ export const InputWraper = styled.div`
       color: white;
       opacity: 1;
     }
+
+    &:hover,
+    placeholder {
+      stroke: white;
+      fill: white;
+      color: white;
+      border-color: white;
+      opacity: 1;
+    }
   }
 
-  & .invalid {
+  & .invalid,
+  .valid {
     width: 18px;
     height: 18px;
-    fill: red;
+    fill: #e74a3b;
+    opacity: 1;
     position: absolute;
     top: 13px;
-    left: 220px;
+    left: 216px;
+
+    @media screen and (min-width: ${mediaSizes.tablet}) {
+      width: 24px;
+      height: 24px;
+      top: 16px;
+      left: 360px;
+    }
   }
 
   & .valid {
-    width: 18px;
-    height: 18px;
-    fill: green;
-    position: absolute;
-    top: 13px;
-    left: 220px;
+    fill: #3cbc81;
   }
 `;
