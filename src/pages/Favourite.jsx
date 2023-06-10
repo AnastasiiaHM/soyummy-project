@@ -1,5 +1,4 @@
 import FavoriteList from 'components/Favorite/FavoriteList';
-import { Container } from 'components/Favorite/FavoriteList.styled';
 
 const Favourite = () => {
   const list = [
@@ -39,11 +38,7 @@ const Favourite = () => {
       time: '20 min',
     },
   ];
-  return (
-    <Container>
-      <FavoriteList list={list} listName={'Favorites'} />
-    </Container>
-  );
+  return <FavoriteList list={list} listName={'Favorites'} />;
 };
 
 export default Favourite;
