@@ -4,10 +4,11 @@ import { colors } from 'components/colors';
 
 export const DNAAnimation = styled.div`
   width: 150px;
-  height: 200px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  user-select: none;
+  pointer-events: none;
 `;
 
 export const wave = keyframes`

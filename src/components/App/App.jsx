@@ -12,7 +12,7 @@ const LoginPage = lazy(() => import('pages/Login'));
 const MainPage = lazy(() => import('pages/Home'));
 const CategoriesPage = lazy(() => import('pages/Categories'));
 const AddRecipePage = lazy(() => import('pages/AddRecipes/AddRecipes'));
-const FavoritesPage = lazy(() => import('pages/Favourite'));
+const FavoritesPage = lazy(() => import('pages/Favorite/Favorite'));
 const RecipePage = lazy(() => import('pages/Recipes'));
 const MyRecipesPage = lazy(() => import('pages/MyRecepes'));
 const ShoppingPage = lazy(() => import('pages/Shopping'));

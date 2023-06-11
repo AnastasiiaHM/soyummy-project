@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   CardBody,
   CardContent,
@@ -11,25 +12,27 @@ import {
   PrimaryBtn,
 } from './FavoriteCard.styled';
 
-const FavoriteCard = ({ img, title, desc, time }) => {
+const FavoriteCard = ({ card, deleteCard }) => {
   return (
     <ContainerCard>
       <ImageContainer>
-        <img src={img} alt="" />
+        <img src={card.preview} alt="" />
       </ImageContainer>
       <CardContent>
         <CardBody>
           <CardHeader>
-            <CardTitle>{title}</CardTitle>
-            <p>{desc}</p>
+            <CardTitle>{card.title}</CardTitle>
+            <p>{card.description}</p>
           </CardHeader>
-          <DeleteBtn>
+          <DeleteBtn onClick={() => deleteCard(card._id)}>
             <DeleteIcon />
           </DeleteBtn>
         </CardBody>
         <CardFooter>
-          <p>{time}</p>
-          <PrimaryBtn>See recipe</PrimaryBtn>
+          <p>{card.time} min</p>
+          <Link to={`/recipe/${card._id}`}>
+            <PrimaryBtn>See recipe</PrimaryBtn>
+          </Link>
         </CardFooter>
       </CardContent>
     </ContainerCard>
