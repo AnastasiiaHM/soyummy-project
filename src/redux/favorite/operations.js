@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODFhZTk0ZDliMjc0NmY3MTJjZDExZiIsImlhdCI6MTY4NjQ5MDM2NywiZXhwIjoxNjg2NTczMTY3fQ.iAPasxMwLlGkbmY61hknFeMCZrjc-jU_KqjKtHrGfR8`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 export const fetchFavoriteRecipes = createAsyncThunk(
