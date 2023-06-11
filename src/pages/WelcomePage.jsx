@@ -6,13 +6,16 @@ import {
   Description,
   Buttons,
 } from 'components/Styled/WelcomePage.styled.jsx';
-import { ReactComponent as Logo } from 'components/images/logo/logo.svg';
+import { ReactComponent as LogoMain } from 'components/images/logo/logo.svg';
+import { ReactComponent as LogoDesc } from 'components/images/logo/logoDesc.svg';
 
 const WelcomePage = () => {
   const location = useLocation();
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <WelcomePageWrapper>
-      <Logo />
+      {isMobile ? <LogoMain /> : <LogoDesc />}
       <Caption>Welcome to the app!</Caption>
       <Description>
         This app offers more than just a collection of recipes - it is designed
