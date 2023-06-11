@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 import { BiUser, BiPencil } from 'react-icons/bi';
-
+import { colors } from '../colors';
 // import { container } from 'helpers';
-// import { colors } from 'constants/colors';
+// 
 
 export const BtnClose = styled.button`
   background-color: transparent;
@@ -252,4 +252,77 @@ export const BackdropModal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const BtnLogOut = styled.button`
+    width: 137px;
+    height: 49px;
+    background: ${colors.greenButton};
+    border: none;
+    border-radius: 6px;
+
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    @media screen and (min-width: ${mediaSizes.tablet}) {
+      width: 192px;
+      height: 59px;
+    }
+    @media screen and (min-width: ${mediaSizes.desktop}) {
+      width: 192px;
+      height: 59px;
+    }
+`;
+
+export const BtnCancel = styled.button`
+  width: 137px;
+  height: 49px;
+  background: ${colors.greyButton};
+  border: none;
+  border-radius: 6px;
+
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    width: 192px;
+    height: 59px;
+  }
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    width: 192px;
+    height: 59px;
+  }
+`;
+
+export const TextForBtn = styled.p`
+  color: ${colors.textGreenBtn};
+  font-family: 'Poppins';
+  align-items: center;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.1;
+`;
+
+export const TextForCancel = styled.p`
+  color: ${colors.blackFont};
+  font-family: 'Poppins';
+  align-items: center;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.1;
+`;
+
+export const MainText = styled.p`
+  color: ${colors.blackFont};
+  font-family: 'Poppins';
+  align-items: center;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
 `;
