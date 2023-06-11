@@ -19,6 +19,7 @@ export const Select = ({
   alignText,
   newValue,
   top,
+  open,
 }) => {
   const isOptionObject = typeof options[0] === 'object' && options[0] !== null;
   const initialValue = isOptionObject ? options[0][secondField] : options[0];
@@ -27,6 +28,13 @@ export const Select = ({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef();
   const itemRefs = useRef([]);
+
+  useEffect(() => {
+    const initialOption = isOptionObject
+      ? { [name]: options[0][name] }
+      : options[0];
+    newValue(initialOption);
+  }, [isOptionObject, name, newValue, options]);
 
   useEffect(() => {
     if (isDropdownOpen) {
@@ -39,16 +47,19 @@ export const Select = ({
           dropdownRef.current.offsetTop;
       }
     }
-  }, [isDropdownOpen, options, value]);
+  }, [isDropdownOpen, options, value, secondField]);
 
   const clickHandler = e => {
     setIsDropdownOpen(state => !state);
     setValue(e.target.textContent);
-    if (isOptionObject) newValue({ [name]: e.target.value });
+    isOptionObject
+      ? newValue({ [name]: e.target.value })
+      : newValue(e.target.value);
   };
 
   const openDropdownHandler = () => {
     setIsDropdownOpen(state => !state);
+    open(true);
   };
 
   return (

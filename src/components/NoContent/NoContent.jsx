@@ -1,6 +1,9 @@
-import { Container, StyledText, StyledSpan } from './NoContent.styled';
-// import { mediaSizes } from 'components/constants';
-import { ReactComponent as Image } from '../images/not-found/notFound2x-mobile.svg';
+import {
+  Container,
+  StyledText,
+  StyledSpan,
+  StyledImage,
+} from './NoContent.styled';
 
 export const NoContent = () => {
   return (

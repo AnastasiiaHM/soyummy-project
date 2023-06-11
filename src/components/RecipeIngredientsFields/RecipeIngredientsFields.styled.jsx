@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 
 export const Wrapper = styled.div`
@@ -65,7 +64,6 @@ export const List = styled.ul`
   flex-direction: column;
   gap: 18px;
   margin-bottom: 44px;
-  padding-bottom: 10px;
   height: auto;
   max-height: 260px;
   overflow: auto;
@@ -76,54 +74,5 @@ export const List = styled.ul`
 
   @media screen and (min-width: ${mediaSizes.desktop}) {
     width: 609px;
-  }
-`;
-
-export const Item = styled.li`
-  width: 100%;
-  display: flex;
-  gap: 14px;
-`;
-
-export const Input = styled.input`
-  display: block;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  width: ${props => props.width || '50%'};
-  padding: 16px 60px 16px 16px;
-  background-color: ${colors.greyButton};
-  color: ${colors.blackFont};
-  border: none;
-  border-radius: 6px;
-  text-align: right;
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    font-size: 18px;
-  }
-`;
-
-export const CloseBtn = styled.button`
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin-left: auto;
-  margin-right: 5px;
-  border: none;
-  cursor: pointer;
-`;
-
-export const StyledLabel = styled.label`
-  position: relative;
-  width: 30%;
-  padding: 0;
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    width: 20%;
   }
 `;
