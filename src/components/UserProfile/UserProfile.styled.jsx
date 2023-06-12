@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 import { BiUser, BiPencil } from 'react-icons/bi';
 import { colors } from '../colors';
-// import { container } from 'helpers';
-// 
 
 export const BtnClose = styled.button`
   background-color: transparent;
@@ -25,24 +23,11 @@ export const BtnClose = styled.button`
   }
 `;
 
-export const ModalHeader = styled.div`
-  width: 330px;
-  height: 327px;
-  background-color: #fafafa;
-  box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
-  border-radius: 24px;
-  position: relative;
+export const CenteredContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    width: 480px;
-    height: 402px;
-  }
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    width: 500px;
-    height: 425px;
-  }
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FormModal = styled.form`
@@ -110,14 +95,17 @@ export const IconUser = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 54px;
+  margin-top: 22px;
+
   @media screen and (min-width: ${mediaSizes.tablet}) {
-    margin-bottom: 48px;
+    margin-bottom: 50px;
+    margin-top: 40px;
     width: 103px;
     height: 103px;
   }
   @media screen and (min-width: ${mediaSizes.desktop}) {
-    margin-bottom: 48px;
+    margin-bottom: 52px;
     width: 103px;
     height: 103px;
   }
@@ -167,23 +155,13 @@ export const BtnSave = styled.button`
   width: 282px;
   height: 49px;
 
-  padding: 0;
+  padding: 14px 84px;
   margin: 0;
   cursor: pointer;
   margin-bottom: 60px;
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    width: 400px;
-    height: 59px;
-  }
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    width: 400px;
-    height: 59px;
-  }
-`;
+  text-align: center;
 
-export const TextBtn = styled.p`
   color: #fafafa;
-  display: flex;
   font-family: 'Poppins';
   align-items: center;
   text-align: center;
@@ -191,12 +169,15 @@ export const TextBtn = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.1;
-  padding: 14px 84px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
+    width: 400px;
+    height: 59px;
     padding: 18px 143px;
   }
   @media screen and (min-width: ${mediaSizes.desktop}) {
+    width: 400px;
+    height: 59px;
     padding: 18px 143px;
   }
 `;
