@@ -1,19 +1,38 @@
-import React from 'react';
-import picture from '../images/заглушки/products/заглушка-products-big-white-2x.png'
 import { RecipeDescr, PreparationImg, RecipeIngContainer, PreparationTitle, PreparationItem, CustomNumbering, PreparationText } from './Recipes.styled';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchRecipeById } from '../../redux/id-recipes/operations'; 
+import { selectRecipeById } from 'redux/id-recipes/selectors';
 
 const RecipesPreparation = () => {
+
+    const dispatch = useDispatch();
+    const recipe = useSelector(selectRecipeById);
+  
+    const recipeId = '6462a8f74c3d0ddd28897fba';
+  
+    useEffect(() => {
+      dispatch(fetchRecipeById(recipeId));
+    }, [dispatch, recipeId]);
+  
+    if (!recipe) {
+      return <div>Loading...</div>;
+    }
+
+    const instructions = recipe && recipe.instructions ? recipe.instructions.split('.') : [];
     return(
             <RecipeIngContainer>
                 <RecipeDescr>
                     <div>
                         <PreparationTitle>Recipe Preparation</PreparationTitle>
                         <ul>
-                            <PreparationItem>
-                                <CustomNumbering>
-                                    <PreparationText>Season the salmon, then rub with oil.</PreparationText>
-                                </CustomNumbering>
+                        {instructions.map((instruction, index) => (
+                                <PreparationItem key={index}>
+                                    <CustomNumbering>
+                                        <PreparationText>{instruction}</PreparationText>
+                                    </CustomNumbering>
                             </PreparationItem>
+                        ))}
                             <PreparationItem>
                                 <CustomNumbering>
                                     <PreparationText>Mix the dressing ingredients together.</PreparationText>
@@ -31,7 +50,7 @@ const RecipesPreparation = () => {
                             alt="ingredient_photo"
                             width="433px"
                             height="332px"
-                            src={picture}
+                            src={recipe.preview}
                         />
                     </div>
                 </RecipeDescr>

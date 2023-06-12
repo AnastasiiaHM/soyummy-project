@@ -11,7 +11,6 @@ const setAuthHeader = token => {
 //     axios.defaults.headers.common.Authorization = null;
 // };
 
-
 export const fetchCategories = createAsyncThunk(
     'categories/getCategory',
     async (_, thunkAPI) => {

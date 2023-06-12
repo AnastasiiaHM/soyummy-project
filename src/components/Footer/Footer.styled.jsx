@@ -1,15 +1,14 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 // import { container } from 'helpers';
-// import { colors } from 'constants/colors';
+import { colors } from '../colors';
 import { AiOutlineMail } from 'react-icons/ai';
 
 export const FooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   /* padding: 64px 100px 50px 100px; */
-  width: 343px;
-  /* width: 100%; */
+  // width: 100%;
   /* margin: 0;
   padding: 0; */
   align-items: center;
@@ -359,3 +358,4 @@ export const WrapperInpBtn = styled.div`
     margin-bottom: 0px;
   }
 `;
+
