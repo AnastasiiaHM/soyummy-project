@@ -34,7 +34,7 @@ export const Select = ({
       ? { [name]: options[0][name] }
       : options[0];
     newValue(initialOption);
-  }, [isOptionObject, name, newValue, options]);
+  });
 
   useEffect(() => {
     if (isDropdownOpen) {

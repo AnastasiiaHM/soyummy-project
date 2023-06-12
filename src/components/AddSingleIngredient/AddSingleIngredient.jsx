@@ -1,6 +1,6 @@
-import { Select } from 'components/Select/Select';
 import { useEffect, useState } from 'react';
 import { ReactComponent as Close } from '../images/addIngredient/close.svg';
+import { Select } from 'components/Select/Select';
 import {
   Item,
   NameLabel,
@@ -24,10 +24,10 @@ const ddf = [
 ];
 
 export const AddSingleIngredient = ({
-  ingredient,
   onClick,
   index,
   selectedIngredient,
+  dropDown,
 }) => {
   const [selectedIngredientId, setSelectedIngredientId] = useState('');
   const [selectedIngredientName, setSelectedIngredientName] = useState('');
@@ -36,42 +36,50 @@ export const AddSingleIngredient = ({
   const [ingredientsList, setIngredientsList] = useState(ddf);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  useEffect(() => {
-    selectedIngredient({
-      _id: selectedIngredientId,
-      measure: `${selectedAmount} ${selectedMeasure}`,
-    });
-  }, [
-    selectedIngredient,
-    selectedIngredientId,
-    selectedAmount,
-    selectedMeasure,
-  ]);
-
   const nameTypingHandler = e => {
     const value = e.target.value;
     setSelectedIngredientName(value);
     setIsDropdownOpen(true);
+    dropDown(true);
   };
 
   const ingredientSelectHandler = e => {
     e.preventDefault();
-    console.log('e.target.value: ', e.target.value);
     setSelectedIngredientName(e.target.textContent);
     setSelectedIngredientId(e.target.value);
     setIsDropdownOpen(false);
+    dropDown(false);
+
+    selectedIngredient({
+      _id: e.target.value,
+      measure: `${selectedAmount} ${selectedMeasure}`,
+    });
   };
 
   const amountTypingHandler = e => {
     setSelectedAmount(e.target.value);
+
+    selectedIngredient({
+      _id: selectedIngredientId,
+      measure: `${e.target.value} ${selectedMeasure}`,
+    });
   };
 
   const selectMeasureHandler = value => {
     setSelectedMeasure(value);
+
+    selectedIngredient({
+      _id: selectedIngredientId,
+      measure: `${selectedAmount} ${value}`,
+    });
+  };
+
+  const dropdownHandler = value => {
+    dropDown(value);
   };
 
   return (
-    <Item key={ingredient.keyId}>
+    <Item>
       <NameLabel style={{ zIndex: 100 - index }}>
         <Input
           type="text"
@@ -98,7 +106,7 @@ export const AddSingleIngredient = ({
       </NameLabel>
       <StyledLabel style={{ zIndex: 100 - index }}>
         <Input
-          type="text"
+          type="number"
           width="100%"
           required
           onChange={amountTypingHandler}
@@ -111,6 +119,7 @@ export const AddSingleIngredient = ({
           width="100%"
           newValue={selectMeasureHandler}
           readOnly
+          open={dropdownHandler}
         />
       </StyledLabel>
       <CloseBtn type="button" onClick={onClick}>

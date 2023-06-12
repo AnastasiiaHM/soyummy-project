@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparationFields } from 'components/RecipePreparationFields/RecipePreparationFields';
@@ -22,11 +23,25 @@ const validationSchema = Yup.object().shape({
     .min(30, 'There must be at least 30 symbols')
     .max(500, 'There must be not over 500 symbols')
     .required('Required'),
+  preparation: Yup.string()
+    .matches(
+      /^[a-zA-Z0-9\s]*$/,
+      'Only alphanumeric characters and spaces are allowed'
+    )
+    .min(50, 'There must be at least 50 symbols')
+    .max(500, 'There must be not over 500 symbols')
+    .required('Required'),
 });
 
-const initialValue = { title: '', description: '' };
+const initialValue = {
+  title: '',
+  description: '',
+  preparation: '',
+};
 
 export const AddRecipeForm = () => {
+  const [ingredients, setIngredients] = useState([]);
+
   const submitHandler = e => {
     e.preventDefault();
   };
@@ -40,14 +55,13 @@ export const AddRecipeForm = () => {
       initialValues={initialValue}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(values);
         setSubmitting(false);
       }}
     >
       <Form onSubmit={submitHandler}>
         <StyledTitle className="title">Add recipe</StyledTitle>
         <RecipeDescriptionFields selectedValue={handler} />
-        <RecipeIngredients />
+        <RecipeIngredients setParentIngredients={setIngredients} />
         <RecipePreparationFields />
         <StyledButton type="submit" className="btn blackbtn">
           Add

@@ -32,6 +32,16 @@ export const Input = styled.input`
     border: 1px solid #fff;
     outline: none;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
 `;
 
 export const CloseBtn = styled.button`

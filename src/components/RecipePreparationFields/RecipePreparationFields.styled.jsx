@@ -22,7 +22,6 @@ export const StyledTextarea = styled.textarea`
   display: block;
   width: 100%;
   padding: 10px 16px;
-  margin-bottom: 18px;
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -34,6 +33,28 @@ export const StyledTextarea = styled.textarea`
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 505px;
     font-size: 18px;
+  }
+`;
+
+export const ValidationInfo = styled.span`
+  color: red;
+  font-size: 11px;
+  background-color: transparent;
+  position: absolute;
+  padding: 0;
+  top: 100%;
+  left: 0;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    font-size: 12px;
+  }
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  margin-bottom: 18px;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 32px;
   }
 `;

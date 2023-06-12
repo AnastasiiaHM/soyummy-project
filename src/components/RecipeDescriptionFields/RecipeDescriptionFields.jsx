@@ -106,7 +106,6 @@ const time = [
 ];
 
 export const RecipeDescriptionFields = ({ selectedValue, zIndex }) => {
-  const { values, errors, touched, setFieldValue } = useFormikContext();
   const [titleField, titleMeta] = useField('title');
   const [descriptionField, descriptionMeta] = useField('description');
   const [thumb, setThumb] = useState(null);
