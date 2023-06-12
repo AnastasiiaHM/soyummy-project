@@ -1,35 +1,64 @@
 import styled from '@emotion/styled';
+import { mediaSizes } from 'components/constants';
+import { colors } from '../colors';
+
+export const RecipeWrapper = styled.div`
+    width: 343px;
+    margin: 0 auto;
+
+    @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
+    width: 704px;
+    margin: 0 auto;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+    width: 1240px;
+    margin: 0 auto;
+    }
+`;
 
 export const RecipeTitle = styled.h2`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 44px;
-    line-height: 44px;
+    font-size: 24px;
+    line-height: 24px;
     text-align: center;
     letter-spacing: -0.02em;
 
-    color: #8BAA36;
+    color: ${colors.greenButton};
 
-    margin-top: 113px;
+    @media (min-width: ${mediaSizes.tablet}) {
+        font-size: 44px;
+        line-height: 44px;
+    }
 `;
 
 export const RecipeText = styled.p`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 12px;
+    line-height: 16px;
 
     text-align: center;
     letter-spacing: -0.02em;
 
-    color: #23262A;
+    color: ${colors.blackFont};
     
-    width: 656px;
-    height: 72px;
+    width: 299px;
+    height: 64px;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 18px;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        font-size: 18px;
+        line-height: 24px;
+
+        width: 656px;
+        height: 72px;
+        margin-top: 30px;
+    }
 `;
 
 export const RecipeTiming = styled.div`
@@ -37,52 +66,107 @@ export const RecipeTiming = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 48px;
+    margin-bottom: 132px;
     gap: 10px;
-    color: rgba(35, 38, 42, 1);
+    color: ${colors.blackFont};
+
+    @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
+        margin-bottom: 105px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        
+        margin-bottom: 50px;
+    }
 `;
 
 export const RecipeIngContainer = styled.div`
-    width: 1240px;
+    width: 343px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 32px;
+    margin-bottom: 100px;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        width: 704px;
+        margin: 0 auto;
+        margin-bottom: 200px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        width: 1240px;
+        margin-top: 50px;
+    }
 `
 
 export const RecipeIngTable = styled.div`
     display: flex;
-    height: 60px;
     left: 0px;
     right: 0px;
     top: 0px;
-
-    background: #8BAA36;
+    height: 32px;
+    background: ${colors.greenButton};
     border-radius: 8px;
 
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 27px;
-    display: flex;
+    font-size: 10px;
+    line-height: 15px;
     align-items: center;
     letter-spacing: 0.03em;
+    color: ${colors.textGreenBtn};
+    margin-bottom: 24px;
 
-    color: #FAFAFA;
+    @media (min-width: ${mediaSizes.tablet}) {
+        height: 60px;
+        font-size: 18px;
+        line-height: 27px;
+        margin-bottom: 32px
+    }
 
-    margin-bottom: 50px
-
+    @media (min-width: ${mediaSizes.desktop}) {
+        height: 60px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        font-size: 18px;
+        line-height: 27px;
+    }
 `
 
 export const IngTable = styled.div`
     display: flex;
-    margin-left: 761px;
+    margin-left: 122px;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        margin-left: 312px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        margin-left: 761px;
+    }
 `
 
 export const IngText = styled.p`
-    margin-right: 109px;
+    margin-right: 18px;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        margin-right: 38px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        margin-right: 109px;
+    }
 `
 
 export const RecipeIngText = styled.p`
-    margin-left: 40px;
+    margin-left: 10px;
+    @media (min-width: ${mediaSizes.tablet}) {
+        margin-left: 40px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        margin-left: 40px;
+    }
 `
 
 export const IngItem = styled.div`
@@ -91,81 +175,146 @@ export const IngItem = styled.div`
     align-items: center;
     padding: 0px 32px;
     isolation: isolate;
-
-    height: 182px;
-
-    background: #EBF3D4;
+    height: 86px;
+    background: ${colors.imageBC};
     border-radius: 8px;
-    align-items: center;
     justify-content: space-between;
+    margin-bottom: 16px;
 
-    margin-bottom: 24px;
+    @media (min-width: ${mediaSizes.tablet}) {
+        height: 178px;
+        margin-bottom: 24px;
+        align-items: center;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        height: 182px;
+    }
+`
+
+export const IngImage = styled.img`
+    width: 57px;
+    height: 57px;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        width: 112px;
+        height: 112px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        width: 128px;
+        height: 128px;
+    }
 `
 
 export const IngItemName = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 66px;
+    gap: 8px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 12px;
+    line-height: 14px;
 
     letter-spacing: -0.24px;
 
-    color: #3E4462;
+    color: ${colors.recipeCardText};
     align-items: center;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        gap: 40px;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        gap: 66px;
+    }
 `
 
 export const IngItemDeskr = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 150px;
-    margin-right: 70px;
+    gap: 28px;
+    margin-right: 28px;
+    @media (min-width: ${mediaSizes.tablet}) {
+        gap: 78px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        gap: 150px;
+    }
 `
 
 export const IngInput = styled.input`
-border: 2px solid rgba(126, 126, 126, 0.5);
-border-radius: 4px;
-background: transparent;
-width: 35px;
-height: 35px;
-position: relative;
-appearance: none;
+    border: 2px solid rgba(126, 126, 126, 0.5);
+    border-radius: 4px;
+    background: transparent;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    appearance: none;
 
-&:before {
-    content: '✓';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 21px;
-    color: #8BAA36;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-}
+    &:before {
+        content: '✓';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 21px;
+        color: ${colors.greenButton};
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
 
-&:checked:before {
-  opacity: 1;
-}
+    &:checked:before {
+    opacity: 1;
+    }
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        width: 35px;
+        height: 35px;
+    }
 `
 
 export const IngAmount = styled.div`
-    width: 68px;
-    height: 35px;
-    background: #8BAA36;
+    min-width: 63px;
+    height: 23px;
+
+    background: ${colors.greenButton};
     border-radius: 4px;
-    
+    font-size: 12px;
+    color: ${colors.whiteColor};
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        min-width: 68px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        min-width: 68px;
+        height: 35px;
+    }
 `
 export const RecipeDescr = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        flex-direction: column;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        flex-direction: row;
+    }
 `
 export const PreparationTitle = styled.h3`
     font-family: 'Poppins';
@@ -176,7 +325,7 @@ export const PreparationTitle = styled.h3`
 
     letter-spacing: -0.24px;
 
-    color: #3E4462;
+    color: ${colors.recipeCardText};
     margin-bottom: 33px;
 `
 
@@ -184,15 +333,20 @@ export const PreparationItem = styled.li`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 12px;
+    line-height: 14px;
 
     letter-spacing: -0.02em;
 
-    color: rgba(0, 0, 0, 0.8);
+    color: ${colors.blackFontBolt};
     margin-bottom: 21px;
     position: relative;
     counter-increment: custom-counter;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        font-size: 14px;
+        line-height: 18px;
+    }
 `
 
 export const CustomNumbering = styled.div`
@@ -210,12 +364,22 @@ export const CustomNumbering = styled.div`
     width: 21px;
     height: 21px;
 
-    background: #8BAA36;
+    background: ${colors.greenButton};
     border-radius: 100px;
-    color: #fff;
+    color: ${colors.whiteColor};
   }
 `
 
 export const PreparationText = styled.p`
   margin-left: 35px;
+`
+export const PreparationImg = styled.img`
+    width: 343px;
+    height: 250px;
+
+@media (min-width: ${mediaSizes.tablet}) {
+    width: 433px;
+    height: 332px;
+}
+
 `

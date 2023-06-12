@@ -33,12 +33,13 @@ export const RegisterForm = () => {
       >
         {({ errors, touched, isSubmitting }) => (
           <Form autoComplete="off">
-            <Caption>Register</Caption>
+            <Caption>Registration</Caption>
             <FormFields>
               <InputWraper>
                 <BiUser
-                  className={` ${
-                    errors.username && touched.username ? 'error-icon' : 'icon'
+                  className={`icon ${
+                    touched.username &&
+                    (errors.username ? 'error-icon' : 'success-icon')
                   }`}
                 />
                 {errors.username && touched.username && (
@@ -52,7 +53,7 @@ export const RegisterForm = () => {
                   name="username"
                   placeholder="Name"
                   autoComplete="off"
-                  className={`input-field ${
+                  className={` ${
                     touched.username && (errors.username ? 'error' : 'success')
                   }`}
                 />
@@ -65,7 +66,9 @@ export const RegisterForm = () => {
 
               <InputWraper>
                 <HiOutlineMail
-                  className={`${errors.email && touched.email ? 'error' : ''}`}
+                  className={`${
+                    touched.email && (errors.email ? 'error' : 'success')
+                  }`}
                 />
                 {errors.email && touched.email && (
                   <AiFillCloseCircle className="invalid" />
@@ -89,14 +92,12 @@ export const RegisterForm = () => {
                 {errors.password && touched.password && (
                   <AiFillCloseCircle className="invalid" />
                 )}
-                {!errors.password &&
-                  touched.password &&
-                  !isSubmitting &&
-                  !errors.password &&
-                  touched.password && <AiFillCheckCircle className="valid" />}
+                {!errors.password && touched.password && !isSubmitting && (
+                  <AiFillCheckCircle className="valid" />
+                )}
                 <HiOutlineLockClosed
                   className={`${
-                    errors.password && touched.password ? 'error' : ''
+                    touched.password && (errors.password ? 'error' : 'success')
                   }`}
                 />
                 <Field
@@ -108,16 +109,24 @@ export const RegisterForm = () => {
                     touched.password && (errors.password ? 'error' : 'success')
                   }`}
                 />
-                <ErrorMessage className="error" component="div" name="password">
-                  {message => <div className="error-message">{message}</div>}
-                </ErrorMessage>
+                {touched.password && !errors.password && (
+                  <div className="success-message">Password is secure</div>
+                )}
                 <ErrorMessage
+                  className="error"
+                  component="div"
+                  name="password"
+                />
+                {/* <ErrorMessage className="error" component="div" name="password">
+                  {message => <div className="error-message">{message}</div>}
+                </ErrorMessage> */}
+                {/* <ErrorMessage
                   className="warning"
                   component="div"
                   name="password"
                 >
                   {message => <div className="warning-message">{message}</div>}
-                </ErrorMessage>
+                </ErrorMessage> */}
               </InputWraper>
             </FormFields>
             <button>Sign up</button>

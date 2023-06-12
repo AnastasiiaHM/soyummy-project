@@ -1,16 +1,18 @@
 import React from 'react';
 import {IngredientList} from './IngredientList'
 import {RecipeIngContainer, RecipeIngTable, IngTable, IngText, RecipeIngText} from './Recipes.styled'
+
+
 const RecipesIngredients = () => {
     return(
-        <>
+      <>
         <RecipeIngContainer>
           <RecipeIngTable>
-                <RecipeIngText>Ingredients</RecipeIngText>
-                <IngTable>
+              <RecipeIngText>Ingredients</RecipeIngText>
+            <IngTable>
                 <IngText>Number</IngText>
                 <p>Add to list</p>
-                </IngTable>
+            </IngTable>
           </RecipeIngTable>
           <IngredientList />
         </RecipeIngContainer>

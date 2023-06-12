@@ -1,14 +1,29 @@
-import React from 'react';
-import { RecipeTitle, RecipeText, RecipeTiming } from './Recipes.styled';
-
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchRecipeById } from '../../redux/id-recipes/operations'; 
+import { RecipeTitle, RecipeText, RecipeTiming, RecipeWrapper } from './Recipes.styled';
+import { selectRecipeById } from 'redux/id-recipes/selectors';
+import { Loader } from 'components/Loader/Loader'; 
 const RecipesHero = () => {
+
+    const dispatch = useDispatch();
+    const recipe = useSelector(selectRecipeById);
+  
+    const recipeId = '6462a8f74c3d0ddd28897fba';
+  
+    useEffect(() => {
+      dispatch(fetchRecipeById(recipeId));
+    }, [dispatch, recipeId]);
+  
+    if (!recipe) {
+      return <Loader/>;
+    }
+
     return(
-            <div>
+            <RecipeWrapper>
                 <div>
-                    <div>
-                    <RecipeTitle>Salmon Avocado Salad</RecipeTitle>
-                    </div>
-                    <RecipeText>Is a healthy salad recipe that’s big on nutrients and flavor. A moist, pan seared salmon is layered on top of spinach, avocado, tomatoes, and red onions. Then drizzled with a homemade lemon vinaigrette.</RecipeText>
+                    <RecipeTitle>{recipe.title}</RecipeTitle>
+                    <RecipeText>{recipe.description}</RecipeText>
                 </div>
                 <div>
                     <button className="btn recipesbtn">Add to favorite recipes</button>
@@ -24,10 +39,10 @@ const RecipesHero = () => {
                             </clipPath>
                             </defs>
                         </svg>
-                        <p>20 min</p>
+                        <p>{recipe.time}</p>
                     </RecipeTiming>
                 </div>
-            </div>
+            </RecipeWrapper>
     )  
     
 }

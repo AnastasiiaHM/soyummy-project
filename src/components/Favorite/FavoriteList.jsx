@@ -1,21 +1,34 @@
 import FavoriteCard from './FavoriteCard';
-import { List, ListName } from './FavoriteList.styled';
+import {
+  ContainerPagination,
+  List,
+  ListName,
+  StyledPagination,
+} from './FavoriteList.styled';
 
-const FavoriteList = ({ list, listName }) => {
+const FavoriteList = ({
+  list,
+  listName,
+  totalPages,
+  page,
+  pageChange,
+  deleteCard,
+}) => {
   return (
     <>
       <ListName>{listName}</ListName>
       <List>
         {list.map(card => (
-          <FavoriteCard
-            key={card.id}
-            img={card.img}
-            title={card.title}
-            desc={card.desc}
-            time={card.time}
-          />
+          <FavoriteCard key={card._id} card={card} deleteCard={deleteCard} />
         ))}
       </List>
+      <ContainerPagination>
+        <StyledPagination
+          count={totalPages}
+          page={page}
+          onChange={(_, newPage) => pageChange(newPage)}
+        />
+      </ContainerPagination>
     </>
   );
 };

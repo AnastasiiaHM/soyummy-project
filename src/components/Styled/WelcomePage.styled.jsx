@@ -9,34 +9,43 @@ export const WelcomePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 275px;
+  width: 100vw;
+  height: 100vh;
   color: ${colors.textGreenBtn};
   background: url(${backgroundMob});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  margin-inline: auto;
+  padding-top: 275px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
-    width: 1280px;
-    height: 900px;
     background: url(${backgroundTab});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
+    padding-top: 342px;
   }
+
   @media screen and (min-width: ${mediaSizes.desktop}) {
     background: url(${backgroundDesk});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
+    padding-top: 214px;
   }
 
   & svg {
     margin-bottom: 28px;
+    align-items: center;
+    width: 54px;
+    height: 54px;
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
       margin-bottom: 44px;
+      width: 68px;
+      height: 68px;
     }
   }
 `;
