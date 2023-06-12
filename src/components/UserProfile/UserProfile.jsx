@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Box } from '@mui/material';
 import { GoX } from 'react-icons/go';
 import {
@@ -17,18 +17,7 @@ import { BiPlus, BiUser } from 'react-icons/bi';
 import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 
-const UserProf = ({ handleCloseModalProfile, handleModalClickProfile }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-    handleModalClickProfile();
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    handleCloseModalProfile();
-  };
+const UserProf = ({ handleCloseModalProfile }) => {
 
   const style = {
     position: 'absolute', 
@@ -42,7 +31,7 @@ const UserProf = ({ handleCloseModalProfile, handleModalClickProfile }) => {
   };
 
   return (
-    <Modal open={handleOpen} onClose={handleClose}>
+    <Modal open={true} onClose={handleCloseModalProfile}>
       <Box 
         sx={{
           ...style,          
@@ -60,7 +49,7 @@ const UserProf = ({ handleCloseModalProfile, handleModalClickProfile }) => {
           },          
         }}
       >
-      <BtnClose onClick={handleClose}>
+      <BtnClose onClick={handleCloseModalProfile}>
           <GoX style={{ width: '20px', height: '20px' }} />
       </BtnClose>
       <IconUser>
@@ -89,7 +78,7 @@ const UserProf = ({ handleCloseModalProfile, handleModalClickProfile }) => {
             <InputMod type="text" placeholder="Your name" />
           </WrapperInp>
         </FormModal>    
-        <BtnSave onClick={handleClose}>
+        <BtnSave onClick={handleCloseModalProfile}>
           Save changes
         </BtnSave>
       </CenteredContainer>
