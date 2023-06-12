@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { colors } from 'components/colors';
 
-export const ItemWraper = styled.div`
+export const ItemWraper = styled.li`
   position: relative;
   display: flex;
   flex-direction: row;
