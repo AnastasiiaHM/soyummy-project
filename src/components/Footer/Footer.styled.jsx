@@ -5,24 +5,26 @@ import { mediaSizes } from '../constants/media';
 import { AiOutlineMail } from 'react-icons/ai';
 
 export const FooterWrapper = styled.div`
+  background: #22252a;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* padding: 64px 100px 50px 100px; */
-  width: 343px;
-  /* width: 100%; */
-  /* margin: 0;
-  padding: 0; */
   align-items: center;
+
+  padding-block: 28px 21px;
+
   @media screen and (min-width: ${mediaSizes.tablet}) {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    width: 704px;
     align-items: baseline;
+
+    padding-block: 50px 26px;
   }
   @media screen and (min-width: ${mediaSizes.desktop}) {
+    display: flex;
     flex-direction: row;
-    width: 1240px;
     align-items: baseline;
   }
 `;
@@ -78,9 +80,43 @@ export const Text = styled.p`
 `;
 
 export const FooterMain = styled.footer`
-  background: #22252a;
-  /* margin: 0px -92.5px; */
-  /* padding: 0px -100px; */
+  width: 100vw;
+
+  & .light-footer {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+
+    padding-block: 28px;
+
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: -0.01em;
+    color: #22252a;
+    opacity: 0.5;
+
+    @media screen and (min-width: ${mediaSizes.tablet}) {
+      font-size: 14px;
+      line-height: 14px;
+      gap: 28px;
+      padding-block: 32px;
+    }
+
+    @media screen and (min-width: ${mediaSizes.desktop}) {
+      gap: 40px;
+      padding-block: 50px;
+    }
+  }
+
+  & .light-year {
+    font-weight: 500;
+  }
+
+  & .light-text {
+    font-weight: 400;
+  }
 `;
 
 export const ListTextInf = styled.ul`
@@ -88,6 +124,7 @@ export const ListTextInf = styled.ul`
   width: 418px;
   list-style-type: disc;
   color: #fafafa;
+
   @media screen and (min-width: ${mediaSizes.tablet}) {
     display: flex;
     flex-direction: column;
@@ -331,19 +368,18 @@ export const WrapperInp = styled.div`
 `;
 
 export const WrapperLastFooter = styled.div`
-  width: 339px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
   @media screen and (min-width: ${mediaSizes.tablet}) {
-    flex-direction: column;
+    width: 100vw;
   }
   @media screen and (min-width: ${mediaSizes.desktop}) {
-    display: flex;
-    /* flex-direction: row; */
-    flex-direction: column;
     align-items: flex-start;
+    padding: 0;
+    width: 338px;
   }
 `;
 export const WrapperInpBtn = styled.div`

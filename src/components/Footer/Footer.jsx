@@ -132,6 +132,10 @@ const Footer = () => {
           </ListNetWorkLast>
         </WrapperLastFooter>
       </FooterWrapper>
+      <div className="light-footer">
+        <p className="light-year">© 2023 All Rights Reserved.</p>
+        <p className="light-text">Terms of Service</p>
+      </div>
     </FooterMain>
   );
 };
