@@ -39,7 +39,7 @@ const RecipesHero = () => {
                             </clipPath>
                             </defs>
                         </svg>
-                        <p>{recipe.time}</p>
+                        <p>{recipe.time} min</p>
                     </RecipeTiming>
                 </div>
             </RecipeWrapper>

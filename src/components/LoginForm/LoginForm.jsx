@@ -9,21 +9,29 @@ import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
 
 import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
+import { LogIn } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const initialValues = { email: '', password: '' };
 
   const schema = yup.object().shape({
     email: yup.string().email().min(3).max(254).required(),
     password: yup.string().min(8).max(100).required(),
   });
+  const handleSubmit = values => {
+    console.log(values);
+    dispatch(LogIn(values));
+  };
 
   return (
     <RegisterFormStyled>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
       >
         {({ errors, touched, isSubmitting }) => (
           <Form autoComplete="off">
