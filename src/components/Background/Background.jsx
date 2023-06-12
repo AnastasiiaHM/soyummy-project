@@ -5,6 +5,5 @@ export const Background = () => {
     <Wrapper>
       <Assortment></Assortment>
     </Wrapper>
-  )
+  );
 };
-
