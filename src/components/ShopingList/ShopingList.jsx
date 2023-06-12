@@ -2,10 +2,6 @@ import { ShoppingListItems } from './ShopingListItem/ShopingListItem';
 import { fetchShoppingList } from 'redux/shopping-list/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import {
-  selectShoppingList,
-  selectIsLoading,
-} from 'redux/shopping-list/selectors';
 
 import {
   Section,
@@ -14,7 +10,6 @@ import {
   ListWraper,
   ItemsWrapper,
 } from './ShopingList.styled';
-import { Loader } from 'components/Loader/Loader';
 
 export const ShoppingListComponent = () => {
   const dispatch = useDispatch();
@@ -23,8 +18,13 @@ export const ShoppingListComponent = () => {
     dispatch(fetchShoppingList());
   }, [dispatch]);
 
-  const shoppingList = useSelector(selectShoppingList);
-  const isLoading = useSelector(selectIsLoading);
+  const shoppingList = useSelector(state => {
+    const newShoppingList = state.shoppingList.shoppingList.filter(
+      ({ ingredientId }) => ingredientId !== state.shoppingList.deletedProductId
+    );
+    console.log(newShoppingList);
+    return newShoppingList;
+  });
 
   return (
     <Section>
@@ -41,28 +41,15 @@ export const ShoppingListComponent = () => {
         </li>
       </List>
       <ItemsWrapper>
-        {isLoading ? (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '100px',
-            }}
-          >
-            <Loader />
-          </div>
-        ) : (
-          shoppingList?.map(({ image, ingredientId, measure, name }) => (
-            <ShoppingListItems
-              key={ingredientId}
-              id={ingredientId}
-              image={image}
-              measure={measure}
-              name={name}
-            ></ShoppingListItems>
-          ))
-        )}
+        {shoppingList?.map(({ image, ingredientId, measure, name }) => (
+          <ShoppingListItems
+            key={ingredientId}
+            id={ingredientId}
+            image={image}
+            measure={measure}
+            name={name}
+          ></ShoppingListItems>
+        ))}
       </ItemsWrapper>
     </Section>
   );

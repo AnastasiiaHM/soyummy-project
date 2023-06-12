@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchShoppingList, setDeleteProduct } from './operations';
 
 const initialState = {
-  shoppingList: null,
+  shoppingList: [],
+  deletedProductId: null,
   isLoading: false,
   error: null,
 };
@@ -29,7 +30,10 @@ const shoppingList = createSlice({
         state.error = null;
       })
       .addCase(setDeleteProduct.fulfilled, (state, { payload }) => {
-        state.shoppingList = payload;
+        state.shoppingList = state.shoppingList.filter(
+          product => state.shoppingList.ingredientId !== payload.ingredientId
+        );
+        state.deletedProductId = payload.ingredientId;
         state.isLoading = false;
       })
       .addCase(setDeleteProduct.rejected, (state, { payload }) => {
