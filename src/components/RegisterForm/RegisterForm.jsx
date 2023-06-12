@@ -33,7 +33,7 @@ export const RegisterForm = () => {
       >
         {({ errors, touched, isSubmitting }) => (
           <Form autoComplete="off">
-            <Caption>Register</Caption>
+            <Caption>Registration</Caption>
             <FormFields>
               <InputWraper>
                 <BiUser

@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import assortment from '../images/assortment/assortment-vegetables-2x.jpg'
+import assortment from '../images/assortment/assortment-vegetables-2x.jpg';
 import { mediaSizes } from 'components/constants';
-import spynath from '../images/header/spinach/spinach-right-desc-header-2x.png'
+import spynath from '../images/header/spinach/spinach-right-desc-header-2x.png';
 import { colors } from 'components/colors';
-
 
 export const Wrapper = styled.div`
   position: relative;
