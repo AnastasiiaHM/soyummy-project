@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchRecipeById } from '../../redux/id-recipes/operations'; 
 import { RecipeTitle, RecipeText, RecipeTiming, RecipeWrapper } from './Recipes.styled';
 import { selectRecipeById } from 'redux/id-recipes/selectors';
+import { Loader } from 'components/Loader/Loader'; 
 const RecipesHero = () => {
 
     const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const RecipesHero = () => {
     }, [dispatch, recipeId]);
   
     if (!recipe) {
-      return <div>Loading...</div>;
+      return <Loader/>;
     }
 
     return(

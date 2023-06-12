@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRecipeById } from '../../redux/id-recipes/operations'; 
 import { selectRecipeById } from 'redux/id-recipes/selectors';
-
+import { Loader } from 'components/Loader/Loader';
 const RecipesPreparation = () => {
 
     const dispatch = useDispatch();
@@ -16,8 +16,8 @@ const RecipesPreparation = () => {
     }, [dispatch, recipeId]);
   
     if (!recipe) {
-      return <div>Loading...</div>;
-    }
+        return <Loader/>;
+      }
 
     const instructions = recipe && recipe.instructions ? recipe.instructions.split('.') : [];
     return(
