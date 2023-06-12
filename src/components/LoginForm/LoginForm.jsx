@@ -27,7 +27,7 @@ export const LoginForm = () => {
       >
         {({ errors, touched, isSubmitting }) => (
           <Form autoComplete="off">
-            <Caption>Register</Caption>
+            <Caption>Sign In</Caption>
             <FormFields>
               <InputWraper>
                 <HiOutlineMail

@@ -25,7 +25,6 @@ import {
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
 import { Logo } from '../LogoFooter/LogoFooter';
-
 const Footer = () => {
   return (
     <FooterMain>
@@ -132,6 +131,10 @@ const Footer = () => {
           </ListNetWorkLast>
         </WrapperLastFooter>
       </FooterWrapper>
+      <div className="light-footer">
+        <p className="light-year">© 2023 All Rights Reserved.</p>
+        <p className="light-text">Terms of Service</p>
+      </div>
     </FooterMain>
   );
 };
