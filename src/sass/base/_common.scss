@@ -22,7 +22,7 @@ body {
 }
 
 .visually-hidden {
-  position: absolute;
+  position: fixed;
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -39,4 +39,9 @@ body {
 :root:lang(iw) .select {
   background-position: left 0.7em top 50%, 0 0;
   padding: 0.6em 0.8em 0.5em 1.4em;
+}
+
+div .css-jqjsgd {
+  margin: 0;
+  padding: 0;
 }

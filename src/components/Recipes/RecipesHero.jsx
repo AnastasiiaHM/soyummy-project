@@ -1,13 +1,11 @@
 import React from 'react';
-import { RecipeTitle, RecipeText, RecipeTiming } from './Recipes.styled';
+import { RecipeTitle, RecipeText, RecipeTiming, RecipeWrapper } from './Recipes.styled';
 
 const RecipesHero = () => {
     return(
-            <div>
+            <RecipeWrapper>
                 <div>
-                    <div>
                     <RecipeTitle>Salmon Avocado Salad</RecipeTitle>
-                    </div>
                     <RecipeText>Is a healthy salad recipe that’s big on nutrients and flavor. A moist, pan seared salmon is layered on top of spinach, avocado, tomatoes, and red onions. Then drizzled with a homemade lemon vinaigrette.</RecipeText>
                 </div>
                 <div>
@@ -27,7 +25,7 @@ const RecipesHero = () => {
                         <p>20 min</p>
                     </RecipeTiming>
                 </div>
-            </div>
+            </RecipeWrapper>
     )  
     
 }

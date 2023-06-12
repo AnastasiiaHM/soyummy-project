@@ -1,9 +1,66 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import NotesIcon from '@mui/icons-material/Notes';
+import { colors } from '../colors'
+import {Logo} from '../Logo/Logo'
+import { BasicSwitches } from 'components/Header/Switch';
+import { VerticalTabs } from './VerticalTabs'
+import { BackgroundMob } from '../Background/MenuBgr'
+import { HeaderWrapper, SwitchWrapper } from '../Header/Header.styled'
+import CloseIcon from '@mui/icons-material/Close';
 
 
-const MobileMenu = ({ handleClick }) => {
-  return (
-   <div>mobile menu</div>
+export function TemporaryDrawer() {
+  const [state, setState] = React.useState({
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <div  style={{ backgroundColor: `${colors.imageBC}` }}>
+      <Box
+      sx={{
+        width: anchor === 'top' || anchor === 'bottom' ? 'auto' : '100vw' }}
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+        >
+        
+        <HeaderWrapper>
+          <Logo />
+          <CloseIcon />
+        </HeaderWrapper>
+        <VerticalTabs />
+        <SwitchWrapper>
+          <BasicSwitches />
+        </SwitchWrapper>
+        <BackgroundMob />
+      </Box>
+    </div>
   );
-};
 
-export default MobileMenu;
+  return (
+    <div>
+      <Button onClick={toggleDrawer('right', true)}>
+        <NotesIcon style={{ color: `${colors.blackFont}` }}/>
+      </Button>
+      <Drawer
+        anchor="right"
+        open={state.right}
+        onClose={toggleDrawer('right', false)}
+        
+      >
+        {list('right')}
+      </Drawer>
+    </div>
+  );
+}
