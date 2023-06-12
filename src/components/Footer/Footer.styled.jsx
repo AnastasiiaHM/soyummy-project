@@ -29,7 +29,7 @@ export const FooterWrapper = styled.div`
 
 export const WrapperName = styled.div`
   display: flex;
-  align-items: center;
+    align-items: center;
   margin-bottom: 32px;
   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 24spx;
