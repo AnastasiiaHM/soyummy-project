@@ -63,7 +63,7 @@ const LogoutModal = ({ handleCloseModal, handleLogoutClick }) => {
                 Are you sure you want to log out?
             </Typography>
             <Box style={{ display: 'flex', justifyContent: 'center'}}>  
-                <BtnLogOut style={{ marginRight: '16px' }} >
+                <BtnLogOut style={{ marginRight: '16px' }} onClick={handleCloseModal}>
                     <TextForBtn>Log out</TextForBtn>
                 </BtnLogOut>
                 <BtnCancel onClick={handleCloseModal}>
