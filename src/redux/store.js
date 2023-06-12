@@ -13,6 +13,7 @@ import {
   REGISTER,
   persistReducer,
 } from 'redux-persist';
+import favoriteRecipesReducer from './favorite/slice';
 
 const persistConfig = {
   key: 'token',
@@ -28,7 +29,7 @@ export const store = configureStore({
     recipesId: recipesIdSlice,
     // shoppingList: shoppingListReducer,
     // mainRecipes: mainRecipeReduser,
-    // favoriteRecipes: favoriteRecipesReducer,
+    favoriteRecipes: favoriteRecipesReducer,
     // myRecipes: myRecipesReducer,
     // ingredients: ingredientsReducer,
     // search: searchReducer,
