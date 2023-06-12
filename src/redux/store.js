@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
 import storage from 'redux-persist/lib/storage';
+import categories from './recipes/slice'
 
 import {
   persistStore,
@@ -31,7 +32,7 @@ export const store = configureStore({
     // myRecipes: myRecipesReducer,
     // ingredients: ingredientsReducer,
     // search: searchReducer,
-    // categories: categoriesReducer,
+    categories,
     // subscribe: subscribeReducer,
   },
 

@@ -1,7 +1,16 @@
 import CategoriesTab from 'components/CategoriesTab/CategoriesTab';
 import RecipesGallery from 'components/RecipesGallery/RecipesGallery';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryName } from '../redux/recipes/slice';
 
 const Categories = () => {
+  const dispatch = useDispatch();
+  const categoryName = useSelector(state => state.categories.name);
+
+  const onChangeCategory = name => {
+    dispatch(setCategoryName(categoryName(name)));
+  };
+  console.log(categoryName);
   const recipes = [
     {
       _id: '6462a8f74c3d0ddd28897fb8',
@@ -705,7 +714,10 @@ const Categories = () => {
   return (
     <>
       <h1 className="title">Categories</h1>
-      <CategoriesTab />
+      <CategoriesTab
+        categoryName={categoryName}
+        onChangeCategory={onChangeCategory}
+      />
       <RecipesGallery recipes={recipes} />
     </>
   );
