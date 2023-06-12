@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { mediaSizes } from '../components/constants/media';
-import backgroundImageDesc1x from '../components/images/header/salat/salat-header-desc-1x.png';
+import { mediaSizes } from '../constants/media';
+import backgroundImageDesc1x from '../../components/images/header/salat/salat-header-desc-1x.png';
 
 const regularFontWeight = '400';
 const blackColor = '#000000';

@@ -3,20 +3,20 @@ import Tabs from '@mui/material/Tabs';
 import Box from '@mui/material/Box';
 import { colors } from '../colors';
 import { StyledTab } from './CategoriesTab.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/recipes/slice';
 
 export default function CategoriesTab(props) {
-  const categoryFilter = useSelector(state => state.categories.filter);
   const dispatch = useDispatch();
   const { categoriesList } = props;
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const onClickCategory = id => {
-    dispatch(setFilter(categoryFilter));
+  const onClickCategory = e => {
+    dispatch(setFilter(e));
   };
+
   return (
     <Box
       sx={{
@@ -47,7 +47,7 @@ export default function CategoriesTab(props) {
           <StyledTab
             key={category._id}
             label={category.name}
-            onClick={onClickCategory}
+            onClick={e => onClickCategory(category.name)}
           />
         ))}
       </Tabs>
