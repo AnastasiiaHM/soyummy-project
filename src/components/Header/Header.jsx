@@ -1,20 +1,12 @@
-import { GoX } from 'react-icons/go';
-import {
-  BtnClose,
-  ModalHeader,
-  FormModal,
-  WrapperInp,
-  InputMod,
-  IconUser,
-  WrapperMain,
-  UserBtn,
-  BtnSave,
-  TextBtn,
-  BackdropModal,
-  UserIconInp,
-  InputPen,
-} from './Header.styled';
-import { BiUser, BiPlus } from 'react-icons/bi';
+import * as React from 'react';
+import { BasicTabs } from './BasicTabs';
+import {TabsWrapper, HeaderWrapper, UserIconWrapper} from './Header.styled'
+import { BasicSwitches } from './Switch';
+import { Logo } from 'components/Logo/Logo';
+import { UserComponent } from './AuthUser';
+import { useMediaQuery } from '@mui/material';
+import {TemporaryDrawer} from '../MobileMenu/MobileMenu'
+
 
 const Header = () => {
   // useEffect(() => {
@@ -30,8 +22,22 @@ const Header = () => {
   //     window.removeEventListener('scroll', handleScroll);
   //   };
   // }, [isDesktop]);
+  const isMobile = useMediaQuery('(max-width: 1439px)');
 
-  return <div></div>;
+  return (
+    <HeaderWrapper>
+      <Logo />
+      {!isMobile && <TabsWrapper>
+        <BasicTabs />
+      </TabsWrapper> }
+      <UserIconWrapper>
+        <UserComponent />
+        {!isMobile && <BasicSwitches />}
+        {isMobile && <TemporaryDrawer />}
+       
+      </UserIconWrapper>
+    </HeaderWrapper>
+  );
 };
 
 export default Header;

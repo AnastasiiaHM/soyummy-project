@@ -1,6 +1,6 @@
 import React from 'react';
 import picture from '../images/заглушки/products/заглушка-products-big-white-2x.png'
-import { RecipeDescr, RecipeIngContainer, PreparationTitle, PreparationItem, CustomNumbering, PreparationText } from './Recipes.styled';
+import { RecipeDescr, PreparationImg, RecipeIngContainer, PreparationTitle, PreparationItem, CustomNumbering, PreparationText } from './Recipes.styled';
 
 const RecipesPreparation = () => {
     return(
@@ -27,7 +27,7 @@ const RecipesPreparation = () => {
                         </ul>
                     </div>
                     <div>
-                    <img
+                        <PreparationImg
                             alt="ingredient_photo"
                             width="433px"
                             height="332px"
