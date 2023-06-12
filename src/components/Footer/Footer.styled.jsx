@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 // import { container } from 'helpers';
-// import { colors } from 'constants/colors';
+import { colors } from '../colors';
 import { AiOutlineMail } from 'react-icons/ai';
 
 export const FooterWrapper = styled.div`
@@ -395,3 +395,4 @@ export const WrapperInpBtn = styled.div`
     margin-bottom: 0px;
   }
 `;
+

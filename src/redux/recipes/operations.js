@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://soyummy-back.onrender.com/api-docs/';
+axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 const setAuthHeader = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -10,7 +10,6 @@ const setAuthHeader = token => {
 // const clearAuthHeader = () => {
 //     axios.defaults.headers.common.Authorization = null;
 // };
-
 
 export const fetchCategories = createAsyncThunk(
     'categories/getCategory',

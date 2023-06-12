@@ -25,7 +25,6 @@ import {
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
 import { Logo } from '../LogoFooter/LogoFooter';
-
 const Footer = () => {
   return (
     <FooterMain>
