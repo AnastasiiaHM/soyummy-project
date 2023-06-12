@@ -2,12 +2,14 @@ import React from 'react';
 import { RecipeCard } from './RecipeCard/RecipeCard';
 import { RecipesGalleryStyled } from './RecipesGalleryStyled';
 
-export const RecipesGallery = ({ recipes }) => {
+const RecipesGallery = ({ recipes }) => {
   return (
     <RecipesGalleryStyled>
-      {recipes.map((recipe, index) => (
-        <RecipeCard key={index} recipe={recipe} />
+      {recipes.map(recipe => (
+        <RecipeCard key={recipe._id} recipe={recipe} />
       ))}
     </RecipesGalleryStyled>
   );
 };
+
+export default RecipesGallery;

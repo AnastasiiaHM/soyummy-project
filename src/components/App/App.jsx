@@ -11,15 +11,15 @@ const LoginPage = lazy(() => import('pages/Login'));
 
 const MainPage = lazy(() => import('pages/Home'));
 const CategoriesPage = lazy(() => import('pages/Categories'));
-const AddRecipePage = lazy(() => import('pages/AddRecepis'));
-const FavoritesPage = lazy(() => import('pages/Favourite'));
+const AddRecipePage = lazy(() => import('pages/AddRecipes/AddRecipes'));
+const FavoritesPage = lazy(() => import('pages/Favorite/Favorite'));
 const RecipePage = lazy(() => import('pages/Recipes'));
 const MyRecipesPage = lazy(() => import('pages/MyRecepes'));
 const ShoppingPage = lazy(() => import('pages/Shopping'));
 const NotFoundPage = lazy(() => import('pages/NotFound'));
 const SearchPage = lazy(() => import('pages/Search'));
 const CategoriesRecipes = lazy(() =>
-  import('components/CategoriesRecipes/CategoriesRecipes')
+  import('components/CategoriesTab/CategoriesTab')
 );
 
 const App = () => {
@@ -27,9 +27,7 @@ const App = () => {
     <>
       <MainContainer>
         <Routes>
-          <Route path="/" 
-          element={<Layout />}
-          >
+          <Route path="/" element={<Layout />}>
             <Route
               path="/"
               index

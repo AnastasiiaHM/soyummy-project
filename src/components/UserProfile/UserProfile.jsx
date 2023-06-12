@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { GoX } from 'react-icons/go';
 import {
   BtnClose,
@@ -16,25 +17,12 @@ import {
 } from './UserProfile.styled';
 import { BiUser, BiPlus } from 'react-icons/bi';
 
-const Header = () => {
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const height = isDesktop ? 100 : 40;
-  //     const isTop = window.scrollY <= height;
-  //     setIsScrolled(!isTop);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [isDesktop]);
-
+const UserProf = ({ handleCloseModalProfile, handleModalClickProfile }) => {
+  
   return (
-    <BackdropModal>
-      <ModalHeader>
-        <BtnClose>
+    <BackdropModal onClick={handleCloseModalProfile}>
+      <ModalHeader onClick={handleModalClickProfile}>
+        <BtnClose onClick={handleCloseModalProfile}>
           <GoX style={{ width: '24px', height: '24px' }} />
         </BtnClose>
         <WrapperMain>
@@ -72,4 +60,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default UserProf;

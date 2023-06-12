@@ -1,120 +1,140 @@
-// import { FormFields, RegisterFormStyled } from './RegisterForm.styled';
-// import { Caption, ButtonContainer } from 'components/Form/Form.styled';
-// import { InputWraper } from 'components/Form/Input.styled';
-// import { useNavigate } from 'react-router-dom';
-// import { Button } from 'components/Styled';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { register } from 'redux/user/operations';
-// import { ErrorMessage, Field, Form, Formik } from 'formik';
-// import * as yup from 'yup';
-// import Message from 'components/Message/Message';
-// import ShowPassword from 'components/ShowPassword/ShowPassword';
-// import { useState } from 'react';
-// import { selectAuthError } from 'redux/user/selectors';
+import {
+  FormFields,
+  RegisterFormStyled,
+  Caption,
+  InputWraper,
+} from './RegisterForm.styled';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { BiUser } from 'react-icons/bi';
+import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
+import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
+import * as yup from 'yup';
 
-// export const RegisterForm = () => {
-//   const dispatch = useDispatch();
-//   const [passwordShown, setPasswordShown] = useState(false);
-//   const initialValues = { username: '', email: '', password: '' };
+export const RegisterForm = () => {
+  const initialValues = { username: '', email: '', password: '' };
 
-//   const handleSubmit = (values, { resetForm }) => {
-//     dispatch(register(values));
-//     resetForm();
-//   };
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .matches(/^[a-zA-Z]+$/, 'Please enter only letters')
+      .min(3)
+      .max(254)
+      .required(),
+    email: yup.string().email().min(3).max(254).required(),
+    password: yup.string().min(8).max(100).required(),
+  });
 
-//   const schema = yup.object().shape({
-//     username: yup
-//       .string()
-//       .min(3, 'Username must be at least 3 characters')
-//       .max(254, 'Username must be less than or equal to 254 characters')
-//       .required('Username is a required field'),
-//     email: yup
-//       .string()
-//       .email('Email must be a valid email')
-//       .min(3, 'Email must be at least 3 characters')
-//       .max(254, 'Email must be less than or equal to 254 characters')
-//       .required('Email is a required field'),
-//     password: yup
-//       .string()
-//       .min(8, 'Password must be at least 8 characters')
-//       .max(100, 'Password must be less than or equal to 100 characters')
-//       .required('Password is a required field'),
-//   });
+  return (
+    <RegisterFormStyled>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={schema}
+        // onSubmit={handleSubmit}
+      >
+        {({ errors, touched, isSubmitting }) => (
+          <Form autoComplete="off">
+            <Caption>Register</Caption>
+            <FormFields>
+              <InputWraper>
+                <BiUser
+                  className={`icon ${
+                    touched.username &&
+                    (errors.username ? 'error-icon' : 'success-icon')
+                  }`}
+                />
+                {errors.username && touched.username && (
+                  <AiFillCloseCircle className="invalid" />
+                )}
+                {!errors.username && touched.username && (
+                  <AiFillCheckCircle className="valid" />
+                )}
+                <Field
+                  type="text"
+                  name="username"
+                  placeholder="Name"
+                  autoComplete="off"
+                  className={` ${
+                    touched.username && (errors.username ? 'error' : 'success')
+                  }`}
+                />
+                <ErrorMessage
+                  className="error"
+                  component="div"
+                  name="username"
+                />
+              </InputWraper>
 
-//   const message = useSelector(selectAuthError);
+              <InputWraper>
+                <HiOutlineMail
+                  className={`${
+                    touched.email && (errors.email ? 'error' : 'success')
+                  }`}
+                />
+                {errors.email && touched.email && (
+                  <AiFillCloseCircle className="invalid" />
+                )}
+                {!errors.email && touched.email && (
+                  <AiFillCheckCircle className="valid" />
+                )}
+                <Field
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  autoComplete="off"
+                  className={`input-field ${
+                    touched.email && (errors.email ? 'error' : 'success')
+                  }`}
+                />
+                <ErrorMessage className="error" component="div" name="email" />
+              </InputWraper>
 
-//   const navigate = useNavigate();
-//   const redirection = () => {
-//     const path = '/register';
-//     navigate(path);
-//   };
+              <InputWraper>
+                {errors.password && touched.password && (
+                  <AiFillCloseCircle className="invalid" />
+                )}
+                {!errors.password && touched.password && !isSubmitting && (
+                  <AiFillCheckCircle className="valid" />
+                )}
+                <HiOutlineLockClosed
+                  className={`${
+                    touched.password && (errors.password ? 'error' : 'success')
+                  }`}
+                />
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  autoComplete="off"
+                  className={`input-field ${
+                    touched.password && (errors.password ? 'error' : 'success')
+                  }`}
+                />
+                {touched.password && !errors.password && (
+                  <div className="success-message">Password is secure</div>
+                )}
+                <ErrorMessage
+                  className="error"
+                  component="div"
+                  name="password"
+                />
+                {/* <ErrorMessage className="error" component="div" name="password">
+                  {message => <div className="error-message">{message}</div>}
+                </ErrorMessage> */}
+                {/* <ErrorMessage
+                  className="warning"
+                  component="div"
+                  name="password"
+                >
+                  {message => <div className="warning-message">{message}</div>}
+                </ErrorMessage> */}
+              </InputWraper>
+            </FormFields>
+            <button>Sign up</button>
+          </Form>
+        )}
+      </Formik>
+    </RegisterFormStyled>
+  );
+};
 
-//   const onClickHandler = () => {
-//     setPasswordShown(state => !state);
-//   };
-
-//   return (
-//     <RegisterFormStyled>
-//       <Formik
-//         initialValues={initialValues}
-//         validationSchema={schema}
-//         onSubmit={handleSubmit}
-//       >
-//         <Form autoComplete="off">
-//           <Caption>Register</Caption>
-//           <FormFields>
-//             <InputWraper>
-//               <Field
-//                 type="text"
-//                 name="username"
-//                 placeholder=" "
-//                 autoComplete="off"
-//               />
-//               <label htmlFor="username">Name *</label>
-//               <ErrorMessage className="error" component="div" name="username" />
-//             </InputWraper>
-
-//             <InputWraper>
-//               <Field
-//                 type="text"
-//                 name="email"
-//                 placeholder=" "
-//                 autoComplete="off"
-//               />
-//               <label htmlFor="email">Email *</label>
-//               <ErrorMessage className="error" component="div" name="email" />
-//             </InputWraper>
-
-//             <InputWraper>
-//               <ShowPassword
-//                 clickHandler={onClickHandler}
-//                 isShown={passwordShown}
-//               />
-//               <Field
-//                 type={passwordShown ? 'text' : 'password'}
-//                 name="password"
-//                 placeholder=" "
-//                 autoComplete="off"
-//               />
-//               <label htmlFor="password">Password *</label>
-//               <ErrorMessage className="error" component="div" name="password" />
-//             </InputWraper>
-//           </FormFields>
-//           <ButtonContainer>
-//             <Button
-//               className="white regLogbutton"
-//               type="button"
-//               onClick={redirection}
-//             >
-//               Log In
-//             </Button>
-//             <Button className="orange regLogbutton" type="submit">
-//               Register
-//             </Button>
-//           </ButtonContainer>
-//         </Form>
-//       </Formik>
-//       {message && <Message>{message}</Message>}
-//     </RegisterFormStyled>
-//   );
-// };
+export default RegisterForm;
