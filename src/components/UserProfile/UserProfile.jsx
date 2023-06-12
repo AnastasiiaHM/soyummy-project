@@ -1,62 +1,100 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { Modal, Box } from '@mui/material';
 import { GoX } from 'react-icons/go';
 import {
-  BtnClose,
-  ModalHeader,
-  FormModal,
-  WrapperInp,
-  InputMod,
-  IconUser,
-  WrapperMain,
-  UserBtn,
-  BtnSave,
-  TextBtn,
-  BackdropModal,
-  UserIconInp,
+  BtnClose, 
+  UserBtn, 
+  IconUser, 
+  BtnSave, 
+  InputMod, 
   InputPen,
+  UserIconInp,
+  WrapperInp,
+  FormModal,
+  CenteredContainer,
 } from './UserProfile.styled';
-import { BiUser, BiPlus } from 'react-icons/bi';
+import { BiPlus, BiUser } from 'react-icons/bi';
+import { colors } from 'components/colors';
+import { mediaSizes } from 'components/constants';
 
 const UserProf = ({ handleCloseModalProfile, handleModalClickProfile }) => {
-  
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+    handleModalClickProfile();
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    handleCloseModalProfile();
+  };
+
+  const style = {
+    position: 'absolute', 
+    top: '50%', 
+    left: '50%', 
+    transform: 'translate(-50%, -50%)', 
+    boxShadow: 24, p: 4, 
+    bgcolor: `${colors.textGreenBtn}`,
+    borderRadius: '8px',
+    p: 1.8,
+  };
+
   return (
-    <BackdropModal onClick={handleCloseModalProfile}>
-      <ModalHeader onClick={handleModalClickProfile}>
-        <BtnClose onClick={handleCloseModalProfile}>
-          <GoX style={{ width: '24px', height: '24px' }} />
-        </BtnClose>
-        <WrapperMain>
-          <IconUser>
-            <BiUser
+    <Modal open={handleOpen} onClose={handleClose}>
+      <Box 
+        sx={{
+          ...style,          
+          [`@media screen and (min-width: ${mediaSizes.mobile})`]: {
+            width: 330,
+            height: 327,
+          },
+          [`@media screen and (min-width: ${mediaSizes.tablet})`]: {
+            width: 480,
+            height: 402,
+          },
+          [`@media screen and (min-width: ${mediaSizes.desktop})`]: {
+            width: 500,
+            height: 425,
+          },          
+        }}
+      >
+      <BtnClose onClick={handleClose}>
+          <GoX style={{ width: '20px', height: '20px' }} />
+      </BtnClose>
+      <IconUser>
+      <BiUser
+        style={{
+          width: '47px',
+          height: '47px',
+          fill: '#C4C4C4',
+        }}
+      />
+        <UserBtn>
+           <BiPlus
               style={{
-                width: '47px',
-                height: '47px',
-                fill: '#C4C4C4',
+                fill: '#FAFAFA',
+                display: 'flex',
+                position: 'absolute',
               }}
-            />
-            <UserBtn>
-              <BiPlus
-                style={{
-                  fill: '#FAFAFA',
-                  display: 'flex',
-                  position: 'absolute',
-                }}
-              />
-            </UserBtn>
-          </IconUser>
-          <FormModal>
-            <WrapperInp>
-              <UserIconInp />
-              <InputPen />
-              <InputMod type="text" placeholder="Your name" />
-            </WrapperInp>
-          </FormModal>
-          <BtnSave>
-            <TextBtn>Save changes</TextBtn>
-          </BtnSave>
-        </WrapperMain>
-      </ModalHeader>
-    </BackdropModal>
+          />
+        </UserBtn>
+      </IconUser>
+      <CenteredContainer>
+        <FormModal>
+          <WrapperInp>
+            <UserIconInp />
+            <InputPen />
+            <InputMod type="text" placeholder="Your name" />
+          </WrapperInp>
+        </FormModal>    
+        <BtnSave onClick={handleClose}>
+          Save changes
+        </BtnSave>
+      </CenteredContainer>
+      </Box>
+    </Modal>
   );
 };
 
