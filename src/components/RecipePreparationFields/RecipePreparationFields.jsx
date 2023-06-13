@@ -14,12 +14,16 @@ export const RecipePreparationFields = ({ ingredientPreparation }) => {
     null
   );
   const [text, setText] = useState('');
+  const [prevText, setPrevText] = useState('');
   const [preparationField, preparationMeta] = useField('preparation');
   const { setFieldValue } = useFormikContext();
 
   useEffect(() => {
-    ingredientPreparation(text.split('\n'));
-  }, [text, ingredientPreparation]);
+    if (text !== prevText) {
+      ingredientPreparation(text.split('\n'));
+      setPrevText(text);
+    }
+  }, [text, prevText, ingredientPreparation]);
 
   const preparationTypingHandler = e => {
     const { value } = e.target;
@@ -37,6 +41,7 @@ export const RecipePreparationFields = ({ ingredientPreparation }) => {
           type="text"
           onChange={preparationTypingHandler}
           rows="4"
+          name="preparation"
           placeholder="Enter recipe"
           value={currentValue}
           required

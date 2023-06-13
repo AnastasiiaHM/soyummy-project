@@ -19,3 +19,8 @@ export const getIngredientNames = async name => {
   const result = await axios.get(`/ingredients/name?name=${name}`);
   return result.data;
 };
+
+export const addNewRecipe = async body => {
+  const result = await axios.post('/recipes/add-new', body);
+  return result.data;
+};

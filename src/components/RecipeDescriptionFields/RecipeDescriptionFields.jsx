@@ -13,12 +13,14 @@ import { ReactComponent as Add } from '../images/addIngredient/add.svg';
 import { Select } from 'components/Select/Select';
 import { timeRange } from 'components/constants/timeRange';
 import { useField, useFormikContext } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 
 export const RecipeDescriptionFields = ({
-  selectedValue,
+  selectedCategory,
+  selectedMeasure,
+  recipeImage,
   zIndex,
   categories,
 }) => {
@@ -38,6 +40,14 @@ export const RecipeDescriptionFields = ({
     setFieldValue('title', value);
   };
 
+  const selectedCategoryHandler = value => {
+    selectedCategory(value);
+  };
+
+  const selectedMeasureHandler = value => {
+    selectedMeasure(value);
+  };
+
   const descTypingHandler = e => {
     const { value } = e.target;
     setCurrentDesc(value);
@@ -47,15 +57,12 @@ export const RecipeDescriptionFields = ({
   const handleImageUpload = event => {
     const file = event.target.files[0];
     setThumb(file);
+    recipeImage(file);
   };
 
   const removeThumbHandler = event => {
     event.preventDefault();
     setThumb(null);
-  };
-
-  const newValueHandler = value => {
-    selectedValue(value);
   };
 
   return (
@@ -110,7 +117,7 @@ export const RecipeDescriptionFields = ({
             name="category"
             width="150px"
             alignText="left"
-            newValue={newValueHandler}
+            newValue={selectedCategoryHandler}
             readOnly={true}
           />
         </StyledLabel>
@@ -121,7 +128,7 @@ export const RecipeDescriptionFields = ({
             name="time"
             width="100px"
             alignText="left"
-            newValue={newValueHandler}
+            newValue={selectedMeasureHandler}
             readOnly={true}
           />
         </StyledLabel>

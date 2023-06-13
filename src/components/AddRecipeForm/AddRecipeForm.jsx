@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparationFields } from 'components/RecipePreparationFields/RecipePreparationFields';
-import { Form, StyledButton, StyledTitle } from './AddRecipeForm.styled';
+import { StyledForm, StyledButton, StyledTitle } from './AddRecipeForm.styled';
 import { getCategoriesList } from 'operations/addRecipe';
+import { addNewRecipe } from 'operations/addRecipe';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -44,6 +46,11 @@ export const AddRecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const [preparation, setPreparation] = useState([]);
   const [categoriesList, setCategoriesList] = useState([]);
+  const [category, setCategory] = useState('');
+  const [time, setTime] = useState('');
+  const [thumb, setThumb] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,41 +64,71 @@ export const AddRecipeForm = () => {
     fetchData();
   }, []);
 
-  // const submitHandler = (values, { resetForm }) => {
-  //   console.log(values);
-  //   if (!message) resetForm();
-  // };
+  const categoryHandler = value => {
+    setCategory(value);
+  };
 
-  const handler = value => {
-    // console.log('Hello', value);
+  const timeHandler = value => {
+    setTime(value);
   };
 
   const preparationHandler = value => {
-    // console.log(value);
-    // setPreparation(value);
+    setPreparation(value);
+  };
+
+  const ingredientsListHandler = value => {
+    setIngredients(value);
+  };
+
+  const recipeImageHandler = value => {
+    setThumb(value);
+  };
+
+  const submitHandler = async (values, { setSubmitting }) => {
+    try {
+      const { title, description } = values;
+
+      const newRecipe = new FormData();
+      newRecipe.append('title', title);
+      newRecipe.append('description', description);
+      newRecipe.append('category', category);
+      newRecipe.append('time', time);
+      newRecipe.append('thumb', thumb);
+      newRecipe.append('ingredients', ingredients);
+      newRecipe.append('instructions', preparation);
+      // for (let pair of newRecipe.entries()) {
+      //   console.log(pair[0] + ', ' + pair[1]);
+      // }
+      const result = await addNewRecipe(newRecipe);
+      if (result) navigate('/my');
+      // console.log(ingredients);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
-    <Formik
-      initialValues={initialValue}
-      validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        console.log(values);
-        resetForm();
-      }}
-    >
-      <Form>
-        <StyledTitle className="title">Add recipe</StyledTitle>
-        <RecipeDescriptionFields
-          selectedValue={handler}
-          categories={categoriesList}
-        />
-        <RecipeIngredients setParentIngredients={setIngredients} />
-        <RecipePreparationFields ingredientPreparation={preparationHandler} />
-        <StyledButton type="submit" className="btn blackbtn">
-          Add
-        </StyledButton>
-      </Form>
-    </Formik>
+    <>
+      <Formik
+        initialValues={initialValue}
+        validationSchema={validationSchema}
+        onSubmit={submitHandler}
+      >
+        <StyledForm autoComplete="off">
+          <StyledTitle className="title">Add recipe</StyledTitle>
+          <RecipeDescriptionFields
+            recipeImage={recipeImageHandler}
+            selectedCategory={categoryHandler}
+            selectedMeasure={timeHandler}
+            categories={categoriesList}
+          />
+          <RecipeIngredients setParentIngredients={ingredientsListHandler} />
+          <RecipePreparationFields ingredientPreparation={preparationHandler} />
+          <StyledButton type="submit" className="btn blackbtn">
+            Add
+          </StyledButton>
+        </StyledForm>
+      </Formik>
+    </>
   );
 };

@@ -32,8 +32,9 @@ export const Select = ({
   useEffect(() => {
     const isOptionObject =
       typeof options[0] === 'object' && options[0] !== null;
-    const newValue = isOptionObject ? options[0][secondField] : options[0];
-    setValue(newValue);
+    const selectedValue = isOptionObject ? options[0][secondField] : options[0];
+    setValue(selectedValue);
+    newValue(selectedValue);
   }, [options, secondField]);
 
   useEffect(() => {

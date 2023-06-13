@@ -82,7 +82,6 @@ export const DropDown = styled.ul`
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  gap: 6px;
   padding: 8px 18px;
   background-color: #fff;
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
@@ -94,6 +93,7 @@ export const DropdownItem = styled.li`
 `;
 
 export const IngredientBtn = styled.button`
+  display: block;
   width: 100%;
   height: 100%;
   border: none;
@@ -103,7 +103,7 @@ export const IngredientBtn = styled.button`
   line-height: 1.5;
   letter-spacing: -0.02em;
   text-align: left;
-  padding: 0;
+  padding: 4px 0;
   color: ${colors.color1};
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
