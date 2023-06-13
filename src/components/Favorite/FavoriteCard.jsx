@@ -2,14 +2,16 @@ import { Link } from 'react-router-dom';
 import {
   CardBody,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
   ContainerCard,
-  DeleteBtn,
+  CookingTime,
+  DeleteButton,
   DeleteIcon,
   ImageContainer,
-  PrimaryBtn,
+  PrimaryButton,
 } from './FavoriteCard.styled';
 
 const FavoriteCard = ({ card, deleteCard }) => {
@@ -22,16 +24,16 @@ const FavoriteCard = ({ card, deleteCard }) => {
         <CardBody>
           <CardHeader>
             <CardTitle>{card.title}</CardTitle>
-            <p>{card.description}</p>
+            <CardDescription>{card.description}</CardDescription>
           </CardHeader>
-          <DeleteBtn onClick={() => deleteCard(card._id)}>
+          <DeleteButton onClick={() => deleteCard(card._id)}>
             <DeleteIcon />
-          </DeleteBtn>
+          </DeleteButton>
         </CardBody>
         <CardFooter>
-          <p>{card.time} min</p>
+          <CookingTime>{card.time} min</CookingTime>
           <Link to={`/recipe/${card._id}`}>
-            <PrimaryBtn>See recipe</PrimaryBtn>
+            <PrimaryButton>See recipe</PrimaryButton>
           </Link>
         </CardFooter>
       </CardContent>
