@@ -1,6 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
 import storage from 'redux-persist/lib/storage';
+import recipesIdSlice from './id-recipes/slice';
+import shoppingList from './shopping-list/slice';
+import categories from './recipes/slice'
 
 import {
   persistStore,
@@ -25,14 +28,14 @@ export const persistedReducerAuth = persistReducer(persistConfig, authReducer);
 export const store = configureStore({
   reducer: {
     auth: persistedReducerAuth,
-    // recipes: recipesReducer,
-    // shoppingList: shoppingListReducer,
+    recipesId: recipesIdSlice,
+    shoppingList,
     // mainRecipes: mainRecipeReduser,
     favoriteRecipes: favoriteRecipesReducer,
     // myRecipes: myRecipesReducer,
     // ingredients: ingredientsReducer,
     // search: searchReducer,
-    // categories: categoriesReducer,
+    categories,
     // subscribe: subscribeReducer,
   },
 

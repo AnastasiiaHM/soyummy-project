@@ -84,15 +84,16 @@ export const RecipeIngContainer = styled.div`
     width: 343px;
     margin: 0 auto;
     margin-top: 32px;
+    margin-bottom: 100px;
 
-    @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
+    @media (min-width: ${mediaSizes.tablet}) {
         width: 704px;
         margin: 0 auto;
+        margin-bottom: 200px;
     }
 
     @media (min-width: ${mediaSizes.desktop}) {
         width: 1240px;
-        margin: 0 auto;
         margin-top: 50px;
     }
 `

@@ -1,4 +1,4 @@
-import plug from '../../images/заглушки/products/заглушка-products-small-green-1x.png';
+import { useDispatch } from 'react-redux';
 import {
   ItemWraper,
   ProductImage,
@@ -10,17 +10,22 @@ import {
 } from './ShopingListItem.styled';
 
 import { IoCloseSharp } from 'react-icons/io5';
+import { setDeleteProduct } from 'redux/shopping-list/operations';
 
-export const ShoppingListItems = () => {
+export const ShoppingListItems = ({ image, id, measure, name }) => {
+  const dispatch = useDispatch();
+
+  const handleDeleteProduct = () => dispatch(setDeleteProduct(id));
+
   return (
-    <ItemWraper>
+    <ItemWraper key={id}>
       <ImageContainer>
-        <ProductImage src={plug} alt="porduct name" />
-        <ProductName>Salmon</ProductName>
+        <ProductImage src={image} alt={name} />
+        <ProductName>{name}</ProductName>
       </ImageContainer>
       <ButtonContainer>
-        <ProductWeight>5</ProductWeight>
-        <Button type="button">
+        <ProductWeight>{measure[0]}</ProductWeight>
+        <Button type="button" onClick={handleDeleteProduct}>
           <IoCloseSharp
             style={{ fill: '#333333', width: '100%', height: '100%' }}
           />

@@ -1,6 +1,8 @@
 import React from 'react';
 import {IngredientList} from './IngredientList'
 import {RecipeIngContainer, RecipeIngTable, IngTable, IngText, RecipeIngText} from './Recipes.styled'
+
+
 const RecipesIngredients = () => {
     return(
       <>

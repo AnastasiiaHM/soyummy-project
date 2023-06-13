@@ -9,12 +9,29 @@ import { BiUser } from 'react-icons/bi';
 import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
 import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
+import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
-  const initialValues = { username: '', email: '', password: '' };
+  const initialValues = { name: '', email: '', password: '' };
+
+  // const navigate = useNavigate();
+  // const redirection = () => {
+  //   const path = '/';
+  //   navigate(path);
+  // };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
+    dispatch(register(values));
+    //if (!message) resetForm();
+  };
 
   const schema = yup.object().shape({
-    username: yup
+    name: yup
       .string()
       .matches(/^[a-zA-Z]+$/, 'Please enter only letters')
       .min(3)
@@ -29,39 +46,35 @@ export const RegisterForm = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
       >
         {({ errors, touched, isSubmitting }) => (
           <Form autoComplete="off">
-            <Caption>Register</Caption>
+            <Caption>Registration</Caption>
             <FormFields>
               <InputWraper>
                 <BiUser
                   className={`icon ${
-                    touched.username &&
-                    (errors.username ? 'error-icon' : 'success-icon')
+                    touched.name &&
+                    (errors.name ? 'error-icon' : 'success-icon')
                   }`}
                 />
-                {errors.username && touched.username && (
+                {errors.name && touched.name && (
                   <AiFillCloseCircle className="invalid" />
                 )}
-                {!errors.username && touched.username && (
+                {!errors.name && touched.name && (
                   <AiFillCheckCircle className="valid" />
                 )}
                 <Field
                   type="text"
-                  name="username"
+                  name="name"
                   placeholder="Name"
                   autoComplete="off"
                   className={` ${
-                    touched.username && (errors.username ? 'error' : 'success')
+                    touched.name && (errors.name ? 'error' : 'success')
                   }`}
                 />
-                <ErrorMessage
-                  className="error"
-                  component="div"
-                  name="username"
-                />
+                <ErrorMessage className="error" component="div" name="name" />
               </InputWraper>
 
               <InputWraper>
