@@ -7,19 +7,19 @@ const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const fetchFavoriteRecipes = createAsyncThunk(
-  'favoriteRecipes/fetchFavoriteRecipes',
+export const fetchOwnRecipes = createAsyncThunk(
+  'ownRecipes/fetchOwnRecipes',
   async (page, thunkApi) => {
     try {
       setAuthHeader(thunkApi.getState().auth.token);
 
-      const limit = thunkApi.getState().favoriteRecipes.itemsPerPage;
+      const limit = thunkApi.getState().ownRecipes.itemsPerPage;
       const {
-        data: { favoriteRecipes, total },
-      } = await axios.get(`/recipes/favorite?page=${page}&limit=${limit}`);
+        data: { ownRecipes, total },
+      } = await axios.get(`/recipes/own-recipes?page=${page}&limit=${limit}`);
 
       return {
-        recipes: favoriteRecipes,
+        recipes: ownRecipes,
         totalRecipes: total,
         currentPage: page,
       };
@@ -29,15 +29,13 @@ export const fetchFavoriteRecipes = createAsyncThunk(
   }
 );
 
-export const deleteFavoriteRecipe = createAsyncThunk(
-  'favoriteRecipes/deleteFavoriteRecipe',
+export const deleteOwnRecipe = createAsyncThunk(
+  'ownRecipes/deleteOwnRecipe',
   async (recipeId, thunkApi) => {
     try {
       setAuthHeader(thunkApi.getState().auth.token);
 
-      await axios.post(`/recipes/favorite/remove`, {
-        _id: recipeId,
-      });
+      await axios.delete(`/recipes/${recipeId}`);
 
       return recipeId;
     } catch (error) {

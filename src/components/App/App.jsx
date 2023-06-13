@@ -14,7 +14,7 @@ const CategoriesPage = lazy(() => import('pages/Categories'));
 const AddRecipePage = lazy(() => import('pages/AddRecipes/AddRecipes'));
 const FavoritesPage = lazy(() => import('pages/Favorite/Favorite'));
 const RecipePage = lazy(() => import('pages/Recipes'));
-const MyRecipesPage = lazy(() => import('pages/MyRecepes'));
+const MyRecipesPage = lazy(() => import('pages/MyRecipes/MyRecipes'));
 const ShoppingPage = lazy(() => import('pages/Shopping'));
 const NotFoundPage = lazy(() => import('pages/NotFound'));
 const SearchPage = lazy(() => import('pages/Search'));
@@ -92,7 +92,7 @@ const App = () => {
               // element={<PrivateRoute component={RecipePage} redirectTo="/" />}
             />
             <Route
-              path="/my"
+              path="/own-recipes"
               element={<MyRecipesPage />}
               // element={
               //   <PrivateRoute component={MyRecipesPage} redirectTo="/" />
