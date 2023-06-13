@@ -11,6 +11,7 @@ import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
 import { LogIn } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -21,10 +22,18 @@ export const LoginForm = () => {
     email: yup.string().email().min(3).max(254).required(),
     password: yup.string().min(8).max(100).required(),
   });
+  const navigate = useNavigate();
   const handleSubmit = values => {
     console.log(values);
     dispatch(LogIn(values));
+    const path = '/main';
+    navigate(path);
   };
+
+  // const redirection = () => {
+  //   const path = '/main';
+  //   navigate(path);
+  // };
 
   return (
     <RegisterFormStyled>
