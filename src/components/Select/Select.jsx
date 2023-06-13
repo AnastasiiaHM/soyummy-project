@@ -30,11 +30,11 @@ export const Select = ({
   const itemRefs = useRef([]);
 
   useEffect(() => {
-    const initialOption = isOptionObject
-      ? { [name]: options[0][name] }
-      : options[0];
-    newValue(initialOption);
-  });
+    const isOptionObject =
+      typeof options[0] === 'object' && options[0] !== null;
+    const newValue = isOptionObject ? options[0][secondField] : options[0];
+    setValue(newValue);
+  }, [options, secondField]);
 
   useEffect(() => {
     if (isDropdownOpen) {
@@ -52,6 +52,7 @@ export const Select = ({
   const clickHandler = e => {
     setIsDropdownOpen(state => !state);
     setValue(e.target.textContent);
+
     isOptionObject
       ? newValue({ [name]: e.target.value })
       : newValue(e.target.value);
@@ -64,7 +65,7 @@ export const Select = ({
 
   return (
     <Container width={width}>
-      <Field value={value} name={name} readOnly={readOnly} />
+      <Field value={value || ''} name={name} readOnly={readOnly} />
       <Btn type="button" onClick={openDropdownHandler}>
         <Arrow />
       </Btn>

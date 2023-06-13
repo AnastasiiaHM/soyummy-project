@@ -119,10 +119,6 @@ export const Field = styled.input`
     border: none;
     outline: none;
   }
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    width: auto;
-  }
 `;
 
 export const StyledLabel = styled.label`

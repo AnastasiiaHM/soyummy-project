@@ -65,7 +65,7 @@ export const List = styled.ul`
   gap: 18px;
   margin-bottom: 44px;
   height: auto;
-  max-height: 260px;
+  max-height: 430px;
   overflow: auto;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useField, useFormikContext } from 'formik';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import {
@@ -8,15 +8,24 @@ import {
   Wrapper,
 } from './RecipePreparationFields.styled';
 
-export const RecipePreparationFields = () => {
+export const RecipePreparationFields = ({ ingredientPreparation }) => {
   const [currentValue, setCurrentValue] = useLocalStorage(
     'IngredientPreparation',
     null
   );
+  const [text, setText] = useState('');
   const [preparationField, preparationMeta] = useField('preparation');
+  const { setFieldValue } = useFormikContext();
+
+  useEffect(() => {
+    ingredientPreparation(text.split('\n'));
+  }, [text, ingredientPreparation]);
 
   const preparationTypingHandler = e => {
+    const { value } = e.target;
     setCurrentValue(e.target.value);
+    setText(value);
+    setFieldValue('preparation', value);
   };
 
   return (
@@ -25,6 +34,7 @@ export const RecipePreparationFields = () => {
       <Wrapper>
         <StyledTextarea
           {...preparationField}
+          type="text"
           onChange={preparationTypingHandler}
           rows="4"
           placeholder="Enter recipe"

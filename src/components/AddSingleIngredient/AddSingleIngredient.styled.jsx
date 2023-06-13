@@ -95,6 +95,7 @@ export const DropdownItem = styled.li`
 
 export const IngredientBtn = styled.button`
   width: 100%;
+  height: 100%;
   border: none;
   background-color: transparent;
   font-family: 'Poppins';

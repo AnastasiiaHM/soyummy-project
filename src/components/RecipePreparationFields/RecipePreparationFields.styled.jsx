@@ -34,6 +34,10 @@ export const StyledTextarea = styled.textarea`
     width: 505px;
     font-size: 18px;
   }
+
+  &:focus {
+    outline: 1px solid #fff;
+  }
 `;
 
 export const ValidationInfo = styled.span`
