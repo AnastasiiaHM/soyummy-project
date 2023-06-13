@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeQueryType } from 'redux/search/slice';
 import { useLocation } from 'react-router-dom';
+
 const typesList = [{ searchType: 'title' }, { searchType: 'ingredients' }];
 
 export const SearchSelector = () => {

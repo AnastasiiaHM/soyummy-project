@@ -15,11 +15,12 @@ export const getRecipesByQuery = createAsyncThunk(
       setAuthHeader(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts'
       );
+
       const response = await axios.get(
-        `/recipes/title/title=${query}?page=${page}&limit=${LIMIT}`
+        `recipes/title?title=${query}?page=1&limit=8`
       );
-      //localhost:3000/recipes/ingredient?ingredient=e&page=1&limit=2;
-      http: return response.data;
+
+      return response.data.recipes;
     } catch (error) {
       toast.error('Something went wrong, please try again later');
       return thunkAPI.rejectWithValue(error.message);
@@ -35,9 +36,10 @@ export const getRecipesByIngredient = createAsyncThunk(
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts'
       );
       const response = await axios.get(
-        `/recipes/ingredient?ingredient=${type}&page=${page}&limit=${limit}`
+        `recipes/ingredient?ingredient=${type}&page=1&limit=8`
       );
-      return response.data;
+
+      return response.data.recipes;
     } catch (error) {
       toast.error('Error fetching ingredient:');
       return thunkAPI.rejectWithValue(error.message);

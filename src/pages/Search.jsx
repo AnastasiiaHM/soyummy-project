@@ -1,16 +1,17 @@
-import RecipesGallery from 'components/RecipesGallery/RecipesGallery';
 import { SearchBar } from 'components/SearchBar/SearchBar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   getRecipesByQuery,
   getRecipesByIngredient,
 } from 'redux/search/operation';
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   selectQuery,
   selectQueryType,
   selectSearchedRecipes,
 } from 'redux/search/selector';
+import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 
 const Search = () => {
   const query = useSelector(selectQuery);
@@ -38,7 +39,8 @@ const Search = () => {
       <title className="title">Search</title>
 
       <SearchBar />
-      <RecipesGallery recipes={recipes} />
+
+      <SearchRecipesList recipes={recipes} />
     </section>
   );
 };

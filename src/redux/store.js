@@ -3,7 +3,7 @@ import { authReducer } from './auth/slice';
 import storage from 'redux-persist/lib/storage';
 import recipesIdSlice from './id-recipes/slice';
 import shoppingList from './shopping-list/slice';
-import categories from './recipes/slice'
+import categories from './recipes/slice';
 
 import {
   persistStore,
@@ -16,6 +16,7 @@ import {
   persistReducer,
 } from 'redux-persist';
 import favoriteRecipesReducer from './favorite/slice';
+import { searchReducer } from './search/slice';
 
 const persistConfig = {
   key: 'token',
@@ -34,7 +35,7 @@ export const store = configureStore({
     favoriteRecipes: favoriteRecipesReducer,
     // myRecipes: myRecipesReducer,
     // ingredients: ingredientsReducer,
-    // search: searchReducer,
+    search: searchReducer,
     categories,
     // subscribe: subscribeReducer,
   },

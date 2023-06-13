@@ -33,7 +33,7 @@ export const SearchForm = () => {
 
     setSearchQuery(query);
     dispatch(changeQuery(searchQuery));
-    return navigate(`/search/title/${query}`);
+    return;
   }
   return (
     <SearchedForm onSubmit={handleSubmit}>

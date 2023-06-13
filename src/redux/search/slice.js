@@ -17,12 +17,12 @@ const searchSlice = createSlice({
       .addCase(getRecipesByQuery.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload.ownRecipes;
+        state.items = action.payload;
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload.ownRecipes;
+        state.items = action.payload;
       })
       .addCase(getRecipesByQuery.pending, state => {
         state.isLoading = true;
@@ -32,9 +32,11 @@ const searchSlice = createSlice({
       })
       .addCase(getRecipesByQuery.rejected, (state, action) => {
         state.error = action.payload;
+        state.isLoading = false;
       })
       .addCase(getRecipesByIngredient.rejected, (state, action) => {
         state.error = action.payload;
+        state.isLoading = false;
       });
   },
   reducers: {
