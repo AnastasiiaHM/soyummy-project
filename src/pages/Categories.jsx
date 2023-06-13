@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchRecipesByCategory,
   fetchCategory,
-  fetchAllRecipes,
 } from 'redux/recipes/operations';
 import Skeleton from '../components/RecipesGallery/GallerySkeleton';
+import { Loader } from 'components/Loader/Loader';
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -17,21 +17,26 @@ const Categories = () => {
 
   useEffect(() => {
     dispatch(fetchCategory());
-    dispatch(fetchAllRecipes());
     dispatch(fetchRecipesByCategory(filter));
   }, [dispatch, filter]);
 
   const onChangeCategory = category => {
     dispatch(fetchRecipesByCategory(filter));
+    loading(false);
   };
 
   return (
     <>
       <h1 className="title">Categories</h1>
-      <CategoriesTab
-        categoriesList={category}
-        onChangeCategory={onChangeCategory}
-      />
+      {loading ? (
+        <Loader />
+      ) : (
+        <CategoriesTab
+          categoriesList={category}
+          onChangeCategory={onChangeCategory}
+        />
+      )}
+
       {loading ? <Skeleton /> : <RecipesGallery recipes={recipes} />}
     </>
   );

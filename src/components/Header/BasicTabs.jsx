@@ -9,9 +9,8 @@ import { colors } from '../colors';
 
 const StyledTab = styled(Tab)(({ theme }) => ({
   textTransform: 'none',
-  fontFamily: 'Poppins',
   fontStyle: 'normal',
-  fontWeight: 500,
+  fontWeight: 600,
   fontSize: '14px',
   lineHeight: '22px',
   color: colors.blackFont,
@@ -62,9 +61,17 @@ export function BasicTabs() {
         >
           <StyledTab label="Categories" component={Link} to="/categories" />
           <StyledTab label="Add recipes" component={Link} to="/add" />
-          <StyledTab label="My recipes" component={Link} to="/recipe/:recipeId" />
+          <StyledTab
+            label="My recipes"
+            component={Link}
+            to="/recipe/:recipeId"
+          />
           <StyledTab label="Favorites" component={Link} to="/favorite" />
-          <StyledTab label="Shopping list" component={Link} to="/shopping-list" />
+          <StyledTab
+            label="Shopping list"
+            component={Link}
+            to="/shopping-list"
+          />
           <StyledTab
             label={
               <React.Fragment>

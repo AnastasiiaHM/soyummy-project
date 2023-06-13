@@ -22,10 +22,10 @@ export const fetchCategory = createAsyncThunk(
 
 export const fetchAllRecipes = createAsyncThunk(
     'categories/fetchAllRecipes',
-    async (_, thunkApi) => {
+    async (page, thunkApi) => {
         try {
             setAuthHeader('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts');
-            const response = await axios.get('/recipes');
+            const response = await axios.get(`/recipes?page=${page}&limit=8&skip=8`);
             return response.data;
         } catch (e) {
             return thunkApi.rejectWithValue(e.message);
@@ -38,7 +38,7 @@ export const fetchRecipesByCategory = createAsyncThunk(
     async (category, page, thunkApi) => {
         try {
             setAuthHeader('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts');
-            const response = await axios.get(`/recipes/category/${category}?page=${page}&limit=8`);
+            const response = await axios.get(`/recipes/category/${category}?page=${page}&limit=8&skip=8`);
             return response.data;
         } catch (error) {
             return thunkApi.rejectWithValue(error.response.data);
