@@ -1,4 +1,3 @@
-// import { NavLink } from 'react-router-dom';
 import {
   StyledTitle,
   StyledList,
@@ -19,18 +18,20 @@ const shortenText = str => {
   }
 };
 
-export const PopularRecipe = ({ list }) => {
+export const PopularRecipe = ({ list, location }) => {
   return (
     <>
       <StyledTitle>Popular recipe</StyledTitle>
       <StyledList>
         {list.map(recipe => (
           <StyledItem key={recipe._id}>
-            <StyledLink to={`/recipe/${recipe._id}`}>
-              <StyledImage src={recipe.thumb} alt="recipe" />
+            <StyledLink to={`/recipe/${recipe._id}`} state={{ from: location }}>
+              <StyledImage src={recipe?.preview || ''} alt="recipe" />
               <Wrapper>
-                <RecipeTitle>{recipe.title}</RecipeTitle>
-                <StyledDesc>{shortenText(recipe.description)}</StyledDesc>
+                <RecipeTitle>{recipe?.title || ''}</RecipeTitle>
+                <StyledDesc>
+                  {recipe.description ? shortenText(recipe.description) : ''}
+                </StyledDesc>
               </Wrapper>
             </StyledLink>
           </StyledItem>

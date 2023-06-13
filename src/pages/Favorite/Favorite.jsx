@@ -1,41 +1,31 @@
 import FavoriteList from 'components/Favorite/FavoriteList';
-import { Loader } from 'components/Loader/Loader';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector, getState } from 'react-redux';
 import {
   deleteFavoriteRecipe,
   fetchFavoriteRecipes,
 } from 'redux/favorite/operations';
-import { FavoriteContainer, LoaderContainer, Message } from './Favorite.styled';
-
-const itemsPerPage = 4;
+import { FavoriteContainer, Message } from './Favorite.styled';
 
 const Favorite = () => {
   const dispatch = useDispatch();
-  let { recipes, totalPages, currentPage, loading, error } = useSelector(
-    state => state.favoriteRecipes
-  );
+  let { recipes, totalPages, currentPage, loading, error, itemsPerPage } =
+    useSelector(state => state.favoriteRecipes);
+    const [deletePageChange, setDeletePageChange] = useState(false);
 
   useEffect(() => {
-    dispatch(
-      fetchFavoriteRecipes({
-        page: 1,
-        limit: itemsPerPage,
-      })
-    );
+    dispatch(fetchFavoriteRecipes(1));
   }, [dispatch]);
 
-  if (loading) {
-    return (
-      <LoaderContainer>
-        <Loader />
-      </LoaderContainer>
-    );
-  }
+  useEffect(() => {
+    if (deletePageChange) { 
+      dispatch(fetchFavoriteRecipes(currentPage))
+    }
+
+    setDeletePageChange(false);
+  }, [currentPage, deletePageChange, dispatch]);
 
   if (error) {
-    console.log('error', error);
-
     return (
       <Message>
         Error while retrieving favorite recipes: {error.message}
@@ -43,23 +33,17 @@ const Favorite = () => {
     );
   }
 
-  if (recipes?.length === 0) {
+  if (!loading && recipes?.length === 0) {
     return <Message>You don't have favorite recipes yet.</Message>;
   }
 
   const handlePageChange = page => {
-    dispatch(
-      fetchFavoriteRecipes({
-        page,
-        limit: itemsPerPage,
-      })
-    );
+    dispatch(fetchFavoriteRecipes(page));
   };
 
-  const handleCardDelete = recipeId => {
-    dispatch(deleteFavoriteRecipe(recipeId), () => {
-      handlePageChange(currentPage);
-    });
+  const handleCardDelete = async recipeId => {
+    await dispatch(deleteFavoriteRecipe(recipeId));
+    setDeletePageChange(true);
   };
 
   return (
@@ -69,6 +53,8 @@ const Favorite = () => {
         listName="Favorites"
         totalPages={totalPages}
         page={currentPage}
+        loading={loading}
+        itemsPerPage={itemsPerPage}
         pageChange={handlePageChange}
         deleteCard={handleCardDelete}
       />

@@ -1,22 +1,14 @@
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import {
-  Container,
-  Title,
-  TitleText,
-  Text,
-  TipBox,
-  BoxText,
-  DecorBoxText,
-  BoxLinkText,
-  DecorArrowIcon,
-  HomeGallery,
-  MainBtn,
-} from '../components/Styled/MainPageHome.styled';
-import { MainGallery } from '../components/MainGallery/MainGallery';
+import { Section } from '../components/Styled/MainPageHome.styled';
+import RecipesGallery from '../components/RecipesGallery/RecipesGallery';
+import { SearchForm } from '../components/SearchForm/SearchForm';
 import { fetchMainPageRecipes } from '../redux/recipes/operations';
+import { BsArrowRight } from 'react-icons/bs';
 
 export default function MainPageHome() {
+  const location = useLocation();
   const dispatch = useDispatch();
   const recipes = useSelector(state => state.categories.recipes);
   useEffect(() => {
@@ -24,75 +16,33 @@ export default function MainPageHome() {
   });
 
   return (
-    <>
-      <Container>
-        <Title>
-          <TitleText>So</TitleText>Yummy
-        </Title>
-        <Text>
-          "What to cook?" is not only a recipe app, it is, in fact,{'\n'}
-          your cookbook. You can add your own recipes to{'\n'}
-          save them for the future.
-        </Text>
-        <TipBox>
-          <BoxText>
-            <DecorBoxText>Delicious and healthy</DecorBoxText> way to enjoy a
-            variety of fresh ingredients in one satisfying meal
-          </BoxText>
-          <BoxLinkText>See recipes</BoxLinkText>
-          <DecorArrowIcon />
-        </TipBox>
-      </Container>
-      <HomeGallery>
-        <h2
-          className="title"
-          style={{
-            display: 'flex',
-            alignSelf: 'start',
-            marginLeft: '100px',
-          }}
-        >
-          Lamb
-        </h2>
-        <MainGallery recipes={recipes} />
-        <MainBtn>See all</MainBtn>
-        <h2
-          className="title"
-          style={{
-            display: 'flex',
-            alignSelf: 'start',
-            marginLeft: '100px',
-          }}
-        >
-          Beef
-        </h2>
-        <MainGallery recipes={recipes} />
-        <MainBtn>See all</MainBtn>
-        <h2
-          className="title"
-          style={{
-            display: 'flex',
-            alignSelf: 'start',
-            marginLeft: '100px',
-          }}
-        >
-          Chiken
-        </h2>
-        <MainGallery recipes={recipes} />
-        <MainBtn>See all</MainBtn>
-        <h2
-          className="title"
-          style={{
-            display: 'flex',
-            alignSelf: 'start',
-            marginLeft: '100px',
-          }}
-        >
-          Dessert
-        </h2>
-        <MainGallery recipes={recipes} />
-        <MainBtn>See all</MainBtn>
-      </HomeGallery>
-    </>
+    <Section>
+      <div className="wrapper">
+        <div className="main">
+          <h1>
+            <span>So</span>Yummy
+          </h1>
+          <p>
+            "What to cook?" is not only a recipe app, it is, in fact, your
+            cookbook. You can add your own recipes to save them for the future.
+          </p>
+          <SearchForm />
+        </div>
+        <div className="tips">
+          <p>
+            <span>Delicious and healthy </span>
+            way to enjoy a variety of fresh ingredients in one satisfying meal
+          </p>
+          <div className="link">
+            <Link to={`/categories`} state={{ from: location }}>
+              See recipes
+            </Link>
+            <BsArrowRight />
+          </div>
+        </div>
+      </div>
+
+      <RecipesGallery recipes={recipes} />
+    </Section>
   );
 }
