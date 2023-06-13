@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-// import { container } from 'helpers';
-import { colors } from '../colors';
+// import { colors } from '../colors';
 import { AiOutlineMail } from 'react-icons/ai';
+import spinach from 'components/images/spinach/footer.png';
 
 export const FooterWrapper = styled.div`
   background: #22252a;
@@ -31,7 +31,7 @@ export const FooterWrapper = styled.div`
 
 export const WrapperName = styled.div`
   display: flex;
-    align-items: center;
+  align-items: center;
   margin-bottom: 32px;
   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 24spx;
@@ -90,6 +90,11 @@ export const FooterMain = styled.footer`
     gap: 14px;
 
     padding-block: 28px;
+
+    background-image: url(${spinach});
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: auto 300%;
 
     font-size: 10px;
     line-height: 10px;
@@ -395,4 +400,3 @@ export const WrapperInpBtn = styled.div`
     margin-bottom: 0px;
   }
 `;
-

@@ -13,10 +13,16 @@ body {
   position: relative;
 
   color: rgba(0, 0, 0, 0.5);
-  background-image: url('../../components/images/header/spinach/spinach-right-desc-header-2x.png'), url('../../components/images/header/spinach/spinach-left-header-desc-2x.png');
-  background-position: right 60px bottom -50px, left 0px bottom -300px; 
-  background-repeat: no-repeat, no-repeat;
-  background-size: 438px 474px, 558px 852px;
+
+  background-image: url('../../components/images/spinach/main.png');
+  background-repeat: no-repeat;
+  background-position: left 0 bottom 335px;
+  background-size: 300px auto;
+
+  @media screen and (min-width: 768px) {
+    background-position: left 0 bottom 165px;
+    background-size: 658px 858px;
+  }
 }
 
 .visually-hidden {
