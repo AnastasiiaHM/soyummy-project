@@ -7,10 +7,13 @@ import {
   fetchCategory,
   fetchAllRecipes,
 } from 'redux/recipes/operations';
+import Skeleton from '../components/RecipesGallery/GallerySkeleton';
 
 const Categories = () => {
   const dispatch = useDispatch();
-  const { category, recipes, filter } = useSelector(state => state.categories);
+  const { category, recipes, filter, loading } = useSelector(
+    state => state.categories
+  );
 
   useEffect(() => {
     dispatch(fetchCategory());
@@ -29,7 +32,7 @@ const Categories = () => {
         categoriesList={category}
         onChangeCategory={onChangeCategory}
       />
-      <RecipesGallery recipes={recipes} />
+      {loading ? <Skeleton /> : <RecipesGallery recipes={recipes} />}
     </>
   );
 };

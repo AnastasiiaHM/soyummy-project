@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 import backgroundImageDesc1x from '../../components/images/header/salat/salat-header-desc-1x.png';
+import { colors } from 'components/colors';
 
 const regularFontWeight = '400';
 const blackColor = '#000000';
@@ -20,7 +21,7 @@ export const Container = styled.div`
   max-width: 1280px;
   background-image: url(${backgroundImageDesc1x});
   background-size: contain;
-  background-position: right bottom; /* Смещение фонового изображения вниз и вправо */
+  background-position: right bottom;
   background-repeat: no-repeat;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -163,5 +164,48 @@ export const DecorArrowIcon = styled.svg`
     stroke: currentColor;
     stroke-linecap: round;
     stroke-linejoin: round;
+  }
+`;
+export const HomeGallery = styled.div`
+left: 30px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+`;
+
+
+export const MainBtn = styled.button`
+align-self: flex-end;
+  background-color: ${colors.greenButton};
+  border-radius: 6px;
+  border: 0;
+  width: 94px;
+  height: 38px;
+  margin-right: 16px;
+  margin-right: 32px;
+  font-size: 10px;
+  line-height: 1.5;
+  color: ${colors.textGreenBtn};
+  cursor: pointer;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    margin-bottom: 50px;
+    width: 138px;
+    height: 45px;
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    margin-bottom: 100px;
+    margin-right: 100px;
+    width: 160px;
+    height: 54px;
+    font-size: 16px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${colors.darkButton};
   }
 `;
