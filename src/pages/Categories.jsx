@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchRecipesByCategory,
   fetchCategory,
+  fetchAllRecipes,
 } from 'redux/recipes/operations';
 
 const Categories = () => {
@@ -13,6 +14,7 @@ const Categories = () => {
 
   useEffect(() => {
     dispatch(fetchCategory());
+    dispatch(fetchAllRecipes());
     dispatch(fetchRecipesByCategory(filter));
   }, [dispatch, filter]);
 

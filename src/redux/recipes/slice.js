@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchRecipesByCategory, fetchCategory } from './operations'
+import { fetchRecipesByCategory, fetchCategory, fetchAllRecipes } from './operations'
 
 const initialState = {
     recipes: [],
@@ -30,6 +30,20 @@ const categoriesSlice = createSlice({
                 state.error = null;
             })
             .addCase(fetchCategory.rejected, (state, { payload }) => {
+                state.loading = false;
+                state.error = payload;
+            })
+            .addCase(fetchAllRecipes.fulfilled, (state, { payload }) => {
+                state.recipes = payload;
+                state.currentPage = payload.currentPage;
+                state.totalPages = payload.totalPages;
+                state.loading = false;
+            })
+            .addCase(fetchAllRecipes.pending, (state, { payload }) => {
+                state.loading = false;
+                state.error = payload;
+            })
+            .addCase(fetchAllRecipes.rejected, (state, { payload }) => {
                 state.loading = false;
                 state.error = payload;
             })
