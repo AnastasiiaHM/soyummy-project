@@ -3,7 +3,7 @@ import Card from './Card';
 import CardPlaceholder from './CardPlaceholder';
 import { List, ListName } from './List.styled';
 
-const  RecipesList = ({
+const RecipesList = ({
   list,
   listName,
   totalPages,
@@ -22,11 +22,7 @@ const  RecipesList = ({
         <>
           <List>
             {list.map(card => (
-              <Card
-                key={card.id}
-                card={card}
-                deleteCard={deleteCard}
-              />
+              <Card key={card.id} card={card} deleteCard={deleteCard} />
             ))}
           </List>
           <Paginator

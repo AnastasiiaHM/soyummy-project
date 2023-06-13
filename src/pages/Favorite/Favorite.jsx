@@ -11,15 +11,15 @@ const Favorite = () => {
   const dispatch = useDispatch();
   let { recipes, totalPages, currentPage, loading, error, itemsPerPage } =
     useSelector(state => state.favoriteRecipes);
-    const [deletePageChange, setDeletePageChange] = useState(false);
+  const [deletePageChange, setDeletePageChange] = useState(false);
 
   useEffect(() => {
     dispatch(fetchFavoriteRecipes(1));
   }, [dispatch]);
 
   useEffect(() => {
-    if (deletePageChange) { 
-      dispatch(fetchFavoriteRecipes(currentPage))
+    if (deletePageChange) {
+      dispatch(fetchFavoriteRecipes(currentPage));
     }
 
     setDeletePageChange(false);

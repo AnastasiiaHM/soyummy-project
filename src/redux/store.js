@@ -3,7 +3,7 @@ import { authReducer } from './auth/slice';
 import storage from 'redux-persist/lib/storage';
 import recipesIdSlice from './id-recipes/slice';
 import shoppingList from './shopping-list/slice';
-import categories from './recipes/slice'
+import categories from './recipes/slice';
 
 import {
   persistStore,
@@ -33,7 +33,7 @@ export const store = configureStore({
     shoppingList,
     // mainRecipes: mainRecipeReduser,
     favoriteRecipes: favoriteRecipesReducer,
-     ownRecipes: ownRecipesReducer,
+    ownRecipes: ownRecipesReducer,
     // ingredients: ingredientsReducer,
     // search: searchReducer,
     categories,

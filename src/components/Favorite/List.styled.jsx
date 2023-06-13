@@ -34,4 +34,3 @@ export const ListName = styled.h2`
     font-size: 44px;
   }
 `;
-

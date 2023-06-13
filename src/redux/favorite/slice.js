@@ -11,7 +11,7 @@ const initialState = {
   currentPage: 1,
   loading: false,
   error: null,
-  itemsPerPage: 4
+  itemsPerPage: 4,
 };
 
 const favoriteRecipesSlice = createSlice({
@@ -38,7 +38,10 @@ const favoriteRecipesSlice = createSlice({
         state.recipes = state.recipes.filter(recipe => recipe._id !== payload);
         state.totalRecords = state.totalRecords - 1;
         state.totalPages = Math.ceil(state.totalRecords / state.itemsPerPage);
-        state.currentPage = state.currentPage < state.totalPages ? state.currentPage : state.totalPages;
+        state.currentPage =
+          state.currentPage < state.totalPages
+            ? state.currentPage
+            : state.totalPages;
         state.loading = false;
         state.error = null;
       })

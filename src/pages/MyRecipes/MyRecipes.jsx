@@ -24,9 +24,7 @@ const MyRecipes = () => {
 
   if (error) {
     return (
-      <Message>
-        Error while retrieving your recipes: {error.message}
-      </Message>
+      <Message>Error while retrieving your recipes: {error.message}</Message>
     );
   }
 
