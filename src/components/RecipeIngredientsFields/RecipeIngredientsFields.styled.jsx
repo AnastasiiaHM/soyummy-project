@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 28px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -61,8 +61,12 @@ export const CounterButton = styled.button`
 
 export const List = styled.ul`
   display: flex;
+  flex-direction: column;
   gap: 18px;
   margin-bottom: 44px;
+  height: auto;
+  max-height: 430px;
+  overflow: auto;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     gap: 24px;
@@ -71,41 +75,4 @@ export const List = styled.ul`
   @media screen and (min-width: ${mediaSizes.desktop}) {
     width: 609px;
   }
-`;
-
-export const Item = styled.li`
-  width: 100%;
-  display: flex;
-  gap: 14px;
-`;
-
-export const Input = styled.input`
-  display: block;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  width: ${props => props.width || '50%'};
-  padding: 16px;
-  background-color: ${colors.greyButton};
-  color: ${colors.blackFont};
-  border: none;
-  border-radius: 6px;
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    font-size: 18px;
-  }
-`;
-
-export const CloseBtn = styled.button`
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin-left: auto;
-  border: none;
-  cursor: pointer;
 `;
