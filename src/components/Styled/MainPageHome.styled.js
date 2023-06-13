@@ -1,11 +1,20 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 import backgroundImageDesc1x from '../../components/images/header/salat/salat-header-desc-1x.png';
+import spinachLeft from 'components/images/spinach/left.png';
+import spinachRight from 'components/images/spinach/right.png';
 
 const regularFontWeight = '400';
 const blackColor = '#000000';
 const whiteColor = '#FFFFFF';
 const grayColor = '#808080';
+
+export const Section = styled.section`
+  background-image: url(${spinachRight}), url(${spinachLeft});
+  background-size: 1044px auto, 15% auto;
+  background-position: right -500px bottom -100px, left top;
+  background-repeat: no-repeat;
+`;
 
 export const Container = styled.div`
   margin-left: auto;
