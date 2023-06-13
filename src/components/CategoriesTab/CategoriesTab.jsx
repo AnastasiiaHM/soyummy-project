@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Box from '@mui/material/Box';
 import { colors } from '../colors';
 import { StyledTab } from './CategoriesTab.styled';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'redux/recipes/slice';
 
-export default function CategoriesRecipes() {
+export default function CategoriesTab(props) {
+  const dispatch = useDispatch();
+  const { categoriesList } = props;
   const [value, setValue] = useState(0);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const onClickCategory = e => {
+    dispatch(setFilter(e));
   };
 
   return (
@@ -37,20 +43,13 @@ export default function CategoriesRecipes() {
         allowScrollButtonsMobile
         aria-label="scrolltabs"
       >
-        <StyledTab label="Beef" />
-        <StyledTab label="Breakfast" />
-        <StyledTab label="Chicken" />
-        <StyledTab label="Dessert" />
-        <StyledTab label="Goat" />
-        <StyledTab label="Lamb" />
-        <StyledTab label="Pasta" />
-        <StyledTab label="Pork" />
-        <StyledTab label="Seafood" />
-        <StyledTab label="Side" />
-        <StyledTab label="Soup" />
-        <StyledTab label="Starter" />
-        <StyledTab label="Vegan" />
-        <StyledTab label="Vegetarian" />
+        {categoriesList.map(category => (
+          <StyledTab
+            key={category._id}
+            label={category.name}
+            onClick={e => onClickCategory(category.name)}
+          />
+        ))}
       </Tabs>
     </Box>
   );
