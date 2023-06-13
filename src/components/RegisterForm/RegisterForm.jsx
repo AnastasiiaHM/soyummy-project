@@ -23,11 +23,13 @@ export const RegisterForm = () => {
   // };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     dispatch(register(values));
-    //if (!message) resetForm();
+    const path = '/main';
+    navigate(path);
   };
 
   const schema = yup.object().shape({

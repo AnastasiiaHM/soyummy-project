@@ -9,20 +9,21 @@ body {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: -0.02em;
+  background-color: #ececec;
 
   position: relative;
 
   color: rgba(0, 0, 0, 0.5);
-  
+
   background-image: url('../../components/images/spinach/main.png');
-    background-repeat: no-repeat;
-    background-position: left 0 bottom 335px;
-    background-size: 300px auto;
-  
-    @media screen and (min-width: 768px) {
-      background-position: left 0 bottom 165px;
-      background-size: 658px 858px;
-    }
+  background-repeat: no-repeat;
+  background-position: left 0 bottom 335px;
+  background-size: 300px auto;
+
+  @media screen and (min-width: 768px) {
+    background-position: left 0 bottom 165px;
+    background-size: 658px 858px;
+  }
 }
 
 .visually-hidden {
