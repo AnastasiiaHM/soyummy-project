@@ -35,24 +35,19 @@ const UserProf = ({ handleCloseModalProfile }) => {
   };
 
   const handleSaveChanges = () => {
-    // Створіть об'єкт з оновленими даними користувача
     const userData = {};
     if (name) {
-      userData.name = name;
-      console.log(name)
+      userData.newName = name;
     }
     if (avatar) {
       userData.avatar = avatar;
     }
   
-    // Викличте функцію `updateUser` з оновленими даними
     dispatch(updateUser(userData))
       .unwrap()
       .then((response) => {
-        // Оновіть стан компонента або виконайте необхідні дії
-        // після успішного оновлення користувача
-        console.log(response); // Виведіть відповідь сервера для перевірки
-        setName(userData);
+        console.log(response); 
+        setName(userData.newName);
         console.log(userData);
       })
       .catch((error) => {
@@ -94,25 +89,33 @@ const UserProf = ({ handleCloseModalProfile }) => {
           <GoX style={{ width: '20px', height: '20px' }} />
       </BtnClose>
       <IconUser>
-      <BiUser
-        style={{
-          width: '47px',
-          height: '47px',
-          fill: '#C4C4C4',
-        }}
-      />
-        <UserBtn
-          type="file" 
+        <BiUser
+          style={{
+            width: '47px',
+            height: '47px',
+            fill: '#C4C4C4',
+          }}
+        />
+        <input
+          type="file"
+          accept="image/*"
           onChange={handleAvatarChange}
-        >
-           <BiPlus
-              style={{
-                fill: '#FAFAFA',
-                display: 'flex',
-                position: 'absolute',
-              }}
-          />
-        </UserBtn>
+          
+          style={{
+            position: 'absolute',
+            opacity: 0,
+            width: '100%',
+            height: '100%',
+            cursor: 'pointer',
+          }}
+        />
+        <BiPlus
+          style={{
+            fill: '#FAFAFA',
+            display: 'flex',
+            position: 'absolute',
+          }}
+        />
       </IconUser>
       <CenteredContainer>
         <FormModal>

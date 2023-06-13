@@ -28,6 +28,7 @@ export function UserComponent() {
   if (!user) {
     return null; 
   }
+  
 
   return (
     <UserWrapper>
