@@ -13,7 +13,7 @@ import { ReactComponent as Add } from '../images/addIngredient/add.svg';
 import { Select } from 'components/Select/Select';
 import { timeRange } from 'components/constants/timeRange';
 import { useField, useFormikContext } from 'formik';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 

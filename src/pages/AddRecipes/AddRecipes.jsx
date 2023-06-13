@@ -1,4 +1,5 @@
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
 import { PopularRecipe } from 'components/PopularRecipe/PopularRecipe';
 import { FollowUs } from 'components/FollowUs/FollowUs';
@@ -9,7 +10,7 @@ import { useState, useEffect } from 'react';
 const AddRecipes = () => {
   const [popularRecipes, setPopularRecipes] = useState([]);
 
-  const notify = message => toast(message);
+  const notify = message => toast.error(message, { autoClose: 3000 });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +31,7 @@ const AddRecipes = () => {
         <FollowUs />
         {popularRecipes.length > 0 && <PopularRecipe list={popularRecipes} />}
       </Wrapper>
+      <ToastContainer />
     </Container>
   );
 };

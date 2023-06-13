@@ -13,7 +13,7 @@ import {
 
 export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
   const [ingredients, setIngredients] = useState([]);
-  const [isAnyDropdownOpen, setAnyDropdownOpen] = useState(false);
+  const [isAnyDropdownOpen, setIsAnyDropdownOpen] = useState(false);
   const listRef = useRef(null);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
   };
 
   const dropdownHandler = value => {
-    setAnyDropdownOpen(value);
+    setIsAnyDropdownOpen(value);
   };
 
   return (

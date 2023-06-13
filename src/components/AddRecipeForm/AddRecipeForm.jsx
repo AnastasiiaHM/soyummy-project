@@ -7,6 +7,8 @@ import { StyledForm, StyledButton, StyledTitle } from './AddRecipeForm.styled';
 import { getCategoriesList } from 'operations/addRecipe';
 import { addNewRecipe } from 'operations/addRecipe';
 import { Formik } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
@@ -51,6 +53,7 @@ export const AddRecipeForm = () => {
   const [thumb, setThumb] = useState('');
 
   const navigate = useNavigate();
+  const notify = message => toast.error(message, { autoClose: 3000 });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,7 +61,7 @@ export const AddRecipeForm = () => {
         const res = await getCategoriesList();
         setCategoriesList(res);
       } catch (error) {
-        console.log(error.message);
+        notify(error.message);
       }
     };
     fetchData();
@@ -84,31 +87,32 @@ export const AddRecipeForm = () => {
     setThumb(value);
   };
 
-  const submitHandler = async (values, { setSubmitting }) => {
+  const submitHandler = async (values, { setSubmitting, resetForm }) => {
     try {
       const { title, description } = values;
-
+      const instructions = preparation.join('/r/n');
       const newRecipe = new FormData();
       newRecipe.append('title', title);
       newRecipe.append('description', description);
       newRecipe.append('category', category);
       newRecipe.append('time', time);
-      newRecipe.append('thumb', thumb);
-      newRecipe.append('ingredients', ingredients);
-      newRecipe.append('instructions', preparation);
-      // for (let pair of newRecipe.entries()) {
-      //   console.log(pair[0] + ', ' + pair[1]);
-      // }
+      newRecipe.append('recipeIMG', thumb);
+      newRecipe.append('ingredients', JSON.stringify(ingredients));
+      newRecipe.append('instructions', instructions);
       const result = await addNewRecipe(newRecipe);
-      if (result) navigate('/my');
-      // console.log(ingredients);
+
+      if (result) {
+        resetForm();
+        navigate('/my');
+      }
     } catch (error) {
-      console.log(error.message);
+      notify(error.message);
     }
   };
 
   return (
     <>
+      <ToastContainer />
       <Formik
         initialValues={initialValue}
         validationSchema={validationSchema}

@@ -52,6 +52,7 @@ export const Select = ({
 
   const clickHandler = e => {
     setIsDropdownOpen(state => !state);
+    open(false);
     setValue(e.target.textContent);
 
     isOptionObject
