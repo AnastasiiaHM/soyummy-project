@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { register, logIn } from './operations';
-import { register, LogIn } from './operations';
+import { register, LogIn, logout } from './operations';
 
 const initialState = {
   message: null,
-  token: null,
+  token: localStorage.getItem('token') || null,
   user: {
     name: null,
     email: null,
@@ -16,7 +15,6 @@ const initialState = {
   isLoggedIn: false,
   authError: null,
   error: null,
-  loading: false,
 };
 
 const userSlice = createSlice({
@@ -32,35 +30,44 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.authError = null;
-        state.error = null;
-        state.loading = false;
+        localStorage.setItem('token', action.payload.token);
       })
       .addCase(register.rejected, (state, action) => {
         state.authError = action.payload;
-        state.error = action.payload;
-        state.loading = false;
-      })
-      .addCase(register.pending, (state, action) => {
-        state.error = null;
-        state.loading = true;
       })
       .addCase(LogIn.fulfilled, (state, action) => {
-        state.user = action.user;
-        state.token = action.token;
+        const { name, email, _id, avatarURL } = action.payload.user;
+        state.user._id = _id;
+        state.user.name = name;
+        state.user.email = email;
+        state.token = action.payload.token;
+        state.user.avatarURL = avatarURL;
         state.isLoggedIn = true;
         state.authError = null;
-        state.error = null;
-        state.loading = false;
+        localStorage.setItem('token', action.payload.token);
       })
       .addCase(LogIn.rejected, (state, action) => {
         state.authError = action.payload;
-        state.error = action.payload;
-        state.loading = false;
       })
-      .addCase(LogIn.pending, (state, action) => {
-        state.error = null;
-        state.loading = true;
-      });
+      .addCase(LogIn.pending, (state, action) => {})
+      .addCase(logout.fulfilled, (state) => {
+        state.token = null;
+        state.isLoggedIn = false;
+        state.user = {
+          name: null,
+          email: null,
+          password: null,
+          _id: null,
+          avatarURL: null,
+          shoppingList: [],
+        };
+        state.authError = null;
+        localStorage.removeItem('token');
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.authError = action.payload;
+      })
+      .addCase(logout.pending, (state) => {})
   },
 });
 

@@ -30,11 +30,6 @@ export const LoginForm = () => {
     navigate(path);
   };
 
-  // const redirection = () => {
-  //   const path = '/main';
-  //   navigate(path);
-  // };
-
   return (
     <RegisterFormStyled>
       <Formik

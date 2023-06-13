@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Modal, Box } from '@mui/material';
 import { GoX } from 'react-icons/go';
 import {
@@ -16,8 +17,48 @@ import {
 import { BiPlus, BiUser } from 'react-icons/bi';
 import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
+import { updateUser } from '../../redux/user/operations';
 
 const UserProf = ({ handleCloseModalProfile }) => {
+
+  const dispatch = useDispatch();
+  const [name, setName] = React.useState('');
+  const [avatar, setAvatar] = React.useState(null);
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleAvatarChange = (e) => {
+    const file = e.target.files[0];
+    setAvatar(file);
+  };
+
+  const handleSaveChanges = () => {
+    // Створіть об'єкт з оновленими даними користувача
+    const userData = {};
+    if (name) {
+      userData.name = name;
+      console.log(name)
+    }
+    if (avatar) {
+      userData.avatar = avatar;
+    }
+  
+    // Викличте функцію `updateUser` з оновленими даними
+    dispatch(updateUser(userData))
+      .unwrap()
+      .then((response) => {
+        // Оновіть стан компонента або виконайте необхідні дії
+        // після успішного оновлення користувача
+        console.log(response); // Виведіть відповідь сервера для перевірки
+        setName(userData);
+        console.log(userData);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const style = {
     position: 'absolute', 
@@ -60,7 +101,10 @@ const UserProf = ({ handleCloseModalProfile }) => {
           fill: '#C4C4C4',
         }}
       />
-        <UserBtn>
+        <UserBtn
+          type="file" 
+          onChange={handleAvatarChange}
+        >
            <BiPlus
               style={{
                 fill: '#FAFAFA',
@@ -75,10 +119,15 @@ const UserProf = ({ handleCloseModalProfile }) => {
           <WrapperInp>
             <UserIconInp />
             <InputPen />
-            <InputMod type="text" placeholder="Your name" />
+            <InputMod
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={handleNameChange}
+            />
           </WrapperInp>
         </FormModal>    
-        <BtnSave onClick={handleCloseModalProfile}>
+        <BtnSave onClick={handleSaveChanges}>
           Save changes
         </BtnSave>
       </CenteredContainer>

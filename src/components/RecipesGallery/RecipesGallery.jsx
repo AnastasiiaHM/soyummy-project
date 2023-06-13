@@ -4,7 +4,7 @@ import { RecipesGalleryStyled } from './RecipesGalleryStyled';
 import {
   ContainerPagination,
   StyledPagination,
-} from '../Favorite/FavoriteList.styled';
+} from '../Paginator/Paginator.styled';
 
 const RecipesGallery = ({ recipes, totalPages, page, pageChange }) => {
   return (

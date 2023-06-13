@@ -5,19 +5,32 @@ import { toast } from 'react-toastify';
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 const setAuthHeader = (token) => {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
+    if (token) {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    } else {
+      const storedToken = localStorage.getItem('token');
+      if (storedToken) {
+        axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
+      } else {
+        delete axios.defaults.headers.common.Authorization;
+      }
+    }
+  };
 
 export const fetchRecipeById = createAsyncThunk(
-    'recipes/getRecipeById',
-    async (recipeId, thunkAPI) => {
-        try {
-            setAuthHeader('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts');
-            const response = await axios.get(`/recipes/${recipeId}`);
-            return response.data;
-        } catch (error) {
-            toast.error('Something went wrong, please try again later');
-            return thunkAPI.rejectWithValue(error.message);
-        }
+  'recipes/getRecipeById',
+  async (recipeId, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+
+      setAuthHeader(token);
+
+      const response = await axios.get(`/recipes/${recipeId}`);
+      return response.data;
+    } catch (error) {
+      toast.error('Something went wrong, please try again later');
+      return thunkAPI.rejectWithValue(error.message);
     }
+  }
 );
