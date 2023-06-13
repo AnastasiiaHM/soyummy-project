@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants/media';
+import { Form } from 'formik';
 
 export const StyledTitle = styled.h2`
   display: block;
@@ -10,7 +11,7 @@ export const StyledTitle = styled.h2`
   }
 `;
 
-export const Form = styled.form`
+export const StyledForm = styled(Form)`
   display: flex;
   justify-content: center;
   flex-direction: column;
