@@ -1,15 +1,6 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants/media';
 
-export const StyledTitle = styled.h2`
-  display: block;
-  margin-bottom: 72px;
-  width: 100%;
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    margin-bottom: 100px;
-  }
-`;
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;

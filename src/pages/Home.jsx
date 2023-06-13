@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import {
@@ -17,6 +18,7 @@ import { MainGallery } from '../components/MainGallery/MainGallery';
 import { fetchMainPageRecipes } from '../redux/recipes/operations';
 
 export default function MainPageHome() {
+  const location = useLocation();
   const dispatch = useDispatch();
   const recipes = useSelector(state => state.categories.recipes);
   useEffect(() => {

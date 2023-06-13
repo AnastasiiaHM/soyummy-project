@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { BiTrash } from 'react-icons/bi';
 import { mediaSizes } from '../constants/media';
 import { colors } from 'components/colors';
+import { Skeleton } from '@mui/material';
 
 export const ContainerCard = styled.div`
   background: ${colors.whiteColor};
@@ -24,7 +25,9 @@ export const ContainerCard = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`
+const ImageContainerPattern = element => styled(element)`
+  border-radius: 8px;
+  overflow: hidden;
   min-width: 124px;
   min-height: 124px;
   width: 124px;
@@ -44,46 +47,53 @@ export const ImageContainer = styled.div`
     height: 324px;
   }
   & > img {
-    border-radius: 8px;
     width: 100%;
     display: block;
     height: 100%;
   }
 `;
 
+export const ImageContainer = ImageContainerPattern('div');
+export const ImagePlaceholder = ImageContainerPattern(Skeleton);
+
 export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 `;
 
 export const CardHeader = styled.div`
-  & > p {
-    font-size: 8px;
-    line-height: 1.25;
-    color: ${colors.blackFont};
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  flex-grow: 1;
+`;
 
-    @media screen and (min-width: ${mediaSizes.tablet}) {
-      font-size: 14px;
-      line-height: 1.3;
-    }
+const CardDescriptionPattern = element => styled(element)`
+  font-size: 8px;
+  line-height: 1.25;
+  color: ${colors.blackFont};
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-    @media screen and (min-width: ${mediaSizes.desktop}) {
-      font-size: 18px;
-      line-height: 1.33;
-      -webkit-line-clamp: 8;
-    }
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    font-size: 18px;
+    line-height: 1.33;
+    -webkit-line-clamp: 8;
   }
 `;
 
-export const DeleteBtn = styled.button`
+export const CardDescription = CardDescriptionPattern('p');
+export const CardDescriptionPlaceholder = CardDescriptionPattern(Skeleton);
+
+const DeleteButtonPattern = element => styled(element)`
   width: 24px;
   height: 24px;
-  top: 14px;
   background: ${colors.imageBC};
   border-radius: 4px;
   border: 0;
@@ -92,15 +102,16 @@ export const DeleteBtn = styled.button`
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 38px;
     height: 38px;
-    top: 28px;
   }
 
   @media screen and (min-width: ${mediaSizes.desktop}) {
     width: 44px;
     height: 44px;
-    top: 40px;
   }
 `;
+
+export const DeleteButton = DeleteButtonPattern('button');
+export const DeleteButtonPlaceholder = DeleteButtonPattern(Skeleton);
 
 export const DeleteIcon = styled(BiTrash)`
   width: 14px;
@@ -122,26 +133,31 @@ export const CardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: end;
+`;
 
-  & > p {
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 1.4;
-    letter-spacing: -0.24px;
-    color: ${colors.recipeCardText};
+const CookingTimePattern = element => styled(element)`
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: ${colors.recipeCardText};
 
-    @media screen and (min-width: ${mediaSizes.tablet}) {
-      font-size: 14px;
-    }
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    font-size: 14px;
   }
 `;
 
-export const CardTitle = styled.h3`
+export const CookingTime = CookingTimePattern('p');
+export const CookingTimePlaceholder = CookingTimePattern(Skeleton);
+
+const CardTitlePattern = element => styled(element)`
   margin-bottom: 4px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.24px;
+  display: inline-block;
+  width: 100%;
   color: ${colors.recipeCardText};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -155,8 +171,10 @@ export const CardTitle = styled.h3`
   }
 `;
 
-export const PrimaryBtn = styled.button`
-  background-color: ${colors.darkButton};
+export const CardTitle = CardTitlePattern('h3');
+export const CardTitlePlaceholder = CardTitlePattern(Skeleton);
+
+const PrimaryButtonPattern = element => styled(element)`
   border-radius: 24px 44px;
   border: 0;
   width: 87px;
@@ -164,7 +182,6 @@ export const PrimaryBtn = styled.button`
   font-size: 10px;
   line-height: 1.5;
   color: ${colors.textGreenBtn};
-  cursor: pointer;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 138px;
@@ -177,12 +194,18 @@ export const PrimaryBtn = styled.button`
     height: 54px;
     font-size: 16px;
   }
+`;
+
+export const PrimaryButton = styled(PrimaryButtonPattern('button'))`
+  background-color: ${colors.darkButton};
+  cursor: pointer;
 
   &:hover,
   &:focus {
     background-color: ${colors.greenButton};
   }
 `;
+export const PrimaryButtonPlaceholder = PrimaryButtonPattern(Skeleton);
 
 export const CardBody = styled.div`
   display: flex;
