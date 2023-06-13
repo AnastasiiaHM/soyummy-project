@@ -16,7 +16,7 @@ export const Message = styled.div`
   color: ${colors.blackFontBolt};
 `;
 
-export const FavoriteContainer = styled.div`
+export const RecipesContainer = styled.div`
   margin-bottom: 100px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {

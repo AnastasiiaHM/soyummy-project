@@ -1,25 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  deleteFavoriteRecipe,
-  fetchFavoriteRecipes,
-} from 'redux/favorite/operations';
-import { Message, RecipesContainer } from './Favorite.styled';
+import { Message, RecipesContainer } from '../Favorite/Favorite.styled';
 import RecipesList from 'components/Favorite/FavoriteList';
+import { deleteOwnRecipe, fetchOwnRecipes } from 'redux/my-recipes/operations';
 
-const Favorite = () => {
+const MyRecipes = () => {
   const dispatch = useDispatch();
   let { recipes, totalPages, currentPage, loading, error, itemsPerPage } =
-    useSelector(state => state.favoriteRecipes);
-    const [deletePageChange, setDeletePageChange] = useState(false);
+    useSelector(state => state.ownRecipes);
+  const [deletePageChange, setDeletePageChange] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchFavoriteRecipes(1));
+    dispatch(fetchOwnRecipes(1));
   }, [dispatch]);
 
   useEffect(() => {
-    if (deletePageChange) { 
-      dispatch(fetchFavoriteRecipes(currentPage))
+    if (deletePageChange) {
+      dispatch(fetchOwnRecipes(currentPage));
     }
 
     setDeletePageChange(false);
@@ -28,21 +25,21 @@ const Favorite = () => {
   if (error) {
     return (
       <Message>
-        Error while retrieving favorite recipes: {error.message}
+        Error while retrieving your recipes: {error.message}
       </Message>
     );
   }
 
   if (!loading && recipes?.length === 0) {
-    return <Message>You don't have favorite recipes yet.</Message>;
+    return <Message>You don't have your recipes yet.</Message>;
   }
 
   const handlePageChange = page => {
-    dispatch(fetchFavoriteRecipes(page));
+    dispatch(fetchOwnRecipes(page));
   };
 
   const handleCardDelete = async recipeId => {
-    await dispatch(deleteFavoriteRecipe(recipeId));
+    await dispatch(deleteOwnRecipe(recipeId));
     setDeletePageChange(true);
   };
 
@@ -50,7 +47,7 @@ const Favorite = () => {
     <RecipesContainer>
       <RecipesList
         list={recipes}
-        listName="Favorites"
+        listName="My recipes"
         totalPages={totalPages}
         page={currentPage}
         loading={loading}
@@ -62,4 +59,4 @@ const Favorite = () => {
   );
 };
 
-export default Favorite;
+export default MyRecipes;

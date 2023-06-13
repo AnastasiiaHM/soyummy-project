@@ -1,8 +1,5 @@
-import {
-  fetchFavoriteRecipes,
-  deleteFavoriteRecipe,
-} from 'redux/favorite/operations';
 import { createSlice } from '@reduxjs/toolkit';
+import { deleteOwnRecipe, fetchOwnRecipes } from './operations';
 
 const initialState = {
   recipes: [],
@@ -11,45 +8,48 @@ const initialState = {
   currentPage: 1,
   loading: false,
   error: null,
-  itemsPerPage: 4
+  itemsPerPage: 4,
 };
 
-const favoriteRecipesSlice = createSlice({
-  name: 'favoriteRecipes',
+const ownRecipesSlice = createSlice({
+  name: 'ownRecipes',
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(fetchFavoriteRecipes.fulfilled, (state, { payload }) => {
+      .addCase(fetchOwnRecipes.fulfilled, (state, { payload }) => {
         state.recipes = payload.recipes;
         state.currentPage = payload.currentPage;
         state.totalPages = Math.ceil(payload.totalRecipes / state.itemsPerPage);
         state.totalRecords = payload.totalRecipes;
         state.loading = false;
       })
-      .addCase(fetchFavoriteRecipes.pending, state => {
+      .addCase(fetchOwnRecipes.pending, state => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchFavoriteRecipes.rejected, (state, { payload }) => {
+      .addCase(fetchOwnRecipes.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       })
-      .addCase(deleteFavoriteRecipe.fulfilled, (state, { payload }) => {
+      .addCase(deleteOwnRecipe.fulfilled, (state, { payload }) => {
         state.recipes = state.recipes.filter(recipe => recipe._id !== payload);
         state.totalRecords = state.totalRecords - 1;
         state.totalPages = Math.ceil(state.totalRecords / state.itemsPerPage);
-        state.currentPage = state.currentPage < state.totalPages ? state.currentPage : state.totalPages;
+        state.currentPage =
+          state.currentPage < state.totalPages
+            ? state.currentPage
+            : state.totalPages;
         state.loading = false;
         state.error = null;
       })
-      .addCase(deleteFavoriteRecipe.pending, state => {
+      .addCase(deleteOwnRecipe.pending, state => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(deleteFavoriteRecipe.rejected, (state, { payload }) => {
+      .addCase(deleteOwnRecipe.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       }),
 });
 
-export default favoriteRecipesSlice.reducer;
+export default ownRecipesSlice.reducer;
