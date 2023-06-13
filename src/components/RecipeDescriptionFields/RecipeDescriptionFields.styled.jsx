@@ -37,6 +37,7 @@ export const FieldsWrapper = styled.div`
 `;
 
 export const ImageLoader = styled.label`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,6 +66,35 @@ export const ImageLoader = styled.label`
   }
 `;
 
+export const Thumb = styled.img`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 8px;
+  object-fit: cover;
+`;
+
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  z-index: 3;
+  background-color: ${colors.color1};
+  cursor: pointer;
+  color: #fff;
+`;
+
 export const Input = styled.input`
   display: none;
 `;
@@ -75,17 +105,38 @@ export const Field = styled.input`
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
-  color: #000000;
-  opacity: 0.5;
+  color: ${colors.color1};
   padding: 18px 0;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: ${props => props.border};
+  background-color: transparent;
 
   &::placeholder {
     color: ${colors.color1};
   }
 
+  &:focus {
+    border: none;
+    outline: none;
+  }
+`;
+
+export const StyledLabel = styled.label`
+  position: relative;
+  z-index: ${props => props.zIndex};
+  background-color: transparent;
+  border-bottom: 1px solid #e0e0e0;
+`;
+
+export const ValidationInfo = styled.span`
+  color: red;
+  font-size: 11px;
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
   @media screen and (min-width: ${mediaSizes.tablet}) {
-    width: auto;
+    font-size: 11px;
   }
 `;
