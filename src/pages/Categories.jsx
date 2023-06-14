@@ -21,22 +21,6 @@ const Categories = () => {
     currentPage,
     itemsPerPage,
   } = useSelector(state => state.categories);
-  console.log(
-    'Category:',
-    category,
-    'Recipes:',
-    recipes,
-    'Filter:',
-    filter,
-    'Loading:',
-    loading,
-    'TotalPages:',
-    totalPages,
-    'CurrentPage:',
-    currentPage,
-    'ItemsPerPage:',
-    itemsPerPage
-  );
 
   useEffect(() => {
     dispatch(fetchCategory());
