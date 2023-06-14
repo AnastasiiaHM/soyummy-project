@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import recipesIdSlice from './id-recipes/slice';
 import shoppingList from './shopping-list/slice';
 import categories from './recipes/slice';
+import mainPage from './main/slice'
 import favoriteRecipesReducer from './favorite/slice';
 import ownRecipesReducer from './my-recipes/slice';
 
@@ -50,6 +51,7 @@ export const store = configureStore({
     // ingredients: ingredientsReducer,
     search: searchReducer,
     categories,
+    mainPage,
     // subscribe: subscribeReducer,
   },
   preloadedState: loadState(),

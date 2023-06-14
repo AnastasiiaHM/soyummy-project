@@ -22,7 +22,6 @@ export const fetchFavoriteRecipes = createAsyncThunk(
     try {
       setAuthHeader();
       const limit = thunkApi.getState().favoriteRecipes.itemsPerPage;
-      console.log(limit);
       const {
         data: { favoriteRecipes, total },
       } = await axios.get(`/recipes/favorite?page=${page}&limit=${limit}`);

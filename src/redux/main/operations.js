@@ -16,33 +16,16 @@ const setAuthHeader = (token) => {
     }
 };
 
-export const fetchCategory = createAsyncThunk(
-    'categories/fetchAll',
+
+export const fetchMainPageRecipes = createAsyncThunk(
+    'main/fetchMainPageRecipes',
     async (_, thunkApi) => {
         try {
             setAuthHeader();
-            const response = await axios.get('/categories');
+            const response = await axios.get('/recipes/main-page');
             return response.data;
         } catch (e) {
             return thunkApi.rejectWithValue(e.message);
-        }
-    }
-);
-
-export const fetchRecipesByCategory = createAsyncThunk(
-    'categories/fetchRecipesByCategory',
-    async ({ category, page }, thunkApi) => {
-        try {
-            setAuthHeader();
-            const { data: { response, total } } = await axios.get(`/recipes/category/${category}?page=${page}&limit=8`);
-
-            return {
-                response,
-                currentPage: page,
-                totalRecipes: total,
-            };
-        } catch (error) {
-            return thunkApi.rejectWithValue(error.response.data);
         }
     }
 );
