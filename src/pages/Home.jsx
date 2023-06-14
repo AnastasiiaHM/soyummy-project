@@ -14,9 +14,10 @@ import {
 export default function MainPageHome() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const recipes = useSelector(state => state.categories.recipes);
+  const { recipes, filter } = useSelector(state => state.categories);
+
   useEffect(() => {
-    dispatch(fetchMainPageRecipes());
+    dispatch(fetchMainPageRecipes(filter));
   });
 
   return (

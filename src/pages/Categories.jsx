@@ -7,6 +7,8 @@ import {
   fetchCategory,
 } from 'redux/recipes/operations';
 import Skeleton from '../components/RecipesGallery/GallerySkeleton';
+import { CategoriesConteiner } from '../components/CategoriesTab/CategoriesConteiner.styled';
+import Paginator from 'components/Paginator/Paginator';
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -19,40 +21,36 @@ const Categories = () => {
     currentPage,
     itemsPerPage,
   } = useSelector(state => state.categories);
-  // const [page, setPage] = useState(1);
 
   useEffect(() => {
     dispatch(fetchCategory());
-    dispatch(fetchRecipesByCategory(filter));
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchRecipesByCategory({ category: filter, page: 1 }));
   }, [dispatch, filter]);
 
-  const onChangeCategory = category => {
-    dispatch(fetchRecipesByCategory(filter));
-  };
   const handlePageChange = page => {
-    dispatch(fetchRecipesByCategory(page));
+    dispatch(fetchRecipesByCategory({ category: filter, page }));
   };
+
   return (
-    <>
+    <CategoriesConteiner>
       <h1 className="title">Categories</h1>
 
-      <CategoriesTab
-        categoriesList={category}
-        onChangeCategory={onChangeCategory}
-      />
+      <CategoriesTab categoriesList={category} />
 
       {loading ? (
         <Skeleton />
       ) : (
-        <RecipesGallery
-          totalPages={totalPages}
-          page={currentPage}
-          itemsPerPage={itemsPerPage}
-          recipes={recipes}
-          pageChange={handlePageChange}
-        />
+        <RecipesGallery itemsPerPage={itemsPerPage} recipes={recipes} />
       )}
-    </>
+      <Paginator
+        totalPages={totalPages}
+        page={currentPage}
+        pageChange={handlePageChange}
+      />
+    </CategoriesConteiner>
   );
 };
 
