@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
@@ -16,31 +17,34 @@ const setAuthHeader = (token) => {
   }
 };
 
-export const fetchShoppingList = createAsyncThunk(
-  'shoppingList/getShopping_list',
-  async (_, thunkAPI) => {
+export const getRecipesByQuery = createAsyncThunk(
+  'search/getRecipesByQuery',
+  async (query, thunkAPI) => {
     try {
       setAuthHeader();
-      const response = await axios.get('users/shopping-list');
-
-      return response.data;
+      const response = await axios.get(
+        `recipes/title?title=${query}&page=1&limit=8`
+      );
+      return response.data.recipes;
     } catch (error) {
+      toast.error('Something went wrong, please try again later');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const setDeleteProduct = createAsyncThunk(
-  'shoppingList/setDeleteProduct',
-  async (ingredientId, thunkAPI) => {
+export const getRecipesByIngredient = createAsyncThunk(
+  'search/getRecipesByIngredient',
+  async (type, thunkAPI) => {
     try {
       setAuthHeader();
-      const response = await axios.patch(`users/shopping-list/remove`, {
-        ingredientId,
-      });
+      const response = await axios.get(
+        `recipes/ingredient?ingredient=${type}&page=1&limit=8`
+      );
 
-      return response.data;
+      return response.data.recipes;
     } catch (error) {
+      toast.error('Error fetching ingredient:');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

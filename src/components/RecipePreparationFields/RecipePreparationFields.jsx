@@ -10,7 +10,7 @@ import {
 
 export const RecipePreparationFields = ({ ingredientPreparation }) => {
   const [currentValue, setCurrentValue] = useLocalStorage(
-    'IngredientPreparation',
+    'recipePreparation',
     null
   );
   const [text, setText] = useState('');
@@ -43,7 +43,7 @@ export const RecipePreparationFields = ({ ingredientPreparation }) => {
           rows="4"
           name="preparation"
           placeholder="Enter recipe"
-          value={currentValue}
+          value={currentValue || ''}
           required
         ></StyledTextarea>
         {preparationMeta.error && preparationMeta.touched ? (

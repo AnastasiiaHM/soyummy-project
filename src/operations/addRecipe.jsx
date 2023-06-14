@@ -2,25 +2,39 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
-axios.defaults.headers.common.Authorization =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts';
+  const setAuthHeader = (token) => {
+    if (token) {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    } else {
+      const storedToken = localStorage.getItem('token');
+      if (storedToken) {
+        axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
+      } else {
+        delete axios.defaults.headers.common.Authorization;
+      }
+    }
+  };
 
-export const getCategoriesList = async () => {
+export const getCategoriesList = async () => {;
+  setAuthHeader();
   const result = await axios.get('/categories');
   return result.data;
 };
 
 export const getPopularRecipes = async () => {
+  setAuthHeader();
   const result = await axios.get('/recipes/popular-recipes');
   return result.data;
 };
 
 export const getIngredientNames = async name => {
+  setAuthHeader();
   const result = await axios.get(`/ingredients/name?name=${name}`);
   return result.data;
 };
 
 export const addNewRecipe = async body => {
+  setAuthHeader();
   const result = await axios.post('/recipes/add-new', body);
   return result.data;
 };

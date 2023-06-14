@@ -3,16 +3,24 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
-const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+const setAuthHeader = (token) => {
+  if (token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
+    } else {
+      delete axios.defaults.headers.common.Authorization;
+    }
+  }
 };
 
 export const fetchFavoriteRecipes = createAsyncThunk(
   'favoriteRecipes/fetchFavoriteRecipes',
   async (page, thunkApi) => {
     try {
-      setAuthHeader(thunkApi.getState().auth.token);
-
+      setAuthHeader();
       const limit = thunkApi.getState().favoriteRecipes.itemsPerPage;
       const {
         data: { favoriteRecipes, total },
@@ -33,8 +41,7 @@ export const deleteFavoriteRecipe = createAsyncThunk(
   'favoriteRecipes/deleteFavoriteRecipe',
   async (recipeId, thunkApi) => {
     try {
-      setAuthHeader(thunkApi.getState().auth.token);
-
+      setAuthHeader();
       await axios.post(`/recipes/favorite/remove`, {
         _id: recipeId,
       });

@@ -46,3 +46,36 @@ export const Options = styled.option`
   color: ${colors.color1};
   background-color: #d9d9d975;
 `;
+export const TitleDropdpwn = styled.label`
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  letter-spacing: -0.24px;
+
+  color: ${colors.titleColor};
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    top: 29%;
+    left: 25%;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 18px;
+    top: 26%;
+    left: 34%;
+  }
+`;
+
+export const DropdownWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+  margin-bottom: 90px;
+  color: ${colors.color1};
+`;
