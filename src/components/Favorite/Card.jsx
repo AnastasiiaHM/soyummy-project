@@ -12,9 +12,9 @@ import {
   DeleteIcon,
   ImageContainer,
   PrimaryButton,
-} from './FavoriteCard.styled';
+} from './Card.styled';
 
-const FavoriteCard = ({ card, deleteCard }) => {
+const Card = ({ card, deleteCard }) => {
   return (
     <ContainerCard>
       <ImageContainer>
@@ -41,4 +41,4 @@ const FavoriteCard = ({ card, deleteCard }) => {
   );
 };
 
-export default FavoriteCard;
+export default Card;

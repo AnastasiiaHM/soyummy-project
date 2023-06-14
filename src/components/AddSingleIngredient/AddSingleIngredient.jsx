@@ -3,6 +3,8 @@ import { ReactComponent as Close } from '../images/addIngredient/close.svg';
 import { Select } from 'components/Select/Select';
 import { getIngredientNames } from 'operations/addRecipe';
 import { measures } from 'components/constants/measures';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Item,
   NameLabel,
@@ -27,6 +29,8 @@ export const AddSingleIngredient = ({
   const [ingredientsList, setIngredientsList] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const notify = message => toast.error(message, { autoClose: 3000 });
+
   const nameTypingHandler = async e => {
     try {
       const { value } = e.target;
@@ -36,7 +40,7 @@ export const AddSingleIngredient = ({
       setIsDropdownOpen(true);
       dropDown(true);
     } catch (error) {
-      console.log(error.message);
+      notify(error.message);
     }
   };
 
@@ -48,7 +52,7 @@ export const AddSingleIngredient = ({
     dropDown(false);
 
     selectedIngredient({
-      _id: e.target.value,
+      id: e.target.value,
       measure: `${selectedAmount} ${selectedMeasure}`,
     });
   };
@@ -57,7 +61,7 @@ export const AddSingleIngredient = ({
     setSelectedAmount(e.target.value);
 
     selectedIngredient({
-      _id: selectedIngredientId,
+      id: selectedIngredientId,
       measure: `${e.target.value} ${selectedMeasure}`,
     });
   };
@@ -66,7 +70,7 @@ export const AddSingleIngredient = ({
     setSelectedMeasure(value);
 
     selectedIngredient({
-      _id: selectedIngredientId,
+      id: selectedIngredientId,
       measure: `${selectedAmount} ${value}`,
     });
   };
@@ -76,51 +80,54 @@ export const AddSingleIngredient = ({
   };
 
   return (
-    <Item>
-      <NameLabel style={{ zIndex: 100 - index }}>
-        <Input
-          type="text"
-          onChange={nameTypingHandler}
-          style={{ textAlign: 'left' }}
-          value={selectedIngredientName}
-          required
-        />
-        {ingredientsList.length > 0 && isDropdownOpen && (
-          <DropDown>
-            {ingredientsList.map(({ _id, name }) => (
-              <DropdownItem key={_id}>
-                <IngredientBtn
-                  value={_id}
-                  onClick={e => ingredientSelectHandler(e, name)}
-                >
-                  {name}
-                </IngredientBtn>
-              </DropdownItem>
-            ))}
-          </DropDown>
-        )}
-      </NameLabel>
-      <StyledLabel style={{ zIndex: 100 - index }}>
-        <Input
-          type="number"
-          width="100%"
-          required
-          onChange={amountTypingHandler}
-          value={selectedAmount}
-        />
-        <Select
-          options={measures}
-          alignText="center"
-          top="160%"
-          width="100%"
-          newValue={selectMeasureHandler}
-          readOnly={true}
-          open={dropdownHandler}
-        />
-      </StyledLabel>
-      <CloseBtn type="button" onClick={onClick}>
-        <Close />
-      </CloseBtn>
-    </Item>
+    <>
+      <ToastContainer />
+      <Item>
+        <NameLabel style={{ zIndex: 100 - index }}>
+          <Input
+            type="text"
+            onChange={nameTypingHandler}
+            style={{ textAlign: 'left' }}
+            value={selectedIngredientName}
+            required
+          />
+          {ingredientsList.length > 0 && isDropdownOpen && (
+            <DropDown>
+              {ingredientsList.map(({ _id, name }) => (
+                <DropdownItem key={_id}>
+                  <IngredientBtn
+                    value={_id}
+                    onClick={e => ingredientSelectHandler(e, name)}
+                  >
+                    {name}
+                  </IngredientBtn>
+                </DropdownItem>
+              ))}
+            </DropDown>
+          )}
+        </NameLabel>
+        <StyledLabel style={{ zIndex: 100 - index }}>
+          <Input
+            type="number"
+            width="100%"
+            required
+            onChange={amountTypingHandler}
+            value={selectedAmount}
+          />
+          <Select
+            options={measures}
+            alignText="center"
+            top="160%"
+            width="100%"
+            newValue={selectMeasureHandler}
+            readOnly={true}
+            open={dropdownHandler}
+          />
+        </StyledLabel>
+        <CloseBtn type="button" onClick={onClick}>
+          <Close />
+        </CloseBtn>
+      </Item>
+    </>
   );
 };
