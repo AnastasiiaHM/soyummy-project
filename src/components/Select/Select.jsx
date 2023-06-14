@@ -50,10 +50,11 @@ export const Select = ({
     }
   }, [isDropdownOpen, options, value, secondField]);
 
-  const clickHandler = e => {
+  const clickHandler = (e, text) => {
+    console.log(e.target.value);
+    setValue(text);
     setIsDropdownOpen(state => !state);
     open(false);
-    setValue(e.target.textContent);
 
     isOptionObject
       ? newValue({ [name]: e.target.value })
@@ -85,7 +86,7 @@ export const Select = ({
                   type="button"
                   value={data}
                   alignText={alignText}
-                  onClick={clickHandler}
+                  onClick={e => clickHandler(e, text)}
                 >
                   {text}
                 </OptionBtn>

@@ -4,6 +4,7 @@ import { mediaSizes } from 'components/constants/media';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-left: 16px;
   padding-right: 16px;
   margin-left: auto;

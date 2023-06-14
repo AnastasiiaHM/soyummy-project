@@ -2,23 +2,22 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Section } from '../components/Styled/MainPageHome.styled';
-import RecipesGallery from '../components/RecipesGallery/RecipesGallery';
 import { SearchForm } from '../components/SearchForm/SearchForm';
-import {
-  fetchRecipesByCategory,
-  fetchCategory,
-} from '../redux/recipes/operations';
+import { fetchMainPageRecipes } from '../redux/recipes/operations';
 import { BsArrowRight } from 'react-icons/bs';
+import { MainGallery } from '../components/MainGallery/MainGallery';
+import {
+  MainBtn,
+  HomeGallery,
+} from '../components/MainGallery/MainGallery.styled';
 
 export default function MainPageHome() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { recipes, filter } = useSelector(state => state.categories);
-
+  const recipes = useSelector(state => state.categories.recipes);
   useEffect(() => {
-    dispatch(fetchCategory());
-    dispatch(fetchRecipesByCategory(filter));
-  }, [dispatch, filter]);
+    dispatch(fetchMainPageRecipes());
+  });
 
   return (
     <Section>
@@ -46,8 +45,43 @@ export default function MainPageHome() {
           </div>
         </div>
       </div>
+      <HomeGallery>
+        <h2
+          className="title"
+          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
+        >
+          Beef
+        </h2>
+        <MainGallery recipes={recipes} />
+        <MainBtn>See all</MainBtn>
 
-      <RecipesGallery recipes={recipes} />
+        <h2
+          className="title"
+          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
+        >
+          Miscellaneous
+        </h2>
+        <MainGallery recipes={recipes} />
+        <MainBtn>See all</MainBtn>
+
+        <h2
+          className="title"
+          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
+        >
+          Chicken
+        </h2>
+        <MainGallery recipes={recipes} />
+        <MainBtn>See all</MainBtn>
+
+        <h2
+          className="title"
+          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
+        >
+          Desserts
+        </h2>
+        <MainGallery recipes={recipes} />
+        <MainBtn>See all</MainBtn>
+      </HomeGallery>
     </Section>
   );
 }
