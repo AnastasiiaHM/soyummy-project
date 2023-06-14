@@ -19,26 +19,25 @@ const Categories = () => {
     currentPage,
     itemsPerPage,
   } = useSelector(state => state.categories);
-  // const [page, setPage] = useState(1);
 
   useEffect(() => {
     dispatch(fetchCategory());
-    dispatch(fetchRecipesByCategory(filter));
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchRecipesByCategory({category: filter, page: 1}));
   }, [dispatch, filter]);
 
-  const onChangeCategory = category => {
-    dispatch(fetchRecipesByCategory(filter));
-  };
   const handlePageChange = page => {
-    dispatch(fetchRecipesByCategory(page));
+    dispatch(fetchRecipesByCategory({category: filter, page}));
   };
+
   return (
     <>
       <h1 className="title">Categories</h1>
 
       <CategoriesTab
         categoriesList={category}
-        onChangeCategory={onChangeCategory}
       />
 
       {loading ? (

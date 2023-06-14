@@ -35,13 +35,17 @@ export const fetchAllRecipes = createAsyncThunk(
 
 export const fetchRecipesByCategory = createAsyncThunk(
     'categories/fetchRecipesByCategory',
-    async (category, thunkApi) => {
+    async ({category, page}, thunkApi) => {
         try {
             setAuthHeader(thunkApi.getState().auth.token);
-            const page = thunkApi.getState().categories.currentPage
             const limit = thunkApi.getState().categories.itemsPerPage;
-            const response = await axios.get(`/recipes/category/${category}?page=${page}&limit=${limit}`);
-            return response.data;
+            const {data: {response, total}} = await axios.get(`/recipes/category/${category}?page=${page}&limit=${limit}`);
+
+            return {
+                response,
+                currentPage: page,
+                totalRecipes: total,
+            };
         } catch (error) {
             return thunkApi.rejectWithValue(error.response.data);
         }
