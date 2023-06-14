@@ -3,7 +3,7 @@ import { authReducer } from './auth/slice';
 import storage from 'redux-persist/lib/storage';
 import recipesIdSlice from './id-recipes/slice';
 import shoppingList from './shopping-list/slice';
-import categories from './recipes/slice'
+import categories from './recipes/slice';
 import favoriteRecipesReducer from './favorite/slice';
 
 import {
@@ -35,10 +35,7 @@ const persistConfig = {
   whitelist: ['token'],
 };
 
-export const persistedReducerAuth = persistReducer(
-  persistConfig, 
-  authReducer
-);
+export const persistedReducerAuth = persistReducer(persistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
@@ -47,7 +44,7 @@ export const store = configureStore({
     shoppingList,
     // mainRecipes: mainRecipeReduser,
     favoriteRecipes: favoriteRecipesReducer,
-    // myRecipes: myRecipesReducer,
+    ownRecipes: ownRecipesReducer,
     // ingredients: ingredientsReducer,
     // search: searchReducer,
     categories,
@@ -66,8 +63,7 @@ store.subscribe(() => {
   try {
     const serializedState = JSON.stringify(store.getState());
     localStorage.setItem('reduxState', serializedState);
-  } catch (error) {
-  }
+  } catch (error) {}
 });
 
 export const persistor = persistStore(store);
