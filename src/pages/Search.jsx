@@ -16,14 +16,8 @@ import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipe
 const Search = () => {
   const query = useSelector(selectQuery);
   const queryType = useSelector(selectQueryType);
-  let recipes = useSelector(selectSearchedRecipes);
+  const recipes = useSelector(selectSearchedRecipes);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    return () => {
-      recipes = [];
-    };
-  }, []);
 
   useEffect(() => {
     if (!query) {
@@ -40,11 +34,6 @@ const Search = () => {
         return;
     }
   }, [dispatch, query, queryType]);
-  useEffect(() => {
-    return () => {
-      recipes = [];
-    };
-  }, []);
 
   return (
     <section>
@@ -52,7 +41,7 @@ const Search = () => {
 
       <SearchBar />
 
-      {!query && <SearchRecipesList recipes={recipes} />}
+      <SearchRecipesList recipes={recipes} />
     </section>
   );
 };
