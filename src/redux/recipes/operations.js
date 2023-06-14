@@ -48,10 +48,6 @@ export const fetchRecipesByCategory = createAsyncThunk(
         try {
             setAuthHeader();
             const { data: { response, total } } = await axios.get(`/recipes/category/${category}`, { params: { page, limit: 8 } });
-            setAuthHeader();
-            const limit = thunkApi.getState().categories.itemsPerPage;
-            console.log(limit);
-            const { data: { response, total } } = await axios.get(`/recipes/category/${category}`, { params: { page, limit, } });
 
             return {
                 response,
