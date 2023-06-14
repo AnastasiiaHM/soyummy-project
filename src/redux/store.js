@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import recipesIdSlice from './id-recipes/slice';
 import shoppingList from './shopping-list/slice';
 import categories from './recipes/slice';
+import favoriteRecipesReducer from './favorite/slice';
 
 import {
   persistStore,
@@ -15,8 +16,18 @@ import {
   REGISTER,
   persistReducer,
 } from 'redux-persist';
-import favoriteRecipesReducer from './favorite/slice';
-import ownRecipesReducer from './my-recipes/slice';
+
+const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem('reduxState');
+    if (serializedState === null) {
+      return undefined;
+    }
+    return JSON.parse(serializedState);
+  } catch (error) {
+    return undefined;
+  }
+};
 
 const persistConfig = {
   key: 'token',
@@ -39,13 +50,20 @@ export const store = configureStore({
     categories,
     // subscribe: subscribeReducer,
   },
-
+  preloadedState: loadState(),
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+});
+
+store.subscribe(() => {
+  try {
+    const serializedState = JSON.stringify(store.getState());
+    localStorage.setItem('reduxState', serializedState);
+  } catch (error) {}
 });
 
 export const persistor = persistStore(store);
