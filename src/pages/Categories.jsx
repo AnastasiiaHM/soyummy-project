@@ -7,13 +7,19 @@ import {
   fetchCategory,
 } from 'redux/recipes/operations';
 import Skeleton from '../components/RecipesGallery/GallerySkeleton';
-import { Loader } from 'components/Loader/Loader';
 
 const Categories = () => {
   const dispatch = useDispatch();
-  const { category, recipes, filter, loading } = useSelector(
-    state => state.categories
-  );
+  const {
+    category,
+    recipes,
+    filter,
+    loading,
+    totalPages,
+    currentPage,
+    itemsPerPage,
+  } = useSelector(state => state.categories);
+  // const [page, setPage] = useState(1);
 
   useEffect(() => {
     dispatch(fetchCategory());
@@ -22,22 +28,30 @@ const Categories = () => {
 
   const onChangeCategory = category => {
     dispatch(fetchRecipesByCategory(filter));
-    loading(false);
   };
-
+  const handlePageChange = page => {
+    dispatch(fetchRecipesByCategory(page));
+  };
   return (
     <>
       <h1 className="title">Categories</h1>
+
+      <CategoriesTab
+        categoriesList={category}
+        onChangeCategory={onChangeCategory}
+      />
+
       {loading ? (
-        <Loader />
+        <Skeleton />
       ) : (
-        <CategoriesTab
-          categoriesList={category}
-          onChangeCategory={onChangeCategory}
+        <RecipesGallery
+          totalPages={totalPages}
+          page={currentPage}
+          itemsPerPage={itemsPerPage}
+          recipes={recipes}
+          pageChange={handlePageChange}
         />
       )}
-
-      {loading ? <Skeleton /> : <RecipesGallery recipes={recipes} />}
     </>
   );
 };

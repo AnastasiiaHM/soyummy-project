@@ -6,6 +6,7 @@ const initialState = {
     category: [],
     totalPages: 0,
     currentPage: 1,
+    itemsPerPage: 8,
     loading: false,
     error: null,
     filter: ''
@@ -63,8 +64,9 @@ const categoriesSlice = createSlice({
             })
             .addCase(fetchRecipesByCategory.fulfilled, (state, { payload }) => {
                 state.recipes = payload.response;
+                state.totalPages = Math.ceil(payload.totalRecipes / state.itemsPerPage);
                 state.currentPage = payload.currentPage;
-                state.totalPages = payload.totalPages;
+                state.totalPages = payload.total
                 state.loading = false;
             })
             .addCase(fetchRecipesByCategory.pending, (state) => {
