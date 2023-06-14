@@ -4,6 +4,10 @@ import storage from 'redux-persist/lib/storage';
 import recipesIdSlice from './id-recipes/slice';
 import shoppingList from './shopping-list/slice';
 import categories from './recipes/slice';
+import mainPage from './main/slice';
+import favoriteRecipesReducer from './favorite/slice';
+import ownRecipesReducer from './my-recipes/slice';
+
 import {
   persistStore,
   FLUSH,
@@ -14,9 +18,7 @@ import {
   REGISTER,
   persistReducer,
 } from 'redux-persist';
-import favoriteRecipesReducer from './favorite/slice';
 import { searchReducer } from './search/slice';
-import ownRecipesReducer from './my-recipes/slice';
 
 const loadState = () => {
   try {
@@ -49,6 +51,7 @@ export const store = configureStore({
     // ingredients: ingredientsReducer,
     search: searchReducer,
     categories,
+    mainPage,
     // subscribe: subscribeReducer,
   },
   preloadedState: loadState(),

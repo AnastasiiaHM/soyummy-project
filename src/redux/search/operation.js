@@ -4,18 +4,24 @@ import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
-const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+const setAuthHeader = (token) => {
+  if (token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
+    } else {
+      delete axios.defaults.headers.common.Authorization;
+    }
+  }
 };
 
 export const getRecipesByQuery = createAsyncThunk(
   'search/getRecipesByQuery',
   async (query, thunkAPI) => {
     try {
-      setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODk4ZjFmMTJjYzM0NzA2ZTgzZTI3NCIsImlhdCI6MTY4NjczNjY3MSwiZXhwIjoxNjg5NjE2NjcxfQ.XH9qTKael0U6BfD2m04Hsl-CdibmmXzUtbvoD1js7Bw'
-      );
-
+      setAuthHeader();
       const response = await axios.get(
         `recipes/title?title=${query}&page=1&limit=8`
       );
@@ -31,9 +37,7 @@ export const getRecipesByIngredient = createAsyncThunk(
   'search/getRecipesByIngredient',
   async (type, thunkAPI) => {
     try {
-      setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODk4ZjFmMTJjYzM0NzA2ZTgzZTI3NCIsImlhdCI6MTY4NjczNjY3MSwiZXhwIjoxNjg5NjE2NjcxfQ.XH9qTKael0U6BfD2m04Hsl-CdibmmXzUtbvoD1js7Bw'
-      );
+      setAuthHeader();
       const response = await axios.get(
         `recipes/ingredient?ingredient=${type}&page=1&limit=8`
       );

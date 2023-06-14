@@ -1,5 +1,5 @@
 import { SearchBar } from 'components/SearchBar/SearchBar';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {
   getRecipesByQuery,
   getRecipesByIngredient,

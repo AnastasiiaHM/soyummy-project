@@ -7,13 +7,13 @@ export const RecipesGalleryStyled = styled.ul`
   justify-items: center;
   justify-content: center;
   padding-top: 32px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   flex-wrap: wrap;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     gap: 32px;
     padding-top: 50px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
   }
 
   @media screen and (min-width: ${mediaSizes.desktop}) {
