@@ -51,19 +51,18 @@ export const Select = ({
   }, [isDropdownOpen, options, value, secondField]);
 
   const clickHandler = (e, text) => {
-    console.log(e.target.value);
     setValue(text);
     setIsDropdownOpen(state => !state);
-    open(false);
+    if (open) open(false);
 
-    isOptionObject
-      ? newValue({ [name]: e.target.value })
-      : newValue(e.target.value);
+    // isOptionObject
+    //   ? newValue({ [name]: e.target.value })
+    //   : newValue(e.target.value);
   };
 
   const openDropdownHandler = () => {
     setIsDropdownOpen(state => !state);
-    open(true);
+    if (open) open(true);
   };
 
   return (
