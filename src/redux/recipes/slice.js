@@ -1,14 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchRecipesByCategory, fetchCategory } from './operations'
+import { fetchRecipesByCategory, fetchCategory, fetchAllRecipes, fetchMainPageRecipes } from './operations'
 
 const initialState = {
     recipes: [],
     category: [],
     totalPages: 0,
     currentPage: 1,
+    itemsPerPage: 8,
     loading: false,
     error: null,
-    filter: ''
+    filter: 'Beef'
 };
 
 const categoriesSlice = createSlice({
@@ -33,10 +34,39 @@ const categoriesSlice = createSlice({
                 state.loading = false;
                 state.error = payload;
             })
-            .addCase(fetchRecipesByCategory.fulfilled, (state, { payload }) => {
-                state.recipes = payload.response;
+            .addCase(fetchAllRecipes.fulfilled, (state, { payload }) => {
+                state.recipes = payload;
                 state.currentPage = payload.currentPage;
                 state.totalPages = payload.totalPages;
+                state.loading = false;
+            })
+            .addCase(fetchAllRecipes.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchAllRecipes.rejected, (state, { payload }) => {
+                state.loading = false;
+                state.error = payload;
+            })
+            .addCase(fetchMainPageRecipes.fulfilled, (state, { payload }) => {
+                state.recipes = payload.Lamb;
+                state.currentPage = payload.currentPage;
+                state.totalPages = payload.totalPages;
+                state.loading = false;
+            })
+            .addCase(fetchMainPageRecipes.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchMainPageRecipes.rejected, (state, { payload }) => {
+                state.loading = false;
+                state.error = payload;
+            })
+            .addCase(fetchRecipesByCategory.fulfilled, (state, { payload }) => {
+                state.recipes = payload.response;
+                state.totalPages = Math.ceil(payload.totalRecipes / state.itemsPerPage);
+                state.currentPage = payload.currentPage;
+                state.totalPages = payload.total
                 state.loading = false;
             })
             .addCase(fetchRecipesByCategory.pending, (state) => {
