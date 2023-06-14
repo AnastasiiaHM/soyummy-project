@@ -9,9 +9,8 @@ import { colors } from '../colors';
 
 const StyledTab = styled(Tab)(({ theme }) => ({
   textTransform: 'none',
-  fontFamily: 'Poppins',
   fontStyle: 'normal',
-  fontWeight: 500,
+  fontWeight: 600,
   fontSize: '14px',
   lineHeight: '22px',
   color: colors.blackFont,

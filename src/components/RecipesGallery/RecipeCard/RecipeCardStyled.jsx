@@ -16,7 +16,7 @@ export const RecipeCardStyled = styled.li`
   }
 
   @media screen and (min-width: ${mediaSizes.desktop}) {
-    max-width: 299px;
+    max-width: 300px;
   }
 
   .image {

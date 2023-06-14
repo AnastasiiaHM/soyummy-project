@@ -1,48 +1,34 @@
-// import { createSlice } from '@reduxjs/toolkit';
-// import { register, logIn } from './operations';
+import { createSlice } from '@reduxjs/toolkit';
+import { updateUser } from './operations';
 
-// const initialState = {
-//   message: null,
-//   token: null,
-//   user: {
-//     name: null,
-//     email: null,
-//     password: null,
-//     _id: null,
-//     avatarURL: null,
-//     shoppingList: [],
-//   },
-//   isLoggedIn: false,
-//   authError: null,
-// };
+const initialState = {
+    user: {
+      newName: '', // початкове значення імені користувача
+      avatar: '' // початкове значення аватарки користувача
+    },
+    error: null // початкове значення для поля помилки (якщо потрібно)
+  };
 
-// const userSlice = createSlice({
-//   name: 'user',
-//   initialState,
-//   extraReducers: builder => {
-//     builder
-//       .addCase(register.fulfilled, (state, action) => {
-//         const { name, email, _id } = action.payload.user;
-//         state.user._id = _id;
-//         state.user.name = name;
-//         state.user.email = email;
-//         state.token = action.payload.token;
-//         state.isLoggedIn = true;
-//         state.authError = null;
-//       })
-//       .addCase(register.rejected, (state, action) => {
-//         state.authError = action.payload;
-//       })
-//       .addCase(logIn.fulfilled, (state, action) => {
-//         state.user = action.payload.user;
-//         state.token = action.payload.token;
-//         state.isLoggedIn = true;
-//         state.authError = null;
-//       })
-//       .addCase(logIn.rejected, (state, action) => {
-//         state.authError = action.payload;
-//       });
-//   },
-// });
+const userSlice = createSlice({
+  name: 'user',
+  initialState,
+  reducers: {
+    // інші редюсери
+  },
+  extraReducers: builder => {
+    builder
+      // інші редюсери
+      .addCase(updateUser.fulfilled, (state, action) => {
+        const { _id, avatarURL, name } = action.payload;
+        state.user._id = _id;
+        state.user.avatarURL = avatarURL;
+        state.user.name = name;
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        // обробка помилки при оновленні користувача
+        state.error = action.payload;
+      });
+  },
+});
 
-// export const userReducer = userSlice.reducer;
+export const authReducer = userSlice.reducer;
