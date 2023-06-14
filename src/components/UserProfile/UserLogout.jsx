@@ -12,6 +12,8 @@ import {
     TextForCancel,
 } from './UserProfile.styled';
 import { mediaSizes } from '../constants/media';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/auth/operations';
 
 const style = {
   position: 'fixed',
@@ -36,6 +38,14 @@ const styleFont = {
 };
 
 const LogoutModal = ({ handleCloseModal, handleLogoutClick }) => {
+  
+  const dispatch = useDispatch();
+
+  const handleLogoutAccClick = () => {
+    dispatch(logout());
+    handleCloseModal();
+  };
+
   return (
     <Modal
         open={true}
@@ -63,7 +73,7 @@ const LogoutModal = ({ handleCloseModal, handleLogoutClick }) => {
                 Are you sure you want to log out?
             </Typography>
             <Box style={{ display: 'flex', justifyContent: 'center'}}>  
-                <BtnLogOut style={{ marginRight: '16px' }} onClick={handleCloseModal}>
+                <BtnLogOut style={{ marginRight: '16px' }} onClick={handleLogoutAccClick}>
                     <TextForBtn>Log out</TextForBtn>
                 </BtnLogOut>
                 <BtnCancel onClick={handleCloseModal}>

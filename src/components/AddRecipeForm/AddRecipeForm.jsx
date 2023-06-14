@@ -95,6 +95,7 @@ export const AddRecipeForm = () => {
       const { title, description } = values;
       const instructions = preparation.join('/r/n');
       const newRecipe = new FormData();
+      console.log(newRecipe);
       newRecipe.append('title', title);
       newRecipe.append('description', description);
       newRecipe.append('category', category);
@@ -104,6 +105,7 @@ export const AddRecipeForm = () => {
       newRecipe.append('instructions', instructions);
       dispatch(setLoading(true));
       const result = await addNewRecipe(newRecipe);
+      console.log(newRecipe);
 
       if (result) {
         dispatch(setLoading(false));

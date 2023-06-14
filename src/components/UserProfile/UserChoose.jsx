@@ -29,29 +29,26 @@ const styleFont = {
   };
 
 const BasicModal = ({ handleCloseModal }) => {
-    const [isUserProfOpen, setIsUserProfOpen] = React.useState(false);
-    const [isLogoutModalOpen, setIsLogoutModalOpen] = React.useState(false);
-    
-    const handleModalClick = () => {
-      setIsUserProfOpen(true);
-    };
 
-    const handleCloseModalProfile = () => {
-      setIsUserProfOpen(false);
-    };
-
-    const handleLogoutClick = () => {
-      setIsLogoutModalOpen(true);
-    };
-
-    const handleCloseLogoutModal = () => {
+  const [isUserProfOpen, setIsUserProfOpen] = React.useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = React.useState(false);
+  
+  const handleModalClick = () => {
+    setIsUserProfOpen(true);
+  };
+  const handleCloseModalProfile = () => {
+    setIsUserProfOpen(false);
+  };
+  const handleLogoutClick = () => {
+    setIsLogoutModalOpen(true);
+  };
+  const handleCloseLogoutModal = () => {
+    setIsLogoutModalOpen(false);
+  };
+  const handleBasicModalClose = () => {
       setIsLogoutModalOpen(false);
-    };
-
-    const handleBasicModalClose = () => {
-        setIsLogoutModalOpen(false);
-        handleCloseModal();
-    };
+      handleCloseModal();
+  };
       
   return (
     <div>
