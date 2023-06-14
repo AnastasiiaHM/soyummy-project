@@ -17,10 +17,11 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const initialValues = { email: '', password: '' };
+  const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/;
 
   const schema = yup.object().shape({
     email: yup.string().email().min(3).max(254).required(),
-    password: yup.string().min(8).max(100).required(),
+    password: yup.string().matches(passRegex, 'Password must contain 6 to 16 characters, numbers and at least one letter').required(),
   });
   const navigate = useNavigate();
   const handleSubmit = values => {

@@ -21,8 +21,8 @@ const userSlice = createSlice({
       .addCase(updateUser.fulfilled, (state, action) => {
         const { _id, avatarURL, name } = action.payload;
         state.user._id = _id;
-        state.user.avatarURL = avatarURL;
-        state.user.name = name;
+        state.user.avatar = avatarURL;
+        state.user.newName = name;
       })
       .addCase(updateUser.rejected, (state, action) => {
         // обробка помилки при оновленні користувача
