@@ -3,8 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
-
-
 const setAuthHeader = (token) => {
     if (token) {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -31,12 +29,29 @@ export const fetchCategory = createAsyncThunk(
     }
 );
 
+export const fetchAllRecipes = createAsyncThunk(
+    'categories/fetchAllRecipes',
+    async (page, thunkApi) => {
+        try {
+            setAuthHeader();
+            const response = await axios.get(`/recipes?page=${page}&limit=8`);
+            return response.data;
+        } catch (e) {
+            return thunkApi.rejectWithValue(e.message);
+        }
+    }
+);
+
 export const fetchRecipesByCategory = createAsyncThunk(
     'categories/fetchRecipesByCategory',
     async ({ category, page }, thunkApi) => {
         try {
             setAuthHeader();
             const { data: { response, total } } = await axios.get(`/recipes/category/${category}`, { params: { page, limit: 8 } });
+            setAuthHeader();
+            const limit = thunkApi.getState().categories.itemsPerPage;
+            console.log(limit);
+            const { data: { response, total } } = await axios.get(`/recipes/category/${category}`, { params: { page, limit, } });
 
             return {
                 response,
@@ -53,8 +68,8 @@ export const fetchMainPageRecipes = createAsyncThunk(
     'categories/fetchMainPageRecipes',
     async (_, thunkApi) => {
         try {
-            setAuthHeader(thunkApi.getState().auth.token);
-            const response = await axios.get(`/recipes/main-page}`);
+            setAuthHeader();
+            const response = await axios.get('/recipes/main-page');
             return response.data;
         } catch (e) {
             return thunkApi.rejectWithValue(e.message);

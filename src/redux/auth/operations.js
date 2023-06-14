@@ -3,8 +3,17 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
-const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+const setAuthHeader = (token) => {
+  if (token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
+    } else {
+      delete axios.defaults.headers.common.Authorization;
+    }
+  }
 };
 
 export const register = createAsyncThunk(
@@ -20,7 +29,7 @@ export const register = createAsyncThunk(
       //     name,
       //   });
 
-      setAuthHeader(resLogin.data.accessToken);
+      setAuthHeader();
       console.log(resLogin.data);
       return resLogin.data;
     } catch (error) {
@@ -34,7 +43,7 @@ export const LogIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/users/login', credentials);
-      setAuthHeader(res.data.accessToken);
+      setAuthHeader();
 
       //const userResponse = await axios.get('/users/current');
         //return { user: userResponse.data, accessToken: res.data.accessToken };
