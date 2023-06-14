@@ -5,6 +5,7 @@ import recipesIdSlice from './id-recipes/slice';
 import shoppingList from './shopping-list/slice';
 import categories from './recipes/slice';
 import favoriteRecipesReducer from './favorite/slice';
+import ownRecipesReducer from './my-recipes/slice'
 
 import {
   persistStore,
