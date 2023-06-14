@@ -37,7 +37,7 @@ export function BasicTabs() {
         return 0;
       case '/add':
         return 1;
-      case '/recipe/:recipeId':
+      case '/own-recipes':
         return 2;
       case '/favorite':
         return 3;
@@ -61,11 +61,7 @@ export function BasicTabs() {
         >
           <StyledTab label="Categories" component={Link} to="/categories" />
           <StyledTab label="Add recipes" component={Link} to="/add" />
-          <StyledTab
-            label="My recipes"
-            component={Link}
-            to="/recipe/:recipeId"
-          />
+          <StyledTab label="My recipes" component={Link} to="/own-recipes" />
           <StyledTab label="Favorites" component={Link} to="/favorite" />
           <StyledTab
             label="Shopping list"

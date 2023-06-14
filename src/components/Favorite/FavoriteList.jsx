@@ -1,9 +1,9 @@
 import Paginator from 'components/Paginator/Paginator';
-import FavoriteCard from './FavoriteCard';
-import FavoriteCardPlaceholder from './FavoriteCardPlaceholder';
-import { List, ListName } from './FavoriteList.styled';
+import Card from './Card';
+import CardPlaceholder from './CardPlaceholder';
+import { List, ListName } from './List.styled';
 
-const FavoriteList = ({
+const RecipesList = ({
   list,
   listName,
   totalPages,
@@ -17,16 +17,12 @@ const FavoriteList = ({
     <>
       <ListName>{listName}</ListName>
       {loading ? (
-        <FavoriteListPlaceholder itemsCount={itemsPerPage} />
+        <ListPlaceholder itemsCount={itemsPerPage} />
       ) : (
         <>
           <List>
             {list.map(card => (
-              <FavoriteCard
-                key={card._id}
-                card={card}
-                deleteCard={deleteCard}
-              />
+              <Card key={card.id} card={card} deleteCard={deleteCard} />
             ))}
           </List>
           <Paginator
@@ -40,16 +36,16 @@ const FavoriteList = ({
   );
 };
 
-export const FavoriteListPlaceholder = ({ itemsCount }) => {
+export const ListPlaceholder = ({ itemsCount }) => {
   const fakeFavorites = Array.from(Array(itemsCount).keys());
 
   return (
     <List>
       {fakeFavorites.map((_, index) => (
-        <FavoriteCardPlaceholder key={index} />
+        <CardPlaceholder key={index} />
       ))}
     </List>
   );
 };
 
-export default FavoriteList;
+export default RecipesList;
