@@ -10,9 +10,9 @@ import {
   DeleteButtonPlaceholder,
   ImagePlaceholder,
   PrimaryButtonPlaceholder,
-} from './FavoriteCard.styled';
+} from './Card.styled';
 
-const FavoriteCardPlaceholder = () => {
+const CardPlaceholder = () => {
   return (
     <ContainerCard>
       <ImagePlaceholder variant="rectangular" animation="wave" />
@@ -35,4 +35,4 @@ const FavoriteCardPlaceholder = () => {
   );
 };
 
-export default FavoriteCardPlaceholder;
+export default CardPlaceholder;
