@@ -17,9 +17,7 @@ import {
   REGISTER,
   persistReducer,
 } from 'redux-persist';
-import favoriteRecipesReducer from './favorite/slice';
 import { searchReducer } from './search/slice';
-import ownRecipesReducer from './my-recipes/slice';
 
 const loadState = () => {
   try {
@@ -67,7 +65,7 @@ store.subscribe(() => {
   try {
     const serializedState = JSON.stringify(store.getState());
     localStorage.setItem('reduxState', serializedState);
-  } catch (error) {}
+  } catch (error) { }
 });
 
 export const persistor = persistStore(store);
