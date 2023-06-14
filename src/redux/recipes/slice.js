@@ -9,7 +9,7 @@ const initialState = {
     itemsPerPage: 8,
     loading: false,
     error: null,
-    filter: ''
+    filter: 'Beef'
 };
 
 const categoriesSlice = createSlice({
