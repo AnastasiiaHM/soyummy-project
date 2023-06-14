@@ -8,6 +8,8 @@ import { getCategoriesList } from 'operations/addRecipe';
 import { addNewRecipe } from 'operations/addRecipe';
 import { Formik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoading } from 'redux/auth/slice';
 import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
 
@@ -53,6 +55,7 @@ export const AddRecipeForm = () => {
   const [thumb, setThumb] = useState('');
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const notify = message => toast.error(message, { autoClose: 3000 });
 
   useEffect(() => {
@@ -99,13 +102,19 @@ export const AddRecipeForm = () => {
       newRecipe.append('recipeIMG', thumb);
       newRecipe.append('ingredients', JSON.stringify(ingredients));
       newRecipe.append('instructions', instructions);
+      dispatch(setLoading(true));
       const result = await addNewRecipe(newRecipe);
 
       if (result) {
+        dispatch(setLoading(false));
         resetForm();
+        localStorage.removeItem('recipeTitle');
+        localStorage.removeItem('recipeDescription');
+        localStorage.removeItem('recipePreparation');
         navigate('/my');
       }
     } catch (error) {
+      dispatch(setLoading(false));
       notify(error.message);
     }
   };

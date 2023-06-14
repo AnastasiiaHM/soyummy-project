@@ -1,10 +1,7 @@
 import React from 'react';
 import { RecipeCard } from './RecipeCard/RecipeCard';
 import { RecipesGalleryStyled } from './RecipesGalleryStyled';
-import {
-  ContainerPagination,
-  StyledPagination,
-} from '../Favorite/FavoriteList.styled';
+import { List, ListName } from '../Favorite/FavoriteList.styled';
 
 const RecipesGallery = ({ recipes, totalPages, page, pageChange }) => {
   return (
@@ -14,13 +11,13 @@ const RecipesGallery = ({ recipes, totalPages, page, pageChange }) => {
           <RecipeCard key={recipe._id} recipe={recipe} />
         ))}
       </RecipesGalleryStyled>
-      <ContainerPagination>
-        <StyledPagination
+      <List>
+        <ListName
           count={totalPages}
           page={page}
           onChange={(_, newPage) => pageChange(newPage)}
         />
-      </ContainerPagination>
+      </List>
     </>
   );
 };
