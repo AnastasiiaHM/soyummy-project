@@ -40,12 +40,9 @@ const Categories = () => {
 
       <CategoriesTab categoriesList={category} />
 
-      {loading ? (
-        <Skeleton />
-      ) : (
-        <RecipesGallery itemsPerPage={itemsPerPage} recipes={recipes} />
-      )}
+      {loading ? <Skeleton /> : <RecipesGallery recipes={recipes} />}
       <Paginator
+        limit={itemsPerPage}
         totalPages={totalPages}
         page={currentPage}
         pageChange={handlePageChange}

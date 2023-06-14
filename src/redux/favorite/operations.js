@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts`;
+  axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODk4ZjFmMTJjYzM0NzA2ZTgzZTI3NCIsImlhdCI6MTY4NjczNjY3MSwiZXhwIjoxNjg5NjE2NjcxfQ.XH9qTKael0U6BfD2m04Hsl-CdibmmXzUtbvoD1js7Bw`;
 };
 
 export const fetchFavoriteRecipes = createAsyncThunk(
@@ -14,6 +14,7 @@ export const fetchFavoriteRecipes = createAsyncThunk(
       setAuthHeader(thunkApi.getState().auth.token);
 
       const limit = thunkApi.getState().favoriteRecipes.itemsPerPage;
+      console.log(limit);
       const {
         data: { favoriteRecipes, total },
       } = await axios.get(`/recipes/favorite?page=${page}&limit=${limit}`);
