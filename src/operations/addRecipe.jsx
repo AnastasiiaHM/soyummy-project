@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 axios.defaults.headers.common.Authorization =
-  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts';
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODFhZTk0ZDliMjc0NmY3MTJjZDExZiIsImlhdCI6MTY4Njc2MzgwMywiZXhwIjoxNjg5NjQzODAzfQ.bGDZCvG_fi_NfAuSg--BXDRZkhOP7ca8f6euL8tdzok';
 
 export const getCategoriesList = async () => {
   const result = await axios.get('/categories');

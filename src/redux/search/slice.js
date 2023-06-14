@@ -26,17 +26,21 @@ const searchSlice = createSlice({
       })
       .addCase(getRecipesByQuery.pending, state => {
         state.isLoading = true;
+        state.items = [];
       })
       .addCase(getRecipesByIngredient.pending, state => {
         state.isLoading = true;
+        state.items = [];
       })
       .addCase(getRecipesByQuery.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+        state.items = [];
       })
       .addCase(getRecipesByIngredient.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+        state.items = [];
       });
   },
   reducers: {

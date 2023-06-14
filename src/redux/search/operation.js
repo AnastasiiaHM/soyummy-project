@@ -13,7 +13,7 @@ export const getRecipesByQuery = createAsyncThunk(
   async (query, thunkAPI) => {
     try {
       setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODFhZTk0ZDliMjc0NmY3MTJjZDExZiIsImlhdCI6MTY4NjczMTU0NywiZXhwIjoxNjg5NjExNTQ3fQ.0bLKIR6WwFBWh8M08GTkwD_sA8RZ4CbGSV5dEanXMZk'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODk4ZjFmMTJjYzM0NzA2ZTgzZTI3NCIsImlhdCI6MTY4NjczNjY3MSwiZXhwIjoxNjg5NjE2NjcxfQ.XH9qTKael0U6BfD2m04Hsl-CdibmmXzUtbvoD1js7Bw'
       );
 
       const response = await axios.get(
@@ -32,7 +32,7 @@ export const getRecipesByIngredient = createAsyncThunk(
   async (type, thunkAPI) => {
     try {
       setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODFhZTk0ZDliMjc0NmY3MTJjZDExZiIsImlhdCI6MTY4NjczMTU0NywiZXhwIjoxNjg5NjExNTQ3fQ.0bLKIR6WwFBWh8M08GTkwD_sA8RZ4CbGSV5dEanXMZk'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODk4ZjFmMTJjYzM0NzA2ZTgzZTI3NCIsImlhdCI6MTY4NjczNjY3MSwiZXhwIjoxNjg5NjE2NjcxfQ.XH9qTKael0U6BfD2m04Hsl-CdibmmXzUtbvoD1js7Bw'
       );
       const response = await axios.get(
         `recipes/ingredient?ingredient=${type}&page=1&limit=8`

@@ -12,7 +12,7 @@ export const fetchShoppingList = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODk4ZjFmMTJjYzM0NzA2ZTgzZTI3NCIsImlhdCI6MTY4NjczNjY3MSwiZXhwIjoxNjg5NjE2NjcxfQ.XH9qTKael0U6BfD2m04Hsl-CdibmmXzUtbvoD1js7Bw'
       );
       const response = await axios.get('users/shopping-list');
 
@@ -28,7 +28,7 @@ export const setDeleteProduct = createAsyncThunk(
   async (ingredientId, thunkAPI) => {
     try {
       setAuthHeader(
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODYwNDkyMDgzNjc0ZTM4Y2JiZWU1YSIsImlhdCI6MTY4NjU5MzkwOSwiZXhwIjoxNjg5NDczOTA5fQ.byGm48HrksIWr711DkfmguTLmtF0x7hq2sIXyThw8ts'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODk4ZjFmMTJjYzM0NzA2ZTgzZTI3NCIsImlhdCI6MTY4NjczNjY3MSwiZXhwIjoxNjg5NjE2NjcxfQ.XH9qTKael0U6BfD2m04Hsl-CdibmmXzUtbvoD1js7Bw'
       );
       const response = await axios.patch(`users/shopping-list/remove`, {
         ingredientId,
