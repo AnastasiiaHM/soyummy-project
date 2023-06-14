@@ -27,28 +27,6 @@ const App = () => {
     <>
       <MainContainer>
         <Routes>
-          <Route
-            path="/signin"
-            element={<LoginPage />}
-            // element={
-            //   <RestrictedRoute
-            //     component={LoginPage}
-            //     redirectTo="/main"
-            //     replace={true}
-            //   />
-            // }
-          />
-          <Route
-            path="/register"
-            element={<RegisterPage />}
-            // element={
-            //   <RestrictedRoute
-            //     component={RegisterPage}
-            //     redirectTo="/main"
-            //     replace={true}
-            //   />
-            // }
-          />
           <Route path="/" element={<Layout />}>
             <Route
               path="/"
@@ -56,6 +34,28 @@ const App = () => {
               element={<WelcomePage />}
               // element={
               //   <RestrictedRoute component={WelcomePage} redirectTo="/main" />
+              // }
+            />
+            <Route
+              path="/signin"
+              element={<LoginPage />}
+              // element={
+              //   <RestrictedRoute
+              //     component={LoginPage}
+              //     redirectTo="/main"
+              //     replace={true}
+              //   />
+              // }
+            />
+            <Route
+              path="/register"
+              element={<RegisterPage />}
+              // element={
+              //   <RestrictedRoute
+              //     component={RegisterPage}
+              //     redirectTo="/main"
+              //     replace={true}
+              //   />
               // }
             />
             <Route

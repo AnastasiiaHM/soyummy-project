@@ -6,7 +6,7 @@ const RecipesGallery = ({ recipes }) => {
   return (
     <>
       <RecipesGalleryStyled>
-        {recipes.map(recipe => (
+        {recipes?.map(recipe => (
           <RecipeCard key={recipe._id} recipe={recipe} />
         ))}
       </RecipesGalleryStyled>
