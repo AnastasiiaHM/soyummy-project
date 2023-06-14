@@ -14,11 +14,11 @@ import {
 export default function MainPageHome() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { recipes, filter } = useSelector(state => state.categories);
+  const { recipes } = useSelector(state => state.categories);
 
   useEffect(() => {
-    dispatch(fetchMainPageRecipes(filter));
-  });
+    dispatch(fetchMainPageRecipes());
+  }, [dispatch]);
 
   return (
     <Section>

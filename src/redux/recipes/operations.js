@@ -41,10 +41,10 @@ export const fetchRecipesByCategory = createAsyncThunk(
 
 export const fetchMainPageRecipes = createAsyncThunk(
     'categories/fetchMainPageRecipes',
-    async (filter, thunkApi) => {
+    async (_, thunkApi) => {
         try {
             setAuthHeader(thunkApi.getState().auth.token);
-            const response = await axios.get(`/recipes/main-page?${filter}`);
+            const response = await axios.get(`/recipes/main-page}`);
             return response.data;
         } catch (e) {
             return thunkApi.rejectWithValue(e.message);
