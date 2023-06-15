@@ -32,7 +32,7 @@ export const Select = ({
   useEffect(() => {
     const selectedValue = isOptionObject ? options[0][secondField] : options[0];
     setValue(selectedValue);
-  }, []);
+  }, [isOptionObject, options, secondField]);
 
   useEffect(() => {
     if (isDropdownOpen) {

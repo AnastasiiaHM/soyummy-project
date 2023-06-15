@@ -1,4 +1,3 @@
-import { MainContainer } from './App.styled';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from '../Layout/Layout';
@@ -31,92 +30,89 @@ const App = () => {
             <Route
               path="/"
               index
-              // element={<WelcomePage />}
-              element={
-                <RestrictedRoute
-                  component={<WelcomePage />}
-                  redirectTo="/main"
-                />
-              }
+              // // element={<WelcomePage />}
+              // element={
+              //   <RestrictedRoute component={<WelcomePage />} redirectTo="/" />
+              // }
             />
             <Route
               path="/signin"
-              // element={<LoginPage />}
-              element={
-                <RestrictedRoute
-                  component={<LoginPage />}
-                  redirectTo="/main"
-                  replace={true}
-                />
-              }
+              element={<LoginPage />}
+              // element={
+              //   <RestrictedRoute
+              //     component={<LoginPage />}
+              //     redirectTo="/signin"
+              //     replace={true}
+              //   />
+              // }
             />
             <Route
               path="/register"
-              // element={<RegisterPage />}
-              element={
-                <RestrictedRoute
-                  component={<RegisterPage />}
-                  redirectTo="/main"
-                  replace={true}
-                />
-              }
+              element={<RegisterPage />}
+              // element={
+              //   <RestrictedRoute
+              //     component={<RegisterPage />}
+              //     redirectTo="/register"
+              //     replace={true}
+              //   />
+              // }
             />
             <Route
               path="/main"
-              // element={<MainPage />}
-              element={<PrivateRoute component={<MainPage />} redirectTo="/" />}
+              element={<MainPage />}
+              // element={<PrivateRoute component={<MainPage />} redirectTo="/" />}
             />
 
             <Route
               path="/categories"
-              // element={<CategoriesPage />}
-              element={
-                <PrivateRoute component={<CategoriesPage />} redirectTo="/" />
-              }
+              element={<CategoriesPage />}
+              // element={
+              //   <PrivateRoute component={<CategoriesPage />} redirectTo="/" />
+              // }
             >
-              <Route path=":categoryName" element={<CategoriesRecipes />} />
+              <Route path=":category" element={<CategoriesRecipes />} />
             </Route>
             <Route
               path="/add"
-              // element={<AddRecipePage />}
-              element={
-                <PrivateRoute component={<AddRecipePage />} redirectTo="/" />
-              }
+              element={<AddRecipePage />}
+              // element={
+              //   <PrivateRoute component={<AddRecipePage />} redirectTo="/" />
+              // }
             />
             <Route
               path="/favorite"
-              // element={<FavoritesPage />}
-              element={
-                <PrivateRoute component={<FavoritesPage />} redirectTo="/" />
-              }
+              element={<FavoritesPage />}
+              // element={
+              //   <PrivateRoute component={<FavoritesPage />} redirectTo="/" />
+              // }
             />
             <Route
               path="/recipe/:recipeId"
-              // element={<RecipePage />}
-              element={
-                <PrivateRoute component={<RecipePage />} redirectTo="/" />
-              }
+              element={<RecipePage />}
+              // element={
+              //   <PrivateRoute component={<RecipePage />} redirectTo="/" />
+              // }
             />
             <Route
               path="/own-recipes"
-              // element={<MyRecipesPage />}
-              element={
-                <PrivateRoute component={<MyRecipesPage />} redirectTo="/" />
-              }
+              element={<MyRecipesPage />}
+              // element={
+              //   <PrivateRoute component={<MyRecipesPage />} redirectTo="/" />
+              // }
             />
             <Route
               path="/shopping-list"
-              // element={<ShoppingPage />}
-              element={
-                <PrivateRoute component={<ShoppingPage />} redirectTo="/" />
-              }
+              element={<ShoppingPage />}
+              // element={
+              //   <PrivateRoute component={<ShoppingPage />} redirectTo="/" />
+              // }
             />
             <Route
               path="/search"
-              // element={<SearchPage />}
-              element={
-                <PrivateRoute component={<SearchPage />} redirectTo="/" />
-              }
+              element={<SearchPage />}
+              // element={
+              //   <PrivateRoute component={<SearchPage />} redirectTo="/" />
+              // }
             />
             <Route path="*" element={<NotFoundPage />} />
           </Route>

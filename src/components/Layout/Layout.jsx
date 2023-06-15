@@ -11,27 +11,27 @@ import { LayoutWrapper, Button } from './Layout.styled';
 const Layout = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      if (currentScrollPos > 200) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollPos = window.pageYOffset;
+  //     if (currentScrollPos > 200) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth',
+  //   });
+  // };
 
   return (
     <LayoutWrapper>
@@ -40,11 +40,11 @@ const Layout = () => {
         <Outlet />
       </Suspense>
       <Footer />
-      {isVisible && (
+      {/* {isVisible && (
         <Button type="button" className="icon totop" onClick={scrollToTop}>
           <IoIosArrowDropup />
         </Button>
-      )}
+      )} */}
     </LayoutWrapper>
   );
 };

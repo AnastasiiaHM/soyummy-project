@@ -32,10 +32,10 @@ export const fetchCategory = createAsyncThunk(
 
 export const fetchRecipesByCategory = createAsyncThunk(
     'categories/fetchRecipesByCategory',
-    async ({ category, page }, thunkApi) => {
+    async ({ query, page }, thunkApi) => {
         try {
             setAuthHeader();
-            const { data: { response, total } } = await axios.get(`/recipes/category/${category}?page=${page}&limit=8`);
+            const { data: { response, total } } = await axios.get(`/recipes/category/${query}?page=${page}&limit=8`);
 
       return {
         response,

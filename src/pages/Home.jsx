@@ -17,7 +17,6 @@ export default function MainPageHome() {
   useEffect(() => {
     dispatch(fetchMainPageRecipes());
   });
-
   const breakfast = useSelector(state => state.mainPage.recipes.Breakfast);
   const miscellaneous = useSelector(
     state => state.mainPage.recipes.Miscellaneous
@@ -66,7 +65,7 @@ export default function MainPageHome() {
             alignSelf: 'flex-end',
             marginRight: '120px',
           }}
-          to={`/categories`}
+          to={`/categories/Breakfast`}
           state={{ from: location }}
         >
           <MainBtn>See all</MainBtn>
@@ -86,7 +85,7 @@ export default function MainPageHome() {
             alignSelf: 'flex-end',
             marginRight: '120px',
           }}
-          to={`/categories`}
+          to={`/categories/Miscellaneous`}
           state={{ from: location }}
         >
           <MainBtn>See all</MainBtn>
@@ -95,7 +94,7 @@ export default function MainPageHome() {
           className="title"
           style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
         >
-          Chiken
+          Chicken
         </h2>
         <RecipesGallery recipes={chicken} />
         <Link
@@ -106,7 +105,7 @@ export default function MainPageHome() {
             alignSelf: 'flex-end',
             marginRight: '120px',
           }}
-          to={`/categories`}
+          to={`/categories/Chicken`}
           state={{ from: location }}
         >
           <MainBtn>See all</MainBtn>
@@ -126,7 +125,7 @@ export default function MainPageHome() {
             alignSelf: 'flex-end',
             marginRight: '120px',
           }}
-          to={`/categories`}
+          to={`/categories/Dessert`}
           state={{ from: location }}
         >
           <MainBtn>See all</MainBtn>
