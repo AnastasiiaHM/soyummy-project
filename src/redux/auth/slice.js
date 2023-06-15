@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { register, LogIn, logout } from './operations';
 import { updateUser } from 'redux/user/operations';
 
-
 const initialState = {
   message: null,
   token: localStorage.getItem('token') || null,
