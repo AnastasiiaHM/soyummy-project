@@ -17,7 +17,6 @@ const Categories = () => {
   const query = params.category;
   const { category, recipes, loading, totalPages, currentPage, itemsPerPage } =
     useSelector(state => state.categories);
-  console.log(itemsPerPage);
   useEffect(() => {
     dispatch(fetchCategory());
   }, [dispatch]);
