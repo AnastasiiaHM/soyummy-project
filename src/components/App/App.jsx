@@ -33,7 +33,7 @@ const App = () => {
               // element={<LoginPage />}
               element={
                 <RestrictedRoute
-                  redirectTo="/signin"
+                  redirectTo="/main"
                   component={<LoginPage />}
                   replace={true}
                 />
@@ -44,7 +44,7 @@ const App = () => {
               // element={<RegisterPage />}
               element={
                 <RestrictedRoute
-                  redirectTo="/register"
+                  redirectTo="/main"
                   component={<RegisterPage />}
                   replace={true}
                 />
@@ -69,7 +69,7 @@ const App = () => {
               path="/add"
               // element={<AddRecipePage />}
               element={
-                <PrivateRoute component={<AddRecipePage />} redirectTo="/" />
+                <PrivateRoute redirectTo="/" component={<AddRecipePage />} />
               }
             />
             <Route
