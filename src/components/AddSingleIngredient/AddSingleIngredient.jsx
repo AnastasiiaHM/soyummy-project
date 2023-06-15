@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ReactComponent as Close } from '../images/addIngredient/close.svg';
+import { useDispatch } from 'react-redux';
 import { Select } from 'components/Select/Select';
 import { getIngredientNames } from 'operations/addRecipe';
 import { measures } from 'components/constants/measures';
@@ -14,9 +14,9 @@ import {
   StyledLabel,
   CloseBtn,
 } from './AddSingleIngredient.styled';
+import { setLoading } from 'redux/auth/slice';
 
 export const AddSingleIngredient = ({
-  removeIngredient,
   index,
   selectedIngredient,
   dropDown,
@@ -27,6 +27,29 @@ export const AddSingleIngredient = ({
   const [selectedMeasure, setSelectedMeasure] = useState('');
   const [ingredientsList, setIngredientsList] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const dispatch = useDispatch();
+  const notify = message => toast.error(message, { autoClose: 3000 });
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       if (query) {
+  //         dispatch(setLoading(true));
+  //         const res = await getIngredientNames(query);
+  //         setIngredientsList([...res]);
+  //         setIsDropdownOpen(true);
+  //         dropDown(true);
+  //         dispatch(setLoading(false));
+  //       }
+  //     } catch (error) {
+  //       dispatch(setLoading(false));
+  //       notify(error.message);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [query, dispatch, dropDown, setIngredientsList]);
 
   // useEffect(() => {
   //   if (selectedIngredientId && (selectedAmount || selectedMeasure)) {
@@ -42,8 +65,6 @@ export const AddSingleIngredient = ({
   //   selectedIngredient,
   // ]);
 
-  const notify = message => toast.error(message, { autoClose: 3000 });
-
   const nameTypingHandler = async e => {
     try {
       const { value } = e.target;
@@ -51,18 +72,16 @@ export const AddSingleIngredient = ({
       const res = await getIngredientNames(value);
       setIngredientsList([...res]);
       setIsDropdownOpen(true);
-      if (ingredientsList.length > 0) {
-        dropDown(true);
-      }
+      dropDown(true);
     } catch (error) {
       notify(error.message);
     }
   };
 
-  const ingredientSelectHandler = (e, name) => {
+  const ingredientSelectHandler = (e, _id, name) => {
     e.preventDefault();
     setSelectedIngredientName(name);
-    setSelectedIngredientId(e.target.value);
+    setSelectedIngredientId(_id);
     setIsDropdownOpen(false);
     dropDown(false);
 
@@ -110,8 +129,9 @@ export const AddSingleIngredient = ({
             {ingredientsList.map(({ _id, name }) => (
               <DropdownItem key={_id}>
                 <IngredientBtn
+                  type="button"
                   value={_id}
-                  onClick={e => ingredientSelectHandler(e, name)}
+                  onClick={e => ingredientSelectHandler(e, _id, name)}
                 >
                   {name}
                 </IngredientBtn>

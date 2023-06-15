@@ -17,15 +17,10 @@ import {
 export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
   const [ingredients, setIngredients] = useState([]);
   const [isAnyDropdownOpen, setIsAnyDropdownOpen] = useState(false);
-  const [isAnyInputEmpty, setIsAnyInputEmpty] = useState(false);
   const listRef = useRef(null);
 
   useEffect(() => {
     setParentIngredients(ingredients);
-    const isAnyEmpty = ingredients.some(
-      ingredient => !ingredient.id || !ingredient.measure
-    );
-    setIsAnyInputEmpty(isAnyEmpty);
   }, [ingredients, setParentIngredients]);
 
   useEffect(() => {
@@ -37,8 +32,6 @@ export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
   const addNewIngredientHadler = e => {
     e.preventDefault();
     const newIngredient = {
-      id: null,
-      measure: null,
       keyId: nanoid(),
     };
     setIngredients(prevState => [...prevState, newIngredient]);
@@ -51,10 +44,10 @@ export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
 
   const removeIngredientHandler = (e, index) => {
     e.preventDefault();
-    console.log(index);
-    setIngredients(prevIngredients =>
-      prevIngredients.filter((_, i) => i !== index)
-    );
+    setIngredients(prevIngredients => {
+      const updatedIngredients = prevIngredients.filter((_, i) => i !== index);
+      return updatedIngredients;
+    });
   };
 
   const addIngredientHandler = (value, index) => {
@@ -78,11 +71,7 @@ export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
             <Minus />
           </CounterButton>
           {ingredients.length}
-          <CounterButton
-            type="button"
-            onClick={addNewIngredientHadler}
-            disabled={isAnyInputEmpty}
-          >
+          <CounterButton type="button" onClick={addNewIngredientHadler}>
             <Plus />
           </CounterButton>
         </Counter>
@@ -93,10 +82,9 @@ export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
           ref={listRef}
         >
           {ingredients.map((ingredient, index) => (
-            <Item key={ingredient.keyId}>
+            <Item key={index}>
               <AddSingleIngredient
                 dropDown={dropdownHandler}
-                removeIngredient={e => removeIngredientHandler(e, index)}
                 index={index}
                 selectedIngredient={value => addIngredientHandler(value, index)}
               />
