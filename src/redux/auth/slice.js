@@ -55,7 +55,7 @@ const userSlice = createSlice({
         state.authError = action.payload;
       })
       .addCase(LogIn.pending, (state, action) => {})
-      .addCase(logout.fulfilled, (state) => {
+      .addCase(logout.fulfilled, state => {
         state.token = null;
         state.isLoggedIn = false;
         state.user = {
@@ -72,7 +72,7 @@ const userSlice = createSlice({
       .addCase(logout.rejected, (state, action) => {
         state.authError = action.payload;
       })
-      .addCase(logout.pending, (state) => {})
+      .addCase(logout.pending, state => {});
   },
 });
 
