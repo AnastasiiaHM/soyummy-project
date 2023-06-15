@@ -30,12 +30,9 @@ export const Select = ({
   const itemRefs = useRef([]);
 
   useEffect(() => {
-    const isOptionObject =
-      typeof options[0] === 'object' && options[0] !== null;
     const selectedValue = isOptionObject ? options[0][secondField] : options[0];
     setValue(selectedValue);
-    newValue(selectedValue);
-  }, [options, secondField]);
+  }, []);
 
   useEffect(() => {
     if (isDropdownOpen) {
@@ -51,10 +48,9 @@ export const Select = ({
   }, [isDropdownOpen, options, value, secondField]);
 
   const clickHandler = (e, text) => {
-    console.log(e.target.value);
     setValue(text);
     setIsDropdownOpen(state => !state);
-    open(false);
+    if (open) open(false);
 
     isOptionObject
       ? newValue({ [name]: e.target.value })
@@ -63,7 +59,7 @@ export const Select = ({
 
   const openDropdownHandler = () => {
     setIsDropdownOpen(state => !state);
-    open(true);
+    if (open) open(true);
   };
 
   return (
@@ -80,7 +76,7 @@ export const Select = ({
             const data = isOptionObject ? option[field] : option;
             const text = isOptionObject ? option[secondField] : option;
             return (
-              <Item key={index} ref={el => (itemRefs.current[index] = el)}>
+              <Item key={text} ref={el => (itemRefs.current[index] = el)}>
                 <OptionBtn
                   className={text === value ? 'active' : ''}
                   type="button"

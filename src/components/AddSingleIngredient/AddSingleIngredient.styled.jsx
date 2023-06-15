@@ -2,12 +2,6 @@ import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
 import { colors } from 'components/colors';
 
-export const Item = styled.li`
-  width: 100%;
-  display: flex;
-  gap: 14px;
-`;
-
 export const Input = styled.input`
   display: block;
   font-family: 'Poppins';
@@ -23,9 +17,11 @@ export const Input = styled.input`
   border: none;
   border-radius: 6px;
   text-align: right;
+  margin-right: 18px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 18px;
+    margin-right: 24px;
   }
 
   &:focus {
@@ -71,6 +67,7 @@ export const NameLabel = styled.label`
   width: 50%;
   position: relative;
   height: auto;
+  margin-right: 18px;
 `;
 
 export const DropDown = styled.ul`
