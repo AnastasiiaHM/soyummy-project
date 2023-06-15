@@ -67,6 +67,7 @@ export const StyledLink = styled(Link)`
   align-self: flex-end;
 `;
 export const StyledTitle = styled.h1`
+  color: ${colors.titleColor};
   font-family: inherit;
   font-style: normal;
   font-weight: 600;
@@ -80,5 +81,21 @@ export const StyledDiv = styled.div`
 `;
 
 export const DownBtn = styled.button`
-  margin-top: 14px;
+  width: 137px;
+  height: 49px;
+  background: ${colors.greenButton};
+  border: none;
+  border-radius: 14px 6px;
+
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    width: 192px;
+    height: 59px;
+  }
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    width: 192px;
+    height: 59px;
+  }
 `;

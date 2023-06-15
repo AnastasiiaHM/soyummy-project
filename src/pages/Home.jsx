@@ -12,7 +12,6 @@ import {
   StyledTitle,
   StyledLink,
   StyledDiv,
-  DownBtn,
 } from '../components/MainGallery/MainGallery.styled';
 
 export default function MainPageHome() {
@@ -85,7 +84,9 @@ export default function MainPageHome() {
             <MainBtn>See all</MainBtn>
           </StyledLink>
         </StyledDiv>
-        <DownBtn>Other Categories</DownBtn>
+        <Link to={`/categories`} state={{ from: location }}>
+          <button className="btn recipesbtn">Other Categories</button>
+        </Link>
       </HomeGallery>
     </Section>
   );

@@ -8,14 +8,12 @@ import bgDesc from 'components/images/spinach/bg2desk.png';
 import arrow from 'components/images/spinach/arrow.png';
 
 export const Section = styled.section`
-  font-family: 'Poppins';
   background-image: url(${salat}), url(${arrow}), url(${spinachRight}),
     url(${spinachLeft}), url(${bg});
   background-size: 328px auto, 10px auto, 720px auto, 15% auto;
   background-position: top 238px center, center, top 68px right -130px, left top,
     right top -150px;
   background-repeat: no-repeat;
-
   width: 100vw;
   padding: 68px 36px;
 
@@ -31,7 +29,7 @@ export const Section = styled.section`
 
   @media screen and (min-width: 1000px) {
     background-size: 40% auto, 20% auto, 900px auto, 10% auto, 353px auto;
-    background-position: top 42px right, top 385px right 82px, ,
+    background-position: top 42px right, top 385px right 82px,
       top -178px right -280px, left -25px top -10px, right top -170px;
   }
 
