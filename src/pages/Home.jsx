@@ -5,10 +5,14 @@ import { Section } from '../components/Styled/MainPageHome.styled';
 import { SearchForm } from '../components/SearchForm/SearchForm';
 import { fetchMainPageRecipes } from '../redux/main/operations';
 import { BsArrowRight } from 'react-icons/bs';
-import RecipesGallery from '../components/RecipesGallery/RecipesGallery';
+import MainGallery from '../components/MainGallery/MainGallery';
 import {
   MainBtn,
   HomeGallery,
+  StyledTitle,
+  StyledLink,
+  StyledDiv,
+  DownBtn,
 } from '../components/MainGallery/MainGallery.styled';
 
 export default function MainPageHome() {
@@ -50,86 +54,38 @@ export default function MainPageHome() {
         </div>
       </div>
       <HomeGallery>
-        <h2
-          className="title"
-          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
-        >
-          Breakfast
-        </h2>
-        <RecipesGallery recipes={breakfast} />
-        <Link
-          style={{
-            display: 'flex',
-            width: '94px',
-            height: '38px',
-            alignSelf: 'flex-end',
-            marginRight: '120px',
-          }}
-          to={`/categories/Breakfast`}
-          state={{ from: location }}
-        >
-          <MainBtn>See all</MainBtn>
-        </Link>
-        <h2
-          className="title"
-          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
-        >
-          Miscellaneous
-        </h2>
-        <RecipesGallery recipes={miscellaneous} />
-        <Link
-          style={{
-            display: 'flex',
-            width: '94px',
-            height: '38px',
-            alignSelf: 'flex-end',
-            marginRight: '120px',
-          }}
-          to={`/categories/Miscellaneous`}
-          state={{ from: location }}
-        >
-          <MainBtn>See all</MainBtn>
-        </Link>
-        <h2
-          className="title"
-          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
-        >
-          Chicken
-        </h2>
-        <RecipesGallery recipes={chicken} />
-        <Link
-          style={{
-            display: 'flex',
-            width: '94px',
-            height: '38px',
-            alignSelf: 'flex-end',
-            marginRight: '120px',
-          }}
-          to={`/categories/Chicken`}
-          state={{ from: location }}
-        >
-          <MainBtn>See all</MainBtn>
-        </Link>
-        <h2
-          className="title"
-          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
-        >
-          Desserts
-        </h2>
-        <RecipesGallery recipes={dessert} />
-        <Link
-          style={{
-            display: 'flex',
-            width: '94px',
-            height: '38px',
-            alignSelf: 'flex-end',
-            marginRight: '120px',
-          }}
-          to={`/categories/Dessert`}
-          state={{ from: location }}
-        >
-          <MainBtn>See all</MainBtn>
-        </Link>
+        <StyledDiv>
+          <StyledTitle>Breakfast</StyledTitle>
+          <MainGallery recipes={breakfast} />
+          <StyledLink to={`/categories/Breakfast`} state={{ from: location }}>
+            <MainBtn>See all</MainBtn>
+          </StyledLink>
+        </StyledDiv>
+        <StyledDiv>
+          <StyledTitle>Miscellaneous</StyledTitle>
+          <MainGallery recipes={miscellaneous} />
+          <StyledLink
+            to={`/categories/Miscellaneous`}
+            state={{ from: location }}
+          >
+            <MainBtn>See all</MainBtn>
+          </StyledLink>
+        </StyledDiv>
+        <StyledDiv>
+          <StyledTitle>Chicken</StyledTitle>
+          <MainGallery recipes={chicken} />
+          <StyledLink to={`/categories/Chicken`} state={{ from: location }}>
+            <MainBtn>See all</MainBtn>
+          </StyledLink>
+        </StyledDiv>
+        <StyledDiv>
+          <StyledTitle>Desserts</StyledTitle>
+          <MainGallery recipes={dessert} />
+          <StyledLink to={`/categories/Dessert`} state={{ from: location }}>
+            <MainBtn>See all</MainBtn>
+          </StyledLink>
+        </StyledDiv>
+        <DownBtn>Other Categories</DownBtn>
       </HomeGallery>
     </Section>
   );
