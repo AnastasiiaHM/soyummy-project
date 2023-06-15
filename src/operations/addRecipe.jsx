@@ -2,20 +2,20 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
-  const setAuthHeader = (token) => {
-    if (token) {
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+const setAuthHeader = token => {
+  if (token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
     } else {
-      const storedToken = localStorage.getItem('token');
-      if (storedToken) {
-        axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
-      } else {
-        delete axios.defaults.headers.common.Authorization;
-      }
+      delete axios.defaults.headers.common.Authorization;
     }
-  };
+  }
+};
 
-export const getCategoriesList = async () => {;
+export const getCategoriesList = async () => {
   setAuthHeader();
   const result = await axios.get('/categories');
   return result.data;

@@ -19,6 +19,7 @@ const shoppingList = createSlice({
       })
       .addCase(fetchShoppingList.fulfilled, (state, { payload }) => {
         state.shoppingList = payload;
+        state.deletedProductId = [];
         state.isLoading = false;
       })
       .addCase(fetchShoppingList.rejected, (state, { payload }) => {

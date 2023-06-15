@@ -26,17 +26,21 @@ const searchSlice = createSlice({
       })
       .addCase(getRecipesByQuery.pending, state => {
         state.isLoading = true;
+        state.items = [];
       })
       .addCase(getRecipesByIngredient.pending, state => {
         state.isLoading = true;
+        state.items = [];
       })
       .addCase(getRecipesByQuery.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+        state.items = [];
       })
       .addCase(getRecipesByIngredient.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+        state.items = [];
       });
   },
   reducers: {
@@ -46,6 +50,7 @@ const searchSlice = createSlice({
     changeQuery(state, action) {
       state.query = action.payload;
     },
+    resetState: () => initialState,
   },
 });
 
@@ -53,3 +58,4 @@ export const searchReducer = searchSlice.reducer;
 
 export const { changeQueryType } = searchSlice.actions;
 export const { changeQuery } = searchSlice.actions;
+export const { resetState } = searchSlice.actions;

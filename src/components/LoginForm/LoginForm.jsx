@@ -20,8 +20,14 @@ export const LoginForm = () => {
   const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/;
 
   const schema = yup.object().shape({
-    email: yup.string().email().min(3).max(254).required(),
-    password: yup.string().matches(passRegex, 'Password must contain 6 to 16 characters, numbers and at least one letter').required(),
+    email: yup.string().email().min(3).max(20).required(),
+    password: yup
+      .string()
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/,
+        'The password must contain letters and numbers'
+      )
+      .required(),
   });
   const navigate = useNavigate();
   const handleSubmit = values => {
@@ -38,78 +44,104 @@ export const LoginForm = () => {
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched, isSubmitting }) => (
-          <Form autoComplete="off">
-            <Caption>Sign In</Caption>
-            <FormFields>
-              <InputWraper>
-                <HiOutlineMail
-                  className={`${
-                    touched.email && (errors.email ? 'error' : 'success')
-                  }`}
-                />
-                {errors.email && touched.email && (
-                  <AiFillCloseCircle className="invalid" />
-                )}
-                {!errors.email && touched.email && (
-                  <AiFillCheckCircle className="valid" />
-                )}
-                <Field
-                  type="text"
-                  name="email"
-                  placeholder="Email"
-                  autoComplete="off"
-                  className={`input-field ${
-                    touched.email && (errors.email ? 'error' : 'success')
-                  }`}
-                />
-                <ErrorMessage className="error" component="div" name="email" />
-              </InputWraper>
+        {({ errors, touched, isSubmitting, submitCount }) => {
+          const hasNameError = submitCount > 0 && touched.name && errors.name;
+          const hasEmailError =
+            submitCount > 0 && touched.email && errors.email;
+          const hasPasswordError =
+            submitCount > 0 && touched.password && errors.password;
+          const isFormSubmitted = submitCount > 0;
 
-              <InputWraper>
-                {errors.password && touched.password && (
-                  <AiFillCloseCircle className="invalid" />
-                )}
-                {!errors.password && touched.password && !isSubmitting && (
-                  <AiFillCheckCircle className="valid" />
-                )}
-                <HiOutlineLockClosed
-                  className={`${
-                    touched.password && (errors.password ? 'error' : 'success')
-                  }`}
-                />
-                <Field
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  autoComplete="off"
-                  className={`input-field ${
-                    touched.password && (errors.password ? 'error' : 'success')
-                  }`}
-                />
-                {touched.password && !errors.password && (
-                  <div className="success-message">Password is secure</div>
-                )}
-                <ErrorMessage
-                  className="error"
-                  component="div"
-                  name="password"
-                />
-                {/* <ErrorMessage className="error" component="div" name="password">
-                  {message => <div className="error-message">{message}</div>}
-                </ErrorMessage> */}
-                {/* <ErrorMessage
-                  className="warning"
-                  component="div"
-                  name="password"
-                >
-                  {message => <div className="warning-message">{message}</div>}
-                </ErrorMessage> */}
-              </InputWraper>
-            </FormFields>
-            <button>Sign up</button>
-          </Form>
-        )}
+          return (
+            <Form autoComplete="off">
+              <Caption>Sign In</Caption>
+              <FormFields>
+                <InputWraper>
+                  <HiOutlineMail
+                    className={`${
+                      touched.email &&
+                      (hasEmailError
+                        ? 'error'
+                        : isFormSubmitted
+                        ? 'success'
+                        : '')
+                    }`}
+                  />
+                  {hasEmailError && <AiFillCloseCircle className="invalid" />}
+                  {!hasEmailError && isFormSubmitted && touched.email && (
+                    <AiFillCheckCircle className="valid" />
+                  )}
+                  <Field
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    autoComplete="off"
+                    className={`input-field ${
+                      touched.email &&
+                      (hasEmailError
+                        ? 'error'
+                        : isFormSubmitted
+                        ? 'success'
+                        : '')
+                    }`}
+                  />
+                  {hasEmailError && (
+                    <ErrorMessage
+                      className="error"
+                      component="div"
+                      name="email"
+                    />
+                  )}
+                </InputWraper>
+
+                <InputWraper>
+                  {hasPasswordError && (
+                    <AiFillCloseCircle className="invalid" />
+                  )}
+                  {!hasPasswordError &&
+                    isFormSubmitted &&
+                    touched.password &&
+                    !isSubmitting && <AiFillCheckCircle className="valid" />}
+                  <HiOutlineLockClosed
+                    className={`${
+                      touched.password &&
+                      (hasPasswordError
+                        ? 'error'
+                        : isFormSubmitted
+                        ? 'success'
+                        : '')
+                    }`}
+                  />
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    autoComplete="off"
+                    className={`input-field ${
+                      touched.password &&
+                      (hasPasswordError
+                        ? 'error'
+                        : isFormSubmitted
+                        ? 'success'
+                        : '')
+                    }`}
+                  />
+                  {touched.password && !hasPasswordError && isFormSubmitted && (
+                    <div className="success-message">Password is secure</div>
+                  )}
+                  {hasPasswordError && (
+                    <ErrorMessage
+                      className="error"
+                      component="div"
+                      name="password"
+                    />
+                  )}
+                </InputWraper>
+              </FormFields>
+              <button type="submit">Sign in</button>
+            </Form>
+          );
+        }}
       </Formik>
     </RegisterFormStyled>
   );

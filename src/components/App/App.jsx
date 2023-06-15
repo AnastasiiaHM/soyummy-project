@@ -37,9 +37,15 @@ const App = () => {
               // }
             />
             <Route
-              path="/main"
-              element={<MainPage />}
-              // element={<PrivateRoute component={MainPage} redirectTo="/" />}
+              path="/signin"
+              element={<LoginPage />}
+              // element={
+              //   <RestrictedRoute
+              //     component={LoginPage}
+              //     redirectTo="/main"
+              //     replace={true}
+              //   />
+              // }
             />
             <Route
               path="/register"
@@ -53,16 +59,11 @@ const App = () => {
               // }
             />
             <Route
-              path="/signin"
-              element={<LoginPage />}
-              // element={
-              //   <RestrictedRoute
-              //     component={LoginPage}
-              //     redirectTo="/main"
-              //     replace={true}
-              //   />
-              // }
+              path="/main"
+              element={<MainPage />}
+              // element={<PrivateRoute component={MainPage} redirectTo="/" />}
             />
+
             <Route
               path="/categories"
               element={<CategoriesPage />}
