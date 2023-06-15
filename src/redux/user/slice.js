@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import { updateUser } from './operations';
 
 const initialState = {
-    user: {
-      newName: '', // початкове значення імені користувача
-      avatar: '' // початкове значення аватарки користувача
-    },
-    error: null // початкове значення для поля помилки (якщо потрібно)
-  };
+  user: {
+    newName: '', // початкове значення імені користувача
+    avatar: '', // початкове значення аватарки користувача
+  },
+  error: null, // початкове значення для поля помилки (якщо потрібно)
+};
 
 const userSlice = createSlice({
   name: 'user',
