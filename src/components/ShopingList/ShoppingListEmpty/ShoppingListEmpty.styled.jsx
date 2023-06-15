@@ -11,7 +11,7 @@ export const Wraper = styled.div`
   }
 `;
 
-export const EmptyImage = styled.img`
+export const EmptyImageWrapper = styled.div`
   padding-bottom: 24px;
   width: 208px;
   margin: 0 auto;
