@@ -37,12 +37,14 @@ const Categories = () => {
       <CategoriesTab categoriesList={category} />
 
       {loading ? <Skeleton /> : <RecipesGallery recipes={recipes} />}
-      <Paginator
-        limit={itemsPerPage}
-        totalPages={totalPages}
-        page={currentPage}
-        pageChange={handlePageChange}
-      />
+      {totalPages <= 1 || (
+        <Paginator
+          limit={itemsPerPage}
+          totalPages={totalPages}
+          page={currentPage}
+          pageChange={handlePageChange}
+        />
+      )}
     </CategoriesConteiner>
   );
 };
