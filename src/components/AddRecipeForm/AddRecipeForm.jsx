@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
@@ -8,7 +8,7 @@ import { getCategoriesList } from 'operations/addRecipe';
 import { addNewRecipe } from 'operations/addRecipe';
 import { Formik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setLoading } from 'redux/auth/slice';
 import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
@@ -58,18 +58,6 @@ export const AddRecipeForm = () => {
   const dispatch = useDispatch();
   const notify = message => toast.error(message, { autoClose: 3000 });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await getCategoriesList();
-        setCategoriesList(res);
-      } catch (error) {
-        notify(error.message);
-      }
-    };
-    fetchData();
-  }, []);
-
   const categoryHandler = value => {
     setCategory(value);
   };
@@ -109,11 +97,9 @@ export const AddRecipeForm = () => {
 
       if (result) {
         dispatch(setLoading(false));
+        localStorage.clear();
         resetForm();
-        localStorage.removeItem('recipeTitle');
-        localStorage.removeItem('recipeDescription');
-        localStorage.removeItem('recipePreparation');
-        navigate('/my');
+        navigate('/own-recipes');
       }
     } catch (error) {
       dispatch(setLoading(false));

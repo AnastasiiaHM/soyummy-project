@@ -28,6 +28,11 @@ export const Title = styled.h3`
   color: #3e4462;
 `;
 
+export const Item = styled.li`
+  width: 100%;
+  display: flex;
+`;
+
 export const Counter = styled.span`
   display: flex;
   justify-content: space-around;
@@ -75,4 +80,16 @@ export const List = styled.ul`
   @media screen and (min-width: ${mediaSizes.desktop}) {
     width: 609px;
   }
+`;
+
+export const CloseBtn = styled.button`
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
 `;
