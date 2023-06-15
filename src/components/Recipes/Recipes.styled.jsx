@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
 import { colors } from '../colors';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const RecipeWrapper = styled.div`
     width: 343px;
@@ -25,12 +26,16 @@ export const RecipeTitle = styled.h2`
     line-height: 24px;
     text-align: center;
     letter-spacing: -0.02em;
+    margin-top: 80px;
+
 
     color: ${colors.greenButton};
 
     @media (min-width: ${mediaSizes.tablet}) {
         font-size: 44px;
         line-height: 44px;
+        margin-top: 100px;
+
     }
 `;
 
@@ -381,5 +386,33 @@ export const PreparationImg = styled.img`
     width: 433px;
     height: 332px;
 }
-
 `
+
+export const ScrollContainer = styled(PerfectScrollbar)`
+  max-height: 332px;
+  overflow-x: hidden;
+
+  .ps__rail-x {
+    display: none;
+  }
+
+  .ps__rail-y {
+    width: 15px;
+    background-color: transparent;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .ps__thumb-y {
+      width: 100%;
+      background-color: ${colors.primary};
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+`;

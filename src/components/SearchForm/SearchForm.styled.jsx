@@ -36,7 +36,7 @@ export const SearchInput = styled.input`
     font-weight: 500;
     font-size: 12px;
     line-height: 1.6;
-    color: #3e4462;
+    color: #898a8daf;
     @media (min-width: 768px) {
       font-size: 16px;
     }

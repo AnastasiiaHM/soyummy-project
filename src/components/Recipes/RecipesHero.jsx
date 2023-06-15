@@ -4,13 +4,16 @@ import { fetchRecipeById } from '../../redux/id-recipes/operations';
 import { RecipeTitle, RecipeText, RecipeTiming, RecipeWrapper } from './Recipes.styled';
 import { selectRecipeById } from 'redux/id-recipes/selectors';
 import { Loader } from 'components/Loader/Loader'; 
+import { addFavoriteRecipe } from 'redux/favorite/operations';
+import { useParams } from 'react-router-dom';
+
 const RecipesHero = () => {
 
     const dispatch = useDispatch();
     const recipe = useSelector(selectRecipeById);
   
-    const recipeId = '6462a8f74c3d0ddd28897fba';
-  
+    const { recipeId } = useParams();
+   
     useEffect(() => {
       dispatch(fetchRecipeById(recipeId));
     }, [dispatch, recipeId]);
@@ -19,6 +22,10 @@ const RecipesHero = () => {
       return <Loader/>;
     }
 
+    const handleAddToFavorites = () => {
+        dispatch(addFavoriteRecipe(recipeId));
+      };
+
     return(
             <RecipeWrapper>
                 <div>
@@ -26,7 +33,7 @@ const RecipesHero = () => {
                     <RecipeText>{recipe.description}</RecipeText>
                 </div>
                 <div>
-                    <button className="btn recipesbtn">Add to favorite recipes</button>
+                    <button className="btn recipesbtn" onClick={handleAddToFavorites}>Add to favorite recipes</button>
                     <RecipeTiming>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-1 w-3.5 h-3.5">
                             <g clipPath="url(#clip0_264_756)">

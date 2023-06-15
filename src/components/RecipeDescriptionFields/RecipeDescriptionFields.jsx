@@ -13,9 +13,11 @@ import { ReactComponent as Add } from '../images/addIngredient/add.svg';
 import { Select } from 'components/Select/Select';
 import { timeRange } from 'components/constants/timeRange';
 import { useField, useFormikContext } from 'formik';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useLocalStorage } from 'hooks/useLocalStorage';
+import { getCategoriesList } from 'operations/addRecipe';
+import { ToastContainer, toast } from 'react-toastify';
 
 export const RecipeDescriptionFields = ({
   selectedCategory,
@@ -29,10 +31,24 @@ export const RecipeDescriptionFields = ({
     'recipeDescription',
     null
   );
+  const [categoriesList, setCategoriesList] = useState([]);
   const [titleField, titleMeta] = useField('title');
   const [descriptionField, descriptionMeta] = useField('description');
   const [thumb, setThumb] = useState(null);
   const { setFieldValue } = useFormikContext();
+  const notify = message => toast.error(message, { autoClose: 3000 });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await getCategoriesList();
+        setCategoriesList(res);
+      } catch (error) {
+        notify(error.message);
+      }
+    };
+    fetchData();
+  }, []);
 
   const titleTypingHandler = e => {
     const { value } = e.target;
@@ -83,7 +99,7 @@ export const RecipeDescriptionFields = ({
             {...titleField}
             type="text"
             placeholder="Enter item title"
-            value={currentTitle}
+            value={currentTitle || ''}
             name="title"
             required
             border="1px solid #e0e0e0"
@@ -98,7 +114,7 @@ export const RecipeDescriptionFields = ({
             {...descriptionField}
             type="text"
             placeholder="Enter about recipe"
-            value={currentDesc}
+            value={currentDesc || ''}
             name="description"
             required
             border="1px solid #e0e0e0"
@@ -111,7 +127,7 @@ export const RecipeDescriptionFields = ({
         <StyledLabel zIndex="5">
           <Field type="text" placeholder="Category" readOnly />
           <Select
-            options={categories}
+            options={categoriesList}
             field="_id"
             secondField="name"
             name="category"

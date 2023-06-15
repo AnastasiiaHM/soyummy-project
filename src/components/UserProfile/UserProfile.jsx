@@ -4,7 +4,6 @@ import { Modal, Box } from '@mui/material';
 import { GoX } from 'react-icons/go';
 import {
   BtnClose, 
-  UserBtn, 
   IconUser, 
   BtnSave, 
   InputMod, 
@@ -18,6 +17,7 @@ import { BiPlus, BiUser } from 'react-icons/bi';
 import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 import { updateUser } from '../../redux/user/operations';
+import { updateUserProfileSuccess, updateUserProfileFailure } from 'redux/user/slice';
 
 const UserProf = ({ handleCloseModalProfile }) => {
 
@@ -47,12 +47,14 @@ const UserProf = ({ handleCloseModalProfile }) => {
       .unwrap()
       .then((response) => {
         console.log(response); 
-        setName(userData.newName);
+        dispatch(updateUserProfileSuccess(response));
         console.log(userData);
       })
       .catch((error) => {
         console.error(error);
+        dispatch(updateUserProfileFailure(error));
       });
+      handleCloseModalProfile();
   };
 
   const style = {

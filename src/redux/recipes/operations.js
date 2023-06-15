@@ -27,6 +27,7 @@ export const fetchCategory = createAsyncThunk(
             return thunkApi.rejectWithValue(e.message);
         }
     }
+  
 );
 
 export const fetchRecipesByCategory = createAsyncThunk(
@@ -36,13 +37,13 @@ export const fetchRecipesByCategory = createAsyncThunk(
             setAuthHeader();
             const { data: { response, total } } = await axios.get(`/recipes/category/${query}?page=${page}&limit=8`);
 
-            return {
-                response,
-                currentPage: page,
-                totalRecipes: total,
-            };
-        } catch (error) {
-            return thunkApi.rejectWithValue(error.response.data);
-        }
+      return {
+        response,
+        currentPage: page,
+        totalRecipes: total,
+      };
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.response.data);
     }
+  }
 );
