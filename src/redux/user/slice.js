@@ -3,10 +3,10 @@ import { updateUser } from './operations';
 
 const initialState = {
   user: {
-    newName: '',
-    avatar: ''
+    newName: '', // початкове значення імені користувача
+    avatar: '', // початкове значення аватарки користувача
   },
-  error: null
+  error: null, // початкове значення для поля помилки (якщо потрібно)
 };
 
 const userSlice = createSlice({
@@ -22,10 +22,10 @@ const userSlice = createSlice({
     },
     updateUserProfileFailure: (state, action) => {
       state.error = action.payload;
-    }
+    },
   },
 
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(updateUser.fulfilled, (state, action) => {
         const { _id, avatarURL, name } = action.payload;
@@ -36,9 +36,9 @@ const userSlice = createSlice({
       .addCase(updateUser.rejected, (state, action) => {
         state.error = action.payload;
       });
-  }
+  },
 });
 
-export const { updateUserProfileSuccess, updateUserProfileFailure } = userSlice.actions;
+export const { updateUserProfileSuccess, updateUserProfileFailure } =
+  userSlice.actions;
 export const userReducer = userSlice.reducer;
-

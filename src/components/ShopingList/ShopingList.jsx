@@ -34,7 +34,7 @@ export const ShoppingListComponent = () => {
       <Title className="title">Shopping list</Title>
 
       {shoppingList.length === 0 ? (
-        <ShoppingListEmpty />
+        <ShoppingListEmpty message={'The product list is empty'} />
       ) : (
         <>
           <List>
