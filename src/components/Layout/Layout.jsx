@@ -7,9 +7,14 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { IoIosArrowDropup } from 'react-icons/io';
 import { LayoutWrapper, Button } from './Layout.styled';
+import { selectLogin } from '../../redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
 const Layout = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const loggin = useSelector(selectLogin);
+
+  console.log(loggin);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,11 +40,13 @@ const Layout = () => {
 
   return (
     <LayoutWrapper>
-      <Header />
+      {loggin && <Header />}
+
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      <Footer />
+      {loggin && <Footer />}
+
       {isVisible && (
         <Button type="button" className="icon totop" onClick={scrollToTop}>
           <IoIosArrowDropup />
