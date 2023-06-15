@@ -17,6 +17,7 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const initialValues = { email: '', password: '' };
+  const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/;
 
   const schema = yup.object().shape({
     email: yup.string().email().min(3).max(20).required(),

@@ -10,8 +10,10 @@ const defaultUser = {
 
 export function UserComponent() {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  
+  const user = useSelector((state) => state.auth.user);
 
-  const user = useSelector((state) => state.auth.user || defaultUser);
+  const userChanges = useSelector((state) => state.user.user);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -25,19 +27,10 @@ export function UserComponent() {
     e.stopPropagation();
   };
 
-  if (!user) {
-    return null; 
-  }
-  
-
   return (
     <UserWrapper>
-      <Avatar alt="User Avatar" src={user.avatarURL} onClick={handleOpenModal} />
-      {user.name ? (
-        <UserTextsName>{user.name}</UserTextsName>
-      ) : (
-        <UserTextsName>{defaultUser.name}</UserTextsName>
-      )}
+      <Avatar alt="User Avatar" src={userChanges.avatar || userChanges.avatarURL} onClick={handleOpenModal} />
+      <UserTextsName>{userChanges.name || defaultUser.name}</UserTextsName>
       {isModalOpen && (
         <BasicModal 
           handleCloseModal={handleCloseModal}

@@ -32,6 +32,8 @@ export const RegisterForm = () => {
     navigate(path);
   };
 
+  const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/;
+
   const schema = yup.object().shape({
     name: yup
       .string()
