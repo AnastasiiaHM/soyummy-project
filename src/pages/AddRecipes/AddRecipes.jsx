@@ -31,7 +31,7 @@ const AddRecipes = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
