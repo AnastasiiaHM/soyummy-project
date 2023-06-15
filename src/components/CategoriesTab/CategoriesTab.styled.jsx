@@ -1,5 +1,6 @@
 import { colors } from 'components/colors';
 import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 import { styled } from '@mui/system';
 
 export const StyledTab = styled(Tab)(() => ({
@@ -13,5 +14,21 @@ export const StyledTab = styled(Tab)(() => ({
   },
   '&.Mui-selected': {
     color: colors.greenButton,
+  },
+}));
+
+export const StyledBox = styled(Box)(() => ({
+  backgroundColor: 'background.inherit',
+  paddingTop: '50px',
+  borderBottom: `1px solid ${colors.categoriesLIne}`,
+  '& .MuiTabs-indicator': {
+    backgroundColor: colors.greenButton,
+  },
+  '& .MuiButtonBase-root': {
+    padding: '10px 0 30px',
+    marginRight: '28px',
+  },
+  '& .MuiTabScrollButton-root': {
+    margin: 0,
   },
 }));
