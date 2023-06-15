@@ -5,9 +5,11 @@ import { colors } from '../colors';
 import { StyledTab } from './CategoriesTab.styled';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/recipes/slice';
+import { useNavigate } from 'react-router-dom';
 
 export default function CategoriesTab(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { categoriesList } = props;
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
@@ -15,6 +17,7 @@ export default function CategoriesTab(props) {
   };
   const onClickCategory = e => {
     dispatch(setFilter(e));
+    navigate(`/categories/${e}`);
   };
 
   return (

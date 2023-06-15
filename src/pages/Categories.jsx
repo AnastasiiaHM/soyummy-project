@@ -9,29 +9,25 @@ import {
 import Skeleton from '../components/RecipesGallery/GallerySkeleton';
 import { CategoriesConteiner } from '../components/CategoriesTab/CategoriesConteiner.styled';
 import Paginator from 'components/Paginator/Paginator';
+import { useParams } from 'react-router-dom';
 
 const Categories = () => {
   const dispatch = useDispatch();
-  const {
-    category,
-    recipes,
-    filter,
-    loading,
-    totalPages,
-    currentPage,
-    itemsPerPage,
-  } = useSelector(state => state.categories);
-
+  const params = useParams();
+  const query = params.category;
+  const { category, recipes, loading, totalPages, currentPage, itemsPerPage } =
+    useSelector(state => state.categories);
+  console.log(itemsPerPage);
   useEffect(() => {
     dispatch(fetchCategory());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchRecipesByCategory({ category: filter, page: 1 }));
-  }, [dispatch, filter]);
+    dispatch(fetchRecipesByCategory({ query: query || 'Beef', page: 1 }));
+  }, [dispatch, query]);
 
   const handlePageChange = page => {
-    dispatch(fetchRecipesByCategory({ category: filter, page }));
+    dispatch(fetchRecipesByCategory({ query, page }));
   };
 
   return (

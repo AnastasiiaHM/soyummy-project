@@ -70,7 +70,7 @@ const App = () => {
               //   <PrivateRoute component={CategoriesPage} redirectTo="/" />
               // }
             >
-              <Route path=":categoryName" element={<CategoriesRecipes />} />
+              <Route path=":category" element={<CategoriesRecipes />} />
             </Route>
             <Route
               path="/add"

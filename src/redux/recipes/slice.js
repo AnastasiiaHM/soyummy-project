@@ -9,7 +9,7 @@ const initialState = {
     itemsPerPage: 8,
     loading: false,
     error: null,
-    filter: 'Beef'
+    filter: ''
 };
 
 const categoriesSlice = createSlice({
@@ -37,7 +37,7 @@ const categoriesSlice = createSlice({
 
             .addCase(fetchRecipesByCategory.fulfilled, (state, { payload }) => {
                 state.recipes = payload.response;
-                state.totalPages = Math.ceil(payload.totalRecipes / state.itemsPerPage);
+                state.totalPages = Math.ceil(payload.totalRecipes / 8);
                 state.currentPage = payload.currentPage;
                 state.loading = false;
             })
