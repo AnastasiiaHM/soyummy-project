@@ -1,10 +1,14 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { MainContainer } from './App.styled';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from '../Layout/Layout';
 // import { RestrictedRoute } from 'components/RestrictedRoute';
 // import { PrivateRoute } from 'components/PrivateRoute';
-
+import { Loader } from 'components/Loader/Loader';
+import { refreshUser } from 'redux/auth/operations';
 const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const RegisterPage = lazy(() => import('pages/Register'));
 const LoginPage = lazy(() => import('pages/Login'));
@@ -23,8 +27,16 @@ const CategoriesRecipes = lazy(() =>
 );
 
 const App = () => {
+  const dispatch = useDispatch();
+  const { isRefreshing } = useSelector(state => state.auth);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <>
+      {isRefreshing && <Loader />}
       <MainContainer>
         <Routes>
           <Route path="/" element={<Layout />}>

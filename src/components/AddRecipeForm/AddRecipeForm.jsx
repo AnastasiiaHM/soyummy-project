@@ -46,6 +46,13 @@ const initialValue = {
   preparation: '',
 };
 
+const errorMessages = {
+  400: "We're sorry, but the request you made was invalid. Please check your input and try again.",
+  401: "Oops! It seems you're not authorized to access the requested content. Please authenticate yourself and try again.",
+  404: 'The requested page or resource cannot be found. Please ensure the URL is correct or explore other sections of our website.',
+  500: "We're sorry, but there was an internal server error. Our team is already on it, and we'll have everything back to normal as soon as possible.",
+};
+
 export const AddRecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const [preparation, setPreparation] = useState([]);
@@ -83,7 +90,6 @@ export const AddRecipeForm = () => {
       const { title, description } = values;
       const instructions = preparation.join('/r/n');
       const newRecipe = new FormData();
-      console.log(newRecipe);
       newRecipe.append('title', title);
       newRecipe.append('description', description);
       newRecipe.append('category', category);
@@ -93,7 +99,6 @@ export const AddRecipeForm = () => {
       newRecipe.append('instructions', instructions);
       dispatch(setLoading(true));
       const result = await addNewRecipe(newRecipe);
-      console.log(newRecipe);
 
       if (result) {
         dispatch(setLoading(false));
@@ -103,7 +108,7 @@ export const AddRecipeForm = () => {
       }
     } catch (error) {
       dispatch(setLoading(false));
-      notify(error.message);
+      notify(errorMessages[error.status]);
     }
   };
 
