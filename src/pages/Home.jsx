@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Section } from '../components/Styled/MainPageHome.styled';
 import { SearchForm } from '../components/SearchForm/SearchForm';
-import { fetchMainPageRecipes } from '../redux/recipes/operations';
+import { fetchMainPageRecipes } from '../redux/main/operations';
 import { BsArrowRight } from 'react-icons/bs';
-import { MainGallery } from '../components/MainGallery/MainGallery';
+import RecipesGallery from '../components/RecipesGallery/RecipesGallery';
 import {
   MainBtn,
   HomeGallery,
@@ -14,11 +14,16 @@ import {
 export default function MainPageHome() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const recipes = useSelector(state => state.categories.recipes);
   useEffect(() => {
     dispatch(fetchMainPageRecipes());
   });
 
+  const breakfast = useSelector(state => state.mainPage.recipes.Breakfast);
+  const miscellaneous = useSelector(
+    state => state.mainPage.recipes.Miscellaneous
+  );
+  const chicken = useSelector(state => state.mainPage.recipes.Chicken);
+  const dessert = useSelector(state => state.mainPage.recipes.Dessert);
   return (
     <Section>
       <div className="wrapper">
@@ -50,37 +55,82 @@ export default function MainPageHome() {
           className="title"
           style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
         >
-          Beef
+          Breakfast
         </h2>
-        <MainGallery recipes={recipes} />
-        <MainBtn>See all</MainBtn>
-
+        <RecipesGallery recipes={breakfast} />
+        <Link
+          style={{
+            display: 'flex',
+            width: '94px',
+            height: '38px',
+            alignSelf: 'flex-end',
+            marginRight: '120px',
+          }}
+          to={`/categories`}
+          state={{ from: location }}
+        >
+          <MainBtn>See all</MainBtn>
+        </Link>
         <h2
           className="title"
           style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
         >
           Miscellaneous
         </h2>
-        <MainGallery recipes={recipes} />
-        <MainBtn>See all</MainBtn>
-
+        <RecipesGallery recipes={miscellaneous} />
+        <Link
+          style={{
+            display: 'flex',
+            width: '94px',
+            height: '38px',
+            alignSelf: 'flex-end',
+            marginRight: '120px',
+          }}
+          to={`/categories`}
+          state={{ from: location }}
+        >
+          <MainBtn>See all</MainBtn>
+        </Link>
         <h2
           className="title"
           style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
         >
-          Chicken
+          Chiken
         </h2>
-        <MainGallery recipes={recipes} />
-        <MainBtn>See all</MainBtn>
-
+        <RecipesGallery recipes={chicken} />
+        <Link
+          style={{
+            display: 'flex',
+            width: '94px',
+            height: '38px',
+            alignSelf: 'flex-end',
+            marginRight: '120px',
+          }}
+          to={`/categories`}
+          state={{ from: location }}
+        >
+          <MainBtn>See all</MainBtn>
+        </Link>
         <h2
           className="title"
           style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
         >
           Desserts
         </h2>
-        <MainGallery recipes={recipes} />
-        <MainBtn>See all</MainBtn>
+        <RecipesGallery recipes={dessert} />
+        <Link
+          style={{
+            display: 'flex',
+            width: '94px',
+            height: '38px',
+            alignSelf: 'flex-end',
+            marginRight: '120px',
+          }}
+          to={`/categories`}
+          state={{ from: location }}
+        >
+          <MainBtn>See all</MainBtn>
+        </Link>
       </HomeGallery>
     </Section>
   );

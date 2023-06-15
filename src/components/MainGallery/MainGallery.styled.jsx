@@ -41,28 +41,20 @@ export const MainBtn = styled.button`
   border: 0;
   width: 94px;
   height: 38px;
-  font-size: 10px;
-  line-height: 1.5;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
   color: ${colors.textGreenBtn};
   cursor: pointer;
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    margin-bottom: 50px;
-    width: 138px;
-    height: 45px;
-    font-size: 14px;
-  }
-
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    margin-bottom: 100px;
-    margin-right: 120px;
-    width: 160px;
-    height: 54px;
-    font-size: 16px;
-  }
-
   &:hover,
   &:focus {
     background-color: ${colors.darkButton};
   }
+`;
+export const StyledLink = styled.link`
+  display: flex;
+  width: 94px;
+  height: 38px;
+  align-self: flex-end;
 `;

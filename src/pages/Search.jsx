@@ -1,5 +1,5 @@
 import { SearchBar } from 'components/SearchBar/SearchBar';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {
   getRecipesByQuery,
   getRecipesByIngredient,
@@ -34,6 +34,7 @@ const Search = () => {
         return;
     }
   }, [dispatch, query, queryType]);
+
   return (
     <section>
       <title className="title">Search</title>
