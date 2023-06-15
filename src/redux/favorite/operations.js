@@ -52,3 +52,19 @@ export const deleteFavoriteRecipe = createAsyncThunk(
     }
   }
 );
+
+export const addFavoriteRecipe = createAsyncThunk(
+  'favoriteRecipes/addFavoriteRecipe',
+  async (recipeId, thunkApi) => {
+    try {
+      setAuthHeader();
+      await axios.post('/recipes/favorite/add', {
+        _id: recipeId,
+      });
+
+      return recipeId;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.response.data);
+    }
+  }
+);

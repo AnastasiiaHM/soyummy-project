@@ -20,7 +20,7 @@ export const LoginForm = () => {
   const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/;
 
   const schema = yup.object().shape({
-    email: yup.string().email().min(3).max(20).required(),
+    email: yup.string().email().min(3).max(30).required(),
     password: yup
       .string()
       .matches(
