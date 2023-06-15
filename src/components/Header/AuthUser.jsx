@@ -29,8 +29,8 @@ export function UserComponent() {
 
   return (
     <UserWrapper>
-      <Avatar alt="User Avatar" src={userChanges.avatar || userChanges.avatarURL} onClick={handleOpenModal} />
-      <UserTextsName>{userChanges.name || defaultUser.name}</UserTextsName>
+      <Avatar alt="User Avatar" src={user.avatar || user.avatarURL} onClick={handleOpenModal} />
+      <UserTextsName>{user.name || defaultUser.name}</UserTextsName>
       {isModalOpen && (
         <BasicModal 
           handleCloseModal={handleCloseModal}
