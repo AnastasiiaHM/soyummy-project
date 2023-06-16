@@ -48,13 +48,13 @@ const UserProf = ({ handleCloseModalProfile }) => {
       .then((response) => {
         console.log(response); 
         dispatch(updateUserProfileSuccess(response));
-        setName(userData.newName);
         console.log(userData);
       })
       .catch((error) => {
         console.error(error);
         dispatch(updateUserProfileFailure(error));
       });
+      handleCloseModalProfile();
   };
 
   const style = {

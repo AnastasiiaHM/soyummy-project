@@ -21,9 +21,9 @@ const RecipesList = ({
       ) : (
         <>
           <List>
-            {list.map(card => (
-              <Card key={card.id} card={card} deleteCard={deleteCard} />
-            ))}
+          {list.map((card, index) => (
+            <Card key={`${card.cardId}-${index}`} card={card} deleteCard={deleteCard} />
+          ))}
           </List>
           <Paginator
             totalPages={totalPages}
@@ -42,7 +42,7 @@ export const ListPlaceholder = ({ itemsCount }) => {
   return (
     <List>
       {fakeFavorites.map((_, index) => (
-        <CardPlaceholder key={index} />
+        <CardPlaceholder key={`placeholder-${index}`} />
       ))}
     </List>
   );

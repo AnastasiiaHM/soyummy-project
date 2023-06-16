@@ -18,12 +18,12 @@ import {
   MailInp,
   InputMod,
   WrapperLastFooter,
-  WrapperBtnInp,
+  // WrapperBtnInp,
   ListNetWorkLast,
   WrapperInpBtn,
 } from './Footer.styled';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
-import { AiOutlineMail } from 'react-icons/ai';
+// import { AiOutlineMail } from 'react-icons/ai';
 import { Logo } from '../LogoFooter/LogoFooter';
 const Footer = () => {
   return (

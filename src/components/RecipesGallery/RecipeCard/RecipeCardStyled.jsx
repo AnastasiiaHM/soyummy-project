@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../../constants/media';
 import { colors } from 'components/colors';
+import { NavLink } from 'react-router-dom';
 
 export const RecipeCardStyled = styled.li`
   position: relative;
@@ -52,4 +53,9 @@ export const RecipeCardStyled = styled.li`
       left: 16px;
     }
   }
+`;
+export const StyledLink = styled(NavLink)`
+  display: flex;
+  width: 100%;
+  gap: 12px;
 `;

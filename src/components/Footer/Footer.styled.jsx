@@ -6,7 +6,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 import spinach from 'components/images/spinach/footer.png';
 
 export const FooterWrapper = styled.div`
-  background: #22252a;
+  background: ${colors.darkButton};
   width: 100%;
   margin: 0 auto;
   display: flex;

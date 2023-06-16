@@ -1,14 +1,13 @@
 import React from 'react';
-import { RecipeCardStyled } from './RecipeCardStyled';
-import { Link } from 'react-router-dom';
+import { RecipeCardStyled, StyledLink } from './RecipeCardStyled';
 
-export const RecipeCard = ({ recipe, path, location }) => {
+export const RecipeCard = ({ recipe, location }) => {
   return (
     <RecipeCardStyled>
-      {/* <Link to={path} state={{ from: location }}> */}
-      <img className="image" src={recipe.preview} alt="dish-card" />
-      <p className="name">{recipe.title}</p>
-      {/* </Link> */}
+      <StyledLink to={`/recipe/${recipe._id}`} state={{ from: location }}>
+        <img className="image" src={recipe.preview} alt="dish-card" />
+        <p className="name">{recipe.title}</p>
+      </StyledLink>
     </RecipeCardStyled>
   );
 };
