@@ -3,6 +3,8 @@ import { mediaSizes } from '../constants/media';
 import { AiOutlineMail } from 'react-icons/ai';
 import spinach from 'components/images/spinach/footer.png';
 import { NavLink } from 'react-router-dom';
+import { colors } from '../colors';
+import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 
 export const FooterWrapper = styled.div`
   background: ${colors.darkButton};
@@ -50,7 +52,7 @@ export const TextName = styled.p`
   line-height: 1;
   letter-spacing: 0.015em;
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 28px;
     line-height: 1;
@@ -69,7 +71,7 @@ export const Text = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   /* font-family: 'Poppins'; */
   @media screen and (min-width: ${mediaSizes.tablet}) {
     line-height: 1.3;
@@ -99,7 +101,7 @@ export const FooterMain = styled.footer`
     font-size: 10px;
     line-height: 10px;
     letter-spacing: -0.01em;
-    color: #22252a;
+    color: ${colors.darkButton};
     opacity: 0.5;
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -128,7 +130,7 @@ export const ListTextInf = styled.ul`
   display: none;
   width: 418px;
   list-style-type: disc;
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     display: flex;
@@ -177,7 +179,29 @@ export const TextRous = styled(NavLink)`
 
   letter-spacing: -0.02em;
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
+`;
+
+export const socialMediaFace = styled(BsFacebook)`
+  fill: '${colors.greenButton}';
+  width: '20px';
+  height: '20px';
+`;
+export const socialMediaInst = styled(BsInstagram)`
+  fill: '${colors.greenButton}';
+  width: '20px';
+  height: '20px';
+`;
+export const socialMediaYout = styled(BsYoutube)`
+  fill: '${colors.greenButton}';
+  width: '20px';
+  height: '20px';
+`;
+
+export const socialMediaTwit = styled(BsTwitter)`
+  fill: '${colors.greenButton}';
+  width: '20px';
+  height: '20px';
 `;
 
 export const ListNetWork = styled.ul`
@@ -231,7 +255,7 @@ export const TextSubSlet = styled.p`
   line-height: 1.5;
   /* identical to box height */
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   display: none;
   margin-bottom: 14px;
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -248,7 +272,7 @@ export const TextOffers = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   width: 310px;
   margin-bottom: 28px;
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -256,7 +280,7 @@ export const TextOffers = styled.p`
   }
 `;
 export const TextBtn = styled.p`
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   display: flex;
   font-family: 'Poppins';
   align-items: center;
@@ -280,7 +304,7 @@ export const BtnLogOut = styled.button`
   justify-content: center;
   align-items: center;
 
-  background: #8baa36;
+  background: ${colors.greenButton};
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -306,7 +330,7 @@ export const MailInp = styled(AiOutlineMail)`
   position: absolute;
   left: 18px;
   top: 15px;
-  fill: #fafafa;
+  fill: ${colors.textGreenBtn};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     top: 16px;
@@ -358,7 +382,7 @@ export const InputMod = styled.input`
 
     letter-spacing: -0.02em;
 
-    color: #fafafa;
+    color: ${colors.textGreenBtn};
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
     }

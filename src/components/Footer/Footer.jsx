@@ -20,6 +20,10 @@ import {
   WrapperLastFooter,
   ListNetWorkLast,
   WrapperInpBtn,
+  socialMediaFace,
+  socialMediaInst,
+  socialMediaYout,
+  socialMediaTwit,
 } from './Footer.styled';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 import { Logo } from '../LogoFooter/LogoFooter';
@@ -83,22 +87,22 @@ const Footer = () => {
           </ListRouts>
           <ListNetWork>
             <li>
-              <BsFacebook
+              <socialMediaFace
                 style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
               />
             </li>
             <li>
-              <BsInstagram
+              <socialMediaInst
                 style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
               />
             </li>
             <li>
-              <BsYoutube
+              <socialMediaYout
                 style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
               />
             </li>
             <li>
-              <BsTwitter
+              <socialMediaTwit
                 style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
               />
             </li>
