@@ -102,9 +102,7 @@ const Footer = () => {
               />
             </li>
             <li>
-              <socialMediaTwit
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <socialMediaTwit />
             </li>
           </ListNetWork>
         </WrapperRouters>
@@ -127,24 +125,16 @@ const Footer = () => {
           </WrapperInpBtn>
           <ListNetWorkLast>
             <li>
-              <BsFacebook
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <BsFacebook />
             </li>
             <li>
-              <BsInstagram
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <BsInstagram />
             </li>
             <li>
-              <BsYoutube
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <BsYoutube />
             </li>
             <li>
-              <BsTwitter
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <BsTwitter />
             </li>
           </ListNetWorkLast>
         </WrapperLastFooter>
