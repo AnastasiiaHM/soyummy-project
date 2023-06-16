@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 import { colors } from '../colors';
+import { Link } from 'react-router-dom';
 
 export const MainGalleryStyled = styled.ul`
   display: flex;
@@ -27,11 +28,19 @@ export const MainGalleryStyled = styled.ul`
 
 export const HomeGallery = styled.div`
   padding-top: 320px;
-  left: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    /* padding-bottom: 40px; */
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    /* padding-bottom: 50px; */
+    width: 1440px;
+  }
 `;
 
 export const MainBtn = styled.button`
@@ -52,9 +61,41 @@ export const MainBtn = styled.button`
     background-color: ${colors.darkButton};
   }
 `;
-export const StyledLink = styled.link`
-  display: flex;
+export const StyledLink = styled(Link)`
   width: 94px;
   height: 38px;
   align-self: flex-end;
+`;
+export const StyledTitle = styled.h1`
+  color: ${colors.titleColor};
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 44px;
+  align-self: flex-start;
+`;
+export const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const DownBtn = styled.button`
+  width: 137px;
+  height: 49px;
+  background: ${colors.greenButton};
+  border: none;
+  border-radius: 14px 6px;
+
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    width: 192px;
+    height: 59px;
+  }
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    width: 192px;
+    height: 59px;
+  }
 `;

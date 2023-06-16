@@ -45,16 +45,16 @@ export const store = configureStore({
   reducer: {
     auth: persistedReducerAuth,
     recipesId: recipesIdSlice,
-    
+
     shoppingList,
-    // mainRecipes: mainRecipeReduser,
+
     favoriteRecipes: favoriteRecipesReducer,
     ownRecipes: ownRecipesReducer,
-    // ingredients: ingredientsReducer,
+
     search: searchReducer,
     categories,
     mainPage,
-    // subscribe: subscribeReducer,
+
     user: userReducer,
   },
   preloadedState: loadState(),

@@ -49,8 +49,15 @@ export const SearchForm = () => {
         <SearchInput
           type="text"
           value={searchQuery}
+          autoComplete="off"
+          minLength={2}
+          autoFocus
+          placeholder="Search.."
+          pattern="^[a-zA-Zа-яА-Я]+([-' ][a-zA-Zа-яА-Я]+)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example beef, pork.."
           onChange={handleInputChange}
         />
+
         <SearchBtn type="submit">Search</SearchBtn>
       </SearchLabel>
     </SearchedForm>

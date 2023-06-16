@@ -32,13 +32,11 @@ export const RegisterForm = () => {
     navigate(path);
   };
 
-  const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/;
-
   const schema = yup.object().shape({
     name: yup
       .string()
       .matches(/^[a-zA-Z]+$/, 'Please enter only letters')
-      .min(3)
+      .min(1)
       .max(16)
       .required(),
     email: yup.string().email().min(3).max(20).required(),
