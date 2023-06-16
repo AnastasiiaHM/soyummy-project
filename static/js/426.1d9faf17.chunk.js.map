@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/426.1d9faf17.chunk.js","mappings":"0LAAaA,EAAoB,WAC/B,OAAO,+CACR,C","sources":["components/CategoriesRecipes/CategoriesRecipes.jsx"],"sourcesContent":["export const CategoriesRecipes = () => {\n  return <div>Categories Recipes</div>;\n};\n"],"names":["CategoriesRecipes"],"sourceRoot":""}

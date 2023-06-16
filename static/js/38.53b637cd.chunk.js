@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunksoyummy_project=self.webpackChunksoyummy_project||[]).push([[38],{38:function(e,u,n){n.r(u);var c=n(184);u.default=function(){return(0,c.jsx)("div",{children:"Login"})}}}]);
-//# sourceMappingURL=38.53b637cd.chunk.js.map

@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/67.f3e2e11c.chunk.js","mappings":"wIAIA,UAJqB,WACnB,OAAO,0CACR,C","sources":["pages/Shopping.jsx"],"sourcesContent":["const ShoppingList = () => {\n  return <div>Shopping List</div>;\n};\n\nexport default ShoppingList;\n"],"names":[],"sourceRoot":""}

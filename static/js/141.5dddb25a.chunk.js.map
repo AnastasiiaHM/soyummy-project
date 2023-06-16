@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/141.5dddb25a.chunk.js","mappings":"0IAIA,UAJkB,WAChB,OAAO,sCACR,C","sources":["pages/Favourite.jsx"],"sourcesContent":["const Favourite = () => {\n  return <div>Favourite</div>;\n};\n\nexport default Favourite;\n"],"names":[],"sourceRoot":""}

@@ -1,1 +1,0 @@
-(self.webpackChunksoyummy_project=self.webpackChunksoyummy_project||[]).push([[565],{565:function(){}}]);
