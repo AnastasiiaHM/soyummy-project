@@ -33,6 +33,9 @@ const UserProf = ({ handleCloseModalProfile }) => {
   };
 
   const handleSaveChanges = () => {
+    if (name === '') {
+      return;
+    }
     const userData = {};
     if (name) {
       userData.newName = name;
@@ -59,7 +62,7 @@ const UserProf = ({ handleCloseModalProfile }) => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     boxShadow: 24,
-    p: 4,
+
     bgcolor: `${colors.textGreenBtn}`,
     borderRadius: '8px',
     p: 1.8,
@@ -123,13 +126,16 @@ const UserProf = ({ handleCloseModalProfile }) => {
               <InputMod
                 type="text"
                 placeholder="Your name"
-                minLength={1}
+                pattern="[A-Za-z\s']{3,20}"
+                required
                 value={name}
                 onChange={handleNameChange}
               />
             </WrapperInp>
           </FormModal>
-          <BtnSave onClick={handleSaveChanges}>Save changes</BtnSave>
+          <BtnSave type="submit" onClick={handleSaveChanges}>
+            Save changes
+          </BtnSave>
         </CenteredContainer>
       </Box>
     </Modal>
