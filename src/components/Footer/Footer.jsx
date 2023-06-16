@@ -25,6 +25,12 @@ import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 
 import { Logo } from '../LogoFooter/LogoFooter';
 const Footer = () => {
+  const uppPageHandler = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <FooterMain>
       <FooterWrapper>
@@ -51,19 +57,29 @@ const Footer = () => {
         <WrapperRouters>
           <ListRouts>
             <li>
-              <TextRous to="/categories">Categories</TextRous>
+              <TextRous to="/categories" onClick={uppPageHandler}>
+                Categories
+              </TextRous>
             </li>
             <li>
-              <TextRous to="/add">Add recipes</TextRous>
+              <TextRous to="/add" onClick={uppPageHandler}>
+                Add recipes
+              </TextRous>
             </li>
             <li>
-              <TextRous to="own-recipes">My recipes</TextRous>
+              <TextRous to="own-recipes" onClick={uppPageHandler}>
+                My recipes
+              </TextRous>
             </li>
             <li>
-              <TextRous to="/favorite">Favorite</TextRous>
+              <TextRous to="/favorite" onClick={uppPageHandler}>
+                Favorite
+              </TextRous>
             </li>
             <li>
-              <TextRous to="/shopping-list">Shopping list</TextRous>
+              <TextRous to="/shopping-list" onClick={uppPageHandler}>
+                Shopping list
+              </TextRous>
             </li>
           </ListRouts>
           <ListNetWork>
