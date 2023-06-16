@@ -4,24 +4,10 @@ import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
-const setAuthHeader = (token) => {
-  if (token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  } else {
-    const storedToken = localStorage.getItem('token');
-    if (storedToken) {
-      axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
-    } else {
-      delete axios.defaults.headers.common.Authorization;
-    }
-  }
-};
-
 export const getRecipesByQuery = createAsyncThunk(
   'search/getRecipesByQuery',
   async (query, thunkAPI) => {
     try {
-      setAuthHeader();
       const response = await axios.get(
         `recipes/title?title=${query}&page=1&limit=8`
       );
@@ -37,7 +23,6 @@ export const getRecipesByIngredient = createAsyncThunk(
   'search/getRecipesByIngredient',
   async (type, thunkAPI) => {
     try {
-      setAuthHeader();
       const response = await axios.get(
         `recipes/ingredient?ingredient=${type}&page=1&limit=8`
       );

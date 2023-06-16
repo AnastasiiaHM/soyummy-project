@@ -4,16 +4,16 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 const setAuthHeader = token => {
-  if (token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  } else {
-    const storedToken = localStorage.getItem('token');
-    if (storedToken) {
-      axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
-    } else {
-      delete axios.defaults.headers.common.Authorization;
-    }
-  }
+  // if (token) {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  // } else {
+  //   const storedToken = localStorage.getItem('token');
+  //   if (storedToken) {
+  //     axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`;
+  //   } else {
+  //     delete axios.defaults.headers.common.Authorization;
+  //   }
+  // }
 };
 
 export const register = createAsyncThunk(
@@ -21,7 +21,8 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const resLogin = await axios.post('/users/register', credentials);
-      setAuthHeader();
+      setAuthHeader(resLogin.data.token);
+
       return resLogin.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -34,7 +35,7 @@ export const LogIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/users/login', credentials);
-      setAuthHeader();
+      setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);

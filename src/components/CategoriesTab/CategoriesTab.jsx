@@ -58,7 +58,7 @@ export default function CategoriesTab(props) {
             // to={`/categories/${category.name}`}
             key={category._id}
             label={category.name}
-            onClick={e => onClickCategory(category.name)}
+            onClick={() => onClickCategory(category.name)}
           />
         ))}
       </Tabs>

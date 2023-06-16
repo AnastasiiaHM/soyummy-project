@@ -3,6 +3,7 @@ import assortment from '../images/assortment/assortment-vegetables-2x.jpg';
 import { mediaSizes } from 'components/constants';
 import spynath from '../images/header/spinach/spinach-right-desc-header-2x.png';
 import { colors } from 'components/colors';
+// import salatHero from '../images/header/salat/salat-header-desc-2x.png';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -57,3 +58,35 @@ export const Spynath = styled.div`
     background-color: ${colors.imageBC};
   }
 `;
+
+// export const Salat = styled.div`
+//   background: url(${salatHero});
+//   background-size: 328px auto;
+//   background-position: top 238px center;
+//   background-repeat: no-repeat;
+//   width: 100vw;
+//   padding: 68px 36px;
+
+//   @media screen and (min-width: ${mediaSizes.tablet}) {
+//     padding-top: 140px;
+//     padding-inline: 32px;
+
+//     background-size: 378px auto;
+//     background-position: top 82px right;
+//     background-repeat: no-repeat;
+//   }
+
+//   @media screen and (min-width: 1000px) {
+//     background-size: 40% auto;
+//     background-position: top 42px right;
+//   }
+
+//   @media screen and (min-width: ${mediaSizes.desktop}) {
+//     padding-top: 162px;
+//     padding-inline: 100px;
+
+//     background-size: 578px auto;
+//     background-position: top 82px right 230px;
+//     background-repeat: no-repeat;
+//   }
+// `;

@@ -28,12 +28,10 @@ export const LoginForm = () => {
       )
       .required(),
   });
-  const navigate = useNavigate();
+
   const handleSubmit = values => {
     console.log(values);
     dispatch(LogIn(values));
-    const path = '/main';
-    navigate(path);
   };
 
   return (

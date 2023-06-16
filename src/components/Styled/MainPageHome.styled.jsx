@@ -14,7 +14,7 @@ export const Section = styled.section`
   background-position: top 238px center, center, top 68px right -130px, left top,
     right top -150px;
   background-repeat: no-repeat;
-  width: 100vw;
+  /* width: 100vw; */
   padding: 68px 36px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {

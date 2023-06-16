@@ -16,20 +16,11 @@ import { useNavigate } from 'react-router-dom';
 export const RegisterForm = () => {
   const initialValues = { name: '', email: '', password: '' };
 
-  // const navigate = useNavigate();
-  // const redirection = () => {
-  //   const path = '/';
-  //   navigate(path);
-  // };
-
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     dispatch(register(values));
-    const path = '/main';
-    navigate(path);
   };
 
   const schema = yup.object().shape({

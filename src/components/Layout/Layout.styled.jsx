@@ -35,3 +35,10 @@ export const Button = styled.button`
     animation: ${colorChange} 1s infinite alternate;
   }
 `;
+export const WrapperSection = styled.div`
+  min-height: 1000px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;

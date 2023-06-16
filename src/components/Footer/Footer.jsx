@@ -18,12 +18,11 @@ import {
   MailInp,
   InputMod,
   WrapperLastFooter,
-  WrapperBtnInp,
   ListNetWorkLast,
   WrapperInpBtn,
 } from './Footer.styled';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
-import { AiOutlineMail } from 'react-icons/ai';
+
 import { Logo } from '../LogoFooter/LogoFooter';
 const Footer = () => {
   return (
@@ -52,19 +51,19 @@ const Footer = () => {
         <WrapperRouters>
           <ListRouts>
             <li>
-              <TextRous>Ingredients</TextRous>
+              <TextRous to="/categories">Categories</TextRous>
             </li>
             <li>
-              <TextRous>Add recipes</TextRous>
+              <TextRous to="/add">Add recipes</TextRous>
             </li>
             <li>
-              <TextRous>My recipes</TextRous>
+              <TextRous to="own-recipes">My recipes</TextRous>
             </li>
             <li>
-              <TextRous>Favorite</TextRous>
+              <TextRous to="/favorite">Favorite</TextRous>
             </li>
             <li>
-              <TextRous>Shopping list</TextRous>
+              <TextRous to="/shopping-list">Shopping list</TextRous>
             </li>
           </ListRouts>
           <ListNetWork>

@@ -1,8 +1,10 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from '../Layout/Layout';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/auth/operations';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const RegisterPage = lazy(() => import('pages/Register'));
@@ -69,7 +71,7 @@ const App = () => {
                 <PrivateRoute redirectTo="/" component={<CategoriesPage />} />
               }
             >
-              <Route element={<CategoriesRecipes />} path=":categoryName" />
+              <Route element={<CategoriesRecipes />} path=":category" />
             </Route>
             <Route
               path="/add"

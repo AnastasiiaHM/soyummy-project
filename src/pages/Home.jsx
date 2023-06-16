@@ -13,6 +13,7 @@ import {
   StyledLink,
   StyledDiv,
 } from '../components/MainGallery/MainGallery.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export default function MainPageHome() {
   const location = useLocation();
@@ -52,42 +53,46 @@ export default function MainPageHome() {
           </div>
         </div>
       </div>
-      <HomeGallery>
-        <StyledDiv>
-          <StyledTitle>Breakfast</StyledTitle>
-          <MainGallery recipes={breakfast} />
-          <StyledLink to={`/categories/Breakfast`} state={{ from: location }}>
-            <MainBtn>See all</MainBtn>
-          </StyledLink>
-        </StyledDiv>
-        <StyledDiv>
-          <StyledTitle>Miscellaneous</StyledTitle>
-          <MainGallery recipes={miscellaneous} />
-          <StyledLink
-            to={`/categories/Miscellaneous`}
-            state={{ from: location }}
-          >
-            <MainBtn>See all</MainBtn>
-          </StyledLink>
-        </StyledDiv>
-        <StyledDiv>
-          <StyledTitle>Chicken</StyledTitle>
-          <MainGallery recipes={chicken} />
-          <StyledLink to={`/categories/Chicken`} state={{ from: location }}>
-            <MainBtn>See all</MainBtn>
-          </StyledLink>
-        </StyledDiv>
-        <StyledDiv>
-          <StyledTitle>Desserts</StyledTitle>
-          <MainGallery recipes={dessert} />
-          <StyledLink to={`/categories/Dessert`} state={{ from: location }}>
-            <MainBtn>See all</MainBtn>
-          </StyledLink>
-        </StyledDiv>
-        <Link to={`/categories`} state={{ from: location }}>
-          <button className="btn recipesbtn">Other Categories</button>
-        </Link>
-      </HomeGallery>
+      {!breakfast && !miscellaneous && !chicken && !dessert ? (
+        <Loader />
+      ) : (
+        <HomeGallery>
+          <StyledDiv>
+            <StyledTitle>Breakfast</StyledTitle>
+            <MainGallery recipes={breakfast} />
+            <StyledLink to={`/categories/Breakfast`} state={{ from: location }}>
+              <MainBtn>See all</MainBtn>
+            </StyledLink>
+          </StyledDiv>
+          <StyledDiv>
+            <StyledTitle>Miscellaneous</StyledTitle>
+            <MainGallery recipes={miscellaneous} />
+            <StyledLink
+              to={`/categories/Miscellaneous`}
+              state={{ from: location }}
+            >
+              <MainBtn>See all</MainBtn>
+            </StyledLink>
+          </StyledDiv>
+          <StyledDiv>
+            <StyledTitle>Chicken</StyledTitle>
+            <MainGallery recipes={chicken} />
+            <StyledLink to={`/categories/Chicken`} state={{ from: location }}>
+              <MainBtn>See all</MainBtn>
+            </StyledLink>
+          </StyledDiv>
+          <StyledDiv>
+            <StyledTitle>Desserts</StyledTitle>
+            <MainGallery recipes={dessert} />
+            <StyledLink to={`/categories/Dessert`} state={{ from: location }}>
+              <MainBtn>See all</MainBtn>
+            </StyledLink>
+          </StyledDiv>
+          <Link to={`/categories`} state={{ from: location }}>
+            <button className="btn recipesbtn">Other Categories</button>
+          </Link>
+        </HomeGallery>
+      )}
     </Section>
   );
 }

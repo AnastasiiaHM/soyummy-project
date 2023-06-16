@@ -16,7 +16,7 @@ import * as Yup from 'yup';
 const validationSchema = Yup.object().shape({
   title: Yup.string()
     .matches(
-      /^[a-zA-Z0-9\s]*$/,
+      /^[a-zA-Z0-9\s\n\p{P}\d]*$/,
       'Only alphanumeric characters and spaces are allowed'
     )
     .min(10, 'There must be at least 10 symbols')
@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
     .required('Required'),
   description: Yup.string()
     .matches(
-      /^[a-zA-Z0-9\s]*$/,
+      /^[a-zA-Z0-9\s\n\p{P}\d]*$/,
       'Only alphanumeric characters and spaces are allowed'
     )
     .min(30, 'There must be at least 30 symbols')
@@ -32,7 +32,7 @@ const validationSchema = Yup.object().shape({
     .required('Required'),
   preparation: Yup.string()
     .matches(
-      /^[a-zA-Z0-9\s\n]*$/,
+      /^[a-zA-Z0-9\s\n\p{P}\d]*$/,
       'Only alphanumeric characters and spaces are allowed'
     )
     .min(50, 'There must be at least 50 symbols')
@@ -85,7 +85,7 @@ export const AddRecipeForm = () => {
     setThumb(value);
   };
 
-  const submitHandler = async (values, { setSubmitting, resetForm }) => {
+  const submitHandler = async (values, { resetForm }) => {
     try {
       const { title, description } = values;
       const instructions = preparation.join('/r/n');
