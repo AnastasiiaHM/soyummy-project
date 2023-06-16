@@ -7,6 +7,7 @@ const initialState = {
   queryType: 'title',
   isLoading: false,
   error: null,
+  example: false,
 };
 
 const searchSlice = createSlice({
@@ -18,11 +19,17 @@ const searchSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
+        action.payload.length === 0
+          ? (state.example = true)
+          : (state.example = false);
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
+        action.payload.length === 0
+          ? (state.example = true)
+          : (state.example = false);
       })
       .addCase(getRecipesByQuery.pending, state => {
         state.isLoading = true;

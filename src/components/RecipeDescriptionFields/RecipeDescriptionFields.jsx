@@ -17,14 +17,13 @@ import { useState, useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { getCategoriesList } from 'operations/addRecipe';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const RecipeDescriptionFields = ({
   selectedCategory,
   selectedMeasure,
   recipeImage,
-  zIndex,
-  categories,
+
 }) => {
   const [currentTitle, setCurrentTitle] = useLocalStorage('recipeTitle', null);
   const [currentDesc, setCurrentDesc] = useLocalStorage(

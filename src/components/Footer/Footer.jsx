@@ -18,14 +18,18 @@ import {
   MailInp,
   InputMod,
   WrapperLastFooter,
-  // WrapperBtnInp,
   ListNetWorkLast,
   WrapperInpBtn,
 } from './Footer.styled';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
-// import { AiOutlineMail } from 'react-icons/ai';
 import { Logo } from '../LogoFooter/LogoFooter';
 const Footer = () => {
+  const uppPageHandler = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <FooterMain>
       <FooterWrapper>
@@ -52,19 +56,29 @@ const Footer = () => {
         <WrapperRouters>
           <ListRouts>
             <li>
-              <TextRous>Ingredients</TextRous>
+              <TextRous to="/categories" onClick={uppPageHandler}>
+                Categories
+              </TextRous>
             </li>
             <li>
-              <TextRous>Add recipes</TextRous>
+              <TextRous to="/add" onClick={uppPageHandler}>
+                Add recipes
+              </TextRous>
             </li>
             <li>
-              <TextRous>My recipes</TextRous>
+              <TextRous to="own-recipes" onClick={uppPageHandler}>
+                My recipes
+              </TextRous>
             </li>
             <li>
-              <TextRous>Favorite</TextRous>
+              <TextRous to="/favorite" onClick={uppPageHandler}>
+                Favorite
+              </TextRous>
             </li>
             <li>
-              <TextRous>Shopping list</TextRous>
+              <TextRous to="/shopping-list" onClick={uppPageHandler}>
+                Shopping list
+              </TextRous>
             </li>
           </ListRouts>
           <ListNetWork>

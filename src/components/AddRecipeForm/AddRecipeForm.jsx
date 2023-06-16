@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparationFields } from 'components/RecipePreparationFields/RecipePreparationFields';
 import { StyledForm, StyledButton, StyledTitle } from './AddRecipeForm.styled';
-import { getCategoriesList } from 'operations/addRecipe';
 import { addNewRecipe } from 'operations/addRecipe';
 import { Formik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
@@ -16,7 +15,7 @@ import * as Yup from 'yup';
 const validationSchema = Yup.object().shape({
   title: Yup.string()
     .matches(
-      /^[a-zA-Z0-9\s]*$/,
+      /^[a-zA-Z0-9\s\n\p{P}\d]*$/,
       'Only alphanumeric characters and spaces are allowed'
     )
     .min(10, 'There must be at least 10 symbols')
@@ -24,17 +23,14 @@ const validationSchema = Yup.object().shape({
     .required('Required'),
   description: Yup.string()
     .matches(
-      /^[a-zA-Z0-9\s]*$/,
+      /^[a-zA-Z0-9\s\n\p{P}\d]*$/,
       'Only alphanumeric characters and spaces are allowed'
     )
     .min(30, 'There must be at least 30 symbols')
     .max(500, 'There must be not over 500 symbols')
     .required('Required'),
   preparation: Yup.string()
-    .matches(
-      /^[a-zA-Z0-9\s\n]*$/,
-      'Only alphanumeric characters and spaces are allowed'
-    )
+
     .min(50, 'There must be at least 50 symbols')
     .max(500, 'There must be not over 500 symbols')
     .required('Required'),
@@ -46,10 +42,17 @@ const initialValue = {
   preparation: '',
 };
 
+const errorMessages = {
+  400: "We're sorry, but the request you made was invalid. Please check your input and try again.",
+  401: "Oops! It seems you're not authorized to access the requested content. Please authenticate yourself and try again.",
+  404: 'The requested page or resource cannot be found. Please ensure the URL is correct or explore other sections of our website.',
+  500: "We're sorry, but there was an internal server error. Our team is already on it, and we'll have everything back to normal as soon as possible.",
+};
+
 export const AddRecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const [preparation, setPreparation] = useState([]);
-  const [categoriesList, setCategoriesList] = useState([]);
+
   const [category, setCategory] = useState('');
   const [time, setTime] = useState('');
   const [thumb, setThumb] = useState('');
@@ -78,12 +81,11 @@ export const AddRecipeForm = () => {
     setThumb(value);
   };
 
-  const submitHandler = async (values, { setSubmitting, resetForm }) => {
+  const submitHandler = async (values, { resetForm }) => {
     try {
       const { title, description } = values;
       const instructions = preparation.join('/r/n');
       const newRecipe = new FormData();
-      console.log(newRecipe);
       newRecipe.append('title', title);
       newRecipe.append('description', description);
       newRecipe.append('category', category);
@@ -93,7 +95,6 @@ export const AddRecipeForm = () => {
       newRecipe.append('instructions', instructions);
       dispatch(setLoading(true));
       const result = await addNewRecipe(newRecipe);
-      console.log(newRecipe);
 
       if (result) {
         dispatch(setLoading(false));
@@ -103,7 +104,7 @@ export const AddRecipeForm = () => {
       }
     } catch (error) {
       dispatch(setLoading(false));
-      notify(error.message);
+      notify(errorMessages[error.status]);
     }
   };
 
@@ -121,7 +122,6 @@ export const AddRecipeForm = () => {
             recipeImage={recipeImageHandler}
             selectedCategory={categoryHandler}
             selectedMeasure={timeHandler}
-            categories={categoriesList}
           />
           <RecipeIngredients setParentIngredients={ingredientsListHandler} />
           <RecipePreparationFields ingredientPreparation={preparationHandler} />

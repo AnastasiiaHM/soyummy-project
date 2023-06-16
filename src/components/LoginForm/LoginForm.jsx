@@ -11,13 +11,11 @@ import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
 import { LogIn } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const initialValues = { email: '', password: '' };
-  const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/;
 
   const schema = yup.object().shape({
     email: yup.string().email().min(3).max(30).required(),
@@ -29,12 +27,10 @@ export const LoginForm = () => {
       )
       .required(),
   });
-  const navigate = useNavigate();
+
   const handleSubmit = values => {
     console.log(values);
     dispatch(LogIn(values));
-    const path = '/main';
-    navigate(path);
   };
 
   return (
@@ -45,7 +41,6 @@ export const LoginForm = () => {
         onSubmit={handleSubmit}
       >
         {({ errors, touched, isSubmitting, submitCount }) => {
-          const hasNameError = submitCount > 0 && touched.name && errors.name;
           const hasEmailError =
             submitCount > 0 && touched.email && errors.email;
           const hasPasswordError =

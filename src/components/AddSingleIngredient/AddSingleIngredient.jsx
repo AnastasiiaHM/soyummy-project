@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { Select } from 'components/Select/Select';
 import { getIngredientNames } from 'operations/addRecipe';
 import { measures } from 'components/constants/measures';
@@ -12,9 +11,7 @@ import {
   DropdownItem,
   IngredientBtn,
   StyledLabel,
-  CloseBtn,
 } from './AddSingleIngredient.styled';
-import { setLoading } from 'redux/auth/slice';
 
 export const AddSingleIngredient = ({
   index,
@@ -24,46 +21,11 @@ export const AddSingleIngredient = ({
   const [selectedIngredientId, setSelectedIngredientId] = useState('');
   const [selectedIngredientName, setSelectedIngredientName] = useState('');
   const [selectedAmount, setSelectedAmount] = useState('');
-  const [selectedMeasure, setSelectedMeasure] = useState('');
+  const [selectedMeasure, setSelectedMeasure] = useState('tbs');
   const [ingredientsList, setIngredientsList] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const dispatch = useDispatch();
   const notify = message => toast.error(message, { autoClose: 3000 });
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       if (query) {
-  //         dispatch(setLoading(true));
-  //         const res = await getIngredientNames(query);
-  //         setIngredientsList([...res]);
-  //         setIsDropdownOpen(true);
-  //         dropDown(true);
-  //         dispatch(setLoading(false));
-  //       }
-  //     } catch (error) {
-  //       dispatch(setLoading(false));
-  //       notify(error.message);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [query, dispatch, dropDown, setIngredientsList]);
-
-  // useEffect(() => {
-  //   if (selectedIngredientId && (selectedAmount || selectedMeasure)) {
-  //     selectedIngredient({
-  //       id: selectedIngredientId,
-  //       measure: `${selectedAmount} ${selectedMeasure}`,
-  //     });
-  //   }
-  // }, [
-  //   selectedIngredientId,
-  //   selectedAmount,
-  //   selectedMeasure,
-  //   selectedIngredient,
-  // ]);
 
   const nameTypingHandler = async e => {
     try {
@@ -102,12 +64,18 @@ export const AddSingleIngredient = ({
 
   const selectMeasureHandler = value => {
     setSelectedMeasure(value);
-
+  };
+  useEffect(() => {
     selectedIngredient({
       id: selectedIngredientId,
       measure: `${selectedAmount} ${selectedMeasure}`,
     });
-  };
+  }, [
+    selectedAmount,
+    selectedMeasure,
+    selectedIngredientId,
+    selectedIngredient,
+  ]);
 
   const dropdownHandler = value => {
     dropDown(value);
@@ -146,7 +114,7 @@ export const AddSingleIngredient = ({
           width="100%"
           required
           onChange={amountTypingHandler}
-          value={selectedAmount || ''}
+          value={selectedAmount}
           pattern="[0-9]*"
         />
         <Select

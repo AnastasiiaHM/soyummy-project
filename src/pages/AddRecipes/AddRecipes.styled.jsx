@@ -10,16 +10,18 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px;
-
+  max-width: ${mediaSizes.mobile};
   @media screen and (min-width: ${mediaSizes.tablet}) {
     padding-left: 32px;
     padding-right: 32px;
     margin-bottom: 200px;
+    max-width: ${mediaSizes.tablet};
   }
 
   @media screen and (min-width: ${mediaSizes.desktop}) {
     width: 1280px;
     flex-direction: row;
+    max-width: ${mediaSizes.desktop};
   }
 `;
 

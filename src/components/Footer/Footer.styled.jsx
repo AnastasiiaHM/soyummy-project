@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-// import { container } from 'helpers';
-import { colors } from '../colors';
 import { AiOutlineMail } from 'react-icons/ai';
 import spinach from 'components/images/spinach/footer.png';
+import { NavLink } from 'react-router-dom';
 
 export const FooterWrapper = styled.div`
   background: ${colors.darkButton};
@@ -81,7 +80,7 @@ export const Text = styled.p`
 `;
 
 export const FooterMain = styled.footer`
-  width: 100vw;
+  width: 100%;
 
   & .light-footer {
     width: 100vw;
@@ -170,7 +169,7 @@ export const ListRouts = styled.ul`
   }
 `;
 
-export const TextRous = styled.p`
+export const TextRous = styled(NavLink)`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.3;

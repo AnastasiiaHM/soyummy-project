@@ -11,34 +11,22 @@ import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
   const initialValues = { name: '', email: '', password: '' };
 
-  // const navigate = useNavigate();
-  // const redirection = () => {
-  //   const path = '/';
-  //   navigate(path);
-  // };
-
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     dispatch(register(values));
-    const path = '/main';
-    navigate(path);
   };
-
-  const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/;
 
   const schema = yup.object().shape({
     name: yup
       .string()
       .matches(/^[a-zA-Z]+$/, 'Please enter only letters')
-      .min(3)
+      .min(1)
       .max(16)
       .required(),
     email: yup.string().email().min(3).max(20).required(),

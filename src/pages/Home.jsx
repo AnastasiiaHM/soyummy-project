@@ -2,27 +2,32 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Section } from '../components/Styled/MainPageHome.styled';
-import { SearchForm } from '../components/SearchForm/SearchForm';
+import { WelcomeSearch } from '../components/WelcomeSearch/WelcomeSearch';
 import { fetchMainPageRecipes } from '../redux/main/operations';
 import { BsArrowRight } from 'react-icons/bs';
-import RecipesGallery from '../components/RecipesGallery/RecipesGallery';
+import MainGallery from '../components/MainGallery/MainGallery';
 import {
   MainBtn,
   HomeGallery,
+  StyledTitle,
+  StyledLink,
+  StyledDiv,
 } from '../components/MainGallery/MainGallery.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export default function MainPageHome() {
   const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMainPageRecipes());
-  });
+  }, [dispatch]);
   const breakfast = useSelector(state => state.mainPage.recipes.Breakfast);
   const miscellaneous = useSelector(
     state => state.mainPage.recipes.Miscellaneous
   );
   const chicken = useSelector(state => state.mainPage.recipes.Chicken);
   const dessert = useSelector(state => state.mainPage.recipes.Dessert);
+
   return (
     <Section>
       <div className="wrapper">
@@ -34,7 +39,7 @@ export default function MainPageHome() {
             "What to cook?" is not only a recipe app, it is, in fact, your
             cookbook. You can add your own recipes to save them for the future.
           </p>
-          <SearchForm />
+          <WelcomeSearch />
         </div>
         <div className="tips">
           <p>
@@ -49,88 +54,46 @@ export default function MainPageHome() {
           </div>
         </div>
       </div>
-      <HomeGallery>
-        <h2
-          className="title"
-          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
-        >
-          Breakfast
-        </h2>
-        <RecipesGallery recipes={breakfast} />
-        <Link
-          style={{
-            display: 'flex',
-            width: '94px',
-            height: '38px',
-            alignSelf: 'flex-end',
-            marginRight: '120px',
-          }}
-          to={`/categories/Breakfast`}
-          state={{ from: location }}
-        >
-          <MainBtn>See all</MainBtn>
-        </Link>
-        <h2
-          className="title"
-          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
-        >
-          Miscellaneous
-        </h2>
-        <RecipesGallery recipes={miscellaneous} />
-        <Link
-          style={{
-            display: 'flex',
-            width: '94px',
-            height: '38px',
-            alignSelf: 'flex-end',
-            marginRight: '120px',
-          }}
-          to={`/categories/Miscellaneous`}
-          state={{ from: location }}
-        >
-          <MainBtn>See all</MainBtn>
-        </Link>
-        <h2
-          className="title"
-          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
-        >
-          Chicken
-        </h2>
-        <RecipesGallery recipes={chicken} />
-        <Link
-          style={{
-            display: 'flex',
-            width: '94px',
-            height: '38px',
-            alignSelf: 'flex-end',
-            marginRight: '120px',
-          }}
-          to={`/categories/Chicken`}
-          state={{ from: location }}
-        >
-          <MainBtn>See all</MainBtn>
-        </Link>
-        <h2
-          className="title"
-          style={{ alignSelf: 'flex-start', marginLeft: '120px' }}
-        >
-          Desserts
-        </h2>
-        <RecipesGallery recipes={dessert} />
-        <Link
-          style={{
-            display: 'flex',
-            width: '94px',
-            height: '38px',
-            alignSelf: 'flex-end',
-            marginRight: '120px',
-          }}
-          to={`/categories/Dessert`}
-          state={{ from: location }}
-        >
-          <MainBtn>See all</MainBtn>
-        </Link>
-      </HomeGallery>
+      {!breakfast && !miscellaneous && !chicken && !dessert ? (
+        <Loader />
+      ) : (
+        <HomeGallery>
+          <StyledDiv>
+            <StyledTitle>Breakfast</StyledTitle>
+            <MainGallery recipes={breakfast} />
+            <StyledLink to={`/categories/Breakfast`} state={{ from: location }}>
+              <MainBtn>See all</MainBtn>
+            </StyledLink>
+          </StyledDiv>
+          <StyledDiv>
+            <StyledTitle>Miscellaneous</StyledTitle>
+            <MainGallery recipes={miscellaneous} />
+            <StyledLink
+              to={`/categories/Miscellaneous`}
+              state={{ from: location }}
+            >
+              <MainBtn>See all</MainBtn>
+            </StyledLink>
+          </StyledDiv>
+          <StyledDiv>
+            <StyledTitle>Chicken</StyledTitle>
+            <MainGallery recipes={chicken} />
+            <StyledLink to={`/categories/Chicken`} state={{ from: location }}>
+              <MainBtn>See all</MainBtn>
+            </StyledLink>
+          </StyledDiv>
+          <StyledDiv>
+            <StyledTitle>Desserts</StyledTitle>
+            <MainGallery recipes={dessert} />
+            <StyledLink to={`/categories/Dessert`} state={{ from: location }}>
+              <MainBtn>See all</MainBtn>
+            </StyledLink>
+          </StyledDiv>
+          <Link to={`/categories`} state={{ from: location }}>
+            <button className="btn recipesbtn">Other Categories</button>
+          </Link>
+        </HomeGallery>
+      )}
     </Section>
   );
 }

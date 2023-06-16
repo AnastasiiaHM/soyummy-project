@@ -17,6 +17,7 @@ const Categories = () => {
   const query = params.category;
   const { category, recipes, loading, totalPages, currentPage, itemsPerPage } =
     useSelector(state => state.categories);
+
   useEffect(() => {
     dispatch(fetchCategory());
   }, [dispatch]);
@@ -30,21 +31,23 @@ const Categories = () => {
   };
 
   return (
-    <CategoriesConteiner>
-      <h1 className="title">Categories</h1>
+    <section>
+      <CategoriesConteiner>
+        <h1 className="title">Categories</h1>
 
-      <CategoriesTab categoriesList={category} />
+        <CategoriesTab categoriesList={category} />
 
-      {loading ? <Skeleton /> : <RecipesGallery recipes={recipes} />}
-      {totalPages <= 1 || (
-        <Paginator
-          limit={itemsPerPage}
-          totalPages={totalPages}
-          page={currentPage}
-          pageChange={handlePageChange}
-        />
-      )}
-    </CategoriesConteiner>
+        {loading ? <Skeleton /> : <RecipesGallery recipes={recipes} />}
+        {totalPages <= 1 || (
+          <Paginator
+            limit={itemsPerPage}
+            totalPages={totalPages}
+            page={currentPage}
+            pageChange={handlePageChange}
+          />
+        )}
+      </CategoriesConteiner>
+    </section>
   );
 };
 

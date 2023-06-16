@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Message, RecipesContainer } from '../Favorite/Favorite.styled';
 import RecipesList from 'components/Favorite/FavoriteList';
 import { deleteOwnRecipe, fetchOwnRecipes } from 'redux/my-recipes/operations';
+import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 
 const MyRecipes = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,9 @@ const MyRecipes = () => {
   }
 
   if (!loading && recipes?.length === 0) {
-    return <Message>You don't have your recipes yet.</Message>;
+    return (
+      <ShoppingListEmpty message={'You dont have favourite recipes yet '} />
+    );
   }
 
   const handlePageChange = page => {
