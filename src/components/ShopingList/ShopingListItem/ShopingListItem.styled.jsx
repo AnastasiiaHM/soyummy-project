@@ -82,15 +82,19 @@ export const ProductWeight = styled.span`
   font-size: 10px;
   color: ${colors.textGreenBtn};
 
-  width: 37px;
+  min-width: 37px;
   height: 23px;
+
+  padding: 4px 4px;
 
   background-color: ${colors.greenButton};
   border-radius: 4px;
 
   @media (min-width: 768px) {
-    width: 68px;
+    min-width: 68px;
     height: 35px;
+
+    padding: 4px 8px;
 
     font-weight: 600;
     font-size: 18px;
