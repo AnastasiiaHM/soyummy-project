@@ -19,7 +19,7 @@ export default function MainPageHome() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMainPageRecipes());
-  });
+  }, []);
   const breakfast = useSelector(state => state.mainPage.recipes.Breakfast);
   const miscellaneous = useSelector(
     state => state.mainPage.recipes.Miscellaneous

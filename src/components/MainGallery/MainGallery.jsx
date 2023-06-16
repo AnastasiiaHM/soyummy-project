@@ -5,7 +5,7 @@ export const MainGallery = ({ recipes }) => {
   return (
     <>
       <MainGalleryStyled>
-        {recipes.map(recipe => (
+        {recipes?.map(recipe => (
           <RecipeCard key={recipe._id} recipe={recipe} />
         ))}
       </MainGalleryStyled>

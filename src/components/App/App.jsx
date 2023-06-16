@@ -41,7 +41,7 @@ const App = () => {
                 <RestrictedRoute
                   redirectTo="/main"
                   component={<LoginPage />}
-                  replace={true}
+                  // replace={true}
                 />
               }
             />
@@ -52,7 +52,7 @@ const App = () => {
                 <RestrictedRoute
                   redirectTo="/main"
                   component={<RegisterPage />}
-                  replace={true}
+                  // replace={true}
                 />
               }
             />
