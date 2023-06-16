@@ -22,6 +22,12 @@ const CategoriesRecipes = lazy(() =>
 );
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <>
       <div>

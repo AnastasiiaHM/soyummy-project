@@ -16,6 +16,7 @@ const initialState = {
   isLoggedIn: false,
   authError: null,
   error: null,
+  isRefreshing: false,
 };
 
 const userSlice = createSlice({
@@ -58,7 +59,7 @@ const userSlice = createSlice({
         state.isLoggedIn = false;
       })
       .addCase(LogIn.pending, (state, action) => {})
-      .addCase(logout.fulfilled, (state) => {
+      .addCase(logout.fulfilled, state => {
         state.token = null;
         state.isLoggedIn = false;
         state.user = {
