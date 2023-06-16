@@ -26,6 +26,12 @@ export const Section = styled.section`
     background-repeat: no-repeat;
   }
 
+  @media screen and (min-width: 1000px) {
+    background-size: 40% auto, 20% auto, 900px auto, 10% auto, 353px auto;
+    background-position: top 42px right, top 385px right 82px,
+      top -178px right -280px, left -25px top -10px, right top -170px;
+  }
+
   @media screen and (min-width: ${mediaSizes.desktop}) {
     padding: 162px 99px 100px;
 
