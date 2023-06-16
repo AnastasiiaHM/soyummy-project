@@ -1,13 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   SearchBtn,
   SearchInput,
   SearchLabel,
   SearchedForm,
 } from './SearchForm.styled';
-
 import { useSearchParams } from 'react-router-dom';
-
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { changeQuery } from 'redux/search/slice';
@@ -21,7 +19,13 @@ export const SearchForm = () => {
 
   const query = searchQuery.toLowerCase();
 
-  useEffect(() => {
+  function handleInputChange(e) {
+    setSearchQuery(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSearchParam({ query });
     if (!value) return;
     dispatch(changeQuery(value));
     if (query === '') {
@@ -33,15 +37,6 @@ export const SearchForm = () => {
 
     setSearchQuery(query);
     dispatch(changeQuery(searchQuery));
-  }, [dispatch, value, searchQuery, query]);
-
-  function handleInputChange(e) {
-    setSearchQuery(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setSearchParam({ query });
   }
   return (
     <SearchedForm onSubmit={handleSubmit}>

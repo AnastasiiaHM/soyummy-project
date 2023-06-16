@@ -30,10 +30,7 @@ const validationSchema = Yup.object().shape({
     .max(500, 'There must be not over 500 symbols')
     .required('Required'),
   preparation: Yup.string()
-    .matches(
-      /^[a-zA-Z0-9\s\n\p{P}\d]*$/,
-      'Only alphanumeric characters and spaces are allowed'
-    )
+
     .min(50, 'There must be at least 50 symbols')
     .max(500, 'There must be not over 500 symbols')
     .required('Required'),

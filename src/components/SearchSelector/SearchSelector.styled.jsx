@@ -19,6 +19,15 @@ export const Label = styled.label`
 
   color: #001833;
 `;
+export const Section = styled.section`
+  margin-top: 50px;
+  @media (min-width: 768px) {
+    margin-top: 72px;
+  }
+  @media (min-width: 1440px) {
+    margin-top: 100px;
+  }
+`;
 
 export const SectionLabel = styled.select`
   width: 146px;

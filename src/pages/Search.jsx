@@ -11,12 +11,15 @@ import {
   selectSearchedRecipes,
 } from 'redux/search/selector';
 import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
+import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
+import { Section } from 'components/SearchSelector/SearchSelector.styled';
 
 const Search = () => {
   const query = useSelector(selectQuery);
   const queryType = useSelector(selectQueryType);
   const recipes = useSelector(selectSearchedRecipes);
   const dispatch = useDispatch();
+  const placeholder = useSelector(state => state.search.example);
 
   useEffect(() => {
     if (!query) {
@@ -34,15 +37,17 @@ const Search = () => {
         return;
     }
   }, [dispatch, query, queryType]);
-  console.log(recipes);
+  console.log(placeholder);
   return (
-    <section>
+    <Section>
       <title className="title">Search</title>
 
       <SearchBar />
-
+      {placeholder && (
+        <ShoppingListEmpty message={'Try looking for something else..'} />
+      )}
       <SearchRecipesList recipes={recipes} />
-    </section>
+    </Section>
   );
 };
 

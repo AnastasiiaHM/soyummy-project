@@ -14,7 +14,7 @@ import {
   CloseBtn,
 } from './RecipeIngredientsFields.styled';
 
-export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
+export const RecipeIngredients = ({ setParentIngredients }) => {
   const [ingredients, setIngredients] = useState([]);
   const [isAnyDropdownOpen, setIsAnyDropdownOpen] = useState(false);
   const listRef = useRef(null);
@@ -51,6 +51,7 @@ export const RecipeIngredients = ({ list, zIndex, setParentIngredients }) => {
   };
 
   const addIngredientHandler = (value, index) => {
+    console.log(value);
     setIngredients(prevState => {
       const list = [...prevState];
       list[index] = value;

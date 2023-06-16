@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Select } from 'components/Select/Select';
 import { getIngredientNames } from 'operations/addRecipe';
 import { measures } from 'components/constants/measures';
@@ -21,7 +21,7 @@ export const AddSingleIngredient = ({
   const [selectedIngredientId, setSelectedIngredientId] = useState('');
   const [selectedIngredientName, setSelectedIngredientName] = useState('');
   const [selectedAmount, setSelectedAmount] = useState('');
-  const [selectedMeasure, setSelectedMeasure] = useState('');
+  const [selectedMeasure, setSelectedMeasure] = useState('tbs');
   const [ingredientsList, setIngredientsList] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -64,12 +64,18 @@ export const AddSingleIngredient = ({
 
   const selectMeasureHandler = value => {
     setSelectedMeasure(value);
-
+  };
+  useEffect(() => {
     selectedIngredient({
       id: selectedIngredientId,
       measure: `${selectedAmount} ${selectedMeasure}`,
     });
-  };
+  }, [
+    selectedAmount,
+    selectedMeasure,
+    selectedIngredientId,
+    selectedIngredient,
+  ]);
 
   const dropdownHandler = value => {
     dropDown(value);
@@ -108,7 +114,7 @@ export const AddSingleIngredient = ({
           width="100%"
           required
           onChange={amountTypingHandler}
-          value={selectedAmount || ''}
+          value={selectedAmount}
           pattern="[0-9]*"
         />
         <Select
