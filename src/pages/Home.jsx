@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Section } from '../components/Styled/MainPageHome.styled';
-import { WelcomeSearch } from '../components/WelcomeSearch/WelcomeSearch';
+import { SearchForm } from '../components/SearchForm/SearchForm';
 import { fetchMainPageRecipes } from '../redux/main/operations';
 import { BsArrowRight } from 'react-icons/bs';
 import MainGallery from '../components/MainGallery/MainGallery';
@@ -27,7 +27,6 @@ export default function MainPageHome() {
   );
   const chicken = useSelector(state => state.mainPage.recipes.Chicken);
   const dessert = useSelector(state => state.mainPage.recipes.Dessert);
-
   return (
     <Section>
       <div className="wrapper">
@@ -39,7 +38,7 @@ export default function MainPageHome() {
             "What to cook?" is not only a recipe app, it is, in fact, your
             cookbook. You can add your own recipes to save them for the future.
           </p>
-          <WelcomeSearch />
+          <SearchForm />
         </div>
         <div className="tips">
           <p>
