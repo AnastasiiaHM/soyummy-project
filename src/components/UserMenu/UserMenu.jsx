@@ -1,5 +1,4 @@
 
-
 const UserMenu = () => {
   return (
     <div>
@@ -7,5 +6,4 @@ const UserMenu = () => {
     </div>
   );
 };
-
 export default UserMenu;
