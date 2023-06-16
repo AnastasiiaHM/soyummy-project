@@ -29,7 +29,16 @@ export const RegisterForm = () => {
       .min(1)
       .max(16)
       .required(),
-    email: yup.string().email().min(3).max(20).required(),
+    email: yup
+      .string()
+      .email()
+      .matches(
+        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+        'Email must be valid'
+      )
+      .min(3)
+      .max(30)
+      .required(),
     password: yup
       .string()
       .matches(
