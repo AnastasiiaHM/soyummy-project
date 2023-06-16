@@ -3,6 +3,22 @@ import { mediaSizes } from '../constants/media';
 import { colors } from '../colors';
 import { Link } from 'react-router-dom';
 
+export const HomeGallery = styled.div`
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    /* padding-bottom: 40px; */
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    max-width: 1440px;
+  }
+`;
+
 export const MainGalleryStyled = styled.ul`
   display: flex;
   gap: 28px;
@@ -23,23 +39,6 @@ export const MainGalleryStyled = styled.ul`
     padding-bottom: 50px;
     grid-column-gap: 14px;
     grid-row-gap: 100px;
-  }
-`;
-
-export const HomeGallery = styled.div`
-  padding-top: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    /* padding-bottom: 40px; */
-  }
-
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    /* padding-bottom: 50px; */
-    width: 1440px;
   }
 `;
 
