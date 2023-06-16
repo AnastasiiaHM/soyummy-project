@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   Circle1,
   Circle2,
@@ -11,6 +12,25 @@ import {
 } from './Loader.styled';
 
 export const Loader = () => {
+  useEffect(() => {
+    const blockEvents = event => {
+      event.preventDefault();
+      event.stopPropagation();
+    };
+
+    document.addEventListener('keydown', blockEvents, true);
+    document.addEventListener('mousedown', blockEvents, true);
+    document.addEventListener('mouseup', blockEvents, true);
+    document.addEventListener('click', blockEvents, true);
+
+    return () => {
+      document.removeEventListener('keydown', blockEvents, true);
+      document.removeEventListener('mousedown', blockEvents, true);
+      document.removeEventListener('mouseup', blockEvents, true);
+      document.removeEventListener('click', blockEvents, true);
+    };
+  }, []);
+
   return (
     <Wrapper>
       <DNAAnimation>
