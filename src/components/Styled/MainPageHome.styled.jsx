@@ -15,11 +15,10 @@ export const Section = styled.section`
     right top -150px;
   background-repeat: no-repeat;
   /* width: 100vw; */
-  padding: 68px 36px;
+  padding: 70px 36px 100px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
-    padding-top: 140px;
-    padding-inline: 32px;
+    padding: 140px 32px 100px;
 
     background-size: 378px auto, 157px auto, 900px auto, 10% auto, 353px auto;
     background-position: top 82px right, top 385px right 82px,
@@ -27,15 +26,8 @@ export const Section = styled.section`
     background-repeat: no-repeat;
   }
 
-  @media screen and (min-width: 1000px) {
-    background-size: 40% auto, 20% auto, 900px auto, 10% auto, 353px auto;
-    background-position: top 42px right, top 385px right 82px,
-      top -178px right -280px, left -25px top -10px, right top -170px;
-  }
-
   @media screen and (min-width: ${mediaSizes.desktop}) {
-    padding-top: 162px;
-    padding-inline: 100px;
+    padding: 162px 99px 100px;
 
     background-image: url(${salat}), url(${arrow}), url(${spinachRight}),
       url(${spinachLeft}), url(${bgDesc});

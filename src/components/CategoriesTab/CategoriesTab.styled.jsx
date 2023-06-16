@@ -19,7 +19,7 @@ export const StyledTab = styled(Tab)(() => ({
 
 export const StyledBox = styled(Box)(() => ({
   backgroundColor: 'background.inherit',
-  paddingTop: '50px',
+  paddingTop: '100px',
   borderBottom: `1px solid ${colors.categoriesLIne}`,
   '& .MuiTabs-indicator': {
     backgroundColor: colors.greenButton,

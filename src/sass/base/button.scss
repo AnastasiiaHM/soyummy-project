@@ -17,13 +17,16 @@
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   border-radius: 24px 44px;
+
   &:hover,
   &:focus {
     background: $darkButton;
   }
+
   &.blackbtn {
     background-color: $darkButton;
     border: 1px solid $darkButton;
+
     &:hover,
     &:focus {
       background: $greenButton;
@@ -34,6 +37,7 @@
     background: $greenButton;
     border: 1px solid $textGreenBtn;
     color: $textGreenBtn;
+
     &:hover,
     &:focus {
       background: transparent;
@@ -52,7 +56,6 @@
   &.recipesbtn {
     width: 150px;
     height: 35px;
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
@@ -62,17 +65,19 @@
     border-radius: 24px 44px;
     border: 1px solid $greenButton;
     margin-top: 30px;
+
     &:hover,
     &:focus {
       background: $greenButton;
       border: 1px solid $greenButton;
       color: white;
     }
+
     @media (min-width: 768px) {
       width: 184px;
       height: 57px;
       font-size: 16px;
-    line-height: 24px;
+      line-height: 24px;
     }
   }
 
