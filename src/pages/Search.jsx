@@ -34,7 +34,7 @@ const Search = () => {
         return;
     }
   }, [dispatch, query, queryType]);
-
+  console.log(recipes);
   return (
     <section>
       <title className="title">Search</title>

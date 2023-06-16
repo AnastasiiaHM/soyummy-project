@@ -27,21 +27,19 @@ export const HeaderWrapper = styled.div`
 export const TabsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  
 
   @media (min-width: ${mediaSizes.desktop}) {
     flex-direction: row;
-    margin-left: 187px;
-    margin-right: 227px;
+    margin-left: 150px;
+    margin-right: 200px;
   }
 `;
 
 export const UserWrapper = styled.div`
   display: flex;
-  margin-right: 53px;
+  margin-right: 30px;
   align-items: center;
   gap: 14px;
-  
 `;
 
 export const UserTextsName = styled.div`
@@ -51,16 +49,13 @@ export const UserTextsName = styled.div`
   color: ${colors.darkButton};
 `;
 
-
 export const UserIconWrapper = styled.div`
- display: flex;
+  display: flex;
 
   @media (min-width: ${mediaSizes.tablet}) {
-    
   }
 
   @media (min-width: ${mediaSizes.desktop}) {
-    
   }
 `;
 
@@ -69,4 +64,4 @@ export const SwitchWrapper = styled.div`
   margin-left: 16px;
   position: absolute;
   bottom: 32px;
-`
+`;

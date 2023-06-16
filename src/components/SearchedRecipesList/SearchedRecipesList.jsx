@@ -8,7 +8,7 @@ import {
   selectQuery,
 } from 'redux/search/selector';
 import { Loader } from 'components/Loader/Loader';
-import searchNotFound1x from '../images/not-found/searchNotFound1x.png';
+
 import { resetState } from 'redux/search/slice';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 

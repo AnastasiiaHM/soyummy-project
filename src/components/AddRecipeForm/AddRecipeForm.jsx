@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparationFields } from 'components/RecipePreparationFields/RecipePreparationFields';
 import { StyledForm, StyledButton, StyledTitle } from './AddRecipeForm.styled';
-import { getCategoriesList } from 'operations/addRecipe';
 import { addNewRecipe } from 'operations/addRecipe';
 import { Formik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
@@ -56,7 +55,7 @@ const errorMessages = {
 export const AddRecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const [preparation, setPreparation] = useState([]);
-  const [categoriesList, setCategoriesList] = useState([]);
+
   const [category, setCategory] = useState('');
   const [time, setTime] = useState('');
   const [thumb, setThumb] = useState('');
@@ -126,7 +125,6 @@ export const AddRecipeForm = () => {
             recipeImage={recipeImageHandler}
             selectedCategory={categoryHandler}
             selectedMeasure={timeHandler}
-            categories={categoriesList}
           />
           <RecipeIngredients setParentIngredients={ingredientsListHandler} />
           <RecipePreparationFields ingredientPreparation={preparationHandler} />

@@ -11,7 +11,6 @@ import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
 import { LogIn } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();

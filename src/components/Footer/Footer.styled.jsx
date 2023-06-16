@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-// import { container } from 'helpers';
-import { colors } from '../colors';
 import { AiOutlineMail } from 'react-icons/ai';
 import spinach from 'components/images/spinach/footer.png';
 import { NavLink } from 'react-router-dom';

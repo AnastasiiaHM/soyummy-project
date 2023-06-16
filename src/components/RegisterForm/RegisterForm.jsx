@@ -11,7 +11,6 @@ import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
   const initialValues = { name: '', email: '', password: '' };
