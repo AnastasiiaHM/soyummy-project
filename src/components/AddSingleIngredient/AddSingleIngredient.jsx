@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Select } from 'components/Select/Select';
 import { getIngredientNames } from 'operations/addRecipe';
 import { measures } from 'components/constants/measures';
@@ -65,17 +65,17 @@ export const AddSingleIngredient = ({
   const selectMeasureHandler = value => {
     setSelectedMeasure(value);
   };
-  useEffect(() => {
-    selectedIngredient({
-      id: selectedIngredientId,
-      measure: `${selectedAmount} ${selectedMeasure}`,
-    });
-  }, [
-    selectedAmount,
-    selectedMeasure,
-    selectedIngredientId,
-    selectedIngredient,
-  ]);
+  // useEffect(() => {
+  //   selectedIngredient({
+  //     id: selectedIngredientId,
+  //     measure: `${selectedAmount} ${selectedMeasure}`,
+  //   });
+  // }, [
+  //   selectedAmount,
+  //   selectedMeasure,
+  //   selectedIngredientId,
+  //   selectedIngredient,
+  // ]);
 
   const dropdownHandler = value => {
     dropDown(value);
