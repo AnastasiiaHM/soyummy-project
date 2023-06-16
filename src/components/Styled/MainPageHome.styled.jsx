@@ -116,14 +116,6 @@ export const Section = styled.section`
         margin-bottom: 50px;
       }
     }
-
-    & button {
-      background-color: #22252a;
-
-      &:hover {
-        background-color: #8baa36;
-      }
-    }
   }
 
   & .tips {
