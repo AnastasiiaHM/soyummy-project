@@ -28,7 +28,6 @@ const CategoriesRecipes = lazy(() =>
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useSelector(state => state.auth);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -36,7 +35,6 @@ const App = () => {
 
   return (
     <>
-      {isRefreshing && <Loader />}
       <MainContainer>
         <Routes>
           <Route path="/" element={<Layout />}>
