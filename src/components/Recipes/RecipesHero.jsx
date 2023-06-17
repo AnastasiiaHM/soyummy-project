@@ -3,28 +3,36 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchRecipeById } from '../../redux/id-recipes/operations'; 
 import { RecipeTitle, RecipeText, RecipeTiming, RecipeWrapper } from './Recipes.styled';
 import { selectRecipeById } from 'redux/id-recipes/selectors';
+import { selectFavRecipes } from 'redux/favorite/selectors';
 import { Loader } from 'components/Loader/Loader'; 
-import { addFavoriteRecipe } from 'redux/favorite/operations';
+import { addFavoriteRecipe, deleteFavoriteRecipe } from 'redux/favorite/operations';
 import { useParams } from 'react-router-dom';
 
 const RecipesHero = () => {
 
     const dispatch = useDispatch();
-    const recipe = useSelector(selectRecipeById);
-  
-    const { recipeId } = useParams();
-   
-    useEffect(() => {
-      dispatch(fetchRecipeById(recipeId));
-    }, [dispatch, recipeId]);
-  
-    if (!recipe) {
-      return <Loader/>;
-    }
+  const recipe = useSelector(selectRecipeById);
+  const { recipeId } = useParams();
 
-    const handleAddToFavorites = () => {
-        dispatch(addFavoriteRecipe(recipeId));
-      };
+  useEffect(() => {
+    dispatch(fetchRecipeById(recipeId));
+  }, [dispatch, recipeId]);
+
+  const handleAddToFavorites = () => {
+    dispatch(addFavoriteRecipe(recipeId));
+  };
+
+  const handleRemoveFromFavorites = () => {
+    dispatch(deleteFavoriteRecipe(recipeId));
+  };
+
+  const favoriteRecipes = useSelector(selectFavRecipes);
+  const isRecipeInFavorites = favoriteRecipes.some(recipe => recipe._id === recipeId);
+
+  if (!recipe) {
+    return <Loader />;
+  }
+
 
     return(
             <RecipeWrapper>
@@ -33,7 +41,15 @@ const RecipesHero = () => {
                     <RecipeText>{recipe.description}</RecipeText>
                 </div>
                 <div>
-                    <button className="btn recipesbtn" onClick={handleAddToFavorites}>Add to favorite recipes</button>
+                    {isRecipeInFavorites ? (
+                        <button className="btn recipesbtn" onClick={handleRemoveFromFavorites}>
+                            Remove from favorite
+                        </button>
+                        ) : (
+                        <button className="btn recipesbtn" onClick={handleAddToFavorites}>
+                            Add to favorite recipes
+                        </button>
+                    )}                   
                     <RecipeTiming>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-1 w-3.5 h-3.5">
                             <g clipPath="url(#clip0_264_756)">

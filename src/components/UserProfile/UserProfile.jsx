@@ -17,11 +17,14 @@ import { BiPlus, BiUser } from 'react-icons/bi';
 import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 import { updateUser } from '../../redux/user/operations';
+import { useSelector } from 'react-redux';
 
 const UserProf = ({ handleCloseModalProfile }) => {
   const dispatch = useDispatch();
-  const [name, setName] = React.useState('');
+  const user = useSelector(state => state.auth.user);
+  const [name, setName] = React.useState(user.name || '');
   const [avatar, setAvatar] = React.useState(null);
+  const [avatarURL, setAvatarURL] = React.useState('');
 
   const handleNameChange = e => {
     setName(e.target.value);
@@ -30,10 +33,11 @@ const UserProf = ({ handleCloseModalProfile }) => {
   const handleAvatarChange = e => {
     const file = e.target.files[0];
     setAvatar(file);
+    setAvatarURL(URL.createObjectURL(file));
   };
 
   const handleSaveChanges = () => {
-    if (name === '') {
+    if (name.trim() === '') {
       return;
     }
     const userData = {};
@@ -91,32 +95,48 @@ const UserProf = ({ handleCloseModalProfile }) => {
           <GoX style={{ width: '20px', height: '20px' }} />
         </BtnClose>
         <IconUser>
-          <BiUser
-            style={{
-              width: '47px',
-              height: '47px',
-              fill: '#C4C4C4',
-            }}
-          />
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleAvatarChange}
-            style={{
-              position: 'absolute',
-              opacity: 0,
-              width: '100%',
-              height: '100%',
-              cursor: 'pointer',
-            }}
-          />
-          <BiPlus
-            style={{
-              fill: '#FAFAFA',
-              display: 'flex',
-              position: 'absolute',
-            }}
-          />
+          <label htmlFor="avatar-upload" onChange={handleAvatarChange}>
+                {avatarURL ? (
+              <img
+                src={avatarURL}
+                alt="Avatar"
+                style={{
+                  width: '100px',
+                  height: '100px',
+                  objectFit: 'cover',
+                  borderRadius: '50%',
+                }}
+              />
+            ) : (
+              <BiUser
+                style={{
+                  width: '47px',
+                  height: '47px',
+                  fill: '#C4C4C4',
+                }}
+              />
+            )}
+            <input
+              id="avatar-upload"
+              type="file"
+              accept="image/*"
+              onChange={handleAvatarChange}
+              style={{
+                position: 'absolute',
+                opacity: 0,
+                width: '100%',
+                height: '100%',
+                cursor: 'pointer',
+              }}
+            />
+            <BiPlus
+              style={{
+                fill: '#FAFAFA',
+                display: 'flex',
+                position: 'absolute',
+              }}
+            />
+          </label>
         </IconUser>
         <CenteredContainer>
           <FormModal>
@@ -125,8 +145,8 @@ const UserProf = ({ handleCloseModalProfile }) => {
               <InputPen />
               <InputMod
                 type="text"
-                placeholder="Your name"
-                pattern="[A-Za-z\s']{3,20}"
+                placeholder={user.name}
+                pattern="[A-Za-z\s']{1,20}"
                 required
                 value={name}
                 onChange={handleNameChange}
