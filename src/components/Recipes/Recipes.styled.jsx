@@ -69,16 +69,16 @@ export const RecipeTiming = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 48px;
-  margin-bottom: 132px;
+  margin-bottom: 82px;
   gap: 10px;
   color: ${colors.blackFont};
 
   @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
-    margin-bottom: 105px;
+    margin-bottom: 55px;
   }
 
   @media (min-width: ${mediaSizes.desktop}) {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 `;
 
@@ -128,7 +128,6 @@ export const RecipeIngTable = styled.div`
 
   @media (min-width: ${mediaSizes.desktop}) {
     height: 60px;
-    margin-top: 100px;
     margin-bottom: 50px;
     font-size: 18px;
     line-height: 27px;
@@ -387,6 +386,7 @@ export const PreparationImg = styled.img`
 
 export const ScrollContainer = styled(PerfectScrollbar)`
   max-height: 332px;
+  max-width: 343px;
   overflow-x: hidden;
 
   .ps__rail-x {
@@ -411,5 +411,8 @@ export const ScrollContainer = styled(PerfectScrollbar)`
         opacity: 1;
       }
     }
+  }
+  @media (min-width: ${mediaSizes.tablet}) {
+    max-width: 704px;
   }
 `;
