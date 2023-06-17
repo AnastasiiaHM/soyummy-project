@@ -15,7 +15,7 @@ export const SearchRecipesList = ({ recipes, location }) => {
     dispatch(resetState());
     dispatch(changeItems([]));
   }, [dispatch]);
-  console.log(recipes);
+
   return (
     <>
       {isLoading && !error && <Loader />}
