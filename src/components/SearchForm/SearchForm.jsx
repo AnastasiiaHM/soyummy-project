@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   SearchBtn,
   SearchInput,
@@ -6,9 +6,9 @@ import {
   SearchedForm,
 } from './SearchForm.styled';
 import { useSearchParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+
 import { useDispatch } from 'react-redux';
-import { changeQuery } from 'redux/search/slice';
+import { changeItems, changeQuery } from 'redux/search/slice';
 
 export const SearchForm = () => {
   const [searchParam, setSearchParam] = useSearchParams();
@@ -22,17 +22,21 @@ export const SearchForm = () => {
   function handleInputChange(e) {
     setSearchQuery(e.target.value);
   }
+  useEffect(() => {
+    dispatch(changeQuery(value));
+  }, [dispatch, value]);
 
   function handleSubmit(e) {
     e.preventDefault();
     setSearchParam({ query });
-    if (!value) return;
+    if (!value) {
+      setSearchQuery('');
+      setSearchParam('');
+      dispatch(changeItems([]));
+    }
     dispatch(changeQuery(value));
     if (query === '') {
-      toast.error(`Enter your query`, {
-        position: 'top-center',
-      });
-      setSearchQuery();
+      dispatch(changeItems([]));
     }
 
     setSearchQuery(query);
@@ -48,7 +52,6 @@ export const SearchForm = () => {
           minLength={2}
           autoFocus
           placeholder="Search.."
-          // pattern="^[a-zA-Zа-яА-Я]+([-' ][a-zA-Zа-яА-Я]+)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example beef, pork.."
           onChange={handleInputChange}
         />

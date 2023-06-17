@@ -13,6 +13,7 @@ import {
 import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 import { Section } from 'components/SearchSelector/SearchSelector.styled';
+import { changeItems } from 'redux/search/slice';
 
 const Search = () => {
   const query = useSelector(selectQuery);
@@ -23,7 +24,7 @@ const Search = () => {
 
   useEffect(() => {
     if (!query) {
-      return;
+      dispatch(changeItems([]));
     }
 
     switch (queryType) {
@@ -37,7 +38,7 @@ const Search = () => {
         return;
     }
   }, [dispatch, query, queryType]);
-  console.log(placeholder);
+
   return (
     <Section>
       <title className="title">Search</title>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeQueryType } from 'redux/search/slice';
 import { useLocation } from 'react-router-dom';
@@ -14,11 +14,12 @@ export const SearchSelector = () => {
   );
 
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(changeQueryType(currentValue));
+  }, [dispatch, currentValue]);
   const changeType = e => {
     const type = e.target.value;
     setCurrentValue(type);
-    dispatch(changeQueryType(type));
   };
 
   return (
