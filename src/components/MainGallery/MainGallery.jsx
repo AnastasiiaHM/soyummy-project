@@ -11,7 +11,7 @@ export const MainGallery = ({ recipes }) => {
   if (isTabletOrMobile) {
     itemsPerPage = isMobile ? 1 : 2;
   }
-  const slicedItems = recipes.slice(0, itemsPerPage);
+  const slicedItems = recipes?.slice(0, itemsPerPage);
 
   return (
     <>
