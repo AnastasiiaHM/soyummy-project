@@ -12,7 +12,7 @@ import {
 import { IoCloseSharp } from 'react-icons/io5';
 import { setDeleteProduct } from 'redux/shopping-list/operations';
 
-export const ShoppingListItems = ({ image, id, measures, name }) => {
+export const ShoppingListItems = ({ image, id, measure, name }) => {
   const dispatch = useDispatch();
 
   const handleDeleteProduct = () => dispatch(setDeleteProduct(id));
@@ -24,7 +24,7 @@ export const ShoppingListItems = ({ image, id, measures, name }) => {
         <ProductName>{name}</ProductName>
       </ImageContainer>
       <ButtonContainer>
-        <ProductWeight>{measures}</ProductWeight>
+        <ProductWeight>{measure[0]}</ProductWeight>
         <Button type="button" onClick={handleDeleteProduct}>
           <IoCloseSharp
             style={{ fill: '#333333', width: '100%', height: '100%' }}

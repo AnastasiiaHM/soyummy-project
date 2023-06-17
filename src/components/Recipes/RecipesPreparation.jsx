@@ -21,7 +21,7 @@ const RecipesPreparation = () => {
         return <Loader/>;
     }
 
-    const instructions = recipe.instructions ? recipe.instructions.split('\r\n') : [];
+    const instructions = recipe.instructions ? recipe.instructions.split('.') : [];
 
     //const instructions = recipe && recipe.instructions ? recipe.instructions.split('.') : [];
     return(
