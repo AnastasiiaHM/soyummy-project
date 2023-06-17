@@ -108,14 +108,28 @@ const UserProf = ({ handleCloseModalProfile }) => {
                 }}
               />
             ) : (
-              <BiUser
-                style={{
-                  width: '47px',
-                  height: '47px',
-                  fill: '#C4C4C4',
-                }}
-              />
+                <BiUser
+                  style={{
+                    width: '47px',
+                    height: '47px',
+                    fill: '#C4C4C4',
+                  }}
+                />
             )}
+            <BiPlus
+                  style={{
+                    fill: '#FAFAFA',
+                    position: 'absolute',
+                    top: '80%',
+                    left: '85%',
+                    transform: 'translate(-50%, -50%)',
+                    backgroundColor: '#8BAA36',
+                    borderRadius: '50%',
+                    width: '24px',
+                    height: '24px',
+                    visibility: 'visible',
+                  }}
+              />
             <input
               id="avatar-upload"
               type="file"
@@ -129,13 +143,7 @@ const UserProf = ({ handleCloseModalProfile }) => {
                 cursor: 'pointer',
               }}
             />
-            <BiPlus
-              style={{
-                fill: '#FAFAFA',
-                display: 'flex',
-                position: 'absolute',
-              }}
-            />
+            
           </label>
         </IconUser>
         <CenteredContainer>
