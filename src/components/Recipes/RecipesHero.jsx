@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRecipeById } from '../../redux/id-recipes/operations'; 
 import { RecipeTitle, RecipeText, RecipeTiming, RecipeWrapper } from './Recipes.styled';
@@ -10,6 +10,8 @@ import { useParams } from 'react-router-dom';
 
 const RecipesHero = () => {
 
+    const [isRecipeInFavorites, setIsRecipeInFavorites] = useState(false);
+
     const dispatch = useDispatch();
   const recipe = useSelector(selectRecipeById);
   const { recipeId } = useParams();
@@ -20,14 +22,20 @@ const RecipesHero = () => {
 
   const handleAddToFavorites = () => {
     dispatch(addFavoriteRecipe(recipeId));
+    setIsRecipeInFavorites(true);
   };
 
   const handleRemoveFromFavorites = () => {
     dispatch(deleteFavoriteRecipe(recipeId));
+    setIsRecipeInFavorites(false);
   };
 
   const favoriteRecipes = useSelector(selectFavRecipes);
-  const isRecipeInFavorites = favoriteRecipes.some(recipe => recipe._id === recipeId);
+    useEffect(() => {
+        const isFavorite = favoriteRecipes.some(recipe => recipe._id === recipeId);
+        setIsRecipeInFavorites(isFavorite);
+    }, [favoriteRecipes, recipeId]);
+
 
   if (!recipe) {
     return <Loader />;
@@ -41,15 +49,15 @@ const RecipesHero = () => {
                     <RecipeText>{recipe.description}</RecipeText>
                 </div>
                 <div>
-                    {isRecipeInFavorites ? (
-                        <button className="btn recipesbtn" onClick={handleRemoveFromFavorites}>
-                            Remove from favorite
-                        </button>
-                        ) : (
-                        <button className="btn recipesbtn" onClick={handleAddToFavorites}>
-                            Add to favorite recipes
-                        </button>
-                    )}                   
+                {isRecipeInFavorites ? (
+                <button className="btn recipesbtn" onClick={handleRemoveFromFavorites}>
+                    Remove from favorite
+                </button>
+                ) : (
+                <button className="btn recipesbtn" onClick={handleAddToFavorites}>
+                    Add to favorite recipes
+                </button>
+                )}         
                     <RecipeTiming>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-1 w-3.5 h-3.5">
                             <g clipPath="url(#clip0_264_756)">
