@@ -42,10 +42,6 @@ export const IngredientList = () => {
     }
   };
 
-  if (!recipe.ingredients) {
-    return <Loader />;
-  }
-
   return (
     <>
       {recipe.ingredients &&

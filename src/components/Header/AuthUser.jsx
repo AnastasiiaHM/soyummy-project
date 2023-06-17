@@ -28,7 +28,6 @@ export function UserComponent() {
   return (
     <UserWrapper>
       <Avatar
-        style={{cursor: 'pointer'}}
         alt="User Avatar"
         src={user.avatar || user.avatarURL}
         onClick={handleOpenModal}
