@@ -70,7 +70,12 @@ export const AddSingleIngredient = ({
   //     id: selectedIngredientId,
   //     measure: `${selectedAmount} ${selectedMeasure}`,
   //   });
-  // }, [selectedAmount, selectedMeasure, selectedIngredientId]);
+  // }, [
+  //   selectedAmount,
+  //   selectedMeasure,
+  //   selectedIngredientId,
+  //   selectedIngredient,
+  // ]);
 
   const dropdownHandler = value => {
     dropDown(value);

@@ -49,12 +49,12 @@ export const ShoppingListComponent = () => {
             </li>
           </List>
           <ItemsWrapper>
-            {shoppingList?.map(({ image, ingredientId, measure, name }) => (
+            {shoppingList?.map(({ image, ingredientId, measures, name }) => (
               <ShoppingListItems
                 key={ingredientId}
                 id={ingredientId}
                 image={image}
-                measure={measure}
+                measures={measures}
                 name={name}
               ></ShoppingListItems>
             ))}
