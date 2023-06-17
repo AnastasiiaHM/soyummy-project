@@ -6,6 +6,7 @@ import {
   SearchedForm,
 } from './SearchForm.styled';
 import { useSearchParams } from 'react-router-dom';
+
 import { useDispatch } from 'react-redux';
 import { changeItems, changeQuery } from 'redux/search/slice';
 
@@ -41,7 +42,6 @@ export const SearchForm = () => {
     setSearchQuery(query);
     dispatch(changeQuery(searchQuery));
   }
-  
   return (
     <SearchedForm onSubmit={handleSubmit}>
       <SearchLabel>
