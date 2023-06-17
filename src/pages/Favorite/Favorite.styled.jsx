@@ -4,6 +4,7 @@ import { mediaSizes } from '../../components/constants/media';
 
 export const LoaderContainer = styled.div`
   display: flex;
+
   width: 100%;
   justify-content: center;
 `;
