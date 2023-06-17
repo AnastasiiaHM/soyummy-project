@@ -36,7 +36,7 @@ export const SearchForm = () => {
     }
     dispatch(changeQuery(value));
     if (query === '') {
-      dispatch(changeItems([]));
+      return;
     }
 
     setSearchQuery(query);
