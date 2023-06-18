@@ -1,7 +1,8 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { instance } from 'redux/auth/operations';
 
-axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
+// axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 export const fetchOwnRecipes = createAsyncThunk(
   'ownRecipes/fetchOwnRecipes',
@@ -11,7 +12,7 @@ export const fetchOwnRecipes = createAsyncThunk(
       const limit = thunkApi.getState().ownRecipes.itemsPerPage;
       const {
         data: { ownRecipes, total },
-      } = await axios.get(
+      } = await instance.get(
         `/recipes/own-recipes?page=${zeroPage}&limit=${limit}`
       );
 
@@ -30,7 +31,7 @@ export const deleteOwnRecipe = createAsyncThunk(
   'ownRecipes/deleteOwnRecipe',
   async (recipeId, thunkApi) => {
     try {
-      await axios.delete(`/recipes/${recipeId}`);
+      await instance.delete(`/recipes/${recipeId}`);
 
       return recipeId;
     } catch (error) {

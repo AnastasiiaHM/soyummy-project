@@ -11,8 +11,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchRecipeById } from '../../redux/id-recipes/operations';
 import { selectRecipeById } from '../../redux/id-recipes/selectors';
 import { Loader } from 'components/Loader/Loader';
-import axios from 'axios';
+// import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { instance } from 'redux/auth/operations';
 
 export const IngredientList = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export const IngredientList = () => {
         measure,
       };
 
-      await axios.patch('/users/shopping-list/add', payload);
+      await instance.patch('/users/shopping-list/add', payload);
     } catch (error) {
       console.log('Помилка під час виконання запиту:', error);
     }

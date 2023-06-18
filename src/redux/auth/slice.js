@@ -37,7 +37,7 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.authError = null;
-        localStorage.setItem('token', action.payload.token);
+        localStorage.setItem('token', action.payload.accessToken);
       })
       .addCase(register.rejected, (state, action) => {
         state.authError = action.payload;
@@ -52,7 +52,7 @@ const userSlice = createSlice({
         state.user.avatarURL = avatarURL;
         state.isLoggedIn = true;
         state.authError = null;
-        localStorage.setItem('token', action.payload.token);
+        localStorage.setItem('token', action.payload.accessToken);
       })
       .addCase(LogIn.rejected, (state, action) => {
         state.authError = action.payload;

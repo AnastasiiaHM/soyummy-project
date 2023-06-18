@@ -1,13 +1,14 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { instance } from 'redux/auth/operations';
 
-axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
+// axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 export const fetchCategory = createAsyncThunk(
   'categories/fetchAll',
   async (_, thunkApi) => {
     try {
-      const response = await axios.get('/categories');
+      const response = await instance.get('/categories');
       return response.data;
     } catch (e) {
       return thunkApi.rejectWithValue(e.message);
@@ -21,7 +22,7 @@ export const fetchRecipesByCategory = createAsyncThunk(
     try {
       const {
         data: { response, total },
-      } = await axios.get(`/recipes/category/${query}?page=${page}&limit=8`);
+      } = await instance.get(`/recipes/category/${query}?page=${page}&limit=8`);
 
       return {
         response,

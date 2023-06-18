@@ -1,7 +1,8 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { instance } from 'redux/auth/operations';
 
-axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
+// axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 export const fetchFavoriteRecipes = createAsyncThunk(
   'favoriteRecipes/fetchFavoriteRecipes',
@@ -11,7 +12,7 @@ export const fetchFavoriteRecipes = createAsyncThunk(
       const limit = thunkApi.getState().favoriteRecipes.itemsPerPage;
       const {
         data: { favoriteRecipes, total },
-      } = await axios.get(`/recipes/favorite?page=${zeroPage}&limit=${limit}`);
+      } = await instance.get(`/recipes/favorite?page=${zeroPage}&limit=${limit}`);
 
       return {
         recipes: favoriteRecipes,
@@ -28,7 +29,7 @@ export const deleteFavoriteRecipe = createAsyncThunk(
   'favoriteRecipes/deleteFavoriteRecipe',
   async (recipeId, thunkApi) => {
     try {
-      await axios.post(`/recipes/favorite/remove`, {
+      await instance.post(`/recipes/favorite/remove`, {
         _id: recipeId,
       });
 
@@ -43,7 +44,7 @@ export const addFavoriteRecipe = createAsyncThunk(
   'favoriteRecipes/addFavoriteRecipe',
   async (recipeId, thunkApi) => {
     try {
-      await axios.post('/recipes/favorite/add', {
+      await instance.post('/recipes/favorite/add', {
         _id: recipeId,
       });
 

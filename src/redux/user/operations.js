@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { instance } from 'redux/auth/operations';
+// import axios from 'axios';
 
-axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
+// axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
   
 export const updateUser = createAsyncThunk(
   'users/updateUser',
@@ -17,7 +18,7 @@ export const updateUser = createAsyncThunk(
         }
       }
 
-      const res = await axios.patch('/users/update-user', formData, {
+      const res = await instance.patch('/users/update-user', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

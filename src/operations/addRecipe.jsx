@@ -1,5 +1,6 @@
-import axios from 'axios';
-axios.defaults.baseURL = ' https://soyummy-back.onrender.com';
+// import axios from 'axios';
+import { instance } from 'redux/auth/operations';
+instance.defaults.baseURL = ' https://soyummy-back.onrender.com';
 // const setAuthHeader = token => {
 //   if (token) {
 //     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -14,21 +15,21 @@ axios.defaults.baseURL = ' https://soyummy-back.onrender.com';
 // };
 export const getCategoriesList = async () => {
   // setAuthHeader();
-  const result = await axios.get(`/categories`);
+  const result = await instance.get(`/categories`);
   return result.data;
 };
 export const getPopularRecipes = async () => {
   // setAuthHeader();
-  const result = await axios.get(`/recipes/popular-recipes`);
+  const result = await instance.get(`/recipes/popular-recipes`);
   return result.data;
 };
 export const getIngredientNames = async name => {
   // setAuthHeader();
-  const result = await axios.get(`/ingredients/name?name=${name}`);
+  const result = await instance.get(`/ingredients/name?name=${name}`);
   return result.data;
 };
 export const addNewRecipe = async body => {
   // setAuthHeader();
-  const result = await axios.post(`/recipes/add-new`, body);
+  const result = await instance.post(`/recipes/add-new`, body);
   return result.data;
 };
