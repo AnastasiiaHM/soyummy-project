@@ -3,13 +3,16 @@ import Tabs from '@mui/material/Tabs';
 import { StyledTab, StyledBox } from './CategoriesTab.styled';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/recipes/slice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function CategoriesTab(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { category } = useParams();
   const { categoriesList } = props;
-  const [value, setValue] = useState(0);
+  const index = categoriesList.findIndex(recipe => recipe.name === category);
+  const [value, setValue] = useState(index);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
