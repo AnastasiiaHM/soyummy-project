@@ -4,7 +4,7 @@ import { RecipeCard } from 'components/RecipesGallery/RecipeCard/RecipeCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectError, selectIsLoading } from 'redux/search/selector';
 import { Loader } from 'components/Loader/Loader';
-import { resetState } from 'redux/search/slice';
+import { changeItems, resetState } from 'redux/search/slice';
 
 export const SearchRecipesList = ({ recipes, location }) => {
   const isLoading = useSelector(selectIsLoading);
@@ -13,6 +13,7 @@ export const SearchRecipesList = ({ recipes, location }) => {
 
   useEffect(() => {
     dispatch(resetState());
+    dispatch(changeItems([]));
   }, [dispatch]);
 
   return (

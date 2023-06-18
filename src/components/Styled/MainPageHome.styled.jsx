@@ -14,7 +14,7 @@ export const Section = styled.section`
   background-position: top 238px center, center, top 68px right -130px, left top,
     right top -150px;
   background-repeat: no-repeat;
-  /* width: 100vw; */
+  width: 100vw;
   padding: 70px 36px 100px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -24,6 +24,12 @@ export const Section = styled.section`
     background-position: top 82px right, top 385px right 82px,
       top -178px right -280px, left -25px top -10px, right top -170px;
     background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: 1000px) {
+    background-size: 40% auto, 20% auto, 900px auto, 10% auto, 353px auto;
+    background-position: top 42px right, top 385px right 82px,
+      top -178px right -280px, left -25px top -10px, right top -170px;
   }
 
   @media screen and (min-width: ${mediaSizes.desktop}) {

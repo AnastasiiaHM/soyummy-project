@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Select } from 'components/Select/Select';
 import { getIngredientNames } from 'operations/addRecipe';
 import { measures } from 'components/constants/measures';
@@ -24,6 +24,12 @@ export const AddSingleIngredient = ({
   const [selectedMeasure, setSelectedMeasure] = useState('tbs');
   const [ingredientsList, setIngredientsList] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const selectedIngredientRef = useRef(selectedIngredient);
+
+  const memoizedSelectedIngrediint = useCallback(
+    selected => selectedIngredientRef.current(selected),
+    []
+  );
 
   const notify = message => toast.error(message, { autoClose: 3000 });
 
@@ -66,7 +72,7 @@ export const AddSingleIngredient = ({
     setSelectedMeasure(value);
   };
   useEffect(() => {
-    selectedIngredient({
+    memoizedSelectedIngrediint({
       id: selectedIngredientId,
       measure: `${selectedAmount} ${selectedMeasure}`,
     });
@@ -74,7 +80,7 @@ export const AddSingleIngredient = ({
     selectedAmount,
     selectedMeasure,
     selectedIngredientId,
-    selectedIngredient,
+    memoizedSelectedIngrediint,
   ]);
 
   const dropdownHandler = value => {

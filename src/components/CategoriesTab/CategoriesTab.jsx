@@ -41,7 +41,6 @@ export default function CategoriesTab(props) {
   //       return null;
   //   }
   // }
-
   return (
     <StyledBox>
       <Tabs
