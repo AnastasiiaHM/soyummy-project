@@ -14,7 +14,7 @@ import { useParams } from 'react-router-dom';
 const Categories = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  const query = params.category;
+  let query = params.category;
   const { category, recipes, loading, totalPages, currentPage, itemsPerPage } =
     useSelector(state => state.categories);
 
@@ -27,9 +27,11 @@ const Categories = () => {
   }, [dispatch, query]);
 
   const handlePageChange = page => {
-    dispatch(fetchRecipesByCategory({ query, page }));
+    if (!query) {
+      query = 'Beef';
+    }
+    dispatch(fetchRecipesByCategory({ query: query, page }));
   };
-
   return (
     <section>
       <CategoriesConteiner>
