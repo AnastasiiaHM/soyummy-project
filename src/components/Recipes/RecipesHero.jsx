@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchRecipeById } from '../../redux/id-recipes/operations';
 import {
   RecipeTitle,
   RecipeText,
@@ -23,10 +22,6 @@ const RecipesHero = () => {
   const dispatch = useDispatch();
   const recipe = useSelector(selectRecipeById);
   const { recipeId } = useParams();
-
-  useEffect(() => {
-    dispatch(fetchRecipeById(recipeId));
-  }, [dispatch, recipeId]);
 
   const handleAddToFavorites = () => {
     dispatch(addFavoriteRecipe(recipeId));
