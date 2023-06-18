@@ -182,26 +182,38 @@ export const TextRous = styled(NavLink)`
   color: ${colors.textGreenBtn};
 `;
 
-export const socialMediaFace = styled(BsFacebook)`
-  fill: '${colors.greenButton}';
+export const SocialMediaFace = styled(BsFacebook)`
+  fill: ${colors.greenButton};
   width: '20px';
   height: '20px';
+  &:hover {
+    fill: ${colors.whiteColor};
+  }
 `;
-export const socialMediaInst = styled(BsInstagram)`
-  fill: '${colors.greenButton}';
+export const SocialMediaInst = styled(BsInstagram)`
+  fill: ${colors.greenButton};
   width: '20px';
   height: '20px';
+  &:hover {
+    fill: ${colors.whiteColor};
+  }
 `;
-export const socialMediaYout = styled(BsYoutube)`
-  fill: '${colors.greenButton}';
+export const SocialMediaYout = styled(BsYoutube)`
+  fill: ${colors.greenButton};
   width: '20px';
   height: '20px';
+  &:hover {
+    fill: ${colors.whiteColor};
+  }
 `;
 
-export const socialMediaTwit = styled(BsTwitter)`
-  fill: '${colors.greenButton}';
+export const SocialMediaTwit = styled(BsTwitter)`
+  fill: ${colors.greenButton};
   width: '20px';
   height: '20px';
+  &:hover {
+    fill: ${colors.whiteColor};
+  }
 `;
 
 export const ListNetWork = styled.ul`
@@ -321,6 +333,10 @@ export const BtnLogOut = styled.button`
     width: 339px;
     /* padding: 21px 39px; */
     height: 60px;
+  }
+  &:hover {
+    background-color: transparent;
+    border: 1px solid ${colors.textGreenBtn};
   }
 `;
 

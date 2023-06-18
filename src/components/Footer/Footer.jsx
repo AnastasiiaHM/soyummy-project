@@ -20,10 +20,10 @@ import {
   WrapperLastFooter,
   ListNetWorkLast,
   WrapperInpBtn,
-  socialMediaFace,
-  socialMediaInst,
-  socialMediaYout,
-  socialMediaTwit,
+  SocialMediaFace,
+  SocialMediaInst,
+  SocialMediaYout,
+  SocialMediaTwit,
 } from './Footer.styled';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 import { Logo } from '../LogoFooter/LogoFooter';
@@ -87,22 +87,24 @@ const Footer = () => {
           </ListRouts>
           <ListNetWork>
             <li>
-              <socialMediaFace
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="facebook.com">
+                <SocialMediaFace />
+              </a>
             </li>
             <li>
-              <socialMediaInst
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="https://www.instagram.com">
+                <SocialMediaInst />
+              </a>
             </li>
             <li>
-              <socialMediaYout
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="https://www.youtube.com">
+                <SocialMediaYout />
+              </a>
             </li>
             <li>
-              <socialMediaTwit />
+              <a href="https://www.twitter.com">
+                <SocialMediaTwit />
+              </a>
             </li>
           </ListNetWork>
         </WrapperRouters>
@@ -125,16 +127,24 @@ const Footer = () => {
           </WrapperInpBtn>
           <ListNetWorkLast>
             <li>
-              <BsFacebook />
+              <a href="facebook.com">
+                <SocialMediaFace />
+              </a>
             </li>
             <li>
-              <BsInstagram />
+              <a href="https://www.instagram.com">
+                <SocialMediaInst />
+              </a>
             </li>
             <li>
-              <BsYoutube />
+              <a href="https://www.youtube.com">
+                <SocialMediaYout />
+              </a>
             </li>
             <li>
-              <BsTwitter />
+              <a href="https://www.twitter.com">
+                <SocialMediaTwit />
+              </a>
             </li>
           </ListNetWorkLast>
         </WrapperLastFooter>
