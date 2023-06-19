@@ -9,10 +9,12 @@ import { colors } from '../colors';
 
 const RegisterWrapper = styled.div`
   width: 100vw;
+  height: 100vh;
+  background-color: ${colors.textGreenBtn};
   background-image: url(${orderingTab}), url(${rectangleMob});
   background-repeat: no-repeat, no-repeat;
-  background-position: center 116px, center 280px;
-  background-size: auto 26%, cover;
+  background-position: center 84px, center 282px;
+  background-size: 285px auto, cover;
 
   display: flex;
   flex-direction: column;
@@ -21,8 +23,8 @@ const RegisterWrapper = styled.div`
   padding-top: 305px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
-    background-position: center 58px, center 440px;
-    background-size: auto 38%, cover;
+    background-position: center 98px, center 440px;
+    background-size: 409px auto, cover;
 
     padding-top: 444px;
   }
@@ -30,8 +32,8 @@ const RegisterWrapper = styled.div`
   @media screen and (min-width: ${mediaSizes.desktop}) {
     background-image: url(${ordering}), url(${rectangleDesk});
     background-repeat: no-repeat, no-repeat;
-    background-position: 240px 202px, center 400px;
-    background-size: auto 50%, cover;
+    background-position: 210px, center 400px;
+    background-size: 532px auto, cover;
     padding-left: 760px;
     height: 100vh;
 
@@ -41,7 +43,9 @@ const RegisterWrapper = styled.div`
   }
 
   & .wrapper {
-    margin-block: auto;
+    @media screen and (min-width: ${mediaSizes.desktop}) {
+      margin-block: auto;
+    }
   }
 
   & a {
@@ -51,6 +55,11 @@ const RegisterWrapper = styled.div`
     line-height: 21px;
     text-decoration-line: underline;
     text-align: center;
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 `;
 

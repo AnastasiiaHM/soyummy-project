@@ -46,7 +46,6 @@ export const lightTheme = Object.freeze({
   ingredientsBackgroundCard: '#EBF3D4',
   recipesBackgroundCard: '#FFFFFF',
   deleteBackgroundBtn: '#EBF3D4', //mobile menu
-
 });
 
 export const darkTheme = Object.freeze({

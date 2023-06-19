@@ -1,18 +1,26 @@
 import styled from '@emotion/styled';
-import { mediaSizes } from '../constants/media';
 
 export const CategoriesConteiner = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-  max-width: 375px;
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    padding-bottom: 40px;
-    max-width: 768px;
+  width: 375px;
+  max-width: 100%;
+
+  padding-top: 50px;
+  padding-bottom: 100px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    width: 768px;
+
+    padding-top: 72px;
+    padding-bottom: 200px;
   }
 
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    padding-bottom: 50px;
-    max-width: 1440px;
+  @media (min-width: 1440px) {
+    width: 1440px;
+
+    padding-top: 100px;
+    padding-bottom: 195px;
   }
 `;

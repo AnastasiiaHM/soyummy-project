@@ -98,7 +98,7 @@ export const FooterMain = styled.footer`
   width: 100%;
 
   & .light-footer {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -23,10 +23,11 @@ export const ListName = styled.h2`
   line-height: 1;
   color: ${props => props.theme.titleCategories};
   padding-bottom: 50px;
+  margin-top: 50px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 32px;
-    padding-bottom: 100px;
+    padding-bottom: 72px;
     margin-top: 72px;
   }
 

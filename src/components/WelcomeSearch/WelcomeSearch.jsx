@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { FormikWrapper } from './WelcomeSearch.styled';
+import { useNavigate } from 'react-router-dom';
 
 export const WelcomeSearch = () => {
   const initialValues = {
@@ -18,10 +19,13 @@ export const WelcomeSearch = () => {
       .required(),
   });
 
-  const handleSubmit = values => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (values, { resetForm }) => {
     const { query } = values;
-    const url = `/soyummy-project/search?query=${encodeURIComponent(query)}`;
-    window.location.href = url;
+    const url = `/search?query=${encodeURIComponent(query)}`;
+    navigate(url);
+    resetForm();
   };
 
   return (

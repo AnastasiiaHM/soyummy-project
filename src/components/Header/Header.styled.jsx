@@ -4,9 +4,7 @@ import { mediaSizes } from '../constants/media';
 import { colors } from '../colors';
 
 export const HeaderWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
   display: flex;
   width: 343px;
   padding-top: 18px;
@@ -14,21 +12,25 @@ export const HeaderWrapper = styled.div`
 
   @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
     width: 704px;
+    margin: 0 auto;
     padding-top: 18px;
   }
 
   @media (min-width: ${mediaSizes.desktop}) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     width: 1240px;
     padding-top: 18px;
   }
 `;
 
 export const SwitchWrapper = styled.div`
-  display: flex;
-  position: absolute;
-  bottom: 32px;
+    display: flex;
+    position: absolute;
+    top: 60vw;
+    bottom: 32px;
 `;
-
 
 export const TabsWrapper = styled.div`
   display: flex;

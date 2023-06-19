@@ -10,37 +10,41 @@ import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
 import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
 import { LogIn } from '../../redux/auth/operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Message from 'components/Message/Message';
+import { selectAuthError } from 'redux/auth/selectors';
+import { emailPattern, passwordPattern } from 'components/patterns';
+import { setAuthError } from 'redux/auth/slice';
+import { useEffect } from 'react';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(setAuthError(null));
+  }, []);
   const initialValues = { email: '', password: '' };
 
   const schema = yup.object().shape({
     email: yup
       .string()
       .email()
-      .matches(
-        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-        'Email must be valid'
-      )
+      .matches(emailPattern, 'Email must be valid')
       .min(3)
       .max(30)
       .required(),
     password: yup
       .string()
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/,
-        'The password must contain letters and numbers'
-      )
+      .matches(passwordPattern, 'The password must contain letters and numbers')
       .required(),
   });
 
   const handleSubmit = values => {
-    console.log(values);
     dispatch(LogIn(values));
   };
+
+  const message = useSelector(selectAuthError);
+  console.log(message);
 
   return (
     <RegisterFormStyled>
@@ -147,6 +151,7 @@ export const LoginForm = () => {
           );
         }}
       </Formik>
+      {message && <Message>{message}</Message>}
     </RegisterFormStyled>
   );
 };
