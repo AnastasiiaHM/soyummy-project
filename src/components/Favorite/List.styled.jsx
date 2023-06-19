@@ -35,5 +35,6 @@ export const ListName = styled.h2`
   @media screen and (min-width: ${mediaSizes.desktop}) {
     font-size: 44px;
     margin-top: 100px;
+    padding-bottom: 100px;
   }
 `;
