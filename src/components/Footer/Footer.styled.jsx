@@ -3,6 +3,9 @@ import { mediaSizes } from '../constants/media';
 import { AiOutlineMail } from 'react-icons/ai';
 import spinach from 'components/images/spinach/footer.png';
 import { NavLink } from 'react-router-dom';
+import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
+import { colors } from '../colors';
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -16,8 +19,6 @@ export const StyledForm = styled.form`
     gap: 16px;
   }
 `;
-import { colors } from '../colors';
-import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 
 export const FooterWrapper = styled.div`
   background: ${colors.darkButton};
