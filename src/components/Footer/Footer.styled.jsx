@@ -3,8 +3,22 @@ import { mediaSizes } from '../constants/media';
 import { AiOutlineMail } from 'react-icons/ai';
 import spinach from 'components/images/spinach/footer.png';
 import { NavLink } from 'react-router-dom';
-import { colors } from '../colors';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
+import { colors } from '../colors';
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    flex-direction: row;
+    gap: 12px;
+  }
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    flex-direction: column;
+    gap: 16px;
+  }
+`;
 
 export const FooterWrapper = styled.div`
   background: ${colors.darkButton};

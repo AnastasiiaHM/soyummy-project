@@ -89,7 +89,7 @@ export const AddRecipeForm = () => {
       newRecipe.append('title', title);
       newRecipe.append('description', description);
       newRecipe.append('category', category);
-      newRecipe.append('time', time);
+      newRecipe.append('time', parseInt(time));
       newRecipe.append('recipeIMG', thumb);
       newRecipe.append('ingredients', JSON.stringify(ingredients));
       newRecipe.append('instructions', instructions);

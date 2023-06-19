@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   FooterWrapper,
   WrapperName,
@@ -12,7 +14,7 @@ import {
   WrapperRouters,
   TextSubSlet,
   TextOffers,
-  TextBtn,
+  StyledForm,
   BtnLogOut,
   WrapperInp,
   MailInp,
@@ -25,9 +27,25 @@ import {
   SocialMediaYout,
   SocialMediaTwit,
 } from './Footer.styled';
-import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
+import { subscribe } from 'operations/subscribe';
+
 import { Logo } from '../LogoFooter/LogoFooter';
 const Footer = () => {
+  const notifySuccess = message => toast.success(message, { autoClose: 3000 });
+  const notifyError = message => toast.error(message, { autoClose: 3000 });
+
+  const subscribeHandler = async e => {
+    e.preventDefault();
+    const form = e.target;
+    const { email } = form.elements;
+    try {
+      const result = await subscribe({ email: email.value });
+      form.reset();
+      if (result) notifySuccess('You have successfully subscribed!');
+    } catch (error) {
+      notifyError(error.message);
+    }
+  };
   const uppPageHandler = () => {
     window.scrollTo({
       top: 0,
@@ -115,15 +133,17 @@ const Footer = () => {
             special offers, etc.
           </TextOffers>{' '}
           <WrapperInpBtn>
-            <form>
+            <StyledForm onSubmit={subscribeHandler}>
               <WrapperInp>
                 <MailInp />
-                <InputMod type="text" placeholder="Enter your email address" />
+                <InputMod
+                  type="text"
+                  placeholder="Enter your email address"
+                  name="email"
+                />
               </WrapperInp>
-            </form>
-            <BtnLogOut>
-              <TextBtn>Subscribe</TextBtn>
-            </BtnLogOut>
+              <BtnLogOut type="submit">Subscribe</BtnLogOut>
+            </StyledForm>
           </WrapperInpBtn>
           <ListNetWorkLast>
             <li>
