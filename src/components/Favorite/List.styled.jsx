@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-import { colors } from 'components/colors';
 
 export const List = styled.div`
   display: flex;
@@ -22,7 +21,7 @@ export const ListName = styled.h2`
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
-  color: ${colors.titleColor};
+  color: ${props => props.theme.titleCategories};
   padding-bottom: 50px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {

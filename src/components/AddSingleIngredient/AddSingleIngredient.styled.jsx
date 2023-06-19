@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
-import { colors } from 'components/colors';
 
 export const Input = styled.input`
   display: block;
@@ -12,8 +11,8 @@ export const Input = styled.input`
   letter-spacing: -0.02em;
   width: ${props => props.width || '100%'};
   padding: 16px 60px 16px 16px;
-  background-color: ${colors.greyButton};
-  color: ${colors.blackFont};
+  background-color: ${props => props.theme.inputBackground};
+  color: ${props => props.theme.labelText}; 
   border: none;
   border-radius: 6px;
   text-align: right;
@@ -25,7 +24,7 @@ export const Input = styled.input`
   }
 
   &:focus {
-    border: 1px solid #fff;
+    border: 1px solid  ${props => props.theme.constWhiteColor};
     outline: none;
   }
 
@@ -80,7 +79,7 @@ export const DropDown = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 8px 18px;
-  background-color: #fff;
+  background-color: ${props => props.theme.dropdownBackground};
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
   border-radius: 6px;
 `;
