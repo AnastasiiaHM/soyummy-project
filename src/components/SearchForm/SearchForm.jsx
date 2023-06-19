@@ -40,6 +40,7 @@ export const SearchForm = () => {
     }
 
     setSearchQuery(query);
+
     dispatch(changeQuery(searchQuery));
   }
   return (
