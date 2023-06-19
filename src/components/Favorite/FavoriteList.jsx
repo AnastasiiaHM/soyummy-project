@@ -22,7 +22,7 @@ const RecipesList = ({
             <CardPlaceholder key={'placeholder'} />
           ) : (
             list.map(card => (
-              <Card key={card.id} card={card} deleteCard={deleteCard} />
+              <Card key={card._id} card={card} deleteCard={deleteCard} />
             ))
           )}
         </List>
