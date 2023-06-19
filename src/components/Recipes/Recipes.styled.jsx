@@ -6,15 +6,18 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 export const RecipeWrapper = styled.div`
     width: 343px;
     margin: 0 auto;
+    margin-top: 80px;
 
     @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
     width: 704px;
     margin: 0 auto;
+    margin-top: 70px;
     }
 
     @media (min-width: ${mediaSizes.desktop}) {
     width: 1240px;
     margin: 0 auto;
+    margin-top: 80px;
     }
 `;
 

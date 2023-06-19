@@ -8,7 +8,7 @@ const RecipesList = ({
   listName,
   totalPages,
   page,
-  itemsPerPage,
+
   loading,
   pageChange,
   deleteCard,
@@ -16,19 +16,22 @@ const RecipesList = ({
   return (
     <>
       <ListName>{listName}</ListName>
-        <>
-          <List>
-          {loading ?  <CardPlaceholder key={'placeholder'}/> :
+      <>
+        <List>
+          {loading ? (
+            <CardPlaceholder key={'placeholder'} />
+          ) : (
             list.map(card => (
               <Card key={card.id} card={card} deleteCard={deleteCard} />
-            ))}
-          </List>
-          <Paginator
-            totalPages={totalPages}
-            page={page}
-            pageChange={pageChange}
-          />
-        </>
+            ))
+          )}
+        </List>
+        <Paginator
+          totalPages={totalPages}
+          page={page}
+          pageChange={pageChange}
+        />
+      </>
     </>
   );
 };
