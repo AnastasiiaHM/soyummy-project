@@ -33,9 +33,7 @@ const styleFont = {
 
   const iconStyle = {
     width: 18,
-    '&:hover': {
-      cursor: 'pointer',
-    },
+    cursor: 'pointer'
   };
 
 const BasicModal = ({ handleCloseModal }) => {
