@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { colors } from 'components/colors';
+import { mediaSizes } from 'components/constants';
 
 export const LoaderContainer = styled.div`
   display: flex;
