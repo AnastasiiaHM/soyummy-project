@@ -2,14 +2,13 @@ import Paginator from 'components/Paginator/Paginator';
 import Card from './Card';
 import CardPlaceholder from './CardPlaceholder';
 import { List, ListName } from './List.styled';
-import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 
 const RecipesList = ({
   list,
   listName,
   totalPages,
   page,
-  itemsPerPage,
+
   loading,
   pageChange,
   deleteCard,
@@ -17,42 +16,23 @@ const RecipesList = ({
   return (
     <>
       <ListName>{listName}</ListName>
-
-      {!loading && list?.length === 0 ? (
-        <ShoppingListEmpty message="You don't have favourite recipes yet" />
-      ) : loading ? (
-        <ListPlaceholder itemsCount={itemsPerPage} />
-      ) : (
-        <>
-          <List>
-            {list.map((card, index) => (
-              <Card
-                key={`${card.cardId}-${index}`}
-                card={card}
-                deleteCard={deleteCard}
-              />
-            ))}
-          </List>
-          <Paginator
-            totalPages={totalPages}
-            page={page}
-            pageChange={pageChange}
-          />
-        </>
-      )}
+      <>
+        <List>
+          {loading ? (
+            <CardPlaceholder key={'placeholder'} />
+          ) : (
+            list.map(card => (
+              <Card key={card.id} card={card} deleteCard={deleteCard} />
+            ))
+          )}
+        </List>
+        <Paginator
+          totalPages={totalPages}
+          page={page}
+          pageChange={pageChange}
+        />
+      </>
     </>
-  );
-};
-
-export const ListPlaceholder = ({ itemsCount }) => {
-  const fakeFavorites = Array.from(Array(itemsCount).keys());
-
-  return (
-    <List>
-      {fakeFavorites.map((_, index) => (
-        <CardPlaceholder key={`placeholder-${index}`} />
-      ))}
-    </List>
   );
 };
 

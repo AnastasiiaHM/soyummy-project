@@ -14,7 +14,15 @@ import {
   PrimaryButton,
 } from './Card.styled';
 
+const uppPageHandler = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 const Card = ({ card, deleteCard }) => {
+
   return (
     <ContainerCard>
       <ImageContainer>
@@ -32,7 +40,7 @@ const Card = ({ card, deleteCard }) => {
         </CardBody>
         <CardFooter>
           <CookingTime>{card.time} min</CookingTime>
-          <Link to={`/recipe/${card._id}`}>
+          <Link to={`/recipe/${card._id}`} onClick={uppPageHandler}>
             <PrimaryButton>See recipe</PrimaryButton>
           </Link>
         </CardFooter>
