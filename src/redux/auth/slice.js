@@ -17,6 +17,8 @@ const initialState = {
   authError: null,
   error: null,
   isRefreshing: false,
+  motivation: '',
+  isOpen: false,
 };
 
 const userSlice = createSlice({
@@ -26,7 +28,14 @@ const userSlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
+    setAuthError: (state, action) => {
+      state.authError = action.payload;
+    },
+    changeMotivation: (state, action) => {
+      state.isOpen=action.payload
+    }
   },
+
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -37,11 +46,19 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.authError = null;
+        state.motivation = action.payload.motivation;
+        state.isOpen = true;
         localStorage.setItem('token', action.payload.token);
+        action.payload.motivation !== ''
+          ? (state.isOpen = true)
+          : (state.isOpen = false);
       })
       .addCase(register.rejected, (state, action) => {
         state.authError = action.payload;
         state.isLoggedIn = false;
+      })
+      .addCase(register.pending, (state, action) => {
+        state.authError = null;
       })
       .addCase(LogIn.fulfilled, (state, action) => {
         const { name, email, _id, avatarURL } = action.payload.user;
@@ -58,7 +75,9 @@ const userSlice = createSlice({
         state.authError = action.payload;
         state.isLoggedIn = false;
       })
-      .addCase(LogIn.pending, (state, action) => {})
+      .addCase(LogIn.pending, (state, action) => {
+        state.authError = null;
+      })
       .addCase(logout.fulfilled, state => {
         state.token = null;
         state.isLoggedIn = false;
@@ -91,5 +110,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setLoading } = userSlice.actions;
+export const { setLoading, setAuthError } = userSlice.actions;
 export const authReducer = userSlice.reducer;
+export const changeMotivation = userSlice.reducer
