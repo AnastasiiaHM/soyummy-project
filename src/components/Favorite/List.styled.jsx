@@ -24,6 +24,7 @@ export const ListName = styled.h2`
   line-height: 1;
   color: ${colors.titleColor};
   padding-bottom: 50px;
+  margin-top: 50px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 32px;

@@ -18,7 +18,7 @@ const RecipesList = ({
       <ListName>{listName}</ListName>
         <>
           <List>
-          {loading ?  <CardPlaceholder/> :
+          {loading ?  <CardPlaceholder key={'placeholder'}/> :
             list.map(card => (
               <Card key={card.id} card={card} deleteCard={deleteCard} />
             ))}
