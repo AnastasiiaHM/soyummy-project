@@ -9,8 +9,11 @@ import { BiUser } from 'react-icons/bi';
 import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
 import { AiFillCloseCircle, AiFillCheckCircle } from 'react-icons/ai';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import Message from 'components/Message/Message';
+import { selectAuthError } from 'redux/auth/selectors';
+import { emailPattern, passwordPattern } from 'components/patterns';
 
 export const RegisterForm = () => {
   const initialValues = { name: '', email: '', password: '' };
@@ -18,7 +21,6 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
     dispatch(register(values));
   };
 
@@ -27,10 +29,7 @@ export const RegisterForm = () => {
     email: yup
       .string()
       .email()
-      .matches(
-        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-        'email must be valid'
-      )
+      .matches(emailPattern, 'email must be valid')
       .min(3)
       .max(30)
       .required(),
@@ -38,12 +37,11 @@ export const RegisterForm = () => {
       .string()
       .min(6)
       .max(16)
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/,
-        'the password must contain letters and numbers'
-      )
+      .matches(passwordPattern, 'the password must contain letters and numbers')
       .required(),
   });
+
+  const message = useSelector(selectAuthError);
 
   return (
     <RegisterFormStyled>
@@ -189,6 +187,7 @@ export const RegisterForm = () => {
           );
         }}
       </Formik>
+      {message && <Message>{message}</Message>}
     </RegisterFormStyled>
   );
 };

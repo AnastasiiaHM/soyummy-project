@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-// import { colors } from 'constants';
 
 export const MessageStyled = styled.div`
-  display: flex;
-  justify-content: flex-start;
+  color: #e74a3b;
+  position: absolute;
+  font-size: 14px;
+  line-height: 21px;
 `;
-
-//
