@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-import { BiUser, BiPencil } from 'react-icons/bi';
+
 import { IoIosClose } from 'react-icons/io';
 
 export const WrapperMotivation = styled.div`

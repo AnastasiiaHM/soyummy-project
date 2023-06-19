@@ -10,7 +10,7 @@ import LogoutModal from './UserLogout';
 const style = {
   position: 'fixed',
   top: '20%',
-  left: '81%',
+  left: '70%',
   transform: 'translate(-50%, -50%)',
   width: 177,
   bgcolor: `${colors.textGreenBtn}`,
@@ -19,13 +19,21 @@ const style = {
   p: 1.8,
 };
 
-const styleFont = {
-    fontStyle: 'Poppins', 
+const styleFont = { 
     fontWeight: 500, 
     fontSize: 14,  
     marginRight: 5.3,
     marginBottom: 3.2,
-    colors: `${colors.blackFont}`
+    color: `${colors.blackFont}`,
+  '&:hover': {
+    cursor: 'pointer',
+    color: `${colors.textGreenBtn}`,
+  },
+  };
+
+  const iconStyle = {
+    width: 18,
+    cursor: 'pointer'
   };
 
 const BasicModal = ({ handleCloseModal }) => {
@@ -61,10 +69,10 @@ const BasicModal = ({ handleCloseModal }) => {
       >
         <Box sx={style}>
           <Box style={{ display: 'flex', alignItems: 'start'}}>
-            <Typography sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: colors.blackFont }}>
+            <Typography onClick={handleModalClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: colors.blackFont }}>
               Edit profile
             </Typography>
-            <ModeOutlinedIcon style={{ width: 18 }} onClick={handleModalClick} />
+            <ModeOutlinedIcon style={iconStyle} onClick={handleModalClick} />
           </Box>
             <button className="btn logoutbtn" onClick={() => {
             handleLogoutClick();

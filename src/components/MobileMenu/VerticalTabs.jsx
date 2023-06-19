@@ -17,12 +17,14 @@ const StyledTab = styled(Tab)(({ theme }) => ({
   fontSize: '24px',
   lineHeight: '24px',
   textTransform: 'none',
-  fontFamily: 'Poppins',
   fontStyle: 'normal',
   fontWeight: 500,
 
   color: colors.darkButton,
   '&.Mui-selected': {
+    color: colors.greenButton,
+  },
+  '&:hover': {
     color: colors.greenButton,
   },
 }));
@@ -40,13 +42,15 @@ export function VerticalTabs() {
   }, [location.pathname]);
 
   function getInitialValue(pathname) {
+    if (pathname === '/categories' || pathname.startsWith('/categories/')) {
+      return 0;
+    }
+    if (pathname === '/own-recipes' || pathname.startsWith('/recipe/')) {
+      return 2;
+    }
     switch (pathname) {
-      case '/categories':
-        return 0;
       case '/add':
         return 1;
-      case '/own-recipes':
-        return 2;
       case '/favorite':
         return 3;
       case '/shopping-list':
@@ -58,9 +62,18 @@ export function VerticalTabs() {
     }
   }
 
+  useEffect(() => {
+    if (location.pathname === '/categories' || location.pathname.startsWith('/categories/')) {
+      setValue(0);
+    }
+    if (location.pathname === '/own-recipes' || location.pathname.startsWith('/recipe/')) {
+      setValue(2);
+    }
+  }, [location.pathname]);
+
   return (
     <Box
-      sx={{ border: 0, width: '170px', margin: '0 auto', marginTop: '100px' }}
+      sx={{ border: 0, width: '180px', margin: '0 auto', marginTop: '100px' }}
     >
       <StyledTabs
         orientation="vertical"

@@ -84,12 +84,12 @@ export const AddRecipeForm = () => {
   const submitHandler = async (values, { resetForm }) => {
     try {
       const { title, description } = values;
-      const instructions = preparation.join('/r/n');
+      const instructions = preparation.join('\r\n');
       const newRecipe = new FormData();
       newRecipe.append('title', title);
       newRecipe.append('description', description);
       newRecipe.append('category', category);
-      newRecipe.append('time', time);
+      newRecipe.append('time', parseInt(time));
       newRecipe.append('recipeIMG', thumb);
       newRecipe.append('ingredients', JSON.stringify(ingredients));
       newRecipe.append('instructions', instructions);
