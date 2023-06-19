@@ -17,4 +17,7 @@ export const colors = Object.freeze({
   categoriesLIne: '#e0e0e0',
   categoriesNavText: '#bdbdbd',
   forSwitch: '#EFEFEF',
+  error: '#E74A3B',
+  success: '#3CBC81',
+  registerBcg: '#2a2c36',
 });
