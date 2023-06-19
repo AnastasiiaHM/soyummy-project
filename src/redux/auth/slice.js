@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, LogIn, logout } from './operations';
+import { register, LogIn, logout, current } from './operations';
 import { updateUser } from 'redux/user/operations';
 
 const initialState = {
   message: null,
-  token: localStorage.getItem('token') || null,
+  token: null,
   user: {
     name: null,
     email: null,
@@ -34,10 +34,10 @@ const userSlice = createSlice({
         state.user._id = _id;
         state.user.name = name;
         state.user.email = email;
-        state.token = action.payload.token;
+        state.token = action.payload.accessToken;
         state.isLoggedIn = true;
         state.authError = null;
-        localStorage.setItem('token', action.payload.accessToken);
+        // localStorage.setItem('token', action.payload.accessToken);
       })
       .addCase(register.rejected, (state, action) => {
         state.authError = action.payload;
@@ -48,11 +48,11 @@ const userSlice = createSlice({
         state.user._id = _id;
         state.user.name = name;
         state.user.email = email;
-        state.token = action.payload.token;
+        state.token = action.payload.accessToken;
         state.user.avatarURL = avatarURL;
         state.isLoggedIn = true;
         state.authError = null;
-        localStorage.setItem('token', action.payload.accessToken);
+        // localStorage.setItem('token', action.payload.accessToken);
       })
       .addCase(LogIn.rejected, (state, action) => {
         state.authError = action.payload;
@@ -71,7 +71,8 @@ const userSlice = createSlice({
           shoppingList: [],
         };
         state.authError = null;
-        localStorage.removeItem('token');
+        // localStorage.removeItem('token');
+        localStorage.removeItem('refreshToken');
       })
       .addCase(logout.rejected, (state, action) => {
         state.authError = action.payload;
@@ -83,11 +84,28 @@ const userSlice = createSlice({
         state.user.name = name;
         state.user.avatarURL = avatarURL;
         state.error = null;
+
       })
       .addCase(updateUser.pending, state => {})
       .addCase(updateUser.rejected, (state, action) => {
         state.error = action.payload;
-      });
+      })
+      .addCase(current.fulfilled, (state, action) => {
+        const { name, email, _id, avatarURL, shoppingList } = action.payload;
+        state.user._id = _id;
+        state.user.name = name;
+        state.user.email = email;
+        state.user.avatarURL = avatarURL;
+        state.user.shoppingList = shoppingList;
+
+        state.isLoggedIn = true;
+        state.authError = null;
+      })
+      .addCase(current.rejected, (state, action) => {
+        state.authError = action.payload;
+        state.isLoggedIn = false;
+      })
+      .addCase(current.pending, (state, action) => {})
   },
 });
 

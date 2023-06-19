@@ -1,9 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from 'redux/auth/operations';
-// import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
-  
 export const updateUser = createAsyncThunk(
   'users/updateUser',
   async ({ newName, ...userData }, thunkAPI) => {

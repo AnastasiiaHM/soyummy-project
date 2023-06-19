@@ -1,8 +1,5 @@
-// import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from 'redux/auth/operations';
-
-// axios.defaults.baseURL = 'https://soyummy-back.onrender.com';
 
 export const fetchMainPageRecipes = createAsyncThunk(
   'main/fetchMainPageRecipes',

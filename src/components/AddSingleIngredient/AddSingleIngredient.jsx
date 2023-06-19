@@ -90,7 +90,7 @@ export const AddSingleIngredient = ({
   return (
     <>
       <ToastContainer />
-      <NameLabel style={{ zIndex: 100 - index }}>
+      <NameLabel style={{ zIndex: 10 - index }}>
         <Input
           type="text"
           onChange={nameTypingHandler}
