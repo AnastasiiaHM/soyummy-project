@@ -24,7 +24,7 @@ const UserProf = ({ handleCloseModalProfile }) => {
   const user = useSelector(state => state.auth.user);
   const [name, setName] = React.useState(user.name || '');
   const [avatar, setAvatar] = React.useState(null);
-  const [avatarURL, setAvatarURL] = React.useState('');
+  const [avatarURL, setAvatarURL] = React.useState(user.avatarURL || '');
 
   const handleNameChange = e => {
     setName(e.target.value);
@@ -100,6 +100,7 @@ const UserProf = ({ handleCloseModalProfile }) => {
               <img
                 src={avatarURL}
                 alt="Avatar"
+                placeholder={user.avatarURL}
                 style={{
                   width: '100px',
                   height: '100px',

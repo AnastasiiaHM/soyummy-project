@@ -84,7 +84,7 @@ export const AddRecipeForm = () => {
   const submitHandler = async (values, { resetForm }) => {
     try {
       const { title, description } = values;
-      const instructions = preparation.join('/r/n');
+      const instructions = preparation.join('\r\n');
       const newRecipe = new FormData();
       newRecipe.append('title', title);
       newRecipe.append('description', description);
