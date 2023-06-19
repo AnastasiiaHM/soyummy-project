@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { IoCloseSharp } from 'react-icons/io5';
 
 import { colors } from 'components/colors';
 
@@ -73,32 +74,11 @@ export const ProductName = styled.p`
   }
 `;
 
-export const ProductWeight = styled.span`
+export const MeasuresContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-weight: 600;
-  font-size: 10px;
-  color: ${colors.textGreenBtn};
-
-  min-width: 37px;
-  height: 23px;
-
-  padding: 4px 4px;
-
-  background-color: ${colors.greenButton};
-  border-radius: 4px;
-
-  @media (min-width: 768px) {
-    min-width: 68px;
-    height: 35px;
-
-    padding: 4px 8px;
-
-    font-weight: 600;
-    font-size: 18px;
-  }
+  gap: 5px;
 `;
 
 export const Button = styled.div`
@@ -109,8 +89,27 @@ export const Button = styled.div`
   width: 14px;
   height: 14px;
 
+  &:hover:active {
+    fill: ${colors.greenButton};
+    color: ${colors.greenButton};
+  }
   @media (min-width: 768px) {
     width: 20px;
     height: 20px;
+  }
+`;
+
+export const CloseButton = styled(IoCloseSharp)`
+  fill: #333333;
+  width: 100%;
+  height: 100%;
+
+  transition: fill 0.3s ease;
+
+  &:hover {
+    fill: ${colors.greenButton};
+  }
+  &:focus {
+    fill: ${colors.greenButton};
   }
 `;
