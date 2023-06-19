@@ -16,9 +16,11 @@ export const StyledForm = styled.form`
     gap: 16px;
   }
 `;
+import { colors } from '../colors';
+import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
 
 export const FooterWrapper = styled.div`
-  background: #22252a;
+  background: ${colors.darkButton};
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -63,7 +65,7 @@ export const TextName = styled.p`
   line-height: 1;
   letter-spacing: 0.015em;
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 28px;
     line-height: 1;
@@ -82,8 +84,7 @@ export const Text = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: #fafafa;
-  /* font-family: 'Poppins'; */
+  color: ${colors.textGreenBtn};
   @media screen and (min-width: ${mediaSizes.tablet}) {
     line-height: 1.3;
   }
@@ -112,7 +113,7 @@ export const FooterMain = styled.footer`
     font-size: 10px;
     line-height: 10px;
     letter-spacing: -0.01em;
-    color: #22252a;
+    color: ${colors.darkButton};
     opacity: 0.5;
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -141,7 +142,7 @@ export const ListTextInf = styled.ul`
   display: none;
   width: 418px;
   list-style-type: disc;
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     display: flex;
@@ -190,7 +191,41 @@ export const TextRous = styled(NavLink)`
 
   letter-spacing: -0.02em;
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
+`;
+
+export const SocialMediaFace = styled(BsFacebook)`
+  fill: ${colors.greenButton};
+  width: '20px';
+  height: '20px';
+  &:hover {
+    fill: ${colors.whiteColor};
+  }
+`;
+export const SocialMediaInst = styled(BsInstagram)`
+  fill: ${colors.greenButton};
+  width: '20px';
+  height: '20px';
+  &:hover {
+    fill: ${colors.whiteColor};
+  }
+`;
+export const SocialMediaYout = styled(BsYoutube)`
+  fill: ${colors.greenButton};
+  width: '20px';
+  height: '20px';
+  &:hover {
+    fill: ${colors.whiteColor};
+  }
+`;
+
+export const SocialMediaTwit = styled(BsTwitter)`
+  fill: ${colors.greenButton};
+  width: '20px';
+  height: '20px';
+  &:hover {
+    fill: ${colors.whiteColor};
+  }
 `;
 
 export const ListNetWork = styled.ul`
@@ -244,7 +279,7 @@ export const TextSubSlet = styled.p`
   line-height: 1.5;
   /* identical to box height */
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   display: none;
   margin-bottom: 14px;
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -261,7 +296,7 @@ export const TextOffers = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   width: 310px;
   margin-bottom: 28px;
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -269,9 +304,8 @@ export const TextOffers = styled.p`
   }
 `;
 export const TextBtn = styled.p`
-  color: #fafafa;
+  color: ${colors.textGreenBtn};
   display: flex;
-  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
@@ -293,7 +327,7 @@ export const BtnLogOut = styled.button`
   justify-content: center;
   align-items: center;
 
-  background: #8baa36;
+  background: ${colors.greenButton};
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -311,6 +345,10 @@ export const BtnLogOut = styled.button`
     /* padding: 21px 39px; */
     height: 60px;
   }
+  &:hover {
+    background-color: transparent;
+    border: 1px solid ${colors.textGreenBtn};
+  }
 `;
 
 export const MailInp = styled(AiOutlineMail)`
@@ -319,7 +357,7 @@ export const MailInp = styled(AiOutlineMail)`
   position: absolute;
   left: 18px;
   top: 15px;
-  fill: #fafafa;
+  fill: ${colors.textGreenBtn};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     top: 16px;
@@ -360,18 +398,14 @@ export const InputMod = styled.input`
     outline: none;
   }
   &::placeholder {
-    /* font-family: 'Poppins'; */
-
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
     line-height: 1.5;
-    /* identical to box height */
 
     letter-spacing: -0.02em;
 
-    color: #fafafa;
+    color: ${colors.textGreenBtn};
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
     }
@@ -394,6 +428,7 @@ export const WrapperLastFooter = styled.div`
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 100vw;
   }
+
   @media screen and (min-width: ${mediaSizes.desktop}) {
     align-items: flex-start;
     padding: 0;

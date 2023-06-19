@@ -20,9 +20,12 @@ import {
   WrapperLastFooter,
   ListNetWorkLast,
   WrapperInpBtn,
+  SocialMediaFace,
+  SocialMediaInst,
+  SocialMediaYout,
+  SocialMediaTwit,
 } from './Footer.styled';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
-
 import { Logo } from '../LogoFooter/LogoFooter';
 const Footer = () => {
   const uppPageHandler = () => {
@@ -84,24 +87,24 @@ const Footer = () => {
           </ListRouts>
           <ListNetWork>
             <li>
-              <BsFacebook
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="facebook.com">
+                <SocialMediaFace />
+              </a>
             </li>
             <li>
-              <BsInstagram
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="https://www.instagram.com">
+                <SocialMediaInst />
+              </a>
             </li>
             <li>
-              <BsYoutube
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="https://www.youtube.com">
+                <SocialMediaYout />
+              </a>
             </li>
             <li>
-              <BsTwitter
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="https://www.twitter.com">
+                <SocialMediaTwit />
+              </a>
             </li>
           </ListNetWork>
         </WrapperRouters>
@@ -124,24 +127,24 @@ const Footer = () => {
           </WrapperInpBtn>
           <ListNetWorkLast>
             <li>
-              <BsFacebook
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="facebook.com">
+                <SocialMediaFace />
+              </a>
             </li>
             <li>
-              <BsInstagram
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="https://www.instagram.com">
+                <SocialMediaInst />
+              </a>
             </li>
             <li>
-              <BsYoutube
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="https://www.youtube.com">
+                <SocialMediaYout />
+              </a>
             </li>
             <li>
-              <BsTwitter
-                style={{ fill: '#8BAA36', width: '20px', height: '20px' }}
-              />
+              <a href="https://www.twitter.com">
+                <SocialMediaTwit />
+              </a>
             </li>
           </ListNetWorkLast>
         </WrapperLastFooter>
