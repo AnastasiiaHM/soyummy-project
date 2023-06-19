@@ -17,6 +17,9 @@ const StyledTab = styled(Tab)(({ theme }) => ({
   '&.Mui-selected': {
     color: colors.greenButton,
   },
+  '&:hover': {
+    color: colors.greenButton,
+  },
 }));
 
 export function BasicTabs() {
