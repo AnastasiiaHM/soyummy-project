@@ -37,8 +37,8 @@ export const Button = styled.button`
 `;
 export const WrapperSection = styled.div`
   min-height: 800px;
-  display: flex;
+  /* display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 `;
