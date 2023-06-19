@@ -26,16 +26,19 @@ export const FormikWrapper = styled.div`
       font-weight: 500;
       font-size: 12px;
       line-height: 1.6;
-      color: #898a8daf;
-      @media (min-width: 768px) {
+      color: ${colors.placeholder};
+
+      @media screen and (min-width: ${mediaSizes.tablet}) {
         font-size: 16px;
       }
     }
-    @media (min-width: 768px) {
+
+    @media screen and (min-width: ${mediaSizes.tablet}) {
       width: 362px;
       height: 57px;
     }
-    @media (min-width: 1440px) {
+
+    @media screen and (min-width: ${mediaSizes.desktop}) {
       width: 510px;
       height: 70px;
     }
@@ -46,7 +49,6 @@ export const FormikWrapper = styled.div`
     top: 0;
     right: 0;
     width: 113px;
-    background-color: #ccc;
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
@@ -62,15 +64,15 @@ export const FormikWrapper = styled.div`
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      background-color: #8baa36;
+      background-color: ${colors.greenButton};
     }
 
-    @media (min-width: 768px) {
+    @media screen and (min-width: ${mediaSizes.tablet}) {
       height: 56px;
       width: 161px;
     }
 
-    @media (min-width: 1440px) {
+    @media screen and (min-width: ${mediaSizes.desktop}) {
       height: 70px;
     }
   }

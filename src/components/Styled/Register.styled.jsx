@@ -10,7 +10,7 @@ import { colors } from '../colors';
 const RegisterWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: #fafafa;
+  background-color: ${colors.textGreenBtn};
   background-image: url(${orderingTab}), url(${rectangleMob});
   background-repeat: no-repeat, no-repeat;
   background-position: center 84px, center 282px;

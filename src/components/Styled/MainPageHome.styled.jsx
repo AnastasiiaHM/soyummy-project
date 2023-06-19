@@ -6,6 +6,7 @@ import spinachRight from 'components/images/spinach/right.png';
 import bg from 'components/images/spinach/bg2.png';
 import bgDesc from 'components/images/spinach/bg2desk.png';
 import arrow from 'components/images/spinach/arrow.png';
+import { colors } from 'components/colors';
 
 export const Section = styled.section`
   background-image: url(${salat}), url(${arrow}), url(${spinachRight}),
@@ -15,10 +16,10 @@ export const Section = styled.section`
     right top -150px;
   background-repeat: no-repeat;
   width: 100vw;
-  padding: 70px 36px 100px;
+  padding: 132px 36px 100px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
-    padding: 140px 32px 100px;
+    padding: 204px 32px 100px;
 
     background-size: 378px auto, 157px auto, 900px auto, 10% auto, 353px auto;
     background-position: top 82px right, top 385px right 82px,
@@ -33,7 +34,7 @@ export const Section = styled.section`
   }
 
   @media screen and (min-width: ${mediaSizes.desktop}) {
-    padding: 162px 99px 100px;
+    padding: 226px 99px 100px;
 
     background-image: url(${salat}), url(${arrow}), url(${spinachRight}),
       url(${spinachLeft}), url(${bgDesc});
@@ -71,7 +72,7 @@ export const Section = styled.section`
       font-size: 60px;
       line-height: 60px;
       letter-spacing: -0.005em;
-      color: #22252a;
+      color: ${colors.darkButton};
       margin-bottom: 14px;
 
       @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -87,7 +88,7 @@ export const Section = styled.section`
       }
 
       & span {
-        color: #8baa36;
+        color: ${colors.greenButton};
       }
     }
 
@@ -97,7 +98,7 @@ export const Section = styled.section`
       font-size: 14px;
       line-height: 18px;
       letter-spacing: -0.02em;
-      color: #23262a;
+      color: ${colors.blackFont};
       margin-bottom: 364px;
 
       @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -124,9 +125,9 @@ export const Section = styled.section`
     top: 303px;
     padding: 8px;
 
-    background: #fafafa;
+    background: ${colors.textGreenBtn};
     border-radius: 8px;
-    color: #3e4462;
+    color: ${colors.recipeCardText};
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
       width: 261px;
@@ -162,7 +163,7 @@ export const Section = styled.section`
       }
 
       & span {
-        color: #8baa36;
+        color: ${colors.greenButton};
       }
     }
 
@@ -196,11 +197,11 @@ export const Section = styled.section`
       line-height: 12px;
       letter-spacing: 0.2px;
 
-      color: #3e4462;
+      color: ${colors.recipeCardText};
     }
 
     & svg {
-      fill: #3e4462;
+      fill: ${colors.recipeCardText};
       width: 18px;
       height: 18px;
     }

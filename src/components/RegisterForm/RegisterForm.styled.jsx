@@ -3,7 +3,7 @@ import { colors } from '../colors';
 import { mediaSizes } from '../constants';
 
 export const RegisterFormStyled = styled.div`
-  background-color: #2a2c36;
+  background-color: ${colors.registerBcg};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   padding: 32px 28px;
@@ -77,12 +77,12 @@ export const InputWraper = styled.div`
     left: 14px;
 
     &.error {
-      stroke: #e74a3b;
+      stroke: ${colors.error};
       opacity: 1;
     }
 
     &.success {
-      stroke: #3cbc81;
+      stroke: ${colors.success};
       opacity: 1;
     }
 
@@ -90,12 +90,12 @@ export const InputWraper = styled.div`
       fill: ${colors.textGreenBtn};
 
       &.error-icon {
-        fill: #e74a3b;
+        fill: ${colors.error};
         opacity: 1;
       }
 
       &.success-icon {
-        fill: #3cbc81;
+        fill: ${colors.success};
         opacity: 1;
       }
     }
@@ -118,11 +118,11 @@ export const InputWraper = styled.div`
     }
 
     &.error {
-      color: #e74a3b;
+      color: ${colors.error};
     }
 
     &.success-message {
-      color: #3cbc81;
+      color: ${colors.success};
     }
   }
 
@@ -143,16 +143,16 @@ export const InputWraper = styled.div`
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:focus {
-      border: 1px solid white;
+      border: 1px solid ${colors.whiteColor};
     }
 
     &.error {
-      border: 1px solid #e74a3b;
+      border: 1px solid ${colors.error};
       opacity: 1;
     }
 
     &.success {
-      border: 1px solid #3cbc81;
+      border: 1px solid ${colors.success};
       opacity: 1;
     }
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -169,16 +169,16 @@ export const InputWraper = styled.div`
     }
 
     &:focus::-webkit-input-placeholder {
-      color: white;
+      color: ${colors.whiteColor};
       opacity: 1;
     }
 
     &:hover,
     placeholder {
-      stroke: white;
-      fill: white;
-      color: white;
-      border-color: white;
+      stroke: ${colors.whiteColor};
+      fill: ${colors.whiteColor};
+      color: ${colors.whiteColor};
+      border-color: ${colors.whiteColor};
       opacity: 1;
     }
   }
@@ -187,7 +187,7 @@ export const InputWraper = styled.div`
   .valid {
     width: 18px;
     height: 18px;
-    fill: #e74a3b;
+    fill: ${colors.error};
     opacity: 1;
     position: absolute;
     top: 13px;
@@ -202,6 +202,6 @@ export const InputWraper = styled.div`
   }
 
   & .valid {
-    fill: #3cbc81;
+    fill: ${colors.success};
   }
 `;
