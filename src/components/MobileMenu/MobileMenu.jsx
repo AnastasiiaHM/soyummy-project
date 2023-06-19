@@ -34,16 +34,17 @@ export function TemporaryDrawer() {
         onClick={toggleDrawer(anchor, false)}
         onKeyDown={toggleDrawer(anchor, false)}
         >
-        
+        <div>
         <HeaderWrapper>
           <Logo />
           <CloseIcon />
-        </HeaderWrapper>
-        <VerticalTabs />
-        <SwitchWrapper>
+          <SwitchWrapper>
           <BasicSwitches />
         </SwitchWrapper>
+        </HeaderWrapper>
+        <VerticalTabs />
         <BackgroundMob />
+        </div>
       </Box>
     </div>
   );
