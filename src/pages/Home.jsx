@@ -21,12 +21,8 @@ export default function MainPageHome() {
   useEffect(() => {
     dispatch(fetchMainPageRecipes());
   }, [dispatch]);
-  const breakfast = useSelector(state => state.mainPage.recipes.Breakfast);
-  const miscellaneous = useSelector(
-    state => state.mainPage.recipes.Miscellaneous
-  );
-  const chicken = useSelector(state => state.mainPage.recipes.Chicken);
-  const dessert = useSelector(state => state.mainPage.recipes.Dessert);
+
+  const recipes = useSelector(state => state.mainPage.recipes);
 
   return (
     <Section>
@@ -54,41 +50,22 @@ export default function MainPageHome() {
           </div>
         </div>
       </div>
-      {!breakfast && !miscellaneous && !chicken && !dessert ? (
+      {!recipes ? (
         <Loader />
       ) : (
         <HomeGallery>
-          <StyledDiv>
-            <StyledTitle>Breakfast</StyledTitle>
-            <MainGallery recipes={breakfast} />
-            <StyledLink to={`/categories/Breakfast`} state={{ from: location }}>
-              <MainBtn>See all</MainBtn>
-            </StyledLink>
-          </StyledDiv>
-          <StyledDiv>
-            <StyledTitle>Miscellaneous</StyledTitle>
-            <MainGallery recipes={miscellaneous} />
-            <StyledLink
-              to={`/categories/Miscellaneous`}
-              state={{ from: location }}
-            >
-              <MainBtn>See all</MainBtn>
-            </StyledLink>
-          </StyledDiv>
-          <StyledDiv>
-            <StyledTitle>Chicken</StyledTitle>
-            <MainGallery recipes={chicken} />
-            <StyledLink to={`/categories/Chicken`} state={{ from: location }}>
-              <MainBtn>See all</MainBtn>
-            </StyledLink>
-          </StyledDiv>
-          <StyledDiv>
-            <StyledTitle>Desserts</StyledTitle>
-            <MainGallery recipes={dessert} />
-            <StyledLink to={`/categories/Dessert`} state={{ from: location }}>
-              <MainBtn>See all</MainBtn>
-            </StyledLink>
-          </StyledDiv>
+          {Object.entries(recipes).map(([recipeKey, recipeArray]) => (
+            <StyledDiv key={recipeKey}>
+              <StyledTitle>{recipeKey}</StyledTitle>
+              <MainGallery recipes={recipeArray} />
+              <StyledLink
+                to={`/categories/${recipeKey}`}
+                state={{ from: location }}
+              >
+                <MainBtn>See all</MainBtn>
+              </StyledLink>
+            </StyledDiv>
+          ))}
           <Link to={`/categories`} state={{ from: location }}>
             <button className="btn recipesbtn">Other Categories</button>
           </Link>
