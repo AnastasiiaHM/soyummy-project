@@ -32,13 +32,15 @@ export function BasicTabs() {
   }, [location.pathname]);
 
   function getInitialValue(pathname) {
+    if (pathname === '/categories' || pathname.startsWith('/categories/')) {
+      return 0;
+    }
+    if (pathname === '/own-recipes' || pathname.startsWith('/recipe/')) {
+      return 2;
+    }
     switch (pathname) {
-      case '/categories':
-        return 0;
       case '/add':
         return 1;
-      case '/own-recipes':
-        return 2;
       case '/favorite':
         return 3;
       case '/shopping-list':
@@ -49,6 +51,15 @@ export function BasicTabs() {
         return null;
     }
   }
+
+  useEffect(() => {
+    if (location.pathname === '/categories' || location.pathname.startsWith('/categories/')) {
+      setValue(0);
+    }
+    if (location.pathname === '/own-recipes' || location.pathname.startsWith('/recipe/')) {
+      setValue(2);
+    }
+  }, [location.pathname]);
 
   return (
     <Box sx={{ width: '100%' }}>

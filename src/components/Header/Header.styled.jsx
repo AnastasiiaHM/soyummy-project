@@ -24,6 +24,13 @@ export const HeaderWrapper = styled.div`
   }
 `;
 
+export const SwitchWrapper = styled.div`
+  display: flex;
+  position: absolute;
+  bottom: 32px;
+`;
+
+
 export const TabsWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -59,9 +66,3 @@ export const UserIconWrapper = styled.div`
   }
 `;
 
-export const SwitchWrapper = styled.div`
-  display: flex;
-  margin-left: 16px;
-  position: absolute;
-  bottom: 32px;
-`;
