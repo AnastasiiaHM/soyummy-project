@@ -16,5 +16,5 @@ export const colors = Object.freeze({
   recipeCardText: '#3e4462',
   categoriesLIne: '#e0e0e0',
   categoriesNavText: '#bdbdbd',
-  forSwitch: '#EFEFEF'
+  forSwitch: '#EFEFEF',
 });
