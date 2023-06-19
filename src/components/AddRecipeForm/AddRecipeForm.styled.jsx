@@ -4,6 +4,7 @@ import { Form } from 'formik';
 
 export const StyledTitle = styled.h2`
   display: block;
+  margin-left: 0;
   margin-bottom: 72px;
   width: 100%;
   @media screen and (min-width: ${mediaSizes.tablet}) {

@@ -2,6 +2,7 @@ import Paginator from 'components/Paginator/Paginator';
 import Card from './Card';
 import CardPlaceholder from './CardPlaceholder';
 import { List, ListName } from './List.styled';
+import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 
 const RecipesList = ({
   list,
@@ -16,14 +17,21 @@ const RecipesList = ({
   return (
     <>
       <ListName>{listName}</ListName>
-      {loading ? (
+
+      {!loading && list?.length === 0 ? (
+        <ShoppingListEmpty message="You don't have favourite recipes yet" />
+      ) : loading ? (
         <ListPlaceholder itemsCount={itemsPerPage} />
       ) : (
         <>
           <List>
-          {list.map((card, index) => (
-            <Card key={`${card.cardId}-${index}`} card={card} deleteCard={deleteCard} />
-          ))}
+            {list.map((card, index) => (
+              <Card
+                key={`${card.cardId}-${index}`}
+                card={card}
+                deleteCard={deleteCard}
+              />
+            ))}
           </List>
           <Paginator
             totalPages={totalPages}

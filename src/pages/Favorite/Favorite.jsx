@@ -6,7 +6,6 @@ import {
 } from 'redux/favorite/operations';
 import { Message, RecipesContainer } from './Favorite.styled';
 import RecipesList from 'components/Favorite/FavoriteList';
-import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 
 const Favorite = () => {
   const dispatch = useDispatch();
@@ -31,12 +30,6 @@ const Favorite = () => {
       <Message>
         Error while retrieving favorite recipes: {error.message}
       </Message>
-    );
-  }
-
-  if (!loading && recipes?.length === 0) {
-    return (
-      <ShoppingListEmpty message={'You dont have favourite recipies yet '} />
     );
   }
 
