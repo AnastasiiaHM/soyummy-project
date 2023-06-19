@@ -25,7 +25,7 @@ import {
   SocialMediaYout,
   SocialMediaTwit,
 } from './Footer.styled';
-import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
+
 import { Logo } from '../LogoFooter/LogoFooter';
 const Footer = () => {
   const uppPageHandler = () => {
