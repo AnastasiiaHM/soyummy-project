@@ -5,12 +5,14 @@ import {
   ImageContainer,
   ButtonContainer,
   Button,
-  ProductWeight,
   ProductName,
+  CloseButton,
+  MeasuresContainer,
 } from './ShopingListItem.styled';
+import { nanoid } from '@reduxjs/toolkit';
 
-import { IoCloseSharp } from 'react-icons/io5';
 import { setDeleteProduct } from 'redux/shopping-list/operations';
+import { Measures } from '../ShopingListItemMeasures/ShopingListItemMeasures';
 
 export const ShoppingListItems = ({ image, id, measures, name }) => {
   const dispatch = useDispatch();
@@ -24,11 +26,13 @@ export const ShoppingListItems = ({ image, id, measures, name }) => {
         <ProductName>{name}</ProductName>
       </ImageContainer>
       <ButtonContainer>
-        <ProductWeight>{measures}</ProductWeight>
+        <MeasuresContainer>
+          {measures?.map(e => (
+            <Measures key={nanoid()} measures={measures} />
+          ))}
+        </MeasuresContainer>
         <Button type="button" onClick={handleDeleteProduct}>
-          <IoCloseSharp
-            style={{ fill: '#333333', width: '100%', height: '100%' }}
-          />
+          <CloseButton />
         </Button>
       </ButtonContainer>
     </ItemWraper>
