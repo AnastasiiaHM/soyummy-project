@@ -172,6 +172,12 @@ export const Section = styled.section`
       align-items: center;
       margin-left: 128px;
 
+      &:hover {
+        transition: all 200ms ease-in-out;
+        cursor: pointer;
+        opacity: 0.7;
+      }
+
       @media screen and (min-width: ${mediaSizes.tablet}) {
         margin-left: 150px;
       }

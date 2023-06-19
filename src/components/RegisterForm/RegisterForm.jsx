@@ -23,27 +23,24 @@ export const RegisterForm = () => {
   };
 
   const schema = yup.object().shape({
-    name: yup
-      .string()
-      .matches(/^[a-zA-Z]+$/, 'Please enter only letters')
-      .min(1)
-      .max(16)
-      .required(),
+    name: yup.string().min(1).max(16).required(),
     email: yup
       .string()
       .email()
       .matches(
         /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-        'Email must be valid'
+        'email must be valid'
       )
       .min(3)
       .max(30)
       .required(),
     password: yup
       .string()
+      .min(6)
+      .max(16)
       .matches(
         /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$/,
-        'The password must contain letters and numbers'
+        'the password must contain letters and numbers'
       )
       .required(),
   });
