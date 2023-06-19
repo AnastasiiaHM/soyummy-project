@@ -72,7 +72,6 @@ export const Text = styled.p`
   letter-spacing: -0.02em;
 
   color: ${colors.textGreenBtn};
-  /* font-family: 'Poppins'; */
   @media screen and (min-width: ${mediaSizes.tablet}) {
     line-height: 1.3;
   }
@@ -294,7 +293,6 @@ export const TextOffers = styled.p`
 export const TextBtn = styled.p`
   color: ${colors.textGreenBtn};
   display: flex;
-  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
@@ -387,14 +385,10 @@ export const InputMod = styled.input`
     outline: none;
   }
   &::placeholder {
-    /* font-family: 'Poppins'; */
-
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
     line-height: 1.5;
-    /* identical to box height */
 
     letter-spacing: -0.02em;
 
@@ -421,6 +415,7 @@ export const WrapperLastFooter = styled.div`
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 100vw;
   }
+
   @media screen and (min-width: ${mediaSizes.desktop}) {
     align-items: flex-start;
     padding: 0;
