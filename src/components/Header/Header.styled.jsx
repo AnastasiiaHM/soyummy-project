@@ -4,23 +4,22 @@ import { mediaSizes } from '../constants/media';
 import { colors } from '../colors';
 
 export const HeaderWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   width: 343px;
-  margin: 0 auto;
   padding-top: 18px;
-  margin-bottom: 50px;
   justify-content: space-between;
 
   @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
     width: 704px;
     padding-top: 18px;
-    margin-bottom: 72px;
   }
 
   @media (min-width: ${mediaSizes.desktop}) {
     width: 1240px;
     padding-top: 18px;
-    margin-bottom: 72px;
   }
 `;
 
