@@ -14,10 +14,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from 'components/Message/Message';
 import { selectAuthError } from 'redux/auth/selectors';
 import { emailPattern, passwordPattern } from 'components/patterns';
+import { setAuthError } from 'redux/auth/slice';
+import { useEffect } from 'react';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(setAuthError(null));
+  }, []);
   const initialValues = { email: '', password: '' };
 
   const schema = yup.object().shape({
@@ -39,6 +44,7 @@ export const LoginForm = () => {
   };
 
   const message = useSelector(selectAuthError);
+  console.log(message);
 
   return (
     <RegisterFormStyled>

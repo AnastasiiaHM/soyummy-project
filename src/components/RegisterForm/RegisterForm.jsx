@@ -14,6 +14,8 @@ import { register } from '../../redux/auth/operations';
 import Message from 'components/Message/Message';
 import { selectAuthError } from 'redux/auth/selectors';
 import { emailPattern, passwordPattern } from 'components/patterns';
+import { useEffect } from 'react';
+import { setAuthError } from 'redux/auth/slice';
 
 export const RegisterForm = () => {
   const initialValues = { name: '', email: '', password: '' };
@@ -23,6 +25,9 @@ export const RegisterForm = () => {
   const handleSubmit = (values, { resetForm }) => {
     dispatch(register(values));
   };
+  useEffect(() => {
+    dispatch(setAuthError(null));
+  }, []);
 
   const schema = yup.object().shape({
     name: yup.string().min(1).max(16).required(),
@@ -42,6 +47,7 @@ export const RegisterForm = () => {
   });
 
   const message = useSelector(selectAuthError);
+  console.log(message);
 
   return (
     <RegisterFormStyled>
