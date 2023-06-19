@@ -35,7 +35,9 @@ const Categories = () => {
   return (
     <section>
       <CategoriesConteiner>
-        <h1 className="title">Categories</h1>
+        <h1 className="title" style={{ marginLeft: 0 }}>
+          Categories
+        </h1>
 
         <CategoriesTab categoriesList={category} />
 

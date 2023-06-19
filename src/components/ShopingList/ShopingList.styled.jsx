@@ -28,10 +28,11 @@ export const Section = styled.section`
 `;
 
 export const Title = styled.div`
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+  margin-left: 0;
 
   @media (min-width: 768px) {
-    margin-bottom: 72px;
+    padding-bottom: 72px;
   }
 `;
 

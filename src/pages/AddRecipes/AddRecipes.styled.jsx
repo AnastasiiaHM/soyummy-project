@@ -2,26 +2,27 @@ import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants/media';
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 16px;
-  padding-right: 16px;
+  width: 375px;
+  max-width: 100%;
+
+  padding-top: 50px;
+  padding-bottom: 100px;
+
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 100px;
-  max-width: ${mediaSizes.mobile};
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    padding-left: 32px;
-    padding-right: 32px;
-    margin-bottom: 200px;
-    max-width: ${mediaSizes.tablet};
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    width: 768px;
+
+    padding-top: 72px;
+    padding-bottom: 200px;
   }
 
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    width: 1280px;
-    flex-direction: row;
-    max-width: ${mediaSizes.desktop};
+  @media (min-width: 1440px) {
+    width: 1440px;
+
+    padding-top: 100px;
+    padding-bottom: 195px;
   }
 `;
 
