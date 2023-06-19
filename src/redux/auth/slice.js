@@ -17,6 +17,8 @@ const initialState = {
   authError: null,
   error: null,
   isRefreshing: false,
+  motivation: '',
+  isOpen: false,
 };
 
 const userSlice = createSlice({
@@ -29,6 +31,9 @@ const userSlice = createSlice({
     setAuthError: (state, action) => {
       state.authError = action.payload;
     },
+    changeMotivation: (state, action) => {
+      state.isOpen=action.payload
+    }
   },
 
   extraReducers: builder => {
@@ -41,7 +46,12 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.authError = null;
+        state.motivation = action.payload.motivation;
+        state.isOpen = true;
         localStorage.setItem('token', action.payload.token);
+        action.payload.motivation !== ''
+          ? (state.isOpen = true)
+          : (state.isOpen = false);
       })
       .addCase(register.rejected, (state, action) => {
         state.authError = action.payload;
@@ -102,3 +112,4 @@ const userSlice = createSlice({
 
 export const { setLoading, setAuthError } = userSlice.actions;
 export const authReducer = userSlice.reducer;
+export const changeMotivation = userSlice.reducer
