@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { colors } from 'components/colors';
-import { mediaSizes } from 'components/constants';
 
 export const LoaderContainer = styled.div`
   display: flex;
@@ -17,16 +16,32 @@ export const Message = styled.div`
 `;
 
 export const RecipesContainer = styled.div`
-  width: 343px;
-  margin-bottom: 100px;
+  width: 375px;
+  max-width: 100%;
 
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    width: 704px;
-    margin-bottom: 200px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    width: 768px;
+
+    padding-top: 72px;
+    padding-bottom: 200px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    width: 1240px;
-    margin-bottom: 100px;
+  @media (min-width: 1440px) {
+    width: 1440px;
+
+    padding-top: 66px;
+    padding-bottom: 195px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 `;
