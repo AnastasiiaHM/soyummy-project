@@ -14,8 +14,10 @@ import {
   StyledDiv,
 } from '../components/MainGallery/MainGallery.styled';
 import { Loader } from 'components/Loader/Loader';
+import { Motivation } from 'components/motivation/Motivation';
 
 export default function MainPageHome() {
+  const isOpen = useSelector(state => state.auth.isOpen);
   const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -38,6 +40,7 @@ export default function MainPageHome() {
           <WelcomeSearch />
         </div>
         <div className="tips">
+          {isOpen && <Motivation />}
           <p>
             <span>Delicious and healthy </span>
             way to enjoy a variety of fresh ingredients in one satisfying meal

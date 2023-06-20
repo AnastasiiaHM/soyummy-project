@@ -12,14 +12,17 @@ import {
 import FotoMotivation from '../images/using-foto/foto-for-using-desc.jpg';
 import BlureFons from '../images/blurefon/blure fon.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeMotivation } from 'redux/auth/slice';
+import { changeMotivation, cleanMotivation } from 'redux/auth/slice';
 
 export const Motivation = () => {
   const dispatch = useDispatch();
   const motivation = useSelector(state => state.auth.motivation);
+
   const handleCloseMotivation = () => {
+    dispatch(cleanMotivation(''));
     dispatch(changeMotivation(false));
   };
+
   return (
     <ModalMotivation>
       <WrapperMotivation>
@@ -30,8 +33,8 @@ export const Motivation = () => {
             <WowText>Wow!</WowText>
             {motivation}
           </TextBlureFon>
-          <BtnBlure>
-            <CloseInp onClick={handleCloseMotivation} />
+          <BtnBlure onClick={handleCloseMotivation}>
+            <CloseInp />
           </BtnBlure>
         </WrapperBlure>
       </WrapperMotivation>
