@@ -13,6 +13,7 @@ import {
 import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 import { Section } from 'components/SearchSelector/SearchSelector.styled';
+import { changeExample } from 'redux/search/slice';
 
 const Search = () => {
   const query = useSelector(selectQuery);
@@ -20,6 +21,10 @@ const Search = () => {
   const recipes = useSelector(selectSearchedRecipes);
   const dispatch = useDispatch();
   const placeholder = useSelector(state => state.search.example);
+
+  useEffect(() => {
+    dispatch(changeExample(false));
+  }, [dispatch]);
 
   useEffect(() => {
     if (query === '') {
