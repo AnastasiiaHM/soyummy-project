@@ -8,7 +8,7 @@ import {
 import { useSearchParams } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
-import { changeItems, changeQuery } from 'redux/search/slice';
+import { changeQuery } from 'redux/search/slice';
 
 export const SearchForm = () => {
   const [searchParam, setSearchParam] = useSearchParams();
@@ -28,8 +28,9 @@ export const SearchForm = () => {
   }
   useEffect(() => {
     if (!value) {
-      dispatch(changeQuery(''));
-      dispatch(changeItems([]));
+      // dispatch(changeQuery(''));
+      // dispatch(changeItems([]));
+      return;
     }
     dispatch(changeQuery(value));
   }, [dispatch, value]);
@@ -41,9 +42,10 @@ export const SearchForm = () => {
     }
     setSearchParam({ query });
     if (!value) {
-      setSearchQuery('');
-      setSearchParam('');
-      dispatch(changeItems([]));
+      // setSearchQuery('');
+      // setSearchParam('');
+      // dispatch(changeItems([]));
+      return;
     }
     dispatch(changeQuery(value));
 
