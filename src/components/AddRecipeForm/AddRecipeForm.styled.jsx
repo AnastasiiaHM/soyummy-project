@@ -7,8 +7,13 @@ export const StyledTitle = styled.h2`
   margin-left: 0;
   margin-bottom: 72px;
   width: 100%;
+
   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 100px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    margin-top: 100px;
   }
 `;
 
