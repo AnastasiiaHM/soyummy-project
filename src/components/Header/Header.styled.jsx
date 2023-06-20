@@ -26,7 +26,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const SwitchWrapper = styled.div`
-    display: flex;
+    display: none;
     position: fixed;
     bottom: 60px;
 `;
