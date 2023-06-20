@@ -4,7 +4,6 @@ import { colors } from 'components/colors';
 
 export const Input = styled.input`
   display: block;
-  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -95,7 +94,6 @@ export const IngredientBtn = styled.button`
   height: 100%;
   border: none;
   background-color: transparent;
-  font-family: 'Poppins';
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;

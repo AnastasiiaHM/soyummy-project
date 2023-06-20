@@ -3,7 +3,6 @@ import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 
 export const Title = styled.h3`
-  font-family: 'Poppins';
   display: inline-block;
   margin-bottom: 24px;
   font-weight: 600;
