@@ -26,6 +26,7 @@ export const Container = styled.div`
     padding-bottom: 195px;
     padding-left: 100px;
     padding-right: 100px;
+    display: flex;
   }
 `;
 
@@ -35,5 +36,6 @@ export const Wrapper = styled.div`
   @media screen and (min-width: ${mediaSizes.desktop}) {
     width: 320px;
     margin-left: 102px;
+    margin-top: 240px;
   }
 `;
