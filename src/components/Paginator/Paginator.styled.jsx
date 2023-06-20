@@ -1,17 +1,16 @@
 import styled from "@emotion/styled";
 import { Pagination } from "@mui/material";
-import { colors } from "components/colors";
 import { mediaSizes } from "components/constants";
 
 export const StyledPagination = styled(Pagination)`
-  background: ${colors.textGreenBtn};
+  background: ${props => props.theme.recipesBackgroundCard};
   box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
   border-radius: 26px;
   padding: 5px 10px;
   width: fit-content;
 
   .Mui-selected {
-    background-color: ${colors.imageBC}!important;
+    background-color: ${props => props.theme.constantGreenColor}!important;
   }
 
   @media screen and (min-width: ${mediaSizes.tablet}) {

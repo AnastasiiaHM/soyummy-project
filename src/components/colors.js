@@ -39,6 +39,7 @@ export const lightTheme = Object.freeze({
   labelText: 'rgba(0, 0, 0, 0.5)',
   placeholderAddRecipes: 'rgba(0, 0, 0, 0.5)',
   inputBackground: '#D9D9D9', //page add recipes
+  inputBackgroundSemitransparent: '#D9D9D9', //page add recipes
   bodyBackground: '#FAFAFA', // edit profile
   textBackground: '#FAFAFA',
   dropdownBackground: '#FFFFFF',
@@ -46,6 +47,7 @@ export const lightTheme = Object.freeze({
   ingredientsBackgroundCard: '#EBF3D4',
   recipesBackgroundCard: '#FFFFFF',
   deleteBackgroundBtn: '#EBF3D4', //mobile menu
+  productBackground: '#EBF3D4'
 });
 
 export const darkTheme = Object.freeze({
@@ -67,6 +69,7 @@ export const darkTheme = Object.freeze({
   labelText: '#FAFAFA',
   placeholderAddRecipes: 'rgba(250, 250, 250, 0.5)',
   inputBackground: '#1E1F28',
+  inputBackgroundSemitransparent: '#1E1F28', //page add recipes
   bodyBackground: '#1E1F28',
   textBackground: '#2A2C36',
   dropdownBackground: '#8BAA36',
@@ -74,4 +77,5 @@ export const darkTheme = Object.freeze({
   ingredientsBackgroundCard: '#2A2C36',
   recipesBackgroundCard: '#2A2C36',
   deleteBackgroundBtn: '#1E1F28',
+  productBackground: '#2A2C36'
 });

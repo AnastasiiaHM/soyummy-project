@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { colors } from 'components/colors';
-
 export const Wraper = styled.div`
   padding-top: 50px;
   padding-bottom: 100px;
@@ -30,7 +28,7 @@ export const EmptyDesc = styled.p`
   font-feature-settings: 'liga' off;
   text-align: center;
 
-  color: ${colors.blackFontBolt};
+  color: ${props => props.theme.placeholderAddRecipes};
 
   opacity: 0.5;
 

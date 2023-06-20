@@ -2,9 +2,10 @@ import styled from '@emotion/styled';
 import { BiTrash } from 'react-icons/bi';
 import { mediaSizes } from '../constants/media';
 import { Skeleton } from '@mui/material';
+import { css } from '@emotion/react';
 
 export const ContainerCard = styled.div`
-  background: ${props => props.theme.recipesBackgroundCard}; 
+  ${(props) => css`background: ${props.theme.recipesBackgroundCard}`};
   border-radius: 8px;
   display: flex;
   gap: 14px;
@@ -68,7 +69,7 @@ export const CardHeader = styled.div`
 const CardDescriptionPattern = element => styled(element)`
   font-size: 8px;
   line-height: 1.25;
-  color: ${props => props.theme.descriptionCard};
+  ${(props) => css`color: ${props.theme.descriptionCard}`};
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -93,7 +94,7 @@ export const CardDescriptionPlaceholder = CardDescriptionPattern(Skeleton);
 const DeleteButtonPattern = element => styled(element)`
   width: 24px;
   height: 24px;
-  background: ${props => props.theme.deleteBackgroundBtn};
+  ${(props) => css`background: ${props.theme.deleteBackgroundBtn}`};
   border-radius: 4px;
   border: 0;
   cursor: pointer;
@@ -115,7 +116,7 @@ export const DeleteButtonPlaceholder = DeleteButtonPattern(Skeleton);
 export const DeleteIcon = styled(BiTrash)`
   width: 14px;
   height: 14px;
-  color: ${props => props.theme.textPrimaryDark};
+  ${(props) => css`color: ${props.theme.textPrimaryDark}`};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 22px;
@@ -139,7 +140,7 @@ const CookingTimePattern = element => styled(element)`
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: -0.24px;
-  color: ${props => props.theme.textPrimaryDark};
+  ${(props) => css`color: ${props.theme.textPrimaryDark}`};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 14px;
@@ -157,7 +158,7 @@ const CardTitlePattern = element => styled(element)`
   letter-spacing: -0.24px;
   display: inline-block;
   width: 100%;
-  color: ${props => props.theme.textPrimaryDark};;
+  ${(props) => css`color: ${props.theme.textPrimaryDark}`};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 18px;
@@ -180,7 +181,7 @@ const PrimaryButtonPattern = element => styled(element)`
   height: 27px;
   font-size: 10px;
   line-height: 1.5;
-  color: ${props => props.theme.constWhiteColor};
+  ${(props) => css`color: ${props.theme.constWhiteColor}`};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 138px;
@@ -196,12 +197,12 @@ const PrimaryButtonPattern = element => styled(element)`
 `;
 
 export const PrimaryButton = styled(PrimaryButtonPattern('button'))`
-  background-color: ${props => props.theme.darkButtonBackground};
+  ${(props) => css`background-color: ${props.theme.darkButtonBackground}`};
   cursor: pointer;
 
   &:hover,
   &:focus {
-    background-color: ${props => props.theme.greenButtonBackground};
+    ${(props) => css`background-color: ${props.theme.greenButtonBackground}`};
   }
 `;
 export const PrimaryButtonPlaceholder = PrimaryButtonPattern(Skeleton);

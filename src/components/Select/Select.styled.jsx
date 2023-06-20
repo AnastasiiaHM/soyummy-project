@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 
 export const Container = styled.div`
@@ -57,7 +56,7 @@ export const DropDown = styled.ul`
   flex-direction: column;
   gap: 4px;
   padding: 8px 14px;
-  background-color: #fff;
+  background-color: ${props => props.theme.dropdownBackground};
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
   border-radius: 6px;
 
@@ -72,7 +71,7 @@ export const Item = styled.li`
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  color: ${colors.color1};
+  color: ${props => props.theme.labelText};
   background-color: transparent;
 `;
 
@@ -88,7 +87,7 @@ export const OptionBtn = styled.button`
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  color: ${colors.color1};
+  color: ${props => props.theme.labelText};
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -96,10 +95,10 @@ export const OptionBtn = styled.button`
   }
 
   &:hover {
-    color: ${colors.greenButton};
+    color: ${props => props.theme.constantGreenColor};
   }
 
   &.active {
-    color: ${colors.greenButton};
+    color: ${props => props.theme.constantGreenColor};
   }
 `;

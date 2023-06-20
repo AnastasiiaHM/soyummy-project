@@ -25,7 +25,7 @@ export const Title = styled.h3`
   font-size: 24px;
   line-height: 24px;
   letter-spacing: -0.02em;
-  color: #3e4462;
+  color: ${props => props.theme.textPrimaryDark};
 `;
 
 export const Item = styled.li`

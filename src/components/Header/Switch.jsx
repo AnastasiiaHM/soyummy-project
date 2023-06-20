@@ -1,7 +1,6 @@
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
-import { colors } from '../colors';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from 'redux/theme/slice';
@@ -27,7 +26,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
       '& + .MuiSwitch-track': {
         opacity: 1,
         backgroundColor:
-          theme.palette.mode === 'dark' ? colors.greenButton : colors.forSwitch,
+          theme.palette.mode === 'dark' ? props => props.theme.constantGreenColor : props => props.theme.constWhiteColor,
       },
     },
   },
@@ -44,7 +43,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
     borderRadius: 16 / 2,
     opacity: 1,
     backgroundColor:
-      theme.palette.mode === 'dark' ? colors.forSwitch : colors.greenButton,
+      theme.palette.mode === 'dark' ? props => props.theme.constWhiteColor : props => props.theme.constantGreenColor,
     boxSizing: 'border-box',
   },
 }));

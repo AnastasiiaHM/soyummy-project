@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 
 export const Title = styled.h3`
@@ -10,7 +9,7 @@ export const Title = styled.h3`
   font-size: 24px;
   line-height: 24px;
   letter-spacing: -0.02em;
-  color: #3e4462;
+  color: ${props => props.theme.textPrimaryDark};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 32px;
@@ -27,8 +26,8 @@ export const StyledTextarea = styled.textarea`
   letter-spacing: -0.02em;
   border: none;
   border-radius: 6px;
-  color: ${colors.color1};
-  background-color: ${colors.greyButton};
+  color: ${props => props.theme.placeholderAddRecipes};
+  background-color: ${props => props.theme.inputBackground};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 505px;
@@ -36,7 +35,7 @@ export const StyledTextarea = styled.textarea`
   }
 
   &:focus {
-    outline: 1px solid #fff;
+    outline: 1px solid ${props => props.theme.placeholderAddRecipes};
   }
 `;
 

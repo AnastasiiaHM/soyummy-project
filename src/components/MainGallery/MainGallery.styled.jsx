@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-import { colors } from '../colors';
 import { Link } from 'react-router-dom';
+import { css } from '@emotion/react';
 
 export const HomeGallery = styled.div`
   padding-top: 150px;
@@ -44,7 +44,7 @@ export const MainGalleryStyled = styled.ul`
 
 export const MainBtn = styled.button`
   align-self: flex-end;
-  background-color: ${colors.greenButton};
+  ${(props) => css`background-color: ${props.theme.constantGreenColor};`};
   border-radius: 6px;
   border: 0;
   width: 94px;
@@ -53,11 +53,11 @@ export const MainBtn = styled.button`
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  color: ${colors.textGreenBtn};
+  ${(props) => css`color: ${props.theme.constWhiteColor};`};
   cursor: pointer;
   &:hover,
   &:focus {
-    background-color: ${colors.darkButton};
+    ${(props) => css`color: ${props.theme.darkButtonBackground}`};
   }
 `;
 export const StyledLink = styled(Link)`
@@ -66,7 +66,7 @@ export const StyledLink = styled(Link)`
   align-self: flex-end;
 `;
 export const StyledTitle = styled.h1`
-  color: ${colors.titleColor};
+   ${(props) => css`color: ${props.theme.titleCategories};`};
   font-family: inherit;
   font-style: normal;
   font-weight: 600;
@@ -77,24 +77,4 @@ export const StyledTitle = styled.h1`
 export const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const DownBtn = styled.button`
-  width: 137px;
-  height: 49px;
-  background: ${colors.greenButton};
-  border: none;
-  border-radius: 14px 6px;
-
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    width: 192px;
-    height: 59px;
-  }
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    width: 192px;
-    height: 59px;
-  }
 `;

@@ -5,12 +5,11 @@ import rectangleMob from 'components/images/login-register/rectangle_mob1x.png';
 // import rectangleTab from 'components/images/login-register/rectangle_tab1x.png';
 import rectangleDesk from 'components/images/login-register/rectangle_desc1x.png';
 import { mediaSizes } from '../constants';
-import { colors } from '../colors';
 
 const RegisterWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${colors.textGreenBtn};
+  background-color: ${props => props.theme.constWhiteColor};
   background-image: url(${orderingTab}), url(${rectangleMob});
   background-repeat: no-repeat, no-repeat;
   background-position: center 84px, center 282px;
@@ -50,7 +49,7 @@ const RegisterWrapper = styled.div`
 
   & a {
     display: block;
-    color: ${colors.textGreenBtn};
+    color: ${props => props.theme.constWhiteColor};
     font-size: 14px;
     line-height: 21px;
     text-decoration-line: underline;

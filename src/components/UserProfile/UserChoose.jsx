@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import ModeOutlinedIcon from '@mui/icons-material/ModeOutlined';
-import { colors } from '../colors';
 import UserProf from './UserProfile';
 import LogoutModal from './UserLogout';
 
@@ -13,7 +12,7 @@ const style = {
   left: '70%',
   transform: 'translate(-50%, -50%)',
   width: 177,
-  bgcolor: `${colors.textGreenBtn}`,
+  bgcolor: `${props => props.theme.bodyBackground}`,
   borderRadius: '8px',
   boxShadow: 24,
   p: 1.8,
@@ -24,10 +23,10 @@ const styleFont = {
     fontSize: 14,  
     marginRight: 5.3,
     marginBottom: 3.2,
-    color: `${colors.blackFont}`,
+    color: `${props => props.theme.textBackground}`,
   '&:hover': {
     cursor: 'pointer',
-    color: `${colors.textGreenBtn}`,
+    color: `${props => props.theme.darkButtonBackground}`,
   },
   };
 
@@ -69,7 +68,7 @@ const BasicModal = ({ handleCloseModal }) => {
       >
         <Box sx={style}>
           <Box style={{ display: 'flex', alignItems: 'start'}}>
-            <Typography onClick={handleModalClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: colors.blackFont }}>
+            <Typography onClick={handleModalClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: props => props.theme.titleCategories }}>
               Edit profile
             </Typography>
             <ModeOutlinedIcon style={iconStyle} onClick={handleModalClick} />

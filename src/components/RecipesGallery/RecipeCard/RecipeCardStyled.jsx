@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../../constants/media';
-import { colors } from 'components/colors';
 import { NavLink } from 'react-router-dom';
 
 export const RecipeCardStyled = styled.li`
@@ -37,14 +36,14 @@ export const RecipeCardStyled = styled.li`
     position: absolute;
     bottom: 26px;
     left: 18px;
-    background: ${colors.whiteColor};
+    background: ${props => props.theme.textBackground};
     border-radius: 8px;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.24px;
-    color: ${colors.recipeCardText};
+    color: ${props => props.theme.textPrimaryDark};
     padding: 16px 16px;
     width: 268px;
 

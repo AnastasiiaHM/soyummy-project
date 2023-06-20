@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-import { colors } from '../colors';
 
 export const FormikWrapper = styled.div`
   & form {
@@ -9,8 +8,8 @@ export const FormikWrapper = styled.div`
 
   input {
     width: 295px;
-    background: ${colors.textGreenBtn};
-    border: 1px solid ${colors.border};
+    background: ${props => props.theme.recipesBackgroundCard};
+    border: 1px solid ${props => props.theme.bordercolor};
     outline: none;
     border-radius: 15px 50px;
     padding-top: 17px;
@@ -19,14 +18,14 @@ export const FormikWrapper = styled.div`
     padding-left: 32px;
     margin-bottom: 8px;
     ::placeholder {
-      color: ${colors.placeholder};
+      color: ${props => props.theme.placeholderAddRecipes};
     }
 
     &:not(:placeholder-shown) {
       font-weight: 500;
       font-size: 12px;
       line-height: 1.6;
-      color: ${colors.placeholder};
+      color: ${props => props.theme.placeholderAddRecipes};
 
       @media screen and (min-width: ${mediaSizes.tablet}) {
         font-size: 16px;
@@ -52,19 +51,18 @@ export const FormikWrapper = styled.div`
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
-    color: ${colors.whiteColor};
+    color: ${props => props.theme.constWhiteColor};
     font-weight: bold;
-    background: ${colors.darkButton};
+    background: ${props => props.theme.darkButtonBackground};
     height: 54px;
     border-radius: 15px 50px;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
-    color: ${colors.textGreenBtn};
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      background-color: ${colors.greenButton};
+      color: ${props => props.theme.greenButtonBackground}
     }
 
     @media screen and (min-width: ${mediaSizes.tablet}) {

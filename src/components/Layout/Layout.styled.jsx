@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 
 const colorChange = keyframes`
   0% {
-    fill: #22252a;
+    ${(props) => css`fill: ${props.theme.userNameText};`}
   }
   50% {
-    fill: #8baa36;
+    ${(props) => css`fill: ${props.theme.constantGreenColor};`}
+
   }
   100% {
-    fill: #22252a;
+    ${(props) => css`fill: ${props.theme.userNameText};`}
   }
 `;
 
@@ -28,7 +29,7 @@ export const Button = styled.button`
   padding: 0;
 
   & svg {
-    fill: #8baa36;
+    ${(props) => css`fill: ${props.theme.constantGreenColor};`}
     stroke: red;
     width: 40px;
     height: 40px;

@@ -6,7 +6,6 @@ import spinachRight from 'components/images/spinach/right.png';
 import bg from 'components/images/spinach/bg2.png';
 import bgDesc from 'components/images/spinach/bg2desk.png';
 import arrow from 'components/images/spinach/arrow.png';
-import { colors } from 'components/colors';
 
 export const Section = styled.section`
   background-image: url(${salat}), url(${arrow}), url(${spinachRight}),
@@ -72,7 +71,7 @@ export const Section = styled.section`
       font-size: 60px;
       line-height: 60px;
       letter-spacing: -0.005em;
-      color: ${colors.darkButton};
+      color: ${props => props.theme.textPrimaryDark};
       margin-bottom: 14px;
 
       @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -88,7 +87,7 @@ export const Section = styled.section`
       }
 
       & span {
-        color: ${colors.greenButton};
+        color: ${props => props.theme.constantGreenColor};
       }
     }
 
@@ -98,7 +97,7 @@ export const Section = styled.section`
       font-size: 14px;
       line-height: 18px;
       letter-spacing: -0.02em;
-      color: ${colors.blackFont};
+      color: ${props => props.theme.textPrimaryDark};
       margin-bottom: 364px;
 
       @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -125,9 +124,9 @@ export const Section = styled.section`
     top: 303px;
     padding: 8px;
 
-    background: ${colors.textGreenBtn};
+    background: ${props => props.theme.textBackground};
     border-radius: 8px;
-    color: ${colors.recipeCardText};
+    color: ${props => props.theme.textPrimaryDark};
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
       width: 261px;
@@ -163,7 +162,7 @@ export const Section = styled.section`
       }
 
       & span {
-        color: ${colors.greenButton};
+        color: ${props => props.theme.constantGreenColor};
       }
     }
 
@@ -196,12 +195,11 @@ export const Section = styled.section`
       font-size: 10px;
       line-height: 12px;
       letter-spacing: 0.2px;
-
-      color: ${colors.recipeCardText};
+      color: ${props => props.theme.textPrimaryDark};
     }
 
     & svg {
-      fill: ${colors.recipeCardText};
+      fill: ${props => props.theme.textPrimaryDark};
       width: 18px;
       height: 18px;
     }

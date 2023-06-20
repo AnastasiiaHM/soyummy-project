@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { ReactComponent as Image } from '../images/not-found/notFound2x-mobile.svg';
-import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 
 export const Container = styled.div`
@@ -10,7 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
+  background-color: ${props => props.theme.bodyBackground};
 `;
 
 export const StyledText = styled.p`
@@ -19,7 +18,7 @@ export const StyledText = styled.p`
   line-height: 1.29;
   letter-spacing: -0.02em;
   text-align: center;
-  color: ${colors.color1};
+  color: ${props => props.theme.textPrimaryDark};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 18px;
@@ -34,7 +33,7 @@ export const StyledSpan = styled.span`
   line-height: 1.11;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
-  color: #000000;
+  color: ${props => props.theme.placeholderAddRecipes};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 24px;

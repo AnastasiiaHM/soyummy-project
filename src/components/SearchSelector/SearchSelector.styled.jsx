@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { colors } from '../colors';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -16,8 +15,7 @@ export const Label = styled.label`
   font-size: 18px;
   line-height: 1.3;
   letter-spacing: -0.24px;
-
-  color: #001833;
+  color: ${props => props.theme.textPrimaryDark};
 `;
 export const Section = styled.section`
   margin-top: 50px;
@@ -32,7 +30,7 @@ export const Section = styled.section`
 export const SectionLabel = styled.select`
   width: 146px;
   padding: 8px 14px;
-  color: ${colors.color1};
+  color: ${props => props.theme.placeholderAddRecipes};
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -0.02em;
@@ -42,7 +40,7 @@ export const SectionLabel = styled.select`
   -moz-appearance: none;
   outline: none;
   border-radius: 6px;
-  background-color: #d9d9d975;
+  background-color: ${props => props.theme.inputBackgroundSemitransparent};
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none'%3E%3Cpath stroke='%238BAA36' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m5 7 5 5 5-5'/%3E%3C/svg%3E");
   background-position: right 14px center;
   background-repeat: no-repeat;
@@ -62,8 +60,8 @@ export const SectionLabel = styled.select`
 `;
 
 export const Options = styled.option`
-  color: ${colors.color1};
-  background-color: #d9d9d975;
+  color: ${props => props.theme.placeholderAddRecipes};
+  background-color: ${props => props.theme.inputBackgroundSemitransparent};
 `;
 
 export const TitleDropdpwn = styled.label`
@@ -75,7 +73,7 @@ export const TitleDropdpwn = styled.label`
 
   letter-spacing: -0.24px;
 
-  color: ${colors.titleColor};
+  color: ${props => props.theme.titleCategories};
 
   @media (min-width: 768px) {
     font-size: 14px;
@@ -90,12 +88,3 @@ export const TitleDropdpwn = styled.label`
   }
 `;
 
-export const DropdownWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  text-align: center;
-  margin-bottom: 90px;
-  color: ${colors.color1};
-`;
