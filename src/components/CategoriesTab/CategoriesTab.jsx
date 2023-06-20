@@ -12,7 +12,7 @@ export default function CategoriesTab(props) {
   const { category } = useParams();
   const { categoriesList } = props;
   const index = categoriesList.findIndex(recipe => recipe.name === category);
-  const [value, setValue] = useState(index >= 0 ? index : false);
+  const [value, setValue] = useState(index >= 0 ? index : 0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
