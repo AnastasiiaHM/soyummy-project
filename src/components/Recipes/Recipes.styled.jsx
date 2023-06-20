@@ -11,13 +11,13 @@ export const RecipeWrapper = styled.div`
     @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
     width: 704px;
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 0px;
     }
 
     @media (min-width: ${mediaSizes.desktop}) {
     width: 1240px;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 64px;
     }
 `;
 
@@ -29,7 +29,7 @@ export const RecipeTitle = styled.h2`
     line-height: 24px;
     text-align: center;
     letter-spacing: -0.02em;
-    margin-top: 80px;
+  
 
 
     color: ${colors.greenButton};
@@ -37,6 +37,11 @@ export const RecipeTitle = styled.h2`
     @media (min-width: ${mediaSizes.tablet}) {
         font-size: 44px;
         line-height: 44px;
+        margin-top: 72px;
+
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
         margin-top: 100px;
 
     }

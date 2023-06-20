@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { colors } from '../colors';
+import {mediaSizes} from '../constants/media'
 
 export const SearchSection = styled.div`
   display: flex;
@@ -85,5 +86,20 @@ export const SearchBtn = styled.button`
     top: 0;
     left: 69%;
     bottom: 0;
+  }
+`;
+
+export const StyledTitle = styled.h2`
+  display: block;
+  margin-left: 0;
+  margin-bottom: 50px;
+  width: 100%;
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    margin-top: 100px;
   }
 `;

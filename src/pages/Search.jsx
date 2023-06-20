@@ -12,6 +12,8 @@ import {
 } from 'redux/search/selector';
 import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
+import { Section } from '../components/ShopingList/ShopingList.styled';
+import { StyledTitle } from 'components/SearchForm/SearchForm.styled';
 import { Section } from 'components/SearchSelector/SearchSelector.styled';
 import { changeExample } from 'redux/search/slice';
 
@@ -44,7 +46,7 @@ const Search = () => {
 
   return (
     <Section>
-      <title className="title">Search</title>
+      <StyledTitle className="title">Search</StyledTitle>
 
       <SearchBar />
       {placeholder && (
