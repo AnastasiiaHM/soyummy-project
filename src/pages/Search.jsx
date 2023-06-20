@@ -12,10 +12,9 @@ import {
 } from 'redux/search/selector';
 import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
-
 import { StyledTitle } from 'components/SearchForm/SearchForm.styled';
-import { Section } from 'components/SearchSelector/SearchSelector.styled';
 import { changeExample } from 'redux/search/slice';
+import { Section } from 'components/ShopingList/ShopingList.styled';
 
 const Search = () => {
   const query = useSelector(selectQuery);

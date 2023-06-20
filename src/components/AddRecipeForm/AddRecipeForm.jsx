@@ -15,23 +15,23 @@ import * as Yup from 'yup';
 const validationSchema = Yup.object().shape({
   title: Yup.string()
     .matches(
-      /^[a-zA-Z0-9\s\n\p{P}\d]*$/,
+      /^[a-zA-Z0-9\s\n\p{S}\d]*$/,
+      'Only alphanumeric characters and spaces are allowed'
+    )
+    .min(5, 'There must be at least 5 symbols')
+    .max(500, 'There must be not over 500 symbols')
+    .required('Required'),
+  description: Yup.string()
+    .matches(
+      /^[a-zA-Z0-9\s\n\p{S}\d]*$/,
       'Only alphanumeric characters and spaces are allowed'
     )
     .min(10, 'There must be at least 10 symbols')
     .max(500, 'There must be not over 500 symbols')
     .required('Required'),
-  description: Yup.string()
-    .matches(
-      /^[a-zA-Z0-9\s\n\p{P}\d]*$/,
-      'Only alphanumeric characters and spaces are allowed'
-    )
-    .min(30, 'There must be at least 30 symbols')
-    .max(500, 'There must be not over 500 symbols')
-    .required('Required'),
   preparation: Yup.string()
 
-    .min(50, 'There must be at least 50 symbols')
+    .min(10, 'There must be at least 0 symbols')
     .max(500, 'There must be not over 500 symbols')
     .required('Required'),
 });
