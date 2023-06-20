@@ -69,7 +69,6 @@ export const InputMod = styled.input`
     outline: none;
   }
   &::placeholder {
-    /* font-family: 'Poppins'; */
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -162,7 +161,6 @@ export const BtnSave = styled.button`
   text-align: center;
 
   color: #fafafa;
-  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
@@ -277,7 +275,6 @@ export const BtnCancel = styled.button`
 
 export const TextForBtn = styled.p`
   color: ${colors.textGreenBtn};
-  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
@@ -288,7 +285,6 @@ export const TextForBtn = styled.p`
 
 export const TextForCancel = styled.p`
   color: ${colors.blackFont};
-  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
@@ -299,7 +295,6 @@ export const TextForCancel = styled.p`
 
 export const MainText = styled.p`
   color: ${colors.blackFont};
-  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
