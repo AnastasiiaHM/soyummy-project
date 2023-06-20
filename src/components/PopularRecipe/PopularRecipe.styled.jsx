@@ -3,7 +3,6 @@ import { mediaSizes } from 'components/constants';
 import { NavLink } from 'react-router-dom';
 
 export const StyledTitle = styled.h3`
-  font-family: 'Poppins';
   display: inline-block;
   margin-bottom: 24px;
   font-weight: 600;
