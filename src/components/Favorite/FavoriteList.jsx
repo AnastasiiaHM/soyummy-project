@@ -1,6 +1,7 @@
 import Paginator from 'components/Paginator/Paginator';
 import Card from './Card';
 import CardPlaceholder from './CardPlaceholder';
+import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 import { List, ListName } from './List.styled';
 
 const RecipesList = ({
@@ -8,30 +9,38 @@ const RecipesList = ({
   listName,
   totalPages,
   page,
-
+  itemsPerPage,
   loading,
   pageChange,
   deleteCard,
 }) => {
+  console.log(loading);
   return (
     <>
       <ListName>{listName}</ListName>
-      <>
-        <List>
-          {loading ? (
-            <CardPlaceholder key={'placeholder'} />
-          ) : (
-            list.map(card => (
-              <Card key={card._id} card={card} deleteCard={deleteCard} />
-            ))
-          )}
-        </List>
-        <Paginator
-          totalPages={totalPages}
-          page={page}
-          pageChange={pageChange}
-        />
-      </>
+
+      {!loading && list?.length === 0 ? (
+        <ShoppingListEmpty message="You don't have favourite recipes yet" />
+      ) : loading ? (
+        <CardPlaceholder itemsCount={itemsPerPage} />
+      ) : (
+        <>
+          <List>
+            {list.map((card, index) => (
+              <Card
+                key={`${card.cardId}-${index}`}
+                card={card}
+                deleteCard={deleteCard}
+              />
+            ))}
+          </List>
+          <Paginator
+            totalPages={totalPages}
+            page={page}
+            pageChange={pageChange}
+          />
+        </>
+      )}
     </>
   );
 };

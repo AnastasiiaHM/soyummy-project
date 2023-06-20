@@ -14,7 +14,6 @@ export const ItemWraper = styled.li`
   padding-bottom: 24px;
 
   @media (min-width: 768px) {
-    /* width: 768px; */
     padding-bottom: 43px;
   }
 `;
@@ -88,6 +87,8 @@ export const Button = styled.div`
 
   width: 14px;
   height: 14px;
+
+  cursor: pointer;
 
   &:hover:active {
     fill: ${colors.greenButton};
