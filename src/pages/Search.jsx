@@ -12,14 +12,21 @@ import {
 } from 'redux/search/selector';
 import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
-import { Section } from '../components/ShopingList/ShopingList.styled'
+import { Section } from '../components/ShopingList/ShopingList.styled';
 import { StyledTitle } from 'components/SearchForm/SearchForm.styled';
+import { Section } from 'components/SearchSelector/SearchSelector.styled';
+import { changeExample } from 'redux/search/slice';
+
 const Search = () => {
   const query = useSelector(selectQuery);
   const queryType = useSelector(selectQueryType);
   const recipes = useSelector(selectSearchedRecipes);
   const dispatch = useDispatch();
   const placeholder = useSelector(state => state.search.example);
+
+  useEffect(() => {
+    dispatch(changeExample(false));
+  }, [dispatch]);
 
   useEffect(() => {
     if (query === '') {
@@ -39,7 +46,6 @@ const Search = () => {
 
   return (
     <Section>
-
       <StyledTitle className="title">Search</StyledTitle>
 
       <SearchBar />

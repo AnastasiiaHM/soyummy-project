@@ -70,6 +70,8 @@ const userSlice = createSlice({
         state.user.avatarURL = avatarURL;
         state.isLoggedIn = true;
         state.authError = null;
+        state.motivation = action.payload.motivation;
+        state.isOpen = true;
         localStorage.setItem('token', action.payload.token);
       })
       .addCase(LogIn.rejected, (state, action) => {

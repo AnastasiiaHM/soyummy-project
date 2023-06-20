@@ -21,7 +21,8 @@ export const SearchForm = () => {
 
   function handleInputChange(e) {
     if (!e.target.value) {
-      dispatch(changeQuery(''));
+      // dispatch(changeQuery(''));
+      return;
     }
     setSearchQuery(e.target.value);
   }
