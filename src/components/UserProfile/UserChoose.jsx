@@ -82,7 +82,8 @@ const BasicModal = ({ handleCloseModal }) => {
       {isUserProfOpen && (
                 <UserProf 
                     handleCloseModalProfile={handleCloseModalProfile} 
-                    handleModalClickProfile={handleModalClick} 
+                    handleModalClickProfile={handleModalClick}
+                    handleCloseModal={handleCloseModal} 
                 />
             )}
         {isLogoutModalOpen && (
