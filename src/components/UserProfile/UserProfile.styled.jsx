@@ -68,7 +68,6 @@ export const InputMod = styled.input`
     outline: none;
   }
   &::placeholder {
-    /* font-family: 'Poppins'; */
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

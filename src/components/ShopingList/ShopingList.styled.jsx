@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { mediaSizes } from 'components/constants';
 
 export const Section = styled.section`
   width: 375px;
@@ -6,6 +7,8 @@ export const Section = styled.section`
 
   padding-top: 50px;
   padding-bottom: 100px;
+  padding-left: 16px;
+  padding-right: 16px;
 
   margin-left: auto;
   margin-right: auto;
@@ -15,22 +18,39 @@ export const Section = styled.section`
 
     padding-top: 72px;
     padding-bottom: 200px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   @media (min-width: 1440px) {
     width: 1440px;
 
-    padding-top: 100px;
+    padding-top: 66px;
     padding-bottom: 195px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 `;
 
 export const Title = styled.div`
-  /* margin-bottom: 50px; */
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+  color: ${colors.titleColor};
+  padding-bottom: 50px;
+  margin-top: 50px;
   margin-left: 0;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    font-size: 32px;
     padding-bottom: 72px;
+    margin-top: 72px;
+  }
+
+  @media screen and (min-width: ${mediaSizes.desktop}) {
+    font-size: 44px;
+    margin-top: 100px;
+    padding-bottom: 100px;
   }
 `;
 

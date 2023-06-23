@@ -22,7 +22,7 @@ export const LoginForm = () => {
 
   useEffect(() => {
     dispatch(setAuthError(null));
-  }, []);
+  }, [dispatch]);
   const initialValues = { email: '', password: '' };
 
   const schema = yup.object().shape({

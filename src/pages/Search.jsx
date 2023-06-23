@@ -22,6 +22,9 @@ const Search = () => {
   const placeholder = useSelector(state => state.search.example);
 
   useEffect(() => {
+    if (query === '') {
+      return;
+    }
     switch (queryType) {
       case 'title':
         dispatch(getRecipesByQuery(query));

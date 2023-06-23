@@ -11,21 +11,17 @@ import {
 } from './Motivation.styled';
 import FotoMotivation from '../images/using-foto/foto-for-using-desc.jpg';
 import BlureFons from '../images/blurefon/blure fon.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeMotivation, cleanMotivation } from 'redux/auth/slice';
 
-const Header = () => {
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const height = isDesktop ? 100 : 40;
-  //     const isTop = window.scrollY <= height;
-  //     setIsScrolled(!isTop);
-  //   };
+export const Motivation = () => {
+  const dispatch = useDispatch();
+  const motivation = useSelector(state => state.auth.motivation);
 
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [isDesktop]);
+  const handleCloseMotivation = () => {
+    dispatch(cleanMotivation(''));
+    dispatch(changeMotivation(false));
+  };
 
   return (
     <ModalMotivation>
@@ -35,9 +31,9 @@ const Header = () => {
           <BlureFon src={BlureFons} alt="" />
           <TextBlureFon>
             <WowText>Wow!</WowText>
-            You have created your first shopping list!
+            {motivation}
           </TextBlureFon>
-          <BtnBlure>
+          <BtnBlure onClick={handleCloseMotivation}>
             <CloseInp />
           </BtnBlure>
         </WrapperBlure>
@@ -45,5 +41,3 @@ const Header = () => {
     </ModalMotivation>
   );
 };
-
-export default Header;

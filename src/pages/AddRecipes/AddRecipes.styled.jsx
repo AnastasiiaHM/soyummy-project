@@ -7,6 +7,8 @@ export const Container = styled.div`
 
   padding-top: 50px;
   padding-bottom: 100px;
+  padding-left: 16px;
+  padding-right: 16px;
 
   margin-left: auto;
   margin-right: auto;
@@ -16,13 +18,17 @@ export const Container = styled.div`
 
     padding-top: 72px;
     padding-bottom: 200px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   @media (min-width: 1440px) {
     width: 1440px;
 
-    padding-top: 100px;
+    padding-top: 66px;
     padding-bottom: 195px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 `;
 

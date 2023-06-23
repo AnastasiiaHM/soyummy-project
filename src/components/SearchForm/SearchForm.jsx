@@ -20,14 +20,24 @@ export const SearchForm = () => {
   const query = searchQuery.toLowerCase();
 
   function handleInputChange(e) {
+    if (!e.target.value) {
+      dispatch(changeQuery(''));
+    }
     setSearchQuery(e.target.value);
   }
   useEffect(() => {
+    if (!value) {
+      dispatch(changeQuery(''));
+      dispatch(changeItems([]));
+    }
     dispatch(changeQuery(value));
   }, [dispatch, value]);
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (query === '') {
+      return;
+    }
     setSearchParam({ query });
     if (!value) {
       setSearchQuery('');
@@ -35,9 +45,6 @@ export const SearchForm = () => {
       dispatch(changeItems([]));
     }
     dispatch(changeQuery(value));
-    if (query === '') {
-      return;
-    }
 
     setSearchQuery(query);
 

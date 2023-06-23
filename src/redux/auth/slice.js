@@ -17,6 +17,8 @@ const initialState = {
   authError: null,
   error: null,
   isRefreshing: false,
+  motivation: '',
+  isOpen: false,
 };
 
 const userSlice = createSlice({
@@ -28,6 +30,12 @@ const userSlice = createSlice({
     },
     setAuthError: (state, action) => {
       state.authError = action.payload;
+    },
+    changeMotivation: (state, action) => {
+      state.isOpen = action.payload;
+    },
+    cleanMotivation(state, action) {
+      state.motivation = action.payload;
     },
   },
 
@@ -41,11 +49,14 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.authError = null;
+        state.motivation = action.payload.motivation;
+        state.isOpen = true;
         localStorage.setItem('token', action.payload.token);
       })
       .addCase(register.rejected, (state, action) => {
         state.authError = action.payload;
         state.isLoggedIn = false;
+        state.isOpen = false;
       })
       .addCase(register.pending, (state, action) => {
         state.authError = null;
@@ -102,3 +113,5 @@ const userSlice = createSlice({
 
 export const { setLoading, setAuthError } = userSlice.actions;
 export const authReducer = userSlice.reducer;
+export const { changeMotivation } = userSlice.actions;
+export const { cleanMotivation } = userSlice.actions;

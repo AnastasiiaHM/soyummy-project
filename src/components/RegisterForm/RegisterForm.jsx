@@ -27,7 +27,7 @@ export const RegisterForm = () => {
   };
   useEffect(() => {
     dispatch(setAuthError(null));
-  }, []);
+  }, [dispatch]);
 
   const schema = yup.object().shape({
     name: yup.string().min(1).max(16).required(),
@@ -47,7 +47,6 @@ export const RegisterForm = () => {
   });
 
   const message = useSelector(selectAuthError);
-  console.log(message);
 
   return (
     <RegisterFormStyled>

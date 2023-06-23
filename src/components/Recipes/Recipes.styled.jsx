@@ -256,6 +256,7 @@ export const IngInput = styled.input`
     height: 18px;
     position: relative;
     appearance: none;
+    cursor: pointer;
 
     &:before {
         content: '✓';

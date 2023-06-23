@@ -38,17 +38,6 @@ export const ImgMotivation = styled.img`
     width: 500px;
     height: 500px;
   }
-  /* &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 30px;
-    opacity: 0.7;
-  } */
 `;
 
 export const BlureFon = styled.img`
@@ -60,8 +49,6 @@ export const BlureFon = styled.img`
   height: 180px;
   left: 50%;
   top: 70%;
-  /* background: rgba(217, 217, 217, 0.138); */
-  /* backdrop-filter: blur(27.9764px); */
   transform: translate(-50%, -50%);
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 268px;
@@ -107,9 +94,6 @@ export const WrapperBlure = styled.div`
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 30px;
-
-  /* width: 100px; */
-  /* height: 100px; */
 `;
 
 export const CloseInp = styled(IoIosClose)`
@@ -130,8 +114,6 @@ export const TextBlureFon = styled.p`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  /* or 107% */
-
   letter-spacing: -0.02em;
   color: ${props => props.theme.constWhiteColor};
   left: 140px;
