@@ -13,7 +13,7 @@ import {
 import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 import { StyledTitle } from 'components/SearchForm/SearchForm.styled';
-import { changeExample } from 'redux/search/slice';
+import { changeExample, changeItems, changeQuery } from 'redux/search/slice';
 import { Section } from 'components/ShopingList/ShopingList.styled';
 
 const Search = () => {
@@ -24,18 +24,33 @@ const Search = () => {
   const placeholder = useSelector(state => state.search.example);
 
   useEffect(() => {
+    console.log('fetch');
+    if (query === '') {
+      console.log('fetch');
+      dispatch(changeItems(null));
+      dispatch(changeQuery(''));
+      return;
+    }
+    console.log('fetch');
     dispatch(changeExample(false));
-  }, [dispatch]);
+    dispatch(changeItems(null));
+  }, [dispatch, query]);
 
   useEffect(() => {
     if (query === '') {
+      dispatch(changeItems(null));
+      dispatch(changeQuery(''));
       return;
     }
     switch (queryType) {
       case 'title':
+        console.log('fetch');
+
         dispatch(getRecipesByQuery(query));
+
         break;
       case 'ingredients':
+        console.log('fetch');
         dispatch(getRecipesByIngredient(query));
         break;
       default:

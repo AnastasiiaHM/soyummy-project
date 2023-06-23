@@ -8,7 +8,7 @@ import {
 import { useSearchParams } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
-import { changeQuery } from 'redux/search/slice';
+import { changeItems, changeQuery } from 'redux/search/slice';
 
 export const SearchForm = () => {
   const [searchParam, setSearchParam] = useSearchParams();
@@ -20,47 +20,48 @@ export const SearchForm = () => {
   const query = searchQuery.toLowerCase();
 
   function handleInputChange(e) {
-    if (!e.target.value) {
-      // dispatch(changeQuery(''));
-      return;
-    }
+    console.log('fetch');
     setSearchQuery(e.target.value);
   }
   useEffect(() => {
     if (!value) {
-      // dispatch(changeQuery(''));
-      // dispatch(changeItems([]));
+      dispatch(changeQuery(''));
+      dispatch(changeItems(null));
       return;
     }
+    console.log('fetch');
     dispatch(changeQuery(value));
   }, [dispatch, value]);
 
   function handleSubmit(e) {
     e.preventDefault();
     if (query === '') {
+      console.log('fetch');
+      dispatch(changeQuery(''));
+      dispatch(changeItems(null));
       return;
     }
     setSearchParam({ query });
+    console.log('fetch');
     if (!value) {
-      // setSearchQuery('');
-      // setSearchParam('');
-      // dispatch(changeItems([]));
+      dispatch(changeItems([]));
       return;
     }
     dispatch(changeQuery(value));
 
     setSearchQuery(query);
-
+    console.log('fetch');
     dispatch(changeQuery(searchQuery));
   }
   return (
     <SearchedForm onSubmit={handleSubmit}>
       <SearchLabel>
         <SearchInput
+          name="search"
           type="text"
           value={searchQuery}
           autoComplete="off"
-          minLength={2}
+          minLength={1}
           autoFocus
           placeholder="Search.."
           title="Name may contain only letters, apostrophe, dash and spaces. For example beef, pork.."

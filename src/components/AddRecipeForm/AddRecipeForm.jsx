@@ -27,7 +27,7 @@ const validationSchema = Yup.object().shape({
       'Only alphanumeric characters and spaces are allowed'
     )
     .min(10, 'There must be at least 10 symbols')
-    .max(500, 'There must be not over 500 symbols')
+    .max(1500, 'There must be not over 1500 symbols')
     .required('Required'),
   preparation: Yup.string()
 
