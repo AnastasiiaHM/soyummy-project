@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getRecipesByQuery, getRecipesByIngredient } from './operation';
 
 const initialState = {
-  items: [],
+  items: null,
   query: '',
   queryType: 'title',
   isLoading: false,

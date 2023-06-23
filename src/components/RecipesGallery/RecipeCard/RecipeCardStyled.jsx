@@ -21,15 +21,16 @@ export const RecipeCardStyled = styled.li`
   }
 
   .image {
-    object-fit: cover;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition: 0.3s ease-in-out;
+    /* object-fit: cover; */
+    box-sizing: border-box;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.5s ease-in-out;
     transition: 0.3s ease-in-out;
     &:hover {
-      -webkit-transform: scale(1);
-      transform: scale(1);
       cursor: pointer;
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
     }
   }
   /* 11 */

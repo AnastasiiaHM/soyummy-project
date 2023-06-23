@@ -29,7 +29,7 @@ export const StyledTextarea = styled.textarea`
   border-radius: 6px;
   color: ${colors.color1};
   background-color: ${colors.greyButton};
-
+  scroll-snap-type-y: auto;
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 505px;
     font-size: 18px;

@@ -18,8 +18,10 @@ import { Motivation } from 'components/motivation/Motivation';
 
 export default function MainPageHome() {
   const isOpen = useSelector(state => state.auth.isOpen);
+  const loading = useSelector(state => state.mainPage.loading);
   const location = useLocation();
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchMainPageRecipes());
   }, [dispatch]);
@@ -53,7 +55,7 @@ export default function MainPageHome() {
           </div>
         </div>
       </div>
-      {!recipes ? (
+      {!recipes && loading ? (
         <Loader />
       ) : (
         <HomeGallery>

@@ -24,7 +24,7 @@ export const CategoriesConteiner = styled.div`
 
     padding-top: 66px;
     padding-bottom: 195px;
-    padding-left: 100px;
+    padding-left: 80px;
     padding-right: 100px;
   }
 `;

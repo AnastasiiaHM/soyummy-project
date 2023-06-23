@@ -25,8 +25,8 @@ export const StyledBox = styled(Box)(() => ({
     backgroundColor: colors.greenButton,
   },
   '& .MuiButtonBase-root': {
-    padding: '10px 0 30px',
-    marginRight: '28px',
+    padding: '10px 0 20px',
+    marginRight: '20px',
   },
   '& .MuiTabScrollButton-root': {
     margin: 0,

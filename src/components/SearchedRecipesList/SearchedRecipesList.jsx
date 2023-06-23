@@ -20,7 +20,7 @@ export const SearchRecipesList = ({ recipes, location }) => {
     <>
       {isLoading && !error && <Loader />}
       <RecipesGalleryStyled>
-        {recipes.map(recipe => (
+        {recipes?.map(recipe => (
           <RecipeCard key={recipe._id} recipe={recipe} location={location} />
         ))}
       </RecipesGalleryStyled>
