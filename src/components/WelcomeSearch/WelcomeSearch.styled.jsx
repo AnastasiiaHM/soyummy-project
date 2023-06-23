@@ -80,7 +80,7 @@ export const FormikWrapper = styled.div`
     left: 32px;
     font-size: 12px;
     line-height: 21px;
-    color: #e74a3b;
+    color: ${props => props.theme.constRedColor};
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 14px;

@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
 
@@ -13,7 +12,7 @@ export const Message = styled.div`
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
-  ${(props) => css`color: ${props.theme.titleCategories}`};
+  color: ${props => props.theme.titleCategories};
 
 `;
 

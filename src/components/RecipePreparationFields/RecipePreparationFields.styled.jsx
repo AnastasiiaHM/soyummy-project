@@ -40,7 +40,7 @@ export const StyledTextarea = styled.textarea`
 `;
 
 export const ValidationInfo = styled.span`
-  color: red;
+  color: ${props => props.theme.constRedColor};
   font-size: 11px;
   background-color: transparent;
   position: absolute;

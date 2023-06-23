@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-import { css } from '@emotion/react';
 // import { container } from 'helpers';
 
 export const HeaderWrapper = styled.div`
@@ -54,7 +53,7 @@ export const UserTextsName = styled.div`
   font-weight: 600;
   font-size: '14px';
   font-style: normal;
-  ${(props) => css`color: ${props => props.theme.userNameText}`};
+  color: ${props => props.theme.userNameText};
 `;
 
 export const UserIconWrapper = styled.div`

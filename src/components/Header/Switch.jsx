@@ -1,9 +1,9 @@
-import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from 'redux/theme/slice';
+import { styled } from '@mui/material';
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,

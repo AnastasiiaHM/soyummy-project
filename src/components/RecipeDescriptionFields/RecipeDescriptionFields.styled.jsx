@@ -128,7 +128,7 @@ export const StyledLabel = styled.label`
 `;
 
 export const ValidationInfo = styled.span`
-  color: red;
+  color: ${props => props.theme.constRedColor};
   font-size: 11px;
   background-color: transparent;
   position: absolute;

@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-import { css } from '@emotion/react';
 
 export const List = styled.div`
   display: flex;
@@ -22,7 +21,7 @@ export const ListName = styled.h2`
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
-  ${(props) => css`color: ${props.theme.titleCategories}`};
+  color: ${props => props.theme.titleCategories};
   padding-bottom: 50px;
   margin-top: 50px;
 

@@ -1,21 +1,22 @@
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/react';
+import { keyframes } from '@emotion/react';
 
 const colorChange = keyframes`
   0% {
-    ${(props) => css`fill: ${props.theme.userNameText};`}
+    fill: ${props => props.theme.userNameText};
   }
   50% {
-    ${(props) => css`fill: ${props.theme.constantGreenColor};`}
+    fill: ${props => props.theme.constantGreenColor};
 
   }
   100% {
-    ${(props) => css`fill: ${props.theme.userNameText};`}
+    fill: ${props => props.theme.userNameText};
   }
 `;
 
 export const LayoutWrapper = styled.div`
   position: relative;
+  background-color: ${props => props.theme.bodyBackground};
 `;
 
 export const Button = styled.button`
@@ -29,8 +30,7 @@ export const Button = styled.button`
   padding: 0;
 
   & svg {
-    ${(props) => css`fill: ${props.theme.constantGreenColor};`}
-    stroke: red;
+    fill: ${props => props.theme.constantGreenColor};
     width: 40px;
     height: 40px;
     animation: ${colorChange} 1s infinite alternate;

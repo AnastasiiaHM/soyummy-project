@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
 
@@ -12,7 +11,7 @@ export const Input = styled.input`
   letter-spacing: -0.02em;
   width: ${props => props.width || '100%'};
   padding: 16px 60px 16px 16px;
-  ${(props) => css `background-color: ${props => props.theme.inputBackground}`}; 
+  background-color: ${props => props.theme.inputBackground}; 
   color: ${props => props.theme.labelText}; 
   border: none;
   border-radius: 6px;
@@ -81,7 +80,7 @@ export const DropDown = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 8px 18px;
-  ${(props) => css `background-color: ${props => props.theme.dropdownBackground}`};
+  background-color: ${props => props.theme.dropdownBackground};
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
   border-radius: 6px;
 `;
@@ -102,7 +101,7 @@ export const IngredientBtn = styled.button`
   letter-spacing: -0.02em;
   text-align: left;
   padding: 4px 0;
-  ${(props) => css`color: ${props => props.theme.placeholderAddRecipes}`};
+  color: ${props => props.theme.placeholderAddRecipes};
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -111,6 +110,6 @@ export const IngredientBtn = styled.button`
   }
 
   &:hover {
-    ${(props) => css`color: ${props => props.theme.constantGreenColor}`};
+    color: ${props => props.theme.constantGreenColor};
   }
 `;
