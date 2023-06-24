@@ -20,6 +20,11 @@ export const BtnClose = styled.button`
     top: 24px;
     right: 24px;
   }
+
+  & > svg path {
+    stroke: ${props => props.theme.textPrimaryDark};
+    fill: ${props => props.theme.textPrimaryDark};
+  }
 `;
 
 export const CenteredContainer = styled.div`
@@ -49,7 +54,7 @@ export const WrapperInp = styled.div`
 `;
 
 export const InputMod = styled.input`
-  border: 1px solid ${props => props.theme.bordercolor};
+  border: 1px solid ${props => props.theme.placeholderText};
   border-radius: 6px;
   padding-top: 16px;
   padding-left: 51px;
@@ -95,6 +100,8 @@ export const IconUser = styled.div`
   align-items: center;
   margin-bottom: 54px;
   margin-top: 22px;
+
+
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 50px;
@@ -161,7 +168,7 @@ export const InputPen = styled(BiPencil)`
   position: absolute;
   top: 12px;
   right: 18px;
-  fill: ${props => props.theme.textPrimaryDark};
+  fill: ${props => props.theme.constDarkColor};
   cursor: pointer;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -179,7 +186,7 @@ export const UserIconInp = styled(BiUser)`
   position: absolute;
   left: 18px;
   top: 12px;
-  fill: ${props => props.theme.textPrimaryDark};
+  fill: ${props => props.theme.constDarkColor};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     top: 16px;

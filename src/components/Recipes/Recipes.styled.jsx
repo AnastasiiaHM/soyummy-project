@@ -46,7 +46,7 @@ export const RecipeText = styled.p`
     line-height: 16px;
     text-align: center;
     letter-spacing: -0.02em;
-    color: ${props => props.theme.constDarkColor};
+    color: ${props => props.theme.textPrimaryDark};
     width: 299px;
     height: 64px;
     margin: 0 auto;
@@ -69,7 +69,11 @@ export const RecipeTiming = styled.div`
     margin-top: 48px;
     margin-bottom: 82px;
     gap: 10px;
-    color: ${props => props.theme.constDarkColor};
+    color: ${props => props.theme.textPrimaryDark};
+
+    & > svg {
+        stroke: ${props => props.theme.textPrimaryDark};
+    }
 
     @media (min-width: ${mediaSizes.tablet}) {
         margin-bottom: 55px;

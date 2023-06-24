@@ -17,7 +17,7 @@ export const lightTheme = {
   constWhiteColor: '#FAFAFA',
   constDarkColor: '#23262A',
   constGreyColor: '#D9D9D9',
-  constRedColor: 'E74A3B',
+  constRedColor: '#E74A3B',
   titleCategories: '#001833',
   socialIconBackground: '#8BAA36',
   labelText: 'rgba(0, 0, 0, 0.5)',
@@ -32,13 +32,14 @@ export const lightTheme = {
   recipesBackgroundCard: '#FFFFFF',
   deleteBackgroundBtn: '#EBF3D4', //mobile menu
   productBackground: '#EBF3D4',
-  switchBackground: '#EFEFEF'
+  switchBackground: '#EFEFEF',
+  isDark: false
 };
 
 export const darkTheme = {
   ...themeMUI,
   headerNavText: '#FAFAFA',
-  userNameText: '#22252A',
+  userNameText: '#FAFAFA',
   logoNameText: '#FAFAFA', 
   darkButtonBackground: '#8BAA36;',
   greenButtonBackground: '#22252A',
@@ -50,7 +51,7 @@ export const darkTheme = {
   constWhiteColor: '#FAFAFA',
   constGreyColor: '#D9D9D9',
   constDarkColor: '#23262A',
-  constRedColor: 'E74A3B',
+  constRedColor: '#E74A3B',
   titleCategories: '#FAFAFA',
   socialIconBackground: '#FAFAFA',
   labelText: '#FAFAFA',
@@ -65,5 +66,6 @@ export const darkTheme = {
   recipesBackgroundCard: '#2A2C36',
   deleteBackgroundBtn: '#1E1F28',
   productBackground: '#2A2C36',
-  switchBackground: '#8BAA36'
+  switchBackground: '#8BAA36',
+  isDark: true
 };

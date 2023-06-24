@@ -371,6 +371,7 @@ export const MailInp = styled(AiOutlineMail)`
 `;
 export const InputMod = styled.input`
   border: 1px solid ${props => props.theme.constWhiteColor};
+  color: ${props => props.theme.constWhiteColor};
   border-radius: 6px;
   padding: 10px 42px;
   width: 204px;

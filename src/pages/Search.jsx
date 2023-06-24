@@ -13,6 +13,7 @@ import {
 import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipesList';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 import { Section } from 'components/SearchSelector/SearchSelector.styled';
+import { Title } from 'components/Styled/Shared.styled';
 
 const Search = () => {
   const query = useSelector(selectQuery);
@@ -39,7 +40,7 @@ const Search = () => {
 
   return (
     <Section>
-      <title className="title">Search</title>
+      <Title>Search</Title>
 
       <SearchBar />
       {placeholder && (

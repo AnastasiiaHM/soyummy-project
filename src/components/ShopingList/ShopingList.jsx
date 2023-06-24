@@ -4,9 +4,9 @@ import { ShoppingListEmpty } from './ShoppingListEmpty/ShoppingListEmpty';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
+import { Title } from './../Styled/Shared.styled';
 import {
   Section,
-  Title,
   List,
   ListWraper,
   ItemsWrapper,
@@ -31,7 +31,7 @@ export const ShoppingListComponent = () => {
 
   return (
     <Section>
-      <Title className="title">Shopping list</Title>
+      <Title>Shopping list</Title>
 
       {shoppingList.length === 0 ? (
         <ShoppingListEmpty message={'The product list is empty'} />

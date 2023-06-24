@@ -15,6 +15,7 @@ import {
 } from '../components/MainGallery/MainGallery.styled';
 import { Loader } from 'components/Loader/Loader';
 import { Motivation } from 'components/motivation/Motivation';
+import { OtherCategoriesButton } from './Home.styled';
 
 export default function MainPageHome() {
   const isOpen = useSelector(state => state.auth.isOpen);
@@ -70,7 +71,7 @@ export default function MainPageHome() {
             </StyledDiv>
           ))}
           <Link to={`/categories`} state={{ from: location }}>
-            <button className="btn recipesbtn">Other Categories</button>
+            <OtherCategoriesButton>Other Categories</OtherCategoriesButton>
           </Link>
         </HomeGallery>
       )}

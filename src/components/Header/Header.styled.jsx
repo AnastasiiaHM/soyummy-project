@@ -53,7 +53,15 @@ export const UserTextsName = styled.div`
   font-weight: 600;
   font-size: '14px';
   font-style: normal;
-  color: ${props => props.theme.userNameText};
+  color: ${props => props.theme.logoNameText};
+
+  @media (min-width: ${mediaSizes.desktop}) {
+    ${props => {
+      if (props.pathname === '/main') {
+        return `color: ${props.theme.constDarkColor};` 
+      }
+    }}
+  }
 `;
 
 export const UserIconWrapper = styled.div`

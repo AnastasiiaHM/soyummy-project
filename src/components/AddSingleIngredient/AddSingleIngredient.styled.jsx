@@ -13,7 +13,7 @@ export const Input = styled.input`
   padding: 16px 60px 16px 16px;
   background-color: ${props => props.theme.inputBackground}; 
   color: ${props => props.theme.labelText}; 
-  border: none;
+  border: ${({theme}) => theme.isDark ? `1px solid ${theme.constGreyColor}` : 'none'};
   border-radius: 6px;
   text-align: right;
   margin-right: 18px;
@@ -110,6 +110,6 @@ export const IngredientBtn = styled.button`
   }
 
   &:hover {
-    color: ${props => props.theme.constantGreenColor};
+    color: ${props => props.theme.greenButtonBackground};
   }
 `;

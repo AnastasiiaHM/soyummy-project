@@ -36,7 +36,7 @@ export const Title = styled.div`
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
-  color: ${colors.titleColor};
+  color: ${props => props.theme.titleCategories};
   padding-bottom: 50px;
   margin-top: 50px;
   margin-left: 0;

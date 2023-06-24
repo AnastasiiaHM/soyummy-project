@@ -2,9 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import ModeOutlinedIcon from '@mui/icons-material/ModeOutlined';
+import {MdEdit} from 'react-icons/md';
 import UserProf from './UserProfile';
 import LogoutModal from './UserLogout';
+import { Settings } from './UserLogout.styled';
 
 const style = {
   position: 'fixed',
@@ -12,34 +13,29 @@ const style = {
   left: '70%',
   transform: 'translate(-50%, -50%)',
   width: 177,
-  bgcolor: `${props => props.theme.bodyBackground}`,
+  bgcolor: theme => theme.bodyBackground,
   borderRadius: '8px',
   boxShadow: 24,
   p: 1.8,
 };
 
-const styleFont = { 
-    fontWeight: 500, 
-    fontSize: 14,  
-    marginRight: 5.3,
-    marginBottom: 3.2,
-    color: `${props => props.theme.textBackground}`,
+const styleFont = {
+  fontWeight: 500,
+  fontSize: 14,
+  marginRight: 5.3,
+  marginBottom: 3.2,
+  color: theme => theme.titleCategories,
+
   '&:hover': {
     cursor: 'pointer',
-    color: `${props => props.theme.darkButtonBackground}`,
+    color: theme => theme.constantGreenColor,
   },
-  };
-
-  const iconStyle = {
-    width: 18,
-    cursor: 'pointer'
-  };
+};
 
 const BasicModal = ({ handleCloseModal }) => {
-
   const [isUserProfOpen, setIsUserProfOpen] = React.useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = React.useState(false);
-  
+
   const handleModalClick = () => {
     setIsUserProfOpen(true);
   };
@@ -53,10 +49,10 @@ const BasicModal = ({ handleCloseModal }) => {
     setIsLogoutModalOpen(false);
   };
   const handleBasicModalClose = () => {
-      setIsLogoutModalOpen(false);
-      handleCloseModal();
+    setIsLogoutModalOpen(false);
+    handleCloseModal();
   };
-      
+
   return (
     <div>
       <Modal
@@ -67,31 +63,44 @@ const BasicModal = ({ handleCloseModal }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Box style={{ display: 'flex', alignItems: 'start'}}>
-            <Typography onClick={handleModalClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: props => props.theme.titleCategories }}>
-              Edit profile
-            </Typography>
-            <ModeOutlinedIcon style={iconStyle} onClick={handleModalClick} />
+          <Box style={{ display: 'flex', alignItems: 'start' }}>
+            <Settings>
+              <Typography
+                onClick={handleModalClick}
+                sx={styleFont}
+                id="modal-modal-title"
+                variant="h6"
+                component="p"
+              >
+                Edit profile
+              </Typography>
+              <MdEdit onClick={handleModalClick} />
+            </Settings>
           </Box>
-            <button className="btn logoutbtn" onClick={() => {
-            handleLogoutClick();
-            }}>Log out →</button>        
+          <button
+            className="btn logoutbtn"
+            onClick={() => {
+              handleLogoutClick();
+            }}
+          >
+            Log out →
+          </button>
         </Box>
       </Modal>
       {isUserProfOpen && (
-                <UserProf 
-                    handleCloseModalProfile={handleCloseModalProfile} 
-                    handleModalClickProfile={handleModalClick} 
-                />
-            )}
-        {isLogoutModalOpen && (
-            <LogoutModal 
-                handleCloseModal={handleBasicModalClose} 
-                handleLogoutClick={handleCloseLogoutModal} 
-            />
-        )}
+        <UserProf
+          handleCloseModalProfile={handleCloseModalProfile}
+          handleModalClickProfile={handleModalClick}
+        />
+      )}
+      {isLogoutModalOpen && (
+        <LogoutModal
+          handleCloseModal={handleBasicModalClose}
+          handleLogoutClick={handleCloseLogoutModal}
+        />
+      )}
     </div>
   );
-}
+};
 
 export default BasicModal;

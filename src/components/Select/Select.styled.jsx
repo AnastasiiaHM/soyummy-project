@@ -21,6 +21,7 @@ export const Field = styled.input`
   background-color: transparent;
   text-align: right;
   pointer-events: none;
+  color: ${props => props.theme.textPrimaryDark};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 14px;
@@ -95,10 +96,10 @@ export const OptionBtn = styled.button`
   }
 
   &:hover {
-    color: ${props => props.theme.constantGreenColor};
+    color: ${props => props.theme.greenButtonBackground};
   }
 
   &.active {
-    color: ${props => props.theme.constantGreenColor};
+    color: ${props => props.theme.greenButtonBackground};
   }
 `;

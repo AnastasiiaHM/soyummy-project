@@ -65,8 +65,7 @@ const UserProf = ({ handleCloseModalProfile }) => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     boxShadow: 24,
-
-    bgcolor: `${props => props.theme.recipesBackgroundCard}`,
+    bgcolor: theme => theme.recipesBackgroundCard,
     borderRadius: '8px',
     p: 1.8,
   };

@@ -24,7 +24,7 @@ export const StyledTextarea = styled.textarea`
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  border: none;
+  border: ${({theme}) => theme.isDark ? `1px solid ${theme.constGreyColor}` : 'none'};
   border-radius: 6px;
   color: ${props => props.theme.placeholderAddRecipes};
   background-color: ${props => props.theme.inputBackground};

@@ -2,7 +2,8 @@ import Paginator from 'components/Paginator/Paginator';
 import Card from './Card';
 import CardPlaceholder from './CardPlaceholder';
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
-import { List, ListName } from './List.styled';
+import { List } from './List.styled';
+import { Title } from 'components/Styled/Shared.styled';
 
 const RecipesList = ({
   list,
@@ -17,7 +18,7 @@ const RecipesList = ({
   console.log(loading);
   return (
     <>
-      <ListName>{listName}</ListName>
+      <Title>{listName}</Title>
 
       {!loading && list?.length === 0 ? (
         <ShoppingListEmpty message="You don't have favourite recipes yet" />

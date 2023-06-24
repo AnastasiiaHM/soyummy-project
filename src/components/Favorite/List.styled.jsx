@@ -16,24 +16,3 @@ export const List = styled.div`
     gap: 50px;
   }
 `;
-
-export const ListName = styled.h2`
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 1;
-  color: ${props => props.theme.titleCategories};
-  padding-bottom: 50px;
-  margin-top: 50px;
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    font-size: 32px;
-    padding-bottom: 72px;
-    margin-top: 72px;
-  }
-
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    font-size: 44px;
-    margin-top: 100px;
-    padding-bottom: 100px;
-  }
-`;
