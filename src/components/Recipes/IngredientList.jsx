@@ -22,6 +22,7 @@ export const IngredientList = () => {
   const { recipeId } = useParams();
 
   const [checkedIngredients, setCheckedIngredients] = useState([]);
+  const [isRequestPending, setRequestPending] = useState(false);
 
   useEffect(() => {
     dispatch(fetchRecipeById(recipeId));
@@ -45,6 +46,12 @@ export const IngredientList = () => {
 
   const handleCheckboxChange = async (ingredient, measure) => {
     try {
+      if (isRequestPending) {
+        return; // Якщо запит вже виконується, не дозволяйте виконувати інший запит
+      }
+
+      setRequestPending(true); // Встановіть значення `true`, щоб показати, що запит виконується
+
       if (checkedIngredients.includes(ingredient._id)) {
         // Remove ingredient from shopping list
         const payload = {
@@ -65,8 +72,10 @@ export const IngredientList = () => {
       }
     } catch (error) {
       console.log('Error executing request:', error);
+    } finally {
+      setRequestPending(false);
     }
-  };
+  } 
 
   return (
     <>
