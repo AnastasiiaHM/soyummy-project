@@ -97,7 +97,26 @@ export const RecipeIngContainer = styled.div`
     width: 343px;
     margin: 0 auto;
     margin-top: 32px;
-    margin-bottom: 100px;
+    margin-bottom: 18px;
+
+    @media (min-width: ${mediaSizes.tablet}) {
+        width: 704px;
+        margin: 0 auto;
+        margin-bottom: 100px;
+    }
+
+    @media (min-width: ${mediaSizes.desktop}) {
+        width: 1240px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+`
+
+export const RecipePrepContainer = styled.div`
+    width: 343px;
+    margin: 0 auto;
+    margin-top: 32px;
+    margin-bottom: 18px;
 
     @media (min-width: ${mediaSizes.tablet}) {
         width: 704px;
@@ -108,6 +127,7 @@ export const RecipeIngContainer = styled.div`
     @media (min-width: ${mediaSizes.desktop}) {
         width: 1240px;
         margin-top: 50px;
+        margin-bottom: 200px;
     }
 `
 

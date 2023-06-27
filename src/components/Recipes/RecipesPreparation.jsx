@@ -1,7 +1,7 @@
 import {
   RecipeDescr,
   PreparationImg,
-  RecipeIngContainer,
+  RecipePrepContainer,
   PreparationTitle,
   PreparationItem,
   CustomNumbering,
@@ -26,7 +26,7 @@ const RecipesPreparation = () => {
     : [];
 
   return (
-    <RecipeIngContainer>
+    <RecipePrepContainer>
       <RecipeDescr>
         <div>
           <PreparationTitle>Recipe Preparation</PreparationTitle>
@@ -51,7 +51,7 @@ const RecipesPreparation = () => {
           />
         </div>
       </RecipeDescr>
-    </RecipeIngContainer>
+    </RecipePrepContainer>
   );
 };
 
