@@ -8,10 +8,6 @@ import UserProf from './UserProfile';
 import LogoutModal from './UserLogout';
 
 const style = {
-  position: 'fixed',
-  top: '20%',
-  left: '70%',
-  transform: 'translate(-50%, -50%)',
   width: 177,
   bgcolor: `${colors.textGreenBtn}`,
   borderRadius: '8px',
@@ -36,11 +32,11 @@ const styleFont = {
     cursor: 'pointer'
   };
 
-const BasicModal = ({ handleCloseModal }) => {
+const BasicModal = ({ handleCloseModal, avatarRef }) => {
 
   const [isUserProfOpen, setIsUserProfOpen] = React.useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = React.useState(false);
-  
+
   const handleModalClick = () => {
     setIsUserProfOpen(true);
   };
@@ -57,7 +53,26 @@ const BasicModal = ({ handleCloseModal }) => {
       setIsLogoutModalOpen(false);
       handleCloseModal();
   };
-      
+  const handleEditProfileClick = () => {
+    handleModalClick();
+  };
+
+  const getModalStyle = () => {
+    if (avatarRef.current) {
+      const avatarRect = avatarRef.current.getBoundingClientRect();
+      const avatarTop = avatarRect.bottom;
+      const avatarLeft = avatarRect.left + avatarRect.width / 2;
+      return {
+        position: 'absolute',
+        top: avatarTop,
+        left: avatarLeft,
+        transform: 'translate(-50%, 0)',
+        zIndex: 9999,
+      };
+    }
+    return {};
+  };
+   
   return (
     <div>
       <Modal
@@ -67,22 +82,21 @@ const BasicModal = ({ handleCloseModal }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} style={getModalStyle()}>
           <Box style={{ display: 'flex', alignItems: 'start'}}>
-            <Typography onClick={handleModalClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: colors.blackFont }}>
+            <Typography onClick={handleEditProfileClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: colors.blackFont }}>
               Edit profile
             </Typography>
-            <ModeOutlinedIcon style={iconStyle} onClick={handleModalClick} />
-          </Box>
-            <button className="btn logoutbtn" onClick={() => {
-            handleLogoutClick();
+            <ModeOutlinedIcon style={iconStyle} onClick={handleEditProfileClick} />          
+          </Box>            
+          <button className="btn logoutbtn" onClick={() => {
+            handleLogoutClick(); 
             }}>Log out →</button>        
         </Box>
       </Modal>
       {isUserProfOpen && (
                 <UserProf 
                     handleCloseModalProfile={handleCloseModalProfile} 
-                    handleModalClickProfile={handleModalClick}
                     handleCloseModal={handleCloseModal} 
                 />
             )}
