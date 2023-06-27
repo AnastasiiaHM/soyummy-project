@@ -1,19 +1,6 @@
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
 import {mediaSizes} from '../constants/media'
 
-const colorChange = keyframes`
-  0% {
-    fill: ${props => props.theme.userNameText};
-  }
-  50% {
-    fill: ${props => props.theme.constantGreenColor};
-
-  }
-  100% {
-    fill: ${props => props.theme.userNameText};
-  }
-`;
 
 export const LayoutWrapper = styled.div`
   position: relative;
@@ -34,7 +21,7 @@ export const Button = styled.button`
     fill: ${props => props.theme.constantGreenColor};
     width: 40px;
     height: 40px;
-    animation: ${colorChange} 1s infinite alternate;
+   
   }
 `;
 export const WrapperSection = styled.div`
