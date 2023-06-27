@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
 
 export const Title = styled.h3`
-  font-family: 'Poppins';
   display: inline-block;
   margin-bottom: 24px;
   font-weight: 600;
@@ -28,7 +27,7 @@ export const StyledTextarea = styled.textarea`
   border-radius: 6px;
   color: ${props => props.theme.placeholderAddRecipes};
   background-color: ${props => props.theme.inputBackground};
-
+  scroll-snap-type-y: auto;
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 505px;
     font-size: 18px;

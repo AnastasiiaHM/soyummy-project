@@ -6,7 +6,6 @@ export const Title = styled.h2`
 
   @media screen and (min-width: ${mediaSizes.desktop}) {
     display: block;
-    font-family: 'Poppins';
     font-weight: 600;
     font-size: 24px;
     line-height: 24px;

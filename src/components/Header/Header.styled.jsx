@@ -25,10 +25,9 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const SwitchWrapper = styled.div`
-    display: flex;
-    position: absolute;
-    top: 60vw;
-    bottom: 32px;
+    display: none;
+    position: fixed;
+    bottom: 60px;
 `;
 
 export const TabsWrapper = styled.div`

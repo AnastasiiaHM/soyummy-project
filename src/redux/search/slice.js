@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getRecipesByQuery, getRecipesByIngredient } from './operation';
 
 const initialState = {
-  items: [],
+  items: null,
   query: '',
   queryType: 'title',
   isLoading: false,
@@ -64,6 +64,9 @@ const searchSlice = createSlice({
     changeItems(state, action) {
       state.items = action.payload;
     },
+    changeExample(state, action) {
+      state.example = action.payload;
+    },
   },
 });
 
@@ -73,3 +76,4 @@ export const { changeQueryType } = searchSlice.actions;
 export const { changeQuery } = searchSlice.actions;
 export const { resetState } = searchSlice.actions;
 export const { changeItems } = searchSlice.actions;
+export const { changeExample } = searchSlice.actions;

@@ -88,17 +88,18 @@ const BasicModal = ({ handleCloseModal }) => {
         </Box>
       </Modal>
       {isUserProfOpen && (
-        <UserProf
-          handleCloseModalProfile={handleCloseModalProfile}
-          handleModalClickProfile={handleModalClick}
-        />
-      )}
-      {isLogoutModalOpen && (
-        <LogoutModal
-          handleCloseModal={handleBasicModalClose}
-          handleLogoutClick={handleCloseLogoutModal}
-        />
-      )}
+                <UserProf 
+                    handleCloseModalProfile={handleCloseModalProfile} 
+                    handleModalClickProfile={handleModalClick}
+                    handleCloseModal={handleCloseModal} 
+                />
+            )}
+        {isLogoutModalOpen && (
+            <LogoutModal 
+                handleCloseModal={handleBasicModalClose} 
+                handleLogoutClick={handleCloseLogoutModal} 
+            />
+        )}
     </div>
   );
 };

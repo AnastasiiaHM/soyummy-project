@@ -38,8 +38,8 @@ export function TemporaryDrawer() {
           <Logo />
           <CloseIcon />
           <SwitchWrapper>
-          <BasicSwitches />
-        </SwitchWrapper>
+            <BasicSwitches />
+          </SwitchWrapper>
         </HeaderWrapper>
         <VerticalTabs />
         <BackgroundMob />

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
+import {mediaSizes} from '../constants/media'
 
 const colorChange = keyframes`
   0% {
@@ -37,9 +38,16 @@ export const Button = styled.button`
   }
 `;
 export const WrapperSection = styled.div`
-  min-height: 800px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
+  
+  @media (min-width: ${mediaSizes.tablet}) {
+    min-height: 800px;
+  }
+
+  @media (min-width: ${mediaSizes.desktop}) {
+    min-height: 800px;
+  }
 `;

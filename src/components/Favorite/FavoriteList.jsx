@@ -15,7 +15,6 @@ const RecipesList = ({
   pageChange,
   deleteCard,
 }) => {
-  console.log(loading);
   return (
     <>
       <Title>{listName}</Title>

@@ -17,9 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-family: 'Poppins';
   display: inline-block;
-  font-family: 'Verdana';
   font-style: normal;
   font-weight: 600;
   font-size: 24px;

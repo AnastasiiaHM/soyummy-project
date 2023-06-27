@@ -18,7 +18,7 @@ import { mediaSizes } from 'components/constants';
 import { updateUser } from '../../redux/user/operations';
 import { useSelector } from 'react-redux';
 
-const UserProf = ({ handleCloseModalProfile }) => {
+const UserProf = ({ handleCloseModalProfile, handleCloseModal }) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
   const [name, setName] = React.useState(user.name || '');
@@ -57,6 +57,7 @@ const UserProf = ({ handleCloseModalProfile }) => {
         console.error(error);
       });
     handleCloseModalProfile();
+    handleCloseModal();
   };
 
   const style = {

@@ -14,6 +14,8 @@ import { SearchRecipesList } from 'components/SearchedRecipesList/SearchedRecipe
 import { ShoppingListEmpty } from 'components/ShopingList/ShoppingListEmpty/ShoppingListEmpty';
 import { Section } from 'components/SearchSelector/SearchSelector.styled';
 import { Title } from 'components/Styled/Shared.styled';
+import { changeExample, changeItems, changeQuery } from 'redux/search/slice';
+
 
 const Search = () => {
   const query = useSelector(selectQuery);
@@ -23,14 +25,33 @@ const Search = () => {
   const placeholder = useSelector(state => state.search.example);
 
   useEffect(() => {
+    console.log('fetch');
     if (query === '') {
+      console.log('fetch');
+      dispatch(changeItems(null));
+      dispatch(changeQuery(''));
+      return;
+    }
+    console.log('fetch');
+    dispatch(changeExample(false));
+    dispatch(changeItems(null));
+  }, [dispatch, query]);
+
+  useEffect(() => {
+    if (query === '') {
+      dispatch(changeItems(null));
+      dispatch(changeQuery(''));
       return;
     }
     switch (queryType) {
       case 'title':
+        console.log('fetch');
+
         dispatch(getRecipesByQuery(query));
+
         break;
       case 'ingredients':
+        console.log('fetch');
         dispatch(getRecipesByIngredient(query));
         break;
       default:
@@ -41,7 +62,6 @@ const Search = () => {
   return (
     <Section>
       <Title>Search</Title>
-
       <SearchBar />
       {placeholder && (
         <ShoppingListEmpty message={'Try looking for something else..'} />

@@ -4,7 +4,6 @@ export const CategoriesConteiner = styled.div`
   width: 375px;
   max-width: 100%;
 
-  padding-top: 50px;
   padding-bottom: 100px;
   padding-left: 16px;
   padding-right: 16px;
@@ -15,7 +14,6 @@ export const CategoriesConteiner = styled.div`
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 768px;
 
-    padding-top: 72px;
     padding-bottom: 200px;
     padding-left: 32px;
     padding-right: 32px;
@@ -26,7 +24,7 @@ export const CategoriesConteiner = styled.div`
 
     padding-top: 66px;
     padding-bottom: 195px;
-    padding-left: 100px;
+    padding-left: 80px;
     padding-right: 100px;
   }
 `;

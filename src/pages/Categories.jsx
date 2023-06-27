@@ -28,11 +28,9 @@ const Categories = () => {
   }, [dispatch, query]);
 
   const handlePageChange = page => {
-    if (!query) {
-      query = 'Beef';
-    }
     dispatch(fetchRecipesByCategory({ query: query, page }));
   };
+
   return (
     <section>
       <CategoriesConteiner>
