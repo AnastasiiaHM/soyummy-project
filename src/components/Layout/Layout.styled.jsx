@@ -1,21 +1,10 @@
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
 import {mediaSizes} from '../constants/media'
 
-const colorChange = keyframes`
-  0% {
-    fill: #22252a;
-  }
-  50% {
-    fill: #8baa36;
-  }
-  100% {
-    fill: #22252a;
-  }
-`;
 
 export const LayoutWrapper = styled.div`
   position: relative;
+  background-color: ${props => props.theme.bodyBackground};
 `;
 
 export const Button = styled.button`
@@ -29,11 +18,10 @@ export const Button = styled.button`
   padding: 0;
 
   & svg {
-    fill: #8baa36;
-    stroke: red;
+    fill: ${props => props.theme.constantGreenColor};
     width: 40px;
     height: 40px;
-    animation: ${colorChange} 1s infinite alternate;
+   
   }
 `;
 export const WrapperSection = styled.div`

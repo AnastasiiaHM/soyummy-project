@@ -4,7 +4,6 @@ import { AiOutlineMail } from 'react-icons/ai';
 import spinach from 'components/images/spinach/footer.png';
 import { NavLink } from 'react-router-dom';
 import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from 'react-icons/bs';
-import { colors } from '../colors';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -21,7 +20,7 @@ export const StyledForm = styled.form`
 `;
 
 export const FooterWrapper = styled.div`
-  background: ${colors.darkButton};
+  background: ${props => props.theme.darkButtonBackground};
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -65,8 +64,8 @@ export const TextName = styled.p`
   font-size: 18px;
   line-height: 1;
   letter-spacing: 0.015em;
+  color: ${props => props.theme.constWhiteColor};
 
-  color: ${colors.textGreenBtn};
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 28px;
     line-height: 1;
@@ -81,11 +80,9 @@ export const Text = styled.p`
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  /* identical to box height, or 133% */
-
   letter-spacing: -0.02em;
 
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
   @media screen and (min-width: ${mediaSizes.tablet}) {
     line-height: 1.3;
   }
@@ -114,7 +111,7 @@ export const FooterMain = styled.footer`
     font-size: 10px;
     line-height: 10px;
     letter-spacing: -0.01em;
-    color: ${colors.darkButton};
+    color: ${props => props.theme.logoNameText};
     opacity: 0.5;
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -143,7 +140,7 @@ export const ListTextInf = styled.ul`
   display: none;
   width: 418px;
   list-style-type: disc;
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     display: flex;
@@ -192,40 +189,41 @@ export const TextRous = styled(NavLink)`
 
   letter-spacing: -0.02em;
 
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
 `;
 
 export const SocialMediaFace = styled(BsFacebook)`
-  fill: ${colors.greenButton};
+  fill: ${props => props.theme.socialIconBackground};
   width: '20px';
   height: '20px';
   &:hover {
-    fill: ${colors.whiteColor};
+    fill: ${props => props.theme.bodyBackground};
   }
 `;
 export const SocialMediaInst = styled(BsInstagram)`
-  fill: ${colors.greenButton};
+  fill: ${props => props.theme.socialIconBackground};
   width: '20px';
   height: '20px';
   &:hover {
-    fill: ${colors.whiteColor};
+    fill: ${props => props.theme.bodyBackground};
+    
   }
 `;
 export const SocialMediaYout = styled(BsYoutube)`
-  fill: ${colors.greenButton};
+  fill: ${props => props.theme.socialIconBackground};
   width: '20px';
   height: '20px';
   &:hover {
-    fill: ${colors.whiteColor};
+    fill: ${props => props.theme.bodyBackground};
   }
 `;
 
 export const SocialMediaTwit = styled(BsTwitter)`
-  fill: ${colors.greenButton};
+  fill: ${props => props.theme.socialIconBackground};
   width: '20px';
   height: '20px';
   &:hover {
-    fill: ${colors.whiteColor};
+    fill: ${props => props.theme.bodyBackground};
   }
 `;
 
@@ -280,7 +278,7 @@ export const TextSubSlet = styled.p`
   line-height: 1.5;
   /* identical to box height */
 
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
   display: none;
   margin-bottom: 14px;
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -293,11 +291,10 @@ export const TextOffers = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.3;
-  /* or 129% */
 
   letter-spacing: -0.02em;
 
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
   width: 310px;
   margin-bottom: 28px;
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -305,7 +302,7 @@ export const TextOffers = styled.p`
   }
 `;
 export const TextBtn = styled.p`
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
   display: flex;
   align-items: center;
   text-align: center;
@@ -328,7 +325,8 @@ export const BtnLogOut = styled.button`
   justify-content: center;
   align-items: center;
 
-  background: ${colors.greenButton};
+  background: ${props => props.theme.greenButtonBackground};
+  color: ${props => props.theme.constWhiteColor};
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -347,8 +345,7 @@ export const BtnLogOut = styled.button`
     height: 60px;
   }
   &:hover {
-    background-color: transparent;
-    border: 1px solid ${colors.textGreenBtn};
+    color: ${props => props.theme.darkButtonBackground};
   }
 `;
 
@@ -358,7 +355,7 @@ export const MailInp = styled(AiOutlineMail)`
   position: absolute;
   left: 18px;
   top: 15px;
-  fill: ${colors.textGreenBtn};
+  fill: ${props => props.theme.constWhiteColor};
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     top: 16px;
@@ -373,7 +370,8 @@ export const MailInp = styled(AiOutlineMail)`
   }
 `;
 export const InputMod = styled.input`
-  border: 1px solid #c4c4c4;
+  border: 1px solid ${props => props.theme.constWhiteColor};
+  color: ${props => props.theme.constWhiteColor};
   border-radius: 6px;
   padding: 10px 42px;
   width: 204px;
@@ -406,7 +404,7 @@ export const InputMod = styled.input`
 
     letter-spacing: -0.02em;
 
-    color: ${colors.textGreenBtn};
+    color: ${props => props.theme.constWhiteColor};
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
     }

@@ -5,7 +5,6 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/system';
-import { colors } from '../colors';
 
 const StyledTabs = styled(Tabs)(({ theme }) => ({
   '& .MuiTabs-indicator': {
@@ -20,12 +19,12 @@ const StyledTab = styled(Tab)(({ theme }) => ({
   fontStyle: 'normal',
   fontWeight: 500,
 
-  color: colors.darkButton,
+  color: theme.logoNameText,
   '&.Mui-selected': {
-    color: colors.greenButton,
+    color: theme.constantGreenColor,
   },
   '&:hover': {
-    color: colors.greenButton,
+    color: theme.constantGreenColor,
   },
 }));
 

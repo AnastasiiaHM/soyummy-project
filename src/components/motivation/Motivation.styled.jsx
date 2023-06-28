@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
-
 import { IoIosClose } from 'react-icons/io';
 
 export const WrapperMotivation = styled.div`
@@ -66,7 +65,7 @@ export const BtnBlure = styled.button`
   height: 30px;
   border-radius: 50%;
   border: none;
-  background: #8baa36;
+  background: ${props => props.theme.constantGreenColor};
   position: absolute;
   left: 226px;
   top: 398px;
@@ -100,7 +99,7 @@ export const WrapperBlure = styled.div`
 export const CloseInp = styled(IoIosClose)`
   width: 21px;
   height: 29px;
-  fill: #fafafa;
+  fill: ${props => props.theme.constWhiteColor};
   @media screen and (min-width: ${mediaSizes.tablet}) {
     width: 38px;
     height: 45px;
@@ -116,7 +115,7 @@ export const TextBlureFon = styled.p`
   font-size: 20px;
   line-height: 24px;
   letter-spacing: -0.02em;
-  color: #fafafa;
+  color: ${props => props.theme.constWhiteColor};
   left: 140px;
   top: 250px;
   position: absolute;
@@ -148,6 +147,6 @@ export const TextBlureFon = styled.p`
 `;
 
 export const WowText = styled.span`
-  color: #8baa36;
+  color: ${props => props.theme.constantGreenColor};
   margin-right: 8px;
 `;

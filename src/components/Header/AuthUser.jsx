@@ -3,12 +3,14 @@ import { useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
 import { UserWrapper, UserTextsName } from './Header.styled';
 import BasicModal from '../UserProfile/UserChoose';
+import { useLocation } from 'react-router';
 
 const defaultUser = {
   name: 'Name',
 };
 
 export function UserComponent() {
+  const location = useLocation();
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const user = useSelector(state => state.auth.user);
@@ -33,7 +35,7 @@ export function UserComponent() {
         src={user.avatar || user.avatarURL}
         onClick={handleOpenModal}
       />
-      <UserTextsName>{user.name || defaultUser.name}</UserTextsName>
+      <UserTextsName pathname={location.pathname}>{user.name || defaultUser.name}</UserTextsName>
       {isModalOpen && (
         <BasicModal
           handleCloseModal={handleCloseModal}

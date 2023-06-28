@@ -9,7 +9,7 @@ export const StyledTitle = styled.h3`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #3e4462;
+  color: ${props => props.theme.titleCategories};
 `;
 
 export const StyledList = styled.ul`
@@ -72,12 +72,12 @@ export const RecipeTitle = styled.h3`
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${props => props.theme.titleCategories};
 `;
 
 export const StyledDesc = styled.p`
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.24px;
-  color: #7e7e7e;
+  color: ${props => props.theme.descriptionCard};
 `;

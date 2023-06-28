@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { colors } from '../colors';
 import { mediaSizes } from '../constants/media';
 
 export const Wrapper = styled.div`
@@ -44,12 +43,12 @@ export const ImageLoader = styled.label`
   width: 279px;
   height: 268px;
   border-radius: 8px;
-  background-color: ${colors.greenButton};
+  background-color: ${props => props.theme.constantGreenColor};
   cursor: pointer;
   flex-shrink: 0;
 
   svg {
-    fill: #fff;
+    fill: ${props => props.theme.constWhiteColor};
     width: 48px;
     height: 48px;
   }
@@ -89,9 +88,9 @@ export const CloseBtn = styled.button`
   border: none;
   border-radius: 50%;
   z-index: 3;
-  background-color: ${colors.color1};
+  background-color: ${props => props.theme.placeholderAddRecipes};
   cursor: pointer;
-  color: #fff;
+  color: ${props => props.theme.constWhiteColor};
 `;
 
 export const Input = styled.input`
@@ -104,14 +103,14 @@ export const Field = styled.input`
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
-  color: ${colors.color1};
+  color: ${props => props.theme.labelText};
   padding: 18px 0;
   border: none;
   border-bottom: ${props => props.border};
   background-color: transparent;
 
   &::placeholder {
-    color: ${colors.color1};
+    color: ${props => props.theme.placeholderAddRecipes};
   }
 
   &:focus {
@@ -124,11 +123,11 @@ export const StyledLabel = styled.label`
   position: relative;
   z-index: ${props => props.zIndex};
   background-color: transparent;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${props => props.theme.placeholderAddRecipes};
 `;
 
 export const ValidationInfo = styled.span`
-  color: red;
+  color: ${props => props.theme.constRedColor};
   font-size: 11px;
   background-color: transparent;
   position: absolute;

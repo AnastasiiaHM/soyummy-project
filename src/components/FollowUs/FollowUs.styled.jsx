@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 
 export const Title = styled.h2`
@@ -12,7 +11,7 @@ export const Title = styled.h2`
     line-height: 24px;
     letter-spacing: -0.24px;
     margin-bottom: 40px;
-    color: ${colors.recipeCardText};
+    color: ${props => props.theme.textPrimaryDark};
   }
 `;
 

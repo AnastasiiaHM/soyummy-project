@@ -8,10 +8,14 @@ import { Outlet } from 'react-router-dom';
 import { IoIosArrowDropup } from 'react-icons/io';
 import { LayoutWrapper, WrapperSection, Button } from './Layout.styled';
 import { useSelector } from 'react-redux';
+import { ThemeProvider } from '@emotion/react';
+
+import { lightTheme, darkTheme } from 'components/colors';
 
 const Layout = () => {
   const [isVisible, setIsVisible] = useState(false);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const theme = useSelector(state => state.theme);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +40,7 @@ const Layout = () => {
   };
 
   return (
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
     <LayoutWrapper>
       {isLoggedIn && <Header />}
       <WrapperSection>
@@ -50,6 +55,7 @@ const Layout = () => {
         </Button>
       )}
     </LayoutWrapper>
+    </ThemeProvider>
   );
 };
 

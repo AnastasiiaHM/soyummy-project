@@ -14,7 +14,6 @@ import {
   CenteredContainer,
 } from './UserProfile.styled';
 import { BiPlus, BiUser } from 'react-icons/bi';
-import { colors } from 'components/colors';
 import { mediaSizes } from 'components/constants';
 import { updateUser } from '../../redux/user/operations';
 import { useSelector } from 'react-redux';
@@ -67,8 +66,7 @@ const UserProf = ({ handleCloseModalProfile, handleCloseModal }) => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     boxShadow: 24,
-
-    bgcolor: `${colors.textGreenBtn}`,
+    bgcolor: theme => theme.recipesBackgroundCard,
     borderRadius: '8px',
     p: 1.8,
   };

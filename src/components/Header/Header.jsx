@@ -20,9 +20,7 @@ const Header = () => {
       <UserIconWrapper>
         <UserComponent />
         {!isMobile && (
-          <div style={{ display: 'none' }}>
             <BasicSwitches />
-          </div>
         )}
 
         {isMobile && <TemporaryDrawer />}

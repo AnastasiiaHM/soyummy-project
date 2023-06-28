@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { colors } from 'components/colors';
 
 export const LoaderContainer = styled.div`
   display: flex;
@@ -12,7 +11,8 @@ export const Message = styled.div`
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
-  color: ${colors.blackFontBolt};
+  color: ${props => props.theme.titleCategories};
+
 `;
 
 export const RecipesContainer = styled.div`

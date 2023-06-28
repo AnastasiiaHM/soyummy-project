@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import assortment from '../images/assortment/assortment-vegetables-2x.jpg';
 import { mediaSizes } from 'components/constants';
 import spynath from '../images/header/spinach/spinach-right-desc-header-2x.png';
-import { colors } from 'components/colors';
 // import salatHero from '../images/header/salat/salat-header-desc-2x.png';
 
 export const Wrapper = styled.div`
@@ -16,19 +15,18 @@ export const Wrapper = styled.div`
 `;
 
 export const Assortment = styled.div`
-  background: url(${assortment}) 
-  no-repeat top 0px left 0px;
+  background: url(${assortment}) no-repeat top 0px left 0px;
   background-size: cover;
   height: 455px;
 
   @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
-    no-repeat top 0px left 0px;
+    background: no-repeat top 0px left 0px;
     background-size: cover;
     height: 495px;
   }
 
   @media (min-width: ${mediaSizes.desktop}) {
-    no-repeat top 0px left 0px;
+    background: no-repeat top 0px left 0px;
     background-size: cover;
     height: 493px;
   }
@@ -40,22 +38,21 @@ export const MobMenuWrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index: -1;
-  background-color: ${colors.imageBC};
+  color: ${props => props.theme.deleteBackgroundBtn};
 `;
 
 export const Spynath = styled.div`
-  background: url(${spynath}) 
-  no-repeat bottom -20px right -180px;
+  background: url(${spynath}) no-repeat bottom -20px right -180px;
   background-size: cover;
   height: 405px;
   transform: rotate(45deg);
-  background-color: ${colors.imageBC};
+  background-color: ${props => props.theme.deleteBackgroundBtn};
 
   @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
-    no-repeat top 0px left 0px;
+    background: no-repeat top 0px left 0px;
     background-size: cover;
     height: 495px;
-    background-color: ${colors.imageBC};
+    background-color: ${props => props.theme.deleteBackgroundBtn};
   }
 `;
 

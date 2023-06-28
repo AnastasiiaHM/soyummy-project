@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { colors } from 'components/colors';
-
 export const ProductMeasures = styled.span`
   display: flex;
   align-items: center;
@@ -9,14 +7,14 @@ export const ProductMeasures = styled.span`
 
   font-weight: 600;
   font-size: 10px;
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
 
   min-width: 37px;
   height: 23px;
 
   padding: 4px 4px;
 
-  background-color: ${colors.greenButton};
+  background-color: ${props => props.theme.constantGreenColord};
   border-radius: 4px;
 
   @media (min-width: 768px) {
