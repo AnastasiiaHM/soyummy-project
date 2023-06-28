@@ -65,3 +65,9 @@ export const Circle6 = styled(Circle)`
 export const Circle7 = styled(Circle)`
   animation-delay: 0.7s;
 `;
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+`;

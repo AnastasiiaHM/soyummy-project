@@ -6,11 +6,12 @@ import {
   fetchRecipesByCategory,
   fetchCategory,
 } from 'redux/recipes/operations';
-import Skeleton from '../components/RecipesGallery/GallerySkeleton';
+// import Skeleton from '../components/RecipesGallery/GallerySkeleton';
 import { CategoriesConteiner } from '../components/CategoriesTab/CategoriesConteiner.styled';
 import Paginator from 'components/Paginator/Paginator';
 import { useParams } from 'react-router-dom';
 import { Title } from 'components/Styled/Shared.styled';
+import { Loader } from 'components/SmallLoader/SmallLoader';
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -34,13 +35,11 @@ const Categories = () => {
   return (
     <section>
       <CategoriesConteiner>
-        <Title>
-          Categories
-        </Title>
+        <Title>Categories</Title>
 
         <CategoriesTab categoriesList={category} />
 
-        {loading ? <Skeleton /> : <RecipesGallery recipes={recipes} />}
+        {loading ? <Loader /> : <RecipesGallery recipes={recipes} />}
         {totalPages <= 1 || (
           <Paginator
             limit={itemsPerPage}

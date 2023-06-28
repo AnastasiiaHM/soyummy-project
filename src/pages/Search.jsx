@@ -25,14 +25,12 @@ const Search = () => {
   const placeholder = useSelector(state => state.search.example);
 
   useEffect(() => {
-    console.log('fetch');
     if (query === '') {
-      console.log('fetch');
       dispatch(changeItems(null));
       dispatch(changeQuery(''));
       return;
     }
-    console.log('fetch');
+
     dispatch(changeExample(false));
     dispatch(changeItems(null));
   }, [dispatch, query]);
@@ -45,13 +43,10 @@ const Search = () => {
     }
     switch (queryType) {
       case 'title':
-        console.log('fetch');
-
         dispatch(getRecipesByQuery(query));
 
         break;
       case 'ingredients':
-        console.log('fetch');
         dispatch(getRecipesByIngredient(query));
         break;
       default:

@@ -20,7 +20,6 @@ export const SearchForm = () => {
   const query = searchQuery.toLowerCase();
 
   function handleInputChange(e) {
-    console.log('fetch');
     setSearchQuery(e.target.value);
   }
   useEffect(() => {
@@ -29,28 +28,25 @@ export const SearchForm = () => {
       dispatch(changeItems(null));
       return;
     }
-    console.log('fetch');
+
     dispatch(changeQuery(value));
   }, [dispatch, value]);
 
   function handleSubmit(e) {
     e.preventDefault();
     if (query === '') {
-      console.log('fetch');
       dispatch(changeQuery(''));
       dispatch(changeItems(null));
       return;
     }
     setSearchParam({ query });
-    console.log('fetch');
+
     if (!value) {
       dispatch(changeItems([]));
       return;
     }
     dispatch(changeQuery(value));
-
     setSearchQuery(query);
-    console.log('fetch');
     dispatch(changeQuery(searchQuery));
   }
   return (
