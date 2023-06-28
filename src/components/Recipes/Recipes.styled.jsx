@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
-import { colors } from '../colors';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const RecipeWrapper = styled.div`
@@ -29,10 +28,7 @@ export const RecipeTitle = styled.h2`
     line-height: 24px;
     text-align: center;
     letter-spacing: -0.02em;
-  
-
-
-    color: ${colors.greenButton};
+    color: ${props => props.theme.constantGreenColor};
 
     @media (min-width: ${mediaSizes.tablet}) {
         font-size: 44px;
@@ -43,7 +39,6 @@ export const RecipeTitle = styled.h2`
 
     @media (min-width: ${mediaSizes.desktop}) {
         margin-top: 100px;
-
     }
 `;
 
@@ -53,12 +48,9 @@ export const RecipeText = styled.p`
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
-
     text-align: center;
     letter-spacing: -0.02em;
-
-    color: ${colors.blackFont};
-    
+    color: ${props => props.theme.textPrimaryDark};
     width: 299px;
     height: 64px;
     margin: 0 auto;
@@ -81,9 +73,13 @@ export const RecipeTiming = styled.div`
     margin-top: 48px;
     margin-bottom: 82px;
     gap: 10px;
-    color: ${colors.blackFont};
+    color: ${props => props.theme.textPrimaryDark};
 
-    @media (min-width: ${mediaSizes.tablet}) and (max-width: ${mediaSizes.desktop}) {
+    & > svg {
+        stroke: ${props => props.theme.textPrimaryDark};
+    }
+
+    @media (min-width: ${mediaSizes.tablet}) {
         margin-bottom: 55px;
     }
 
@@ -137,7 +133,7 @@ export const RecipeIngTable = styled.div`
     right: 0px;
     top: 0px;
     height: 32px;
-    background: ${colors.greenButton};
+    background: ${props => props.theme.constantGreenColor};
     border-radius: 8px;
 
     font-family: 'Poppins', sans-serif;
@@ -147,7 +143,7 @@ export const RecipeIngTable = styled.div`
     line-height: 15px;
     align-items: center;
     letter-spacing: 0.03em;
-    color: ${colors.textGreenBtn};
+    color: ${props => props.theme.constWhiteColor};
     margin-bottom: 24px;
 
     @media (min-width: ${mediaSizes.tablet}) {
@@ -208,7 +204,7 @@ export const IngItem = styled.div`
     padding: 0px 32px;
     isolation: isolate;
     height: 86px;
-    background: ${colors.imageBC};
+    background: ${props => props.theme.ingredientsBackgroundCard};
     border-radius: 8px;
     justify-content: space-between;
     margin-bottom: 16px;
@@ -251,7 +247,7 @@ export const IngItemName = styled.div`
 
     letter-spacing: -0.24px;
 
-    color: ${colors.recipeCardText};
+    color: ${props => props.theme.textPrimaryDark};
     align-items: center;
 
     @media (min-width: ${mediaSizes.tablet}) {
@@ -297,7 +293,7 @@ export const IngInput = styled.input`
         top: 50%;
         transform: translate(-50%, -50%);
         font-size: 21px;
-        color: ${colors.greenButton};
+        color: ${props => props.theme.constantGreenColor};
         opacity: 0;
         transition: opacity 0.2s ease-in-out;
     }
@@ -316,10 +312,10 @@ export const IngAmount = styled.div`
     min-width: 63px;
     height: 23px;
     padding: 7px;
-    background: ${colors.greenButton};
+    background: ${props => props.theme.constantGreenColor};
     border-radius: 4px;
     font-size: 12px;
-    color: ${colors.whiteColor};
+    color: ${props => props.theme.constWhiteColor};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -358,7 +354,7 @@ export const PreparationTitle = styled.h3`
 
     letter-spacing: -0.24px;
 
-    color: ${colors.recipeCardText};
+    color: ${props => props.theme.textPrimaryDark};
     margin-bottom: 33px;
 `
 
@@ -371,7 +367,7 @@ export const PreparationItem = styled.li`
 
     letter-spacing: -0.02em;
 
-    color: ${colors.blackFontBolt};
+    color: ${props => props.theme.textPrimaryDark};
     margin-bottom: 21px;
     position: relative;
     counter-increment: custom-counter;
@@ -397,9 +393,9 @@ export const CustomNumbering = styled.div`
     width: 21px;
     height: 21px;
 
-    background: ${colors.greenButton};
+    background: ${props => props.theme.constantGreenColor};
     border-radius: 100px;
-    color: ${colors.whiteColor};
+    color: ${props => props.theme.constWhiteColor};
   }
 `
 
@@ -436,7 +432,7 @@ export const ScrollContainer = styled(PerfectScrollbar)`
 
     .ps__thumb-y {
       width: 100%;
-      background-color: ${colors.primary};
+      background-color: ${props => props.theme.labelText};
       opacity: 0.8;
 
       &:hover {

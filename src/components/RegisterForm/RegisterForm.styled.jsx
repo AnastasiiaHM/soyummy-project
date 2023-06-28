@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import { colors } from '../colors';
 import { mediaSizes } from '../constants';
 
 export const RegisterFormStyled = styled.div`
-  background-color: ${colors.registerBcg};
+  background-color: ${props => props.theme.constDarkColor};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   padding: 32px 28px;
@@ -20,16 +19,16 @@ export const RegisterFormStyled = styled.div`
     width: 100%;
     font-size: 16px;
     line-height: 18px;
-    background-color: ${colors.greenButton};
+    background-color: ${props => props.theme.constantGreenColor};
     border-radius: 6px;
     height: 45px;
     border: none;
-    color: ${colors.textGreenBtn};
+    color: ${props => props.theme.constWhiteColor};
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:focus {
-      color: ${colors.darkButton};
+      color: ${props => props.theme.constDarkColor};
     }
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -43,7 +42,7 @@ export const Caption = styled.p`
   line-height: 28px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
   margin-bottom: 32px;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -70,32 +69,32 @@ export const InputWraper = styled.div`
   & svg {
     width: 18px;
     height: 18px;
-    stroke: ${colors.textGreenBtn};
+    stroke: ${props => props.theme.constWhiteColor};
     opacity: 0.6;
     position: absolute;
     top: 13px;
     left: 14px;
 
     &.error {
-      stroke: ${colors.error};
+      stroke: red;
       opacity: 1;
     }
 
     &.success {
-      stroke: ${colors.success};
+      stroke: green;
       opacity: 1;
     }
 
     &.icon {
-      fill: ${colors.textGreenBtn};
+      fill: ${props => props.theme.constWhiteColor};
 
       &.error-icon {
-        fill: ${colors.error};
+        fill: red;
         opacity: 1;
       }
 
       &.success-icon {
-        fill: ${colors.success};
+        fill: green;
         opacity: 1;
       }
     }
@@ -118,11 +117,11 @@ export const InputWraper = styled.div`
     }
 
     &.error {
-      color: ${colors.error};
+      color: red;
     }
 
     &.success-message {
-      color: ${colors.success};
+      color: green;
     }
   }
 
@@ -133,7 +132,7 @@ export const InputWraper = styled.div`
     height: 100%;
     background-color: transparent;
     padding: 12px 40px;
-    color: ${colors.textGreenBtn};
+    color: ${props => props.theme.constWhiteColor};
     opacity: 0.8;
 
     font-size: 16px;
@@ -143,16 +142,16 @@ export const InputWraper = styled.div`
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:focus {
-      border: 1px solid ${colors.whiteColor};
+      border: 1px solid ${props => props.theme.constWhiteColor};
     }
 
     &.error {
-      border: 1px solid ${colors.error};
+      border: 1px solid red;
       opacity: 1;
     }
 
     &.success {
-      border: 1px solid ${colors.success};
+      border: 1px solid green;
       opacity: 1;
     }
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -163,22 +162,22 @@ export const InputWraper = styled.div`
 
     &::placeholder {
       font-weight: 400;
-      color: ${colors.textGreenBtn};
+      color: ${props => props.theme.constWhiteColor};
 
       opacity: 0.8;
     }
 
     &:focus::-webkit-input-placeholder {
-      color: ${colors.whiteColor};
+      color: ${props => props.theme.placeholderAddRecipes};
       opacity: 1;
     }
 
     &:hover,
     placeholder {
-      stroke: ${colors.whiteColor};
-      fill: ${colors.whiteColor};
-      color: ${colors.whiteColor};
-      border-color: ${colors.whiteColor};
+      stroke: ${props => props.theme.constWhiteColor};
+      fill: ${props => props.theme.constWhiteColor};
+      color: ${props => props.theme.constWhiteColor};
+      border-color: ${props => props.theme.constWhiteColor};
       opacity: 1;
     }
   }
@@ -187,7 +186,7 @@ export const InputWraper = styled.div`
   .valid {
     width: 18px;
     height: 18px;
-    fill: ${colors.error};
+    fill: red;
     opacity: 1;
     position: absolute;
     top: 13px;
@@ -202,6 +201,6 @@ export const InputWraper = styled.div`
   }
 
   & .valid {
-    fill: ${colors.success};
+    fill: green;
   }
 `;

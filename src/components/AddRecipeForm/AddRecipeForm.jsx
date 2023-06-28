@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparationFields } from 'components/RecipePreparationFields/RecipePreparationFields';
-import { StyledForm, StyledButton, StyledTitle } from './AddRecipeForm.styled';
+import { StyledForm } from './AddRecipeForm.styled';
 import { addNewRecipe } from 'operations/addRecipe';
 import { Formik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,6 +11,8 @@ import { useDispatch } from 'react-redux';
 import { setLoading } from 'redux/auth/slice';
 import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
+import { Title } from 'components/Styled/Shared.styled';
+import { PrimaryButton } from 'components/Favorite/Card.styled';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string()
@@ -117,7 +119,7 @@ export const AddRecipeForm = () => {
         onSubmit={submitHandler}
       >
         <StyledForm autoComplete="off">
-          <StyledTitle className="title">Add recipe</StyledTitle>
+          <Title>Add recipe</Title>
           <RecipeDescriptionFields
             recipeImage={recipeImageHandler}
             selectedCategory={categoryHandler}
@@ -125,9 +127,9 @@ export const AddRecipeForm = () => {
           />
           <RecipeIngredients setParentIngredients={ingredientsListHandler} />
           <RecipePreparationFields ingredientPreparation={preparationHandler} />
-          <StyledButton type="submit" className="btn blackbtn">
+          <PrimaryButton type="submit">
             Add
-          </StyledButton>
+          </PrimaryButton>
         </StyledForm>
       </Formik>
     </>

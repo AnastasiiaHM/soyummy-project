@@ -1,16 +1,12 @@
 import styled from '@emotion/styled';
 import { IoCloseSharp } from 'react-icons/io5';
 
-import { colors } from 'components/colors';
-
 export const ItemWraper = styled.li`
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  border-bottom: 1px solid ${colors.borderColor};
-
+  border-bottom: 1px solid ${props => props.theme.bordercolor};
   padding-bottom: 24px;
 
   @media (min-width: 768px) {
@@ -52,7 +48,7 @@ export const ButtonContainer = styled.div`
 export const ProductImage = styled.img`
   height: 60px;
 
-  background-color: ${colors.imageBC};
+  background-color: ${props => props.theme.productBackground};
   border-radius: 6px;
 
   @media (min-width: 768px) {
@@ -65,7 +61,7 @@ export const ProductName = styled.p`
   font-weight: 500;
   font-size: 10px;
   line-height: 1.2;
-  color: #3e4462;
+  color: ${props => props.theme.titleCategories};
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -91,8 +87,8 @@ export const Button = styled.div`
   cursor: pointer;
 
   &:hover:active {
-    fill: ${colors.greenButton};
-    color: ${colors.greenButton};
+    fill: ${props => props.theme.textPrimaryDark};
+    color: ${props => props.theme.textPrimaryDark};
   }
   @media (min-width: 768px) {
     width: 20px;
@@ -101,16 +97,16 @@ export const Button = styled.div`
 `;
 
 export const CloseButton = styled(IoCloseSharp)`
-  fill: #333333;
+  fill: ${props => props.theme.textPrimaryDark};
   width: 100%;
   height: 100%;
 
   transition: fill 0.3s ease;
 
   &:hover {
-    fill: ${colors.greenButton};
+    fill: ${props => props.theme.textPrimaryDark};
   }
   &:focus {
-    fill: ${colors.greenButton};
+    fill: ${props => props.theme.textPrimaryDark};
   }
 `;

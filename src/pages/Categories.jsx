@@ -10,6 +10,7 @@ import Skeleton from '../components/RecipesGallery/GallerySkeleton';
 import { CategoriesConteiner } from '../components/CategoriesTab/CategoriesConteiner.styled';
 import Paginator from 'components/Paginator/Paginator';
 import { useParams } from 'react-router-dom';
+import { Title } from 'components/Styled/Shared.styled';
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -33,9 +34,9 @@ const Categories = () => {
   return (
     <section>
       <CategoriesConteiner>
-        <h1 className="title" style={{ marginLeft: 0 }}>
+        <Title>
           Categories
-        </h1>
+        </Title>
 
         <CategoriesTab categoriesList={category} />
 

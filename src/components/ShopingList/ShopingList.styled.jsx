@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
 
-import { colors } from 'components/colors';
-
 export const Section = styled.section`
   width: 375px;
   max-width: 100%;
@@ -36,7 +34,7 @@ export const Title = styled.div`
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
-  color: ${colors.titleColor};
+  color: ${props => props.theme.titleCategories};
   padding-bottom: 50px;
   margin-top: 50px;
   margin-left: 0;
@@ -59,8 +57,8 @@ export const List = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  background-color: ${colors.greenButton};
-  color: ${colors.textGreenBtn};
+  background-color: ${props => props.theme.constantGreenColor};
+  color: ${props => props.theme.constWhiteColor};
 
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 8px;

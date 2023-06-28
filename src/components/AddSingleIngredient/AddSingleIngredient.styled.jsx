@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from 'components/constants';
-import { colors } from 'components/colors';
 
 export const Input = styled.input`
   display: block;
@@ -11,9 +10,9 @@ export const Input = styled.input`
   letter-spacing: -0.02em;
   width: ${props => props.width || '100%'};
   padding: 16px 60px 16px 16px;
-  background-color: ${colors.greyButton};
-  color: ${colors.blackFont};
-  border: none;
+  background-color: ${props => props.theme.inputBackground}; 
+  color: ${props => props.theme.labelText}; 
+  border: ${({theme}) => theme.isDark ? `1px solid ${theme.constGreyColor}` : 'none'};
   border-radius: 6px;
   text-align: right;
   margin-right: 18px;
@@ -24,7 +23,7 @@ export const Input = styled.input`
   }
 
   &:focus {
-    border: 1px solid #fff;
+    border: 1px solid  ${props => props.theme.constWhiteColor};
     outline: none;
   }
 
@@ -36,6 +35,7 @@ export const Input = styled.input`
 
   &[type='number'] {
     -moz-appearance: textfield;
+    appearance: textfield;
   }
 `;
 
@@ -79,7 +79,7 @@ export const DropDown = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 8px 18px;
-  background-color: #fff;
+  background-color: ${props => props.theme.dropdownBackground};
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
   border-radius: 6px;
 `;
@@ -99,7 +99,7 @@ export const IngredientBtn = styled.button`
   letter-spacing: -0.02em;
   text-align: left;
   padding: 4px 0;
-  color: ${colors.color1};
+  color: ${props => props.theme.placeholderAddRecipes};
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -108,6 +108,6 @@ export const IngredientBtn = styled.button`
   }
 
   &:hover {
-    color: ${colors.greenButton};
+    color: ${props => props.theme.greenButtonBackground};
   }
 `;

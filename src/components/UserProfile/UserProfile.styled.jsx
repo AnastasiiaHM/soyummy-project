@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 import { BiUser, BiPencil } from 'react-icons/bi';
-import { colors } from '../colors';
 
 export const BtnClose = styled.button`
   background-color: transparent;
@@ -20,6 +19,11 @@ export const BtnClose = styled.button`
   @media screen and (min-width: ${mediaSizes.desktop}) {
     top: 24px;
     right: 24px;
+  }
+
+  & > svg path {
+    stroke: ${props => props.theme.textPrimaryDark};
+    fill: ${props => props.theme.textPrimaryDark};
   }
 `;
 
@@ -53,7 +57,7 @@ export const WrapperInp = styled.div`
 `;
 
 export const InputMod = styled.input`
-  border: 1px solid #c4c4c4;
+  border: 1px solid ${props => props.theme.placeholderText};
   border-radius: 6px;
   padding-top: 16px;
   padding-left: 51px;
@@ -77,6 +81,7 @@ export const InputMod = styled.input`
     font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
+    color: ${props => props.theme.descriptionCard};
     letter-spacing: -0.02em;
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
@@ -90,7 +95,7 @@ export const InputMod = styled.input`
 export const IconUser = styled.div`
   width: 88px;
   height: 88px;
-  background-color: #d9d9d9;
+  background-color: ${props => props.theme.constGreyColor};
   border-radius: 50%;
   margin: auto;
   position: relative;
@@ -99,6 +104,8 @@ export const IconUser = styled.div`
   align-items: center;
   margin-bottom: 54px;
   margin-top: 22px;
+
+
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     margin-bottom: 50px;
@@ -125,33 +132,8 @@ export const WrapperMain = styled.div`
   }
 `;
 
-export const UserBtn = styled.button`
-  background: #8baa36;
-  border: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  right: 10px;
-  position: absolute;
-  margin-top: 70px;
-  margin-left: 51px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    margin-top: 81px;
-    margin-left: 61px;
-  }
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    margin-top: 81px;
-    margin-left: 61px;
-  }
-`;
-
 export const BtnSave = styled.button`
-  background: #8baa36;
+  background: ${props => props.theme.constantGreenColor};
   border: none;
   border-radius: 6px;
   width: 282px;
@@ -163,7 +145,8 @@ export const BtnSave = styled.button`
   margin-bottom: 60px;
   text-align: center;
 
-  color: #fafafa;
+  color: ${props => props.theme.constWhiteColor};
+  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
@@ -188,7 +171,7 @@ export const InputPen = styled(BiPencil)`
   height: 24px;
   position: absolute;
   right: 18px;
-  fill: #23262a;
+  fill: ${props => props.theme.constDarkColor};
   cursor: pointer;
 `;
 
@@ -197,7 +180,12 @@ export const UserIconInp = styled(BiUser)`
   height: 24px;
   position: absolute;
   left: 18px;
-  fill: #23262a;
+
+  fill: ${props => props.theme.constDarkColor};
+
+  @media screen and (min-width: ${mediaSizes.tablet}) {
+    top: 16px;
+  }
 
 `;
 
@@ -222,7 +210,7 @@ export const BackdropModal = styled.div`
 export const BtnLogOut = styled.button`
     width: 137px;
     height: 49px;
-    background: ${colors.greenButton};
+    background: ${props => props.theme.constantGreenColor};
     border: none;
     border-radius: 6px;
 
@@ -242,7 +230,7 @@ export const BtnLogOut = styled.button`
 export const BtnCancel = styled.button`
   width: 137px;
   height: 49px;
-  background: ${colors.greyButton};
+  background: ${props => props.theme.constGreyColor};
   border: none;
   border-radius: 6px;
 
@@ -260,7 +248,8 @@ export const BtnCancel = styled.button`
 `;
 
 export const TextForBtn = styled.p`
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
+  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
@@ -270,7 +259,8 @@ export const TextForBtn = styled.p`
 `;
 
 export const TextForCancel = styled.p`
-  color: ${colors.blackFont};
+  color: ${props => props.theme.constDarkColor};
+  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;
@@ -280,7 +270,8 @@ export const TextForCancel = styled.p`
 `;
 
 export const MainText = styled.p`
-  color: ${colors.blackFont};
+  color: ${props => props.theme.textPrimaryDark};
+  font-family: 'Poppins';
   align-items: center;
   text-align: center;
   font-style: normal;

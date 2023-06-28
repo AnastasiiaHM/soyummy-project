@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import backgroundDesk from 'components/images/start/start-foto-desc-1x.jpg';
 import backgroundTab from 'components/images/start/start-foto-tb-1x.jpg';
 import backgroundMob from 'components/images/start/start-foto-mob-1x.jpg';
-import { colors } from '../colors';
 import { mediaSizes } from '../constants';
 
 export const WelcomePageWrapper = styled.div`
@@ -11,7 +10,7 @@ export const WelcomePageWrapper = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  color: ${colors.textGreenBtn};
+  color: ${props => props.theme.constWhiteColor};
   background: url(${backgroundMob});
   background-repeat: no-repeat;
   background-position: center;
@@ -87,16 +86,16 @@ export const Buttons = styled.div`
   & button {
     border-radius: 24px 44px;
     border: 1px solid transparent;
-    color: ${colors.textGreenBtn};
+    color: ${props => props.theme.constWhiteColor};
 
     font-size: 14px;
     line-height: 21px;
 
-    background: ${colors.greenButton};
+    background: ${props => props.theme.constantGreenColor};
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      background: ${colors.darkButton};
+      background: ${props => props.theme.constDarkColor};
     }
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -116,11 +115,11 @@ export const Buttons = styled.div`
 
     &.signin {
       background: transparent;
-      border: 1px solid ${colors.textGreenBtn};
+      border: 1px solid ${props => props.theme.constWhiteColor};
 
       &:hover {
-        border: 1px solid ${colors.greenButton};
-        color: ${colors.greenButton};
+        border: 1px solid ${props => props.theme.constantGreenColor};
+        color: ${props => props.theme.constantGreenColor};
       }
     }
   }

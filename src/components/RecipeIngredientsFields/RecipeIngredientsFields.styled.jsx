@@ -23,7 +23,7 @@ export const Title = styled.h3`
   font-size: 24px;
   line-height: 24px;
   letter-spacing: -0.02em;
-  color: #3e4462;
+  color: ${props => props.theme.textPrimaryDark};
 `;
 
 export const Item = styled.li`
@@ -38,6 +38,7 @@ export const Counter = styled.span`
   width: 92px;
   padding: 4px 0;
   border-radius: 18px;
+  color: ${props => props.theme.textPrimaryDark};
   border: 1px solid rgba(51, 51, 51, 0.3);
   font-size: 14px;
   line-height: 1.28;
@@ -60,6 +61,11 @@ export const CounterButton = styled.button`
   border: none;
   padding: 0;
   font-size: 16px;
+
+  & > svg path {
+    stroke: ${props => props.theme.constantGreenColor};
+    stroke-opacity: 1;
+  }
 `;
 
 export const List = styled.ul`
@@ -90,4 +96,8 @@ export const CloseBtn = styled.button`
   margin-right: 5px;
   border: none;
   cursor: pointer;
+
+  & > svg path {
+    stroke: ${props => props.theme.textPrimaryDark};
+  }
 `;

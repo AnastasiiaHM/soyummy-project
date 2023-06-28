@@ -1,17 +1,21 @@
 import styled from "@emotion/styled";
 import { Pagination } from "@mui/material";
-import { colors } from "components/colors";
 import { mediaSizes } from "components/constants";
 
 export const StyledPagination = styled(Pagination)`
-  background: ${colors.textGreenBtn};
-  box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
+  background: ${props => props.theme.recipesBackgroundCard};
+  box-shadow: ${props => props.theme.isDark ? 'none' : '0px 4px 4px rgba(135, 135, 135, 0.2)'};
   border-radius: 26px;
   padding: 5px 10px;
   width: fit-content;
 
+  .MuiPaginationItem-ellipsis,
+  .MuiButtonBase-root {
+    color: ${props => props.theme.textPrimaryDark}!important;
+  }
+
   .Mui-selected {
-    background-color: ${colors.imageBC}!important;
+    background-color: ${props => props.theme.constantGreenColor}!important;
   }
 
   @media screen and (min-width: ${mediaSizes.tablet}) {

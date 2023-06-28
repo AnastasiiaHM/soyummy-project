@@ -2,7 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { colors } from '../colors';
 import { GoX } from 'react-icons/go';
 import {
     BtnLogOut,
@@ -20,7 +19,7 @@ const style = {
   top: '20%',
   left: '55%',
   transform: 'translate(-50%, -50%)',
-  bgcolor: `${colors.textGreenBtn}`,
+  bgcolor: theme => theme.bodyBackground,
   borderRadius: '8px',
   boxShadow: 24,
   p: 1.8,
@@ -35,6 +34,7 @@ const styleFont = {
     alignItems: 'center',
     textAlign: 'center',
     marginTop: 1.3,
+    color: theme => theme.textPrimaryDark
 };
 
 const LogoutModal = ({ handleCloseModal, handleLogoutClick }) => {
@@ -69,7 +69,7 @@ const LogoutModal = ({ handleCloseModal, handleLogoutClick }) => {
             <BtnClose onClick={handleCloseModal}>
                 <GoX style={{ width: '24px', height: '24px' }} />
             </BtnClose>
-            <Typography sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: colors.blackFont }}>
+            <Typography sx={styleFont} id="modal-modal-title" variant="h6" component="p">
                 Are you sure you want to log out?
             </Typography>
             <Box style={{ display: 'flex', justifyContent: 'center'}}>  

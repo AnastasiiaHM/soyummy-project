@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { mediaSizes } from '../constants/media';
 // import { container } from 'helpers';
-import { colors } from '../colors';
 
 export const HeaderWrapper = styled.div`
   margin: 0 auto;
@@ -53,7 +52,15 @@ export const UserTextsName = styled.div`
   font-weight: 600;
   font-size: '14px';
   font-style: normal;
-  color: ${colors.darkButton};
+  color: ${props => props.theme.logoNameText};
+
+  @media (min-width: ${mediaSizes.desktop}) {
+    ${props => {
+      if (props.pathname === '/main') {
+        return `color: ${props.theme.constDarkColor};` 
+      }
+    }}
+  }
 `;
 
 export const UserIconWrapper = styled.div`

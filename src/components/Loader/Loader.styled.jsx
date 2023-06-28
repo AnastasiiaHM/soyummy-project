@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
-import { colors } from 'components/colors';
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -48,8 +47,11 @@ export const Circle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.whiteColor};
-  color: ${colors.titleColor};
+
+  background-color: ${props => props.theme.constWhiteColor};
+
+  color: ${props => props.theme.constDarkColor};
+
   animation: ${wave} 1s infinite;
   width: 25px;
   height: 25px;
@@ -58,12 +60,14 @@ export const Circle = styled.div`
 `;
 
 export const Circle1 = styled(Circle)`
-  color: ${colors.greenButton};
+  color: ${props => props.theme.constantGreenColor};
+
   animation-delay: 0.1s;
 `;
 
 export const Circle2 = styled(Circle)`
-  color: ${colors.greenButton};
+  color: ${props => props.theme.constantGreenColor};
+
   animation-delay: 0.2s;
 `;
 

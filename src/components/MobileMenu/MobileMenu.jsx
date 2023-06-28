@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import NotesIcon from '@mui/icons-material/Notes';
-import { colors } from '../colors'
 import {Logo} from '../Logo/Logo'
 import { BasicSwitches } from 'components/Header/Switch';
 import { VerticalTabs } from './VerticalTabs'
@@ -26,7 +25,7 @@ export function TemporaryDrawer() {
   };
 
   const list = (anchor) => (
-    <div  style={{ backgroundColor: `${colors.imageBC}` }}>
+    <div  style={{ backgroundColor: `${props => props.theme.productBackground}` }}>
       <Box
       sx={{
         width: anchor === 'top' || anchor === 'bottom' ? 'auto' : '100vw' }}
@@ -52,7 +51,7 @@ export function TemporaryDrawer() {
   return (
     <div>
       <Button onClick={toggleDrawer('right', true)}>
-        <NotesIcon style={{ color: `${colors.blackFont}` }}/>
+        <NotesIcon style={{ color: `${props => props.theme.textPrimaryDark}` }}/>
       </Button>
       <Drawer
         anchor="right"

@@ -20,6 +20,7 @@ import {
 } from 'redux-persist';
 import { searchReducer } from './search/slice';
 import { userReducer } from './user/slice';
+import { themeReducer } from './theme/slice';
 
 const loadState = () => {
   try {
@@ -36,7 +37,7 @@ const loadState = () => {
 const persistConfig = {
   key: 'token',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'theme'],
 };
 
 export const persistedReducerAuth = persistReducer(persistConfig, authReducer);
@@ -56,6 +57,8 @@ export const store = configureStore({
     mainPage,
 
     user: userReducer,
+
+    theme: themeReducer,
   },
   preloadedState: loadState(),
   middleware: getDefaultMiddleware =>

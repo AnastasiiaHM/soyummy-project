@@ -2,41 +2,43 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import {MdEdit} from 'react-icons/md';
 import ModeOutlinedIcon from '@mui/icons-material/ModeOutlined';
-import { colors } from '../colors';
 import UserProf from './UserProfile';
 import LogoutModal from './UserLogout';
+import { Settings } from './UserLogout.styled';
 
 const style = {
   width: 177,
-  bgcolor: `${colors.textGreenBtn}`,
+  bgcolor: theme => theme.bodyBackground,
   borderRadius: '8px',
   boxShadow: 24,
   p: 1.8,
 };
 
-const styleFont = { 
-    fontWeight: 500, 
-    fontSize: 14,  
-    marginRight: 5.3,
-    marginBottom: 3.2,
-    color: `${colors.blackFont}`,
+const styleFont = {
+  fontWeight: 500,
+  fontSize: 14,
+  marginRight: 5.3,
+  marginBottom: 3.2,
+  color: theme => theme.titleCategories,
+
   '&:hover': {
     cursor: 'pointer',
-    color: `${colors.textGreenBtn}`,
+    color: theme => theme.constantGreenColor,
   },
-  };
+};
 
   const iconStyle = {
     width: 18,
     cursor: 'pointer'
   };
 
-const BasicModal = ({ handleCloseModal, avatarRef }) => {
+  const BasicModal = ({ handleCloseModal, avatarRef }) => {
 
   const [isUserProfOpen, setIsUserProfOpen] = React.useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = React.useState(false);
-
+  
   const handleModalClick = () => {
     setIsUserProfOpen(true);
   };
@@ -50,8 +52,8 @@ const BasicModal = ({ handleCloseModal, avatarRef }) => {
     setIsLogoutModalOpen(false);
   };
   const handleBasicModalClose = () => {
-      setIsLogoutModalOpen(false);
-      handleCloseModal();
+    setIsLogoutModalOpen(false);
+    handleCloseModal();
   };
   const handleEditProfileClick = () => {
     handleModalClick();
@@ -108,6 +110,6 @@ const BasicModal = ({ handleCloseModal, avatarRef }) => {
         )}
     </div>
   );
-}
+};
 
 export default BasicModal;
