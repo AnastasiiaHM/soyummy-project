@@ -2,11 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import {MdEdit} from 'react-icons/md';
 import ModeOutlinedIcon from '@mui/icons-material/ModeOutlined';
 import UserProf from './UserProfile';
 import LogoutModal from './UserLogout';
-import { Settings } from './UserLogout.styled';
 
 const style = {
   width: 177,
@@ -86,7 +84,7 @@ const styleFont = {
       >
         <Box sx={style} style={getModalStyle()}>
           <Box style={{ display: 'flex', alignItems: 'start'}}>
-            <Typography onClick={handleEditProfileClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: colors.blackFont }}>
+            <Typography onClick={handleEditProfileClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: theme => theme.titleCategories }}>
               Edit profile
             </Typography>
             <ModeOutlinedIcon style={iconStyle} onClick={handleEditProfileClick} />          

@@ -442,5 +442,6 @@ export const ScrollContainer = styled(PerfectScrollbar)`
   }
   @media (min-width: ${mediaSizes.tablet}) {
     max-width: 704px;
+    height: 332px;
 }
 `;

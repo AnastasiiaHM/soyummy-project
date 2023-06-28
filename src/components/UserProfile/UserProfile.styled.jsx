@@ -81,7 +81,7 @@ export const InputMod = styled.input`
     font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
-    color: ${props => props.theme.descriptionCard};
+    color: ${props => props.theme.placeholderAddRecipes};
     letter-spacing: -0.02em;
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
@@ -182,10 +182,6 @@ export const UserIconInp = styled(BiUser)`
   left: 18px;
 
   fill: ${props => props.theme.constDarkColor};
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    top: 16px;
-  }
 
 `;
 
