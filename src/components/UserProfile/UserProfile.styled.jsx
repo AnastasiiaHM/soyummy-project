@@ -51,6 +51,9 @@ export const FormModal = styled.form`
 
 export const WrapperInp = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const InputMod = styled.input`
@@ -59,6 +62,7 @@ export const InputMod = styled.input`
   padding-top: 16px;
   padding-left: 51px;
   padding-bottom: 16px;
+  color: #23262a;
   width: 282px;
   height: 48px;
   @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -77,7 +81,7 @@ export const InputMod = styled.input`
     font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
-    color: ${props => props.theme.descriptionCard};
+    color: ${props => props.theme.placeholderAddRecipes};
     letter-spacing: -0.02em;
     @media screen and (min-width: ${mediaSizes.tablet}) {
       font-size: 18px;
@@ -166,18 +170,9 @@ export const InputPen = styled(BiPencil)`
   width: 24px;
   height: 24px;
   position: absolute;
-  top: 12px;
   right: 18px;
   fill: ${props => props.theme.constDarkColor};
   cursor: pointer;
-
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    top: 16px;
-  }
-
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    top: 16px;
-  }
 `;
 
 export const UserIconInp = styled(BiUser)`
@@ -185,16 +180,9 @@ export const UserIconInp = styled(BiUser)`
   height: 24px;
   position: absolute;
   left: 18px;
-  top: 12px;
+
   fill: ${props => props.theme.constDarkColor};
 
-  @media screen and (min-width: ${mediaSizes.tablet}) {
-    top: 16px;
-  }
-
-  @media screen and (min-width: ${mediaSizes.desktop}) {
-    top: 16px;
-  }
 `;
 
 export const BackdropModal = styled.div`

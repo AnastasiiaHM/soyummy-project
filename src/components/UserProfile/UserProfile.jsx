@@ -72,7 +72,10 @@ const UserProf = ({ handleCloseModalProfile, handleCloseModal }) => {
   };
 
   return (
-    <Modal open={true} onClose={handleCloseModalProfile}>
+    <Modal open={true} onClose={() => {
+      handleCloseModalProfile();
+      handleCloseModal();
+    }}>
       <Box
         sx={{
           ...style,
@@ -90,7 +93,9 @@ const UserProf = ({ handleCloseModalProfile, handleCloseModal }) => {
           },
         }}
       >
-        <BtnClose onClick={handleCloseModalProfile}>
+        <BtnClose onClick={() => {
+          handleCloseModalProfile();
+          handleCloseModal();}}>
           <GoX style={{ width: '20px', height: '20px' }} />
         </BtnClose>
         <IconUser>
@@ -113,11 +118,13 @@ const UserProf = ({ handleCloseModalProfile, handleCloseModal }) => {
                     width: '47px',
                     height: '47px',
                     fill: '#C4C4C4',
+                    
                   }}
                 />
             )}
             <BiPlus
                   style={{
+                    cursor: 'pointer',
                     fill: '#FAFAFA',
                     position: 'absolute',
                     top: '80%',

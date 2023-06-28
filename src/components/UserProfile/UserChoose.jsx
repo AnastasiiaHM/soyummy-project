@@ -2,16 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import {MdEdit} from 'react-icons/md';
+import ModeOutlinedIcon from '@mui/icons-material/ModeOutlined';
 import UserProf from './UserProfile';
 import LogoutModal from './UserLogout';
-import { Settings } from './UserLogout.styled';
 
 const style = {
-  position: 'fixed',
-  top: '20%',
-  left: '70%',
-  transform: 'translate(-50%, -50%)',
   width: 177,
   bgcolor: theme => theme.bodyBackground,
   borderRadius: '8px',
@@ -32,10 +27,16 @@ const styleFont = {
   },
 };
 
-const BasicModal = ({ handleCloseModal }) => {
+  const iconStyle = {
+    width: 18,
+    cursor: 'pointer'
+  };
+
+  const BasicModal = ({ handleCloseModal, avatarRef }) => {
+
   const [isUserProfOpen, setIsUserProfOpen] = React.useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = React.useState(false);
-
+  
   const handleModalClick = () => {
     setIsUserProfOpen(true);
   };
@@ -52,7 +53,26 @@ const BasicModal = ({ handleCloseModal }) => {
     setIsLogoutModalOpen(false);
     handleCloseModal();
   };
+  const handleEditProfileClick = () => {
+    handleModalClick();
+  };
 
+  const getModalStyle = () => {
+    if (avatarRef.current) {
+      const avatarRect = avatarRef.current.getBoundingClientRect();
+      const avatarTop = avatarRect.bottom;
+      const avatarLeft = avatarRect.left + avatarRect.width / 2;
+      return {
+        position: 'absolute',
+        top: avatarTop,
+        left: avatarLeft,
+        transform: 'translate(-50%, 0)',
+        zIndex: 9999,
+      };
+    }
+    return {};
+  };
+   
   return (
     <div>
       <Modal
@@ -62,35 +82,21 @@ const BasicModal = ({ handleCloseModal }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Box style={{ display: 'flex', alignItems: 'start' }}>
-            <Settings>
-              <Typography
-                onClick={handleModalClick}
-                sx={styleFont}
-                id="modal-modal-title"
-                variant="h6"
-                component="p"
-              >
-                Edit profile
-              </Typography>
-              <MdEdit onClick={handleModalClick} />
-            </Settings>
-          </Box>
-          <button
-            className="btn logoutbtn"
-            onClick={() => {
-              handleLogoutClick();
-            }}
-          >
-            Log out →
-          </button>
+        <Box sx={style} style={getModalStyle()}>
+          <Box style={{ display: 'flex', alignItems: 'start'}}>
+            <Typography onClick={handleEditProfileClick} sx={styleFont} id="modal-modal-title" variant="h6" component="p" style={{ color: theme => theme.titleCategories }}>
+              Edit profile
+            </Typography>
+            <ModeOutlinedIcon style={iconStyle} onClick={handleEditProfileClick} />          
+          </Box>            
+          <button className="btn logoutbtn" onClick={() => {
+            handleLogoutClick(); 
+            }}>Log out →</button>        
         </Box>
       </Modal>
       {isUserProfOpen && (
                 <UserProf 
                     handleCloseModalProfile={handleCloseModalProfile} 
-                    handleModalClickProfile={handleModalClick}
                     handleCloseModal={handleCloseModal} 
                 />
             )}
