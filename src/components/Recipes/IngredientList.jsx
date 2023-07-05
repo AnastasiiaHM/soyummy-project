@@ -30,11 +30,11 @@ export const IngredientList = () => {
 
   useEffect(() => {
     if (shoppingList && recipe) {
-      const recipeIngredientIds = recipe.ingredients.map(
-        (ingredient) => ingredient.id._id
+      const recipeIngredientIds = recipe.ingredients?.map(
+        ingredient => ingredient.id._id
       );
-      const checked = recipeIngredientIds.filter((ingredientId) =>
-        shoppingList.some((item) => item.ingredientId === ingredientId)
+      const checked = recipeIngredientIds.filter(ingredientId =>
+        shoppingList.some(item => item.ingredientId === ingredientId)
       );
       setCheckedIngredients(checked);
     }
@@ -58,8 +58,8 @@ export const IngredientList = () => {
           ingredientId: ingredient._id,
         };
         await axios.patch('/users/shopping-list/remove', payload);
-        setCheckedIngredients((prevChecked) =>
-          prevChecked.filter((id) => id !== ingredient._id)
+        setCheckedIngredients(prevChecked =>
+          prevChecked.filter(id => id !== ingredient._id)
         );
       } else {
         const payload = {
@@ -68,14 +68,14 @@ export const IngredientList = () => {
           measure,
         };
         await axios.patch('/users/shopping-list/add', payload);
-        setCheckedIngredients((prevChecked) => [...prevChecked, ingredient._id]);
+        setCheckedIngredients(prevChecked => [...prevChecked, ingredient._id]);
       }
     } catch (error) {
       console.log('Error executing request:', error);
     } finally {
       setRequestPending(false);
     }
-  } 
+  };
 
   return (
     <>
